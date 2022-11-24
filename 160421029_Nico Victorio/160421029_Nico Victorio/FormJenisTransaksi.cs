@@ -54,7 +54,7 @@ namespace _160421029_Nico_Victorio
 
         private void btn_Exit_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
 
         private void dgvListPosition_CellContentClick(object sender, DataGridViewCellEventArgs e)
