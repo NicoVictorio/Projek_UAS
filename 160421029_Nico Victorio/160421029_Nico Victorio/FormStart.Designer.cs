@@ -1,5 +1,4 @@
-﻿
-namespace _160421029_Nico_Victorio
+﻿namespace _160421029_Nico_Victorio
 {
     partial class FormStart
     {
@@ -41,7 +40,7 @@ namespace _160421029_Nico_Victorio
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(199, 231);
+            this.label5.Location = new System.Drawing.Point(199, 229);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(28, 13);
             this.label5.TabIndex = 18;
@@ -50,28 +49,30 @@ namespace _160421029_Nico_Victorio
             // buttonEmployee
             // 
             this.buttonEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonEmployee.Location = new System.Drawing.Point(164, 254);
+            this.buttonEmployee.Location = new System.Drawing.Point(164, 252);
             this.buttonEmployee.Name = "buttonEmployee";
             this.buttonEmployee.Size = new System.Drawing.Size(97, 30);
             this.buttonEmployee.TabIndex = 17;
             this.buttonEmployee.Text = "Employee";
             this.buttonEmployee.UseVisualStyleBackColor = true;
+            this.buttonEmployee.Click += new System.EventHandler(this.buttonEmployee_Click);
             // 
             // buttonPengguna
             // 
             this.buttonPengguna.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonPengguna.Location = new System.Drawing.Point(164, 197);
+            this.buttonPengguna.Location = new System.Drawing.Point(164, 195);
             this.buttonPengguna.Name = "buttonPengguna";
             this.buttonPengguna.Size = new System.Drawing.Size(97, 31);
             this.buttonPengguna.TabIndex = 16;
             this.buttonPengguna.Text = "Pengguna";
             this.buttonPengguna.UseVisualStyleBackColor = true;
+            this.buttonPengguna.Click += new System.EventHandler(this.buttonPengguna_Click);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Corbel", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(168, 164);
+            this.label4.Location = new System.Drawing.Point(168, 162);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(90, 15);
             this.label4.TabIndex = 15;
@@ -81,7 +82,7 @@ namespace _160421029_Nico_Victorio
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Cinzel Black", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(90, 112);
+            this.label3.Location = new System.Drawing.Point(90, 110);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(271, 18);
             this.label3.TabIndex = 14;
@@ -92,7 +93,7 @@ namespace _160421029_Nico_Victorio
             this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.label2.Font = new System.Drawing.Font("Cinzel Black", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label2.Location = new System.Drawing.Point(-7, 71);
+            this.label2.Location = new System.Drawing.Point(-7, 69);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(430, 28);
             this.label2.TabIndex = 13;
@@ -103,7 +104,7 @@ namespace _160421029_Nico_Victorio
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Corbel", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(161, 46);
+            this.label1.Location = new System.Drawing.Point(161, 44);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(97, 15);
             this.label1.TabIndex = 12;
@@ -113,7 +114,7 @@ namespace _160421029_Nico_Victorio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(415, 339);
+            this.ClientSize = new System.Drawing.Size(415, 345);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.buttonEmployee);
             this.Controls.Add(this.buttonPengguna);

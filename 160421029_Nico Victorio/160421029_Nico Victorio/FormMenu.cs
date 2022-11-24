@@ -13,6 +13,7 @@ namespace _160421029_Nico_Victorio
 {
     public partial class FormMenu : Form
     {
+        Pengguna tmpPengguna;
         public FormMenu()
         {
             InitializeComponent();
@@ -20,10 +21,79 @@ namespace _160421029_Nico_Victorio
 
         private void FormMenu_Load(object sender, EventArgs e)
         {
+            this.WindowState = FormWindowState.Maximized;
+            this.IsMdiContainer = true;
+            try
+            {
+                Koneksi koneksi = new Koneksi();
+                MessageBox.Show("Koneksi Berhasil");
+                //frmLogin login = new frmLogin();
+                //login.Owner = this;
+
+            }
+            catch (Exception x)
+            {
+                MessageBox.Show("Koneksi Gagal. Pesan Kesalahan : " + x.Message, "Informasi");
+                this.Close();
+            }
         }
 
         private void positionToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Form form = Application.OpenForms["FormPosition"];
+            if (form == null)
+            {
+                FormPosition formPosition = new FormPosition();
+                formPosition.MdiParent = this;
+                formPosition.Show();
+            }
+            else
+            {
+                form.Show();
+                form.BringToFront();
+            }
+        }
+
+        private void penggunaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form form = Application.OpenForms["FormMasterPengguna"];
+            if (form == null)
+            {
+                FormMasterPengguna formMasterPengguna = new FormMasterPengguna();
+                formMasterPengguna.MdiParent = this;
+                formMasterPengguna.Show();
+            }
+            else
+            {
+                form.Show();
+                form.BringToFront();
+            }
+        }
+
+        private void employeeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void jenisTransaksiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form form = Application.OpenForms["FormJenisTransaksi"];
+            if (form == null)
+            {
+                FormJenisTransaksi formJenisTransaksi = new FormJenisTransaksi();
+                formJenisTransaksi.MdiParent = this;
+                formJenisTransaksi.Show();
+            }
+            else
+            {
+                form.Show();
+                form.BringToFront();
+            }
+        }
+
+        private void tabunganToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

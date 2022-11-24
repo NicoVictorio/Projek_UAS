@@ -16,5 +16,21 @@ namespace _160421029_Nico_Victorio
         {
             InitializeComponent();
         }
+
+        private void buttonPengguna_Click(object sender, EventArgs e)
+        {
+            FormStartPengguna form = new FormStartPengguna();
+            form.Owner = this;
+            this.Hide();
+            form.ShowDialog();
+        }
+
+        private void buttonEmployee_Click(object sender, EventArgs e)
+        {
+            FormStartEmployee form = new FormStartEmployee();
+            form.Owner = this;
+            this.Hide();
+            form.ShowDialog();
+        }
     }
 }

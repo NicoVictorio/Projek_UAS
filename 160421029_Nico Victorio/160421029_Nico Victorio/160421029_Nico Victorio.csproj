@@ -54,6 +54,12 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>dbSetting.settings</DependentUpon>
     </Compile>
+    <Compile Include="FormBuatAkun.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBuatAkun.Designer.cs">
+      <DependentUpon>FormBuatAkun.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormJenisTransaksi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,6 +72,18 @@
     <Compile Include="FormLogin.Designer.cs">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormMasterPengguna.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMasterPengguna.Designer.cs">
+      <DependentUpon>FormMasterPengguna.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMasuk.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMasuk.Designer.cs">
+      <DependentUpon>FormMasuk.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,6 +95,24 @@
     </Compile>
     <Compile Include="FormPosition.Designer.cs">
       <DependentUpon>FormPosition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormStart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormStart.Designer.cs">
+      <DependentUpon>FormStart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormStartEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormStartEmployee.Designer.cs">
+      <DependentUpon>FormStartEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormStartPengguna.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormStartPengguna.Designer.cs">
+      <DependentUpon>FormStartPengguna.cs</DependentUpon>
     </Compile>
     <Compile Include="FormTambahPosition.cs">
       <SubType>Form</SubType>
@@ -92,17 +128,35 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormBuatAkun.resx">
+      <DependentUpon>FormBuatAkun.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormJenisTransaksi.resx">
       <DependentUpon>FormJenisTransaksi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormMasterPengguna.resx">
+      <DependentUpon>FormMasterPengguna.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMasuk.resx">
+      <DependentUpon>FormMasuk.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormMenu.resx">
       <DependentUpon>FormMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormPosition.resx">
       <DependentUpon>FormPosition.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormStart.resx">
+      <DependentUpon>FormStart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormStartEmployee.resx">
+      <DependentUpon>FormStartEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormStartPengguna.resx">
+      <DependentUpon>FormStartPengguna.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormTambahPosition.resx">
       <DependentUpon>FormTambahPosition.cs</DependentUpon>

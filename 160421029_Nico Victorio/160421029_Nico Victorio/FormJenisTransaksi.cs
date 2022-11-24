@@ -39,7 +39,38 @@ namespace _160421029_Nico_Victorio
 
         private void tb_Kriteria_TextChanged(object sender, EventArgs e)
         {
+            try
+            {
+                string kriteria = "";
+                string nilai = "";
+                if (cb_Kriteria.Text == "Id Jenis Transaksi")
+                {
+                    kriteria = "id_jenistransaksi";
+                }
+                else if (cb_Kriteria.Text == "Kode Transaksi")
+                {
+                    kriteria = "kode";
+                }
+                else if (cb_Kriteria.Text == "Nama Transaksi")
+                {
+                    kriteria = "nama";
+                }
+                nilai = tb_Kriteria.Text;
+                listTransaksi = JenisTransaksi.BacaData(kriteria, nilai);
 
+                if (listTransaksi != null && listTransaksi.Count > 0)
+                {
+                    dgvListJenisTransaksi.DataSource = listTransaksi;
+                }
+                else
+                {
+                    dgvListJenisTransaksi.DataSource = null;
+                }
+            }
+            catch (Exception x)
+            {
+                MessageBox.Show(x.Message);
+            }
         }
 
         private void btn_Add_Click(object sender, EventArgs e)
