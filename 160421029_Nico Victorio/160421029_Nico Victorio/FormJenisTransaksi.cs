@@ -21,7 +21,15 @@ namespace _160421029_Nico_Victorio
 
         private void FormJenisTransaksi_Load(object sender, EventArgs e)
         {
-
+            listTransaksi = JenisTransaksi.BacaData("", "");
+            if (listTransaksi.Count > 0)
+            {
+                dgvListJenisTransaksi.DataSource = listTransaksi;
+            }
+            else
+            {
+                dgvListJenisTransaksi.DataSource = null;
+            }
         }
 
         private void btn_Search_Click(object sender, EventArgs e)
