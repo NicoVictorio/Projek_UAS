@@ -33,6 +33,7 @@ namespace DiBa_Lib
         public string JenisPangkat { get => jenisPangkat; set => jenisPangkat = value; }
         #endregion
 
+        #region methods
         public static List<Pangkat> BacaData(string kriteria, string nilaiKriteria)
         {
             string sql = "SELECT kode_pangkat, jenis_pangkat " + " FROM pangkat";
@@ -53,5 +54,6 @@ namespace DiBa_Lib
             }
             return listHasil;
         }
+        #endregion
     }
 }

@@ -189,9 +189,7 @@ namespace DiBa_Lib
             {
                 return null;
             }
-
-
-            #endregion
         }
+        #endregion
     }
 }
