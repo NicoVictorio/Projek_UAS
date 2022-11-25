@@ -55,7 +55,7 @@ namespace _160421029_Nico_Victorio
             string nilai = "";
             if (cb_Kriteria.Text == "Id Position")
             {
-                kriteria = "IdPosition";
+                kriteria = "id";
             }
             else if (cb_Kriteria.Text == "Nama Position")
             {
@@ -83,7 +83,7 @@ namespace _160421029_Nico_Victorio
             string nilai = "";
             if (cb_Kriteria.Text == "Id Position")
             {
-                kriteria = "IdPosition";
+                kriteria = "id";
             }
             else if (cb_Kriteria.Text == "Nama Position")
             {

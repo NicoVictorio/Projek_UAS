@@ -54,6 +54,10 @@ namespace DiBa_Lib
             }
             return listHasil;
         }
+        public override string ToString()
+        {
+            return this.KodePangkat;
+        }
         #endregion
     }
 }

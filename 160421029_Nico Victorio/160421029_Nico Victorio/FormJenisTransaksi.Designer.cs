@@ -95,6 +95,7 @@ namespace _160421029_Nico_Victorio
             // 
             // cb_Kriteria
             // 
+            this.cb_Kriteria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_Kriteria.FormattingEnabled = true;
             this.cb_Kriteria.Items.AddRange(new object[] {
             "Id Jenis Transaksi",
