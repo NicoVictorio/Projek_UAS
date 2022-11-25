@@ -45,6 +45,7 @@ namespace _160421029_Nico_Victorio
             this.buttonMasuk.TabIndex = 22;
             this.buttonMasuk.Text = "Masuk";
             this.buttonMasuk.UseVisualStyleBackColor = true;
+            this.buttonMasuk.Click += new System.EventHandler(this.buttonMasuk_Click);
             // 
             // textBoxPassword
             // 

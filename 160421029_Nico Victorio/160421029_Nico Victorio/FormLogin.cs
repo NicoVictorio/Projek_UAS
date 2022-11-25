@@ -18,13 +18,25 @@ namespace _160421029_Nico_Victorio
             InitializeComponent();
         }
 
-        private void btn_Login_Click(object sender, EventArgs e)
+        private void loginPenggunaToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            FormMasuk frm = new FormMasuk();
+            //frm.Owner = this;
+            frm.ShowDialog();
         }
 
-        private void btn_Exit_Click(object sender, EventArgs e)
+        private void loginEmployeeToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            FormStartEmployee frm = new FormStartEmployee();
+            frm.Owner = this;
+            frm.ShowDialog();
+        }
 
+        private void buatAkunPenggunaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormBuatAkun frm = new FormBuatAkun();
+            frm.Owner = this;
+            frm.ShowDialog();
         }
     }
 }

@@ -112,10 +112,6 @@ namespace _160421029_Nico_Victorio
             formTambahPosition.ShowDialog();
         }
 
-        private void btn_Update_Click(object sender, EventArgs e)
-        {
-            dgvListPosition.SelectedRows.ToString();
-        }
 
         private void btn_Exit_Click(object sender, EventArgs e)
         {

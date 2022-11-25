@@ -19,14 +19,14 @@ namespace DiBa_Lib
         {
             Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
             ConfigurationSectionGroup confGroup = config.SectionGroups["userSettings"];
-            var confSection = confGroup.Sections["_160421029_Nico_Victorio_SIJualBeli.dbSetting"] as ClientSettingsSection;
+            var confSection = confGroup.Sections["_160421029_Nico_Victorio.dbSetting"] as ClientSettingsSection;
             string hostname = confSection.Settings.Get("hostname").Value.ValueXml.InnerText;
             string dbname = confSection.Settings.Get("dbname").Value.ValueXml.InnerText;
             string uid = confSection.Settings.Get("uid").Value.ValueXml.InnerText;
             string password = confSection.Settings.Get("password").Value.ValueXml.InnerText;
 
             String strConnection = "server=" + hostname + ";database=" + dbname + ";uid=" + uid +
-                                   ";password=" + password + ";sslmode=none";
+                                   ";password=" + password + ";sslmode=none;Convert Zero Datetime=True";
             connection = new MySqlConnection();
             connection.ConnectionString = strConnection;
 
@@ -36,7 +36,7 @@ namespace DiBa_Lib
         public Koneksi(string hostName, string dbName, string username, string password)
         {
             String strConnection = "server=" + hostName + ";database=" + dbName +
-                                   ";uid=" + username + ";password=" + password + ";sslmode=none";
+                                   ";uid=" + username + ";password=" + password + ";sslmode=none;Convert Zero Datetime=True";
             connection = new MySqlConnection();
             connection.ConnectionString = strConnection;
 

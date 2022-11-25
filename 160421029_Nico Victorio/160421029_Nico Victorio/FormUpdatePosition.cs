@@ -41,16 +41,16 @@ namespace _160421029_Nico_Victorio
 
                 Position pos = new Position(int.Parse(tb_IdPosition.Text), tb_NamaPosition.Text, tb_Keterangan.Text);
 
-                if (pos.TambahData())
+                if (pos.UbahData())
                 {
-                    MessageBox.Show("Data position baru berhasil ditambahkan ke database.");
+                    MessageBox.Show("Data position baru berhasil diubah ke database.");
                     FormPosition form = (FormPosition)this.Owner;
                     form.FormPosition_Load(sender, e);
                     this.Close();
                 }
                 else
                 {
-                    MessageBox.Show("Data position baru gagal ditambahkan ke database.");
+                    MessageBox.Show("Data position baru gagal diubah ke database.");
                 }
             }
             catch (Exception ex)
@@ -62,6 +62,18 @@ namespace _160421029_Nico_Victorio
         private void btn_Exit_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void FormUpdatePosition_Load(object sender, EventArgs e)
+        {
+            FormPosition frm = (FormPosition)this.Owner;
+            Position tmp = Position.positionByCode(idPosition);
+            if (tmp != null)
+            {
+                tb_IdPosition.Text = tmp.IdPosition.ToString();
+                tb_NamaPosition.Text = tmp.NamaPosition;
+                tb_Keterangan.Text = tmp.Keterangan;
+            }
         }
     }
 }

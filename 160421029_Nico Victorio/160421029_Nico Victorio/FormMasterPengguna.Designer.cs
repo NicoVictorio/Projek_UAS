@@ -29,7 +29,6 @@ namespace _160421029_Nico_Victorio
         /// </summary>
         private void InitializeComponent()
         {
-            this.btn_Update = new System.Windows.Forms.Button();
             this.btn_Exit = new System.Windows.Forms.Button();
             this.btn_Add = new System.Windows.Forms.Button();
             this.dgvListPengguna = new System.Windows.Forms.DataGridView();
@@ -39,16 +38,6 @@ namespace _160421029_Nico_Victorio
             this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListPengguna)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btn_Update
-            // 
-            this.btn_Update.Location = new System.Drawing.Point(275, 326);
-            this.btn_Update.Margin = new System.Windows.Forms.Padding(2);
-            this.btn_Update.Name = "btn_Update";
-            this.btn_Update.Size = new System.Drawing.Size(71, 32);
-            this.btn_Update.TabIndex = 39;
-            this.btn_Update.Text = "Update";
-            this.btn_Update.UseVisualStyleBackColor = true;
             // 
             // btn_Exit
             // 
@@ -69,6 +58,7 @@ namespace _160421029_Nico_Victorio
             this.btn_Add.TabIndex = 37;
             this.btn_Add.Text = "Add";
             this.btn_Add.UseVisualStyleBackColor = true;
+            this.btn_Add.Click += new System.EventHandler(this.btn_Add_Click);
             // 
             // dgvListPengguna
             // 
@@ -80,6 +70,7 @@ namespace _160421029_Nico_Victorio
             this.dgvListPengguna.RowTemplate.Height = 24;
             this.dgvListPengguna.Size = new System.Drawing.Size(536, 215);
             this.dgvListPengguna.TabIndex = 36;
+            this.dgvListPengguna.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListPengguna_CellContentClick);
             // 
             // btn_Search
             // 
@@ -137,7 +128,6 @@ namespace _160421029_Nico_Victorio
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(633, 395);
-            this.Controls.Add(this.btn_Update);
             this.Controls.Add(this.btn_Exit);
             this.Controls.Add(this.btn_Add);
             this.Controls.Add(this.dgvListPengguna);
@@ -155,8 +145,6 @@ namespace _160421029_Nico_Victorio
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btn_Update;
         private System.Windows.Forms.Button btn_Exit;
         private System.Windows.Forms.Button btn_Add;
         private System.Windows.Forms.DataGridView dgvListPengguna;

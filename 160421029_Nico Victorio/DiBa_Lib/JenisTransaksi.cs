@@ -41,7 +41,7 @@ namespace DiBa_Lib
         #region methods
         public static List<JenisTransaksi> BacaData(string kriteria, string nilaiKriteria)
         {
-            string sql = "SELECT id_jenis_transaksi, kode, nama " + " FROM jenisTransaksi";
+            string sql = "SELECT id_jenistransaksi, kode, nama " + " FROM jenisTransaksi";
             if (kriteria == "")
             {
                 sql += ";";
@@ -63,15 +63,15 @@ namespace DiBa_Lib
             return listHasil;
         }
 
-        public static JenisTransaksi jenisTransaksiByCode(string id)
+        public static JenisTransaksi jenisTransaksiByCode(int id)
         {
-            string sql = "SELECT id_jenis_transaksi, kode, nama " + " FROM jenisTransaksi " + " WHERE id_jenis_transaksi = '" + id + "' ";
+            string sql = "SELECT id_jenisTransaksi, kode, nama " + " FROM jenisTransaksi " + " WHERE id_jenisTransaksi = " + id ;
             MySqlDataReader hasil = Koneksi.ambilData(sql);
             JenisTransaksi tmp = new JenisTransaksi();
             if (hasil.Read() == true)
             {
                 tmp = new JenisTransaksi();
-                tmp.IdJenisTransaksi = hasil.GetInt32("id_jenis_transaksi");
+                tmp.IdJenisTransaksi = hasil.GetInt32("id_jenisTransaksi");
                 tmp.KodeTransaksi = hasil.GetString("kode");
                 tmp.NamaTransaksi = hasil.GetString("nama");
                 return tmp;
@@ -84,16 +84,16 @@ namespace DiBa_Lib
 
         public bool TambahData()
         {
-            string sql = "INSERT INTO jenisTransaksi(id_jenis_transaksi, kode, nama)" + " VALUES ('" + this.IdJenisTransaksi + "', '" + this.KodeTransaksi + "', '" + this.NamaTransaksi + "');";
+            string sql = "INSERT INTO jenisTransaksi( kode, nama)" + " VALUES ('"  + this.KodeTransaksi + "', '" + this.NamaTransaksi + "');";
             bool result = Koneksi.executeDML(sql);
             return result;
         }
 
         public bool UbahData()
         {
-            string sql = "UPDATE position SET kode = '" + this.KodeTransaksi.Replace("'", "\\'") +
-                         "nama = '" + this.NamaTransaksi.Replace("'", "\\'") +
-                         "' WHERE id_jenis_transaksi = '" + this.IdJenisTransaksi + "';";
+            string sql = "UPDATE jenistransaksi SET kode ='" + this.KodeTransaksi + "' ,"+
+                         " nama ='" + this.NamaTransaksi + "' "+
+                         " WHERE id_jenisTransaksi =" + this.IdJenisTransaksi + ";";
             bool result = Koneksi.executeDML(sql);
             return result;
         }
@@ -101,7 +101,7 @@ namespace DiBa_Lib
         public bool HapusData()
         {
             string sql = "DELETE FROM jenisTransaksi " +
-                         " WHERE id = '" + this.IdJenisTransaksi + "';";
+                         " WHERE id_jenisTransaksi = '" + this.IdJenisTransaksi + "';";
             bool result = Koneksi.executeDML(sql);
             return result;
         }

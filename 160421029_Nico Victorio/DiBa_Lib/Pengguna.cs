@@ -80,12 +80,15 @@ namespace DiBa_Lib
             if (kriteria == "")
             {
                 sql = "select p.nik, p.nama_depan,p.nama_keluarga, p.alamat, p.email, p.no_telepon, p.password, " +
-                "p.pin, p.tgl_buat, p.tgl_perubahan, pg.jenis_pangkat  from pengguna as p inner join pangkat as pg ";
+                "p.pin, p.tgl_buat, p.tgl_perubahan, pg.kode_pangkat, pg.jenis_pangkat  from pengguna as p inner join pangkat as pg " +
+                "on p.kode_pangkat = pg.kode_pangkat ";
+                //sql = "select *  from pengguna as p inner join pangkat as pg " +
+                //"on p.kode_pangkat = pg.kode_pangkat ";
             }
             else
             {
                 sql = "select p.nik, p.nama_depan,p.nama_keluarga, p.alamat, p.email, p.no_telepon, p.password, " +
-                "p.pin, p.tgl_buat, p.tgl_perubahan, pg.jenis_pangkat  from pengguna as p inner join pangkat as pg "
+                "p.pin, p.tgl_buat, p.tgl_perubahan,pg.kode_pangkat,  pg.jenis_pangkat  from pengguna as p inner join pangkat as pg on p.kode_pangkat = pg.kode_pangkat "
                 + "where " + kriteria + " like '%" + nilaiKriteria + "%'";
             }
 
@@ -95,7 +98,7 @@ namespace DiBa_Lib
             List<Pengguna> listPengguna = new List<Pengguna>();
             while (hasil.Read() == true)
             {
-                Pangkat pg = new Pangkat(hasil.GetString(10), hasil.GetString(11));
+                Pangkat pg = new Pangkat(hasil.GetValue(10).ToString(), hasil.GetValue(11).ToString());
 
                 Pengguna p = new Pengguna(hasil.GetString(0), hasil.GetString(1), hasil.GetString(2),
                     hasil.GetString(3), hasil.GetString(4), hasil.GetString(5), hasil.GetString(6), hasil.GetString(7),
@@ -105,22 +108,24 @@ namespace DiBa_Lib
             return listPengguna;
         }
 
-        public static void TambahData(Pengguna p)
+        public  bool TambahData()
         {
             string sql = "insert into pengguna(nik, nama_depan,nama_keluarga, alamat, email, no_telepon, password, " +
-                "pin, tgl_buat, tgl_perubahan) " + "values ('" + p.Nik + "','" + p.NamaDepan.Replace("'", "\\'") + "','"
-                + p.NamaKeluarga.Replace("'", "\\'") + "','" + p.Alamat + "','" + p.Email + "','" + p.NoTelp + "','"
-                + p.Password + "','" + p.Pin + "','" + p.TglBuat + "','" + p.TglPerubahan + "')";
-            Koneksi.executeDML(sql);
+                "pin, tgl_buat, tgl_perubahan) " + "values ('" + this.Nik + "','" + this.NamaDepan.Replace("'", "\\'") + "','"
+                + this.NamaKeluarga.Replace("'", "\\'") + "','" + this.Alamat + "','" + this.Email + "','" + this.NoTelp + "','"
+                + this.Password + "','" + this.Pin + "','" + this.TglBuat.ToString("yyyy-MM-dd") + "','" + this.TglPerubahan.ToString("yyyy-MM-dd") + "')";
+            bool result = Koneksi.executeDML(sql);
+            return result;
         }
 
-        public static void UbahData(Pengguna p)
+        public  bool UbahData()
         {
-            string sql = "update kategori set nama_depan='" + p.NamaDepan.Replace("'", "\\'") + "',nama_keluarga='" +
-                "',alamat='" + p.Alamat + "',email='" + p.Email + "',no_telepon='" + p.NoTelp + "',password='" +
-                p.Password + "',pin='" + p.Pin + "',tgl_buat='" + p.TglBuat + "',tgl_perubahan='" + p.TglPerubahan +
-                "' where nik='" + p.Nik + "'";
-            Koneksi.executeDML(sql);
+            string sql = "update pengguna set nama_depan='" + this.NamaDepan.Replace("'", "\\'") + "',nama_keluarga='" + this.NamaKeluarga +
+                "',alamat='" + this.Alamat + "',email='" + this.Email + "',no_telepon='" + this.NoTelp + "',password='" +
+                this.Password + "',pin='" + this.Pin + "',tgl_buat='" + this.TglBuat.ToString("yyyy-MM-dd") + "',tgl_perubahan='" + this.TglPerubahan.ToString("yyyy-MM-dd") +
+                "' where nik='" + this.Nik + "'";
+            bool result = Koneksi.executeDML(sql);
+            return result;
         }
 
         public bool HapusData()
@@ -131,6 +136,62 @@ namespace DiBa_Lib
             return result;
         }
 
-        #endregion
+        public static Pengguna Login(string username, string password)
+        {
+            string sql = "";
+
+
+            if (username == "" || password == "")
+            {
+                throw new Exception("Email/No Telp atau password tidak boleh kosong");
+            }
+            else
+            {
+                //sql = "select * from pengguna where (email='" + username + "' or no_telepon='" + username + "') and password='" + password + "';";
+                sql = "select p.nik, p.nama_depan,p.nama_keluarga, p.alamat, p.email, p.no_telepon, p.password, " +
+                "p.pin, p.tgl_buat, p.tgl_perubahan,pg.kode_pangkat,  pg.jenis_pangkat  from pengguna as p inner join pangkat as pg on p.kode_pangkat = pg.kode_pangkat "
+                + "WHERE(p.email = '" + username + "' or p.no_telepon = '" + username + "') and password = '" + password + "';";
+            }
+
+            MySqlDataReader hasil = Koneksi.ambilData(sql);
+            Pengguna p;
+            //buat list untk menampung data 
+            //List<Pengguna> listPengguna = new List<Pengguna>();
+            if (hasil.Read() == true)
+            {
+                Pangkat pg = new Pangkat(hasil.GetValue(10).ToString(), hasil.GetValue(11).ToString());
+
+                p = new Pengguna(hasil.GetString(0), hasil.GetString(1), hasil.GetString(2),
+                    hasil.GetString(3), hasil.GetString(4), hasil.GetString(5), hasil.GetString(6), hasil.GetString(7),
+                    DateTime.Parse(hasil.GetValue(8).ToString()), DateTime.Parse(hasil.GetValue(9).ToString()), pg);
+                return p;
+            }
+            return null;
+        }
+
+        public static Pengguna penggunaByCode(string nik)
+        {
+            string sql = "select p.nik, p.nama_depan,p.nama_keluarga, p.alamat, p.email, p.no_telepon, p.password, " +
+                "p.pin, p.tgl_buat, p.tgl_perubahan, pg.kode_pangkat, pg.jenis_pangkat  from pengguna as p inner join pangkat as pg " +
+                "on p.kode_pangkat = pg.kode_pangkat where p.nik='" + nik + "';";
+            MySqlDataReader hasil = Koneksi.ambilData(sql);
+            Pengguna tmp;
+            if (hasil.Read() == true)
+            {
+                Pangkat pg = new Pangkat(hasil.GetValue(10).ToString(), hasil.GetValue(11).ToString());
+
+                tmp = new Pengguna(hasil.GetString(0), hasil.GetString(1), hasil.GetString(2),
+                    hasil.GetString(3), hasil.GetString(4), hasil.GetString(5), hasil.GetString(6), hasil.GetString(7),
+                    DateTime.Parse(hasil.GetValue(8).ToString()), DateTime.Parse(hasil.GetValue(9).ToString()), pg);
+                return tmp;
+            }
+            else
+            {
+                return null;
+            }
+
+
+            #endregion
+        }
     }
 }

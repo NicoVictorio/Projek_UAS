@@ -29,7 +29,6 @@ namespace _160421029_Nico_Victorio
         /// </summary>
         private void InitializeComponent()
         {
-            this.btn_Update = new System.Windows.Forms.Button();
             this.btn_Exit = new System.Windows.Forms.Button();
             this.btn_Add = new System.Windows.Forms.Button();
             this.dgvListJenisTransaksi = new System.Windows.Forms.DataGridView();
@@ -40,21 +39,10 @@ namespace _160421029_Nico_Victorio
             ((System.ComponentModel.ISupportInitialize)(this.dgvListJenisTransaksi)).BeginInit();
             this.SuspendLayout();
             // 
-            // btn_Update
-            // 
-            this.btn_Update.Location = new System.Drawing.Point(262, 315);
-            this.btn_Update.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btn_Update.Name = "btn_Update";
-            this.btn_Update.Size = new System.Drawing.Size(71, 32);
-            this.btn_Update.TabIndex = 31;
-            this.btn_Update.Text = "Update";
-            this.btn_Update.UseVisualStyleBackColor = true;
-            this.btn_Update.Click += new System.EventHandler(this.btn_Update_Click);
-            // 
             // btn_Exit
             // 
             this.btn_Exit.Location = new System.Drawing.Point(500, 315);
-            this.btn_Exit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_Exit.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Exit.Name = "btn_Exit";
             this.btn_Exit.Size = new System.Drawing.Size(70, 32);
             this.btn_Exit.TabIndex = 30;
@@ -65,7 +53,7 @@ namespace _160421029_Nico_Victorio
             // btn_Add
             // 
             this.btn_Add.Location = new System.Drawing.Point(34, 315);
-            this.btn_Add.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_Add.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Add.Name = "btn_Add";
             this.btn_Add.Size = new System.Drawing.Size(71, 32);
             this.btn_Add.TabIndex = 29;
@@ -77,7 +65,7 @@ namespace _160421029_Nico_Victorio
             // 
             this.dgvListJenisTransaksi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvListJenisTransaksi.Location = new System.Drawing.Point(34, 72);
-            this.dgvListJenisTransaksi.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvListJenisTransaksi.Margin = new System.Windows.Forms.Padding(2);
             this.dgvListJenisTransaksi.Name = "dgvListJenisTransaksi";
             this.dgvListJenisTransaksi.RowHeadersWidth = 51;
             this.dgvListJenisTransaksi.RowTemplate.Height = 24;
@@ -88,7 +76,7 @@ namespace _160421029_Nico_Victorio
             // btn_Search
             // 
             this.btn_Search.Location = new System.Drawing.Point(492, 19);
-            this.btn_Search.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_Search.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Search.Name = "btn_Search";
             this.btn_Search.Size = new System.Drawing.Size(77, 34);
             this.btn_Search.TabIndex = 27;
@@ -99,7 +87,7 @@ namespace _160421029_Nico_Victorio
             // tb_Kriteria
             // 
             this.tb_Kriteria.Location = new System.Drawing.Point(295, 33);
-            this.tb_Kriteria.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tb_Kriteria.Margin = new System.Windows.Forms.Padding(2);
             this.tb_Kriteria.Name = "tb_Kriteria";
             this.tb_Kriteria.Size = new System.Drawing.Size(185, 20);
             this.tb_Kriteria.TabIndex = 26;
@@ -113,7 +101,7 @@ namespace _160421029_Nico_Victorio
             "Kode Transaksi",
             "Nama Transaksi"});
             this.cb_Kriteria.Location = new System.Drawing.Point(136, 33);
-            this.cb_Kriteria.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cb_Kriteria.Margin = new System.Windows.Forms.Padding(2);
             this.cb_Kriteria.Name = "cb_Kriteria";
             this.cb_Kriteria.Size = new System.Drawing.Size(146, 21);
             this.cb_Kriteria.TabIndex = 25;
@@ -133,7 +121,6 @@ namespace _160421029_Nico_Victorio
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(600, 366);
-            this.Controls.Add(this.btn_Update);
             this.Controls.Add(this.btn_Exit);
             this.Controls.Add(this.btn_Add);
             this.Controls.Add(this.dgvListJenisTransaksi);
@@ -141,7 +128,7 @@ namespace _160421029_Nico_Victorio
             this.Controls.Add(this.tb_Kriteria);
             this.Controls.Add(this.cb_Kriteria);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormJenisTransaksi";
             this.Text = "FormJenisTransaksi";
             this.Load += new System.EventHandler(this.FormJenisTransaksi_Load);
@@ -152,8 +139,6 @@ namespace _160421029_Nico_Victorio
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btn_Update;
         private System.Windows.Forms.Button btn_Exit;
         private System.Windows.Forms.Button btn_Add;
         private System.Windows.Forms.DataGridView dgvListJenisTransaksi;

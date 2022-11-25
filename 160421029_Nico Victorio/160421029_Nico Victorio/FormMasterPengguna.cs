@@ -14,17 +14,35 @@ namespace _160421029_Nico_Victorio
     public partial class FormMasterPengguna : Form
     {
         public List<Pengguna> listPengguna = new List<Pengguna>();
+        public List<Pangkat> listPangkat = new List<Pangkat>();
         public FormMasterPengguna()
         {
             InitializeComponent();
         }
 
-        private void FormMasterPengguna_Load(object sender, EventArgs e)
+        public void FormMasterPengguna_Load(object sender, EventArgs e)
         {
             listPengguna = Pengguna.BacaData("", "");
+            listPangkat = Pangkat.BacaData("", "");
             if (listPengguna.Count > 0)
             {
                 dgvListPengguna.DataSource = listPengguna;
+                if (dgvListPengguna.Columns.Count < 12)
+                {
+                    DataGridViewButtonColumn buttonColumn = new DataGridViewButtonColumn();
+                    buttonColumn.HeaderText = "Aksi";
+                    buttonColumn.Text = "Update";
+                    buttonColumn.Name = "btnUbahGrid";
+                    buttonColumn.UseColumnTextForButtonValue = true;
+                    dgvListPengguna.Columns.Add(buttonColumn);
+
+                    DataGridViewButtonColumn btnDeleteColumns = new DataGridViewButtonColumn();
+                    btnDeleteColumns.HeaderText = "Aksi";
+                    btnDeleteColumns.Text = "Delete";
+                    btnDeleteColumns.Name = "btnHapusGrid";
+                    btnDeleteColumns.UseColumnTextForButtonValue = true;
+                    dgvListPengguna.Columns.Add(btnDeleteColumns);
+                }
             }
             else
             {
@@ -99,6 +117,64 @@ namespace _160421029_Nico_Victorio
             {
                 MessageBox.Show(x.Message);
             }
+        }
+
+        private void dgvListPengguna_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //int idPosition = int.Parse(dgvListPengguna.CurrentRow.Cells["idposition"].Value.ToString());
+            string nik = dgvListPengguna.CurrentRow.Cells["nik"].Value.ToString();
+            string namaDepan = dgvListPengguna.CurrentRow.Cells["namadepan"].Value.ToString();
+            string namaKeluarga = dgvListPengguna.CurrentRow.Cells["namakeluarga"].Value.ToString();
+            string alamat = dgvListPengguna.CurrentRow.Cells["alamat"].Value.ToString();
+            string email = dgvListPengguna.CurrentRow.Cells["email"].Value.ToString();
+            string noTelp = dgvListPengguna.CurrentRow.Cells["noTelp"].Value.ToString();
+            string password = dgvListPengguna.CurrentRow.Cells["password"].Value.ToString();
+            string pin = dgvListPengguna.CurrentRow.Cells["pin"].Value.ToString();
+            DateTime tglBuat =(DateTime) dgvListPengguna.CurrentRow.Cells["tglBuat"].Value;
+            DateTime tglPerubahan = (DateTime)dgvListPengguna.CurrentRow.Cells["tglPerubahan"].Value;
+            Pangkat pangkat = (Pangkat)dgvListPengguna.CurrentRow.Cells["pangkat"].Value;
+
+            Pengguna pos = new Pengguna(nik,namaDepan,namaKeluarga,alamat,email,noTelp,password,pin,tglBuat,tglPerubahan,pangkat); ;
+            if (pos != null)
+            {
+                if (e.ColumnIndex == dgvListPengguna.Columns["btnUbahGrid"].Index)
+                {
+                    FormUpdatePengguna formUpdate = new FormUpdatePengguna();
+                    formUpdate.Owner = this;
+                    formUpdate.nik = pos.Nik;
+                    formUpdate.ShowDialog();
+                }
+                else if (e.ColumnIndex == dgvListPengguna.Columns["btnHapusGrid"].Index)
+                {
+                    try
+                    {
+                        DialogResult confirmation = MessageBox.Show("Apakah anda yakin ingin menghapus data position '" + pos.NamaDepan + "'?", "Konfirmasi Hapus", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (confirmation == DialogResult.Yes)
+                        {
+                            if (pos.HapusData())
+                            {
+                                MessageBox.Show("Penghapusan data berhasil");
+                                FormMasterPengguna_Load(sender, e);
+                            }
+                            else
+                            {
+                                MessageBox.Show("Penghapusan data gagal");
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
+
+        private void btn_Add_Click(object sender, EventArgs e)
+        {
+            FormBuatAkun formBuatAkun = new FormBuatAkun();
+            formBuatAkun.Owner = this;
+            formBuatAkun.ShowDialog();
         }
     }
 }

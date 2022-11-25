@@ -13,7 +13,7 @@ namespace _160421029_Nico_Victorio
 {
     public partial class FormMenu : Form
     {
-        Pengguna tmpPengguna;
+        public Pengguna tmpPengguna;
         public FormMenu()
         {
             InitializeComponent();
@@ -27,8 +27,17 @@ namespace _160421029_Nico_Victorio
             {
                 Koneksi koneksi = new Koneksi();
                 MessageBox.Show("Koneksi Berhasil");
-                //frmLogin login = new frmLogin();
-                //login.Owner = this;
+
+                FormMasuk login = new FormMasuk();
+                login.Owner = this;
+                if (login.ShowDialog() == DialogResult.OK)
+                {
+                    //labelKodePegawai.Text = tmpPegawai.KodePegawai.ToString();
+                    //labelNamaPegawai.Text = tmpPegawai.NamaPegawai;
+                    MessageBox.Show("Selamat datang " + tmpPengguna.NamaDepan + " \nKoneksi berhasil", "Login Information");
+                    //EnableHakAkses();
+                    //mnuSignOut.Visible = true;
+                }
 
             }
             catch (Exception x)

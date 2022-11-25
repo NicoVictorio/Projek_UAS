@@ -63,9 +63,9 @@ namespace DiBa_Lib
             return listHasil;
         }
 
-        public static Position positionByCode(string id)
+        public static Position positionByCode(int id)
         {
-            string sql = "SELECT id, nama, keterangan " + " FROM position " + " WHERE id='" + id + "' ";
+            string sql = "SELECT id, nama, keterangan " + " FROM position " + " WHERE id=" + id ;
             MySqlDataReader hasil = Koneksi.ambilData(sql);
             Position tmp = new Position();
             if (hasil.Read() == true)
@@ -84,7 +84,8 @@ namespace DiBa_Lib
 
         public bool TambahData()
         {
-            string sql = "INSERT INTO position(id, nama, keterangan)" + " VALUES ('" + this.IdPosition + "', '" + this.NamaPosition + "', '" + this.Keterangan + "');";
+            //string sql = "INSERT INTO position( nama, keterangan)" + " VALUES ('" + this.NamaPosition + "', '" + this.Keterangan + "');";
+            string sql = "INSERT INTO `position`(`nama`, `keterangan`) VALUES('" + this.NamaPosition + "', '" + this.Keterangan + "');";
             bool result = Koneksi.executeDML(sql);
             return result;
         }
@@ -92,8 +93,8 @@ namespace DiBa_Lib
         public bool UbahData()
         {
             string sql = "UPDATE position SET nama = '" + this.NamaPosition.Replace("'", "\\'") +
-                         "keterangan = '" + this.Keterangan.Replace("'", "\\'") +
-                         "' WHERE id = '" + this.IdPosition + "';";
+                         "', keterangan = '" + this.Keterangan.Replace("'", "\\'") +
+                         "' WHERE id = " + this.IdPosition + ";";
             bool result = Koneksi.executeDML(sql);
             return result;
         }
@@ -101,7 +102,7 @@ namespace DiBa_Lib
         public bool HapusData()
         {
             string sql = "DELETE FROM position " +
-                         " WHERE id = '" + this.IdPosition + "';";
+                         " WHERE id = " + this.IdPosition + ";";
             bool result = Koneksi.executeDML(sql);
             return result;
         }

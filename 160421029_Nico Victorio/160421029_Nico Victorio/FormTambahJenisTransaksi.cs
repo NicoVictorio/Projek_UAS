@@ -11,31 +11,30 @@ using DiBa_Lib;
 
 namespace _160421029_Nico_Victorio
 {
-    public partial class FormTambahPosition : Form
+    public partial class FormTambahJenisTransaksi : Form
     {
-        FormPosition formPosition;
-        //int dataCount;
-        public FormTambahPosition()
+        FormJenisTransaksi formJenisTransaksi;
+        public FormTambahJenisTransaksi()
         {
             InitializeComponent();
         }
 
-        private void FormTambahPosition_Load(object sender, EventArgs e)
+        private void FormTambahJenisTransaksi_Load(object sender, EventArgs e)
         {
-            formPosition = (FormPosition)this.Owner;
+            formJenisTransaksi = (FormJenisTransaksi) this.Owner;
         }
 
         private void btn_Add_Click(object sender, EventArgs e)
         {
             try
             {
-                //int dataCount = formPosition.listPosition.Count();
-                Position js = new Position(1, tb_NamaPosition.Text, tb_Keterangan.Text);
+                //int dataCount = formJenisTransaksi.listTransaksi.Count();
+                JenisTransaksi js = new JenisTransaksi(1,tb_KodeJenisTransaksi.Text, tb_NamaJenisTransaksi.Text);
                 if (js.TambahData())
                 {
-                    MessageBox.Show("Data Position telah tersimpan", "Info");
-                    FormPosition frm = (FormPosition)this.Owner;
-                    frm.FormPosition_Load(this, e);
+                    MessageBox.Show("Data Jenis Transaksi telah tersimpan", "Info");
+                    FormJenisTransaksi frm = (FormJenisTransaksi)this.Owner;
+                    frm.FormJenisTransaksi_Load(this, e);
                     this.Close();
                 }
                 else

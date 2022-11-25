@@ -14,17 +14,35 @@ namespace _160421029_Nico_Victorio
     public partial class FormJenisTransaksi : Form
     {
         public List<JenisTransaksi> listTransaksi = new List<JenisTransaksi>();
+        
         public FormJenisTransaksi()
         {
             InitializeComponent();
         }
 
-        private void FormJenisTransaksi_Load(object sender, EventArgs e)
+        public void FormJenisTransaksi_Load(object sender, EventArgs e)
         {
             listTransaksi = JenisTransaksi.BacaData("", "");
+            dgvListJenisTransaksi.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             if (listTransaksi.Count > 0)
             {
-                dgvListJenisTransaksi.DataSource = listTransaksi;
+                dgvListJenisTransaksi.DataSource = listTransaksi; 
+                if (dgvListJenisTransaksi.Columns.Count < 4)
+                {
+                    DataGridViewButtonColumn buttonColumn = new DataGridViewButtonColumn();
+                    buttonColumn.HeaderText = "Aksi";
+                    buttonColumn.Text = "Update";
+                    buttonColumn.Name = "btnUbahGrid";
+                    buttonColumn.UseColumnTextForButtonValue = true;
+                    dgvListJenisTransaksi.Columns.Add(buttonColumn);
+
+                    DataGridViewButtonColumn btnDeleteColumns = new DataGridViewButtonColumn();
+                    btnDeleteColumns.HeaderText = "Aksi";
+                    btnDeleteColumns.Text = "Delete";
+                    btnDeleteColumns.Name = "btnHapusGrid";
+                    btnDeleteColumns.UseColumnTextForButtonValue = true;
+                    dgvListJenisTransaksi.Columns.Add(btnDeleteColumns);
+                }
             }
             else
             {
@@ -75,7 +93,9 @@ namespace _160421029_Nico_Victorio
 
         private void btn_Add_Click(object sender, EventArgs e)
         {
-
+            FormTambahJenisTransaksi frm = new FormTambahJenisTransaksi();
+            frm.Owner = this;
+            frm.ShowDialog();
         }
 
         private void btn_Update_Click(object sender, EventArgs e)
@@ -90,7 +110,46 @@ namespace _160421029_Nico_Victorio
 
         private void dgvListPosition_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            int pIdTransaksi = (int)dgvListJenisTransaksi.CurrentRow.Cells["idJenisTransaksi"].Value;
+            string pKodeTransaksi = dgvListJenisTransaksi.CurrentRow.Cells["kodetransaksi"].Value.ToString();
+            string pNamaTransaksi = dgvListJenisTransaksi.CurrentRow.Cells["namatransaksi"].Value.ToString();
+            JenisTransaksi k = new JenisTransaksi(pIdTransaksi, pKodeTransaksi, pNamaTransaksi);
+            //Kategori k = Kategori.AmbilDataKolom(pKodeKategori);
+            if (k != null)
+            {
+                if (e.ColumnIndex == dgvListJenisTransaksi.Columns["btnUbahGrid"].Index && e.RowIndex >= 0)
+                {
+                    FormUpdateJenisTransaksi formUpdateJenis = new FormUpdateJenisTransaksi();
+                    formUpdateJenis.Owner = this;
+                    //formUpdateJenis.kodeJenisTransaksi = k.KodeTransaksi;
+                    formUpdateJenis.idJenisTransaksi = k.IdJenisTransaksi;
+                    formUpdateJenis.ShowDialog();
+                }
+                else if (e.ColumnIndex == dgvListJenisTransaksi.Columns["btnHapusGrid"].Index && e.RowIndex >= 0)
+                {
+                    try
+                    {
+                        DialogResult deleteConfirm = MessageBox.Show("Apakah anda yakin ingin " +
+                            "menghapus data kategori " + k.NamaTransaksi + " ?",
+                            "Konfirmasi Hapus", MessageBoxButtons.YesNo,
+                            MessageBoxIcon.Question);
+                        if (deleteConfirm == DialogResult.Yes)
+                        {
+                            k.HapusData();
+                            MessageBox.Show("Data kategori telah dihapus");
+                            FormJenisTransaksi_Load(sender, e);
+                        }
+                    }
+                    catch (Exception x)
+                    {
+                        MessageBox.Show(x.Message, "Error", MessageBoxButtons.OK);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Terdapat kesalahan pada data");
+            }
         }
     }
 }
