@@ -13,6 +13,7 @@ namespace _160421029_Nico_Victorio
 {
     public partial class FormLoginPengguna : Form
     {
+        public Pengguna tmp;
         //FormLogin formLogin;
         public FormLoginPengguna()
         {
@@ -21,21 +22,16 @@ namespace _160421029_Nico_Victorio
 
         private void FormMasuk_Load(object sender, EventArgs e)
         {
-            //try
-            //{
-            //    Koneksi koneksi = new Koneksi(dbSetting.Default.hostname, dbSetting.Default.dbname,
-            //                      dbSetting.Default.uid, dbSetting.Default.password);
-            //    MessageBox.Show("Koneksi berhasil");
-            //}
-            //catch (Exception x)
-            //{
-            //    MessageBox.Show(x.Message, "Error");
-            //}
-        }
-
-        private void FormMasuk_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            //formStartPengguna.Show();
+            try
+            {
+                Koneksi koneksi = new Koneksi(dbSetting.Default.hostname, dbSetting.Default.dbname,
+                                  dbSetting.Default.uid, dbSetting.Default.password);
+                MessageBox.Show("Koneksi berhasil");
+            }
+            catch (Exception x)
+            {
+                MessageBox.Show(x.Message, "Error");
+            }
         }
 
         private void buttonMasuk_Click(object sender, EventArgs e)
@@ -50,24 +46,28 @@ namespace _160421029_Nico_Victorio
                 {
                     throw new Exception("Password tidak boleh kosong");
                 }
-                Pengguna tmp = Pengguna.Login(textBoxEmailNoTelp.Text, textBoxPassword.Text);
-                
+                tmp = Pengguna.Login(textBoxEmailNoTelp.Text, textBoxPassword.Text);
                 if (tmp != null)
                 {
                     this.DialogResult = DialogResult.OK;
-                    FormMenu frm = (FormMenu)this.Owner;
-                    frm.tmpPengguna = tmp;
-                    this.Close();
+                    FormStart form = (FormStart)this.Owner;
+                    form.tmpPengguna = tmp;
                 }
                 else
                 {
-                    throw new Exception("Data pengguna tidak ditemukan");
+                    throw new Exception("Kombinasi username dan password tidak ditemukan");
                 }
             }
             catch (Exception x)
             {
                 MessageBox.Show(x.Message, "Error");
             }
+        }
+
+        private void buttonExit_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
+            this.Close();
         }
     }
 }

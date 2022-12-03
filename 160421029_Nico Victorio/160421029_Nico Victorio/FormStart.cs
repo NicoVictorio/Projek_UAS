@@ -7,11 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DiBa_Lib;
 
 namespace _160421029_Nico_Victorio
 {
     public partial class FormStart : Form
     {
+        public Pengguna tmpPengguna;
+        public Employee tmpEmp;
         public DialogResult asEmployee, asPengguna;
         public FormStart()
         {
@@ -21,15 +24,34 @@ namespace _160421029_Nico_Victorio
         private void buttonPengguna_Click(object sender, EventArgs e)
         {
             FormLoginPengguna form = new FormLoginPengguna();
-            asPengguna = DialogResult.OK;
-            form.ShowDialog();
+            form.Owner = this;
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+                this.DialogResult = DialogResult.OK;
+                this.tmpPengguna = form.tmp;
+                FormMenu formmenu = (FormMenu)this.Owner;
+                formmenu.tmpPengguna = tmpPengguna;
+                this.Close();
+            }
+        }
+
+        private void FormStart_Load(object sender, EventArgs e)
+        {
+
         }
 
         private void buttonEmployee_Click(object sender, EventArgs e)
         {
             FormLoginEmployee form = new FormLoginEmployee();
-            asEmployee = DialogResult.OK;
-            form.ShowDialog();
+            form.Owner = this;
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+                this.DialogResult = DialogResult.OK;
+                this.tmpEmp = form.tmpEmp;
+                FormMenu formmenu = (FormMenu)this.Owner;
+                formmenu.tmpEmp = tmpEmp;
+                this.Close();
+            }
         }
     }
 }

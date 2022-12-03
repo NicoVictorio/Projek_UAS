@@ -14,6 +14,7 @@ namespace _160421029_Nico_Victorio
     public partial class FormMenu : Form
     {
         public Pengguna tmpPengguna;
+        public Employee tmpEmp;
         public FormMenu()
         {
             InitializeComponent();
@@ -24,32 +25,29 @@ namespace _160421029_Nico_Victorio
             this.WindowState = FormWindowState.Maximized;
             this.IsMdiContainer = true;
 
-            try
-            {
-                Koneksi koneksi = new Koneksi();
-                MessageBox.Show("Koneksi Berhasil");
-                FormLoginPengguna login = new FormLoginPengguna();
-                login.Owner = this;
-                //FormStart formStart = new FormStart();
+            FormStart login = new FormStart();
+            login.Owner = this;
 
-                //if (formStart.ShowDialog() == formStart.asPengguna)
-                //{
-                if (login.ShowDialog() == DialogResult.OK)
-                {
-                    MessageBox.Show("Selamat datang " + tmpPengguna.NamaDepan + " \nKoneksi berhasil", "Login Information");
-                }
-                //}
-            }
-            catch (Exception x)
+            if (login.ShowDialog() == DialogResult.OK)
             {
-                MessageBox.Show("Koneksi Gagal. Pesan Kesalahan : " + x.Message, "Informasi");
+                if (tmpPengguna != null)
+                {
+                    MessageBox.Show("Selamat datang " + tmpPengguna.NamaDepan, "Information");
+                }
+                else
+                {
+                    MessageBox.Show("Selamat datang " + tmpEmp.NamaDepan, "Information");
+                }
+            }
+            else
+            {
                 this.Close();
             }
         }
 
         private void positionToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form form = Application.OpenForms["FormMasterPosition"];
+            Form form = Application.OpenForms["FormPosition"];
             if (form == null)
             {
                 FormMasterPosition formPosition = new FormMasterPosition();
@@ -97,7 +95,7 @@ namespace _160421029_Nico_Victorio
 
         private void jenisTransaksiToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form form = Application.OpenForms["FormMasterJenisTransaksi"];
+            Form form = Application.OpenForms["FormJenisTransaksi"];
             if (form == null)
             {
                 FormMasterJenisTransaksi formJenisTransaksi = new FormMasterJenisTransaksi();
@@ -114,11 +112,6 @@ namespace _160421029_Nico_Victorio
         private void tabunganToolStripMenuItem1_Click(object sender, EventArgs e)
         {
 
-        }
-
-        private void signOutToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            
         }
 
         private void signOutToolStripMenuItem1_Click(object sender, EventArgs e)

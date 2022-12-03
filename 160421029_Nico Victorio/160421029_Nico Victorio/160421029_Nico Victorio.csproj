@@ -60,11 +60,23 @@
     <Compile Include="FormInbox.Designer.cs">
       <DependentUpon>FormInbox.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormLoginEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLoginEmployee.Designer.cs">
+      <DependentUpon>FormLoginEmployee.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormMasterEmployee.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormMasterEmployee.Designer.cs">
       <DependentUpon>FormMasterEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormStart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormStart.Designer.cs">
+      <DependentUpon>FormStart.cs</DependentUpon>
     </Compile>
     <Compile Include="FormTambahInbox.cs">
       <SubType>Form</SubType>
@@ -161,8 +173,14 @@
     <EmbeddedResource Include="FormInbox.resx">
       <DependentUpon>FormInbox.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormLoginEmployee.resx">
+      <DependentUpon>FormLoginEmployee.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormMasterEmployee.resx">
       <DependentUpon>FormMasterEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormStart.resx">
+      <DependentUpon>FormStart.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormTambahEmployee.resx">
       <DependentUpon>FormTambahEmployee.cs</DependentUpon>
