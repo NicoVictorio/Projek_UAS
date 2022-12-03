@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DiBa_Lib;
 using MySql.Data.MySqlClient;
 
 namespace DiBa_Lib

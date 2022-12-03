@@ -15,7 +15,7 @@ namespace _160421029_Nico_Victorio
     {
         //public string kodeJenisTransaksi;
         public int idJenisTransaksi;
-        FormJenisTransaksi formJenisTransaksi;
+        FormMasterJenisTransaksi formJenisTransaksi;
         public FormUpdateJenisTransaksi()
         {
             InitializeComponent();
@@ -24,7 +24,7 @@ namespace _160421029_Nico_Victorio
         private void FormUpdateJenisTransaksi_Load(object sender, EventArgs e)
         {
             //tb_KodeJenisTransaksi.Enabled = false;
-            formJenisTransaksi = (FormJenisTransaksi)this.Owner;
+            formJenisTransaksi = (FormMasterJenisTransaksi)this.Owner;
             JenisTransaksi tmp = JenisTransaksi.jenisTransaksiByCode(idJenisTransaksi);
             if (tmp != null)
             {

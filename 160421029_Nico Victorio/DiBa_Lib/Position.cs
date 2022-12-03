@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
-using DiBa_Lib;
 
 namespace DiBa_Lib
 {
@@ -105,6 +104,11 @@ namespace DiBa_Lib
                          " WHERE id = " + this.IdPosition + ";";
             bool result = Koneksi.executeDML(sql);
             return result;
+        }
+
+        public override string ToString()
+        {
+            return NamaPosition;
         }
         #endregion
     }

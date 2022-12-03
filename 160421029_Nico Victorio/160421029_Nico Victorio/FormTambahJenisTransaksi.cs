@@ -13,7 +13,7 @@ namespace _160421029_Nico_Victorio
 {
     public partial class FormTambahJenisTransaksi : Form
     {
-        FormJenisTransaksi formJenisTransaksi;
+        FormMasterJenisTransaksi formJenisTransaksi;
         public FormTambahJenisTransaksi()
         {
             InitializeComponent();
@@ -21,7 +21,7 @@ namespace _160421029_Nico_Victorio
 
         private void FormTambahJenisTransaksi_Load(object sender, EventArgs e)
         {
-            formJenisTransaksi = (FormJenisTransaksi) this.Owner;
+            formJenisTransaksi = (FormMasterJenisTransaksi) this.Owner;
         }
 
         private void btn_Add_Click(object sender, EventArgs e)
@@ -33,7 +33,7 @@ namespace _160421029_Nico_Victorio
                 if (js.TambahData())
                 {
                     MessageBox.Show("Data Jenis Transaksi telah tersimpan", "Info");
-                    FormJenisTransaksi frm = (FormJenisTransaksi)this.Owner;
+                    FormMasterJenisTransaksi frm = (FormMasterJenisTransaksi)this.Owner;
                     frm.FormJenisTransaksi_Load(this, e);
                     this.Close();
                 }

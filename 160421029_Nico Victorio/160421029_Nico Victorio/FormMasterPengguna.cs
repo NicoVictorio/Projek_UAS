@@ -134,7 +134,8 @@ namespace _160421029_Nico_Victorio
             DateTime tglPerubahan = (DateTime)dgvListPengguna.CurrentRow.Cells["tglPerubahan"].Value;
             Pangkat pangkat = (Pangkat)dgvListPengguna.CurrentRow.Cells["pangkat"].Value;
 
-            Pengguna pos = new Pengguna(nik,namaDepan,namaKeluarga,alamat,email,noTelp,password,pin,tglBuat,tglPerubahan,pangkat); ;
+            Pengguna pos = new Pengguna(nik, namaDepan, namaKeluarga, alamat, email, noTelp, 
+                                        password, pin, tglBuat, tglPerubahan, pangkat);
             if (pos != null)
             {
                 if (e.ColumnIndex == dgvListPengguna.Columns["btnUbahGrid"].Index)
@@ -172,9 +173,14 @@ namespace _160421029_Nico_Victorio
 
         private void btn_Add_Click(object sender, EventArgs e)
         {
-            FormBuatAkun formBuatAkun = new FormBuatAkun();
+            FormTambahPengguna formBuatAkun = new FormTambahPengguna();
             formBuatAkun.Owner = this;
             formBuatAkun.ShowDialog();
+        }
+
+        private void btn_Exit_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

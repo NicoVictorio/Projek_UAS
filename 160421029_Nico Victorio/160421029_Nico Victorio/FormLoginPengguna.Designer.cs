@@ -1,7 +1,7 @@
 ﻿
 namespace _160421029_Nico_Victorio
 {
-    partial class FormMasuk
+    partial class FormLoginPengguna
     {
         /// <summary>
         /// Required designer variable.

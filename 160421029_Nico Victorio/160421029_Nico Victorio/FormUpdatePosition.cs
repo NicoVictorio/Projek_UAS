@@ -44,7 +44,7 @@ namespace _160421029_Nico_Victorio
                 if (pos.UbahData())
                 {
                     MessageBox.Show("Data position baru berhasil diubah ke database.");
-                    FormPosition form = (FormPosition)this.Owner;
+                    FormMasterPosition form = (FormMasterPosition)this.Owner;
                     form.FormPosition_Load(sender, e);
                     this.Close();
                 }
@@ -66,7 +66,7 @@ namespace _160421029_Nico_Victorio
 
         private void FormUpdatePosition_Load(object sender, EventArgs e)
         {
-            FormPosition frm = (FormPosition)this.Owner;
+            FormMasterPosition frm = (FormMasterPosition)this.Owner;
             Position tmp = Position.positionByCode(idPosition);
             if (tmp != null)
             {

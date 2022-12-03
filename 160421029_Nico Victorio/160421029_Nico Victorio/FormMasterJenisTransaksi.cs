@@ -11,11 +11,11 @@ using DiBa_Lib;
 
 namespace _160421029_Nico_Victorio
 {
-    public partial class FormJenisTransaksi : Form
+    public partial class FormMasterJenisTransaksi : Form
     {
         public List<JenisTransaksi> listTransaksi = new List<JenisTransaksi>();
         
-        public FormJenisTransaksi()
+        public FormMasterJenisTransaksi()
         {
             InitializeComponent();
         }
@@ -98,16 +98,6 @@ namespace _160421029_Nico_Victorio
             frm.ShowDialog();
         }
 
-        private void btn_Update_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btn_Exit_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void dgvListPosition_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             int pIdTransaksi = (int)dgvListJenisTransaksi.CurrentRow.Cells["idJenisTransaksi"].Value;
@@ -150,6 +140,11 @@ namespace _160421029_Nico_Victorio
             {
                 MessageBox.Show("Terdapat kesalahan pada data");
             }
+        }
+
+        private void btn_Exit_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

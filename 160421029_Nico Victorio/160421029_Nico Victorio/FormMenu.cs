@@ -28,7 +28,7 @@ namespace _160421029_Nico_Victorio
                 Koneksi koneksi = new Koneksi();
                 MessageBox.Show("Koneksi Berhasil");
 
-                FormMasuk login = new FormMasuk();
+                FormLoginPengguna login = new FormLoginPengguna();
                 login.Owner = this;
                 if (login.ShowDialog() == DialogResult.OK)
                 {
@@ -49,10 +49,10 @@ namespace _160421029_Nico_Victorio
 
         private void positionToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form form = Application.OpenForms["FormPosition"];
+            Form form = Application.OpenForms["FormMasterPosition"];
             if (form == null)
             {
-                FormPosition formPosition = new FormPosition();
+                FormMasterPosition formPosition = new FormMasterPosition();
                 formPosition.MdiParent = this;
                 formPosition.Show();
             }
@@ -81,15 +81,26 @@ namespace _160421029_Nico_Victorio
 
         private void employeeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            Form form = Application.OpenForms["FormMasterEmployee"];
+            if (form == null)
+            {
+                FormMasterEmployee formEmployee = new FormMasterEmployee();
+                formEmployee.MdiParent = this;
+                formEmployee.Show();
+            }
+            else
+            {
+                form.Show();
+                form.BringToFront();
+            }
         }
 
         private void jenisTransaksiToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form form = Application.OpenForms["FormJenisTransaksi"];
+            Form form = Application.OpenForms["FormMasterJenisTransaksi"];
             if (form == null)
             {
-                FormJenisTransaksi formJenisTransaksi = new FormJenisTransaksi();
+                FormMasterJenisTransaksi formJenisTransaksi = new FormMasterJenisTransaksi();
                 formJenisTransaksi.MdiParent = this;
                 formJenisTransaksi.Show();
             }
@@ -103,6 +114,11 @@ namespace _160421029_Nico_Victorio
         private void tabunganToolStripMenuItem1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void signOutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

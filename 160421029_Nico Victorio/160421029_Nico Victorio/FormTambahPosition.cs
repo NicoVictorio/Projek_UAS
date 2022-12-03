@@ -13,7 +13,7 @@ namespace _160421029_Nico_Victorio
 {
     public partial class FormTambahPosition : Form
     {
-        FormPosition formPosition;
+        FormMasterPosition formPosition;
         //int dataCount;
         public FormTambahPosition()
         {
@@ -22,7 +22,7 @@ namespace _160421029_Nico_Victorio
 
         private void FormTambahPosition_Load(object sender, EventArgs e)
         {
-            formPosition = (FormPosition)this.Owner;
+            formPosition = (FormMasterPosition)this.Owner;
         }
 
         private void btn_Add_Click(object sender, EventArgs e)
@@ -34,7 +34,7 @@ namespace _160421029_Nico_Victorio
                 if (js.TambahData())
                 {
                     MessageBox.Show("Data Position telah tersimpan", "Info");
-                    FormPosition frm = (FormPosition)this.Owner;
+                    FormMasterPosition frm = (FormMasterPosition)this.Owner;
                     frm.FormPosition_Load(this, e);
                     this.Close();
                 }

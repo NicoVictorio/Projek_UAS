@@ -1,7 +1,7 @@
 ﻿
 namespace _160421029_Nico_Victorio
 {
-    partial class FormPosition
+    partial class FormMasterPosition
     {
         /// <summary>
         /// Required designer variable.

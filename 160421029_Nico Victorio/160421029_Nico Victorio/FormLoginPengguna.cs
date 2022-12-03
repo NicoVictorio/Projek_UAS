@@ -11,10 +11,10 @@ using DiBa_Lib;
 
 namespace _160421029_Nico_Victorio
 {
-    public partial class FormMasuk : Form
+    public partial class FormLoginPengguna : Form
     {
         //FormLogin formLogin;
-        public FormMasuk()
+        public FormLoginPengguna()
         {
             InitializeComponent();
         }

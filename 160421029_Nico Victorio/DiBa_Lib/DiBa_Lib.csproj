@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Employee.cs" />
     <Compile Include="JenisTransaksi.cs" />
     <Compile Include="Koneksi.cs" />
     <Compile Include="Pangkat.cs" />

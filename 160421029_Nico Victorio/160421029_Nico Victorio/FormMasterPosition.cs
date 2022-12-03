@@ -11,10 +11,10 @@ using DiBa_Lib;
 
 namespace _160421029_Nico_Victorio
 {
-    public partial class FormPosition : Form
+    public partial class FormMasterPosition : Form
     {
         public List<Position> listPosition = new List<Position>();
-        public FormPosition()
+        public FormMasterPosition()
         {
             InitializeComponent();
         }
@@ -89,7 +89,7 @@ namespace _160421029_Nico_Victorio
             {
                 kriteria = "Nama";
             }
-            else if (cb_Kriteria.Text == "Keterangan")
+            else if (cb_Kriteria.Text == "Keterangan Position")
             {
                 kriteria = "Keterangan";
             }
