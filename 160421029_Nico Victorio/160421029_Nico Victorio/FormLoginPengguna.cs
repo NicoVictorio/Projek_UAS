@@ -21,7 +21,16 @@ namespace _160421029_Nico_Victorio
 
         private void FormMasuk_Load(object sender, EventArgs e)
         {
-            //formLogin = (FormLogin)this.Owner;
+            //try
+            //{
+            //    Koneksi koneksi = new Koneksi(dbSetting.Default.hostname, dbSetting.Default.dbname,
+            //                      dbSetting.Default.uid, dbSetting.Default.password);
+            //    MessageBox.Show("Koneksi berhasil");
+            //}
+            //catch (Exception x)
+            //{
+            //    MessageBox.Show(x.Message, "Error");
+            //}
         }
 
         private void FormMasuk_FormClosing(object sender, FormClosingEventArgs e)
@@ -42,13 +51,12 @@ namespace _160421029_Nico_Victorio
                     throw new Exception("Password tidak boleh kosong");
                 }
                 Pengguna tmp = Pengguna.Login(textBoxEmailNoTelp.Text, textBoxPassword.Text);
+                
                 if (tmp != null)
                 {
                     this.DialogResult = DialogResult.OK;
-
                     FormMenu frm = (FormMenu)this.Owner;
                     frm.tmpPengguna = tmp;
-
                     this.Close();
                 }
                 else

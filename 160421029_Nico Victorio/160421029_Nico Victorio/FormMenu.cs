@@ -23,22 +23,22 @@ namespace _160421029_Nico_Victorio
         {
             this.WindowState = FormWindowState.Maximized;
             this.IsMdiContainer = true;
+
             try
             {
                 Koneksi koneksi = new Koneksi();
                 MessageBox.Show("Koneksi Berhasil");
-
                 FormLoginPengguna login = new FormLoginPengguna();
                 login.Owner = this;
+                //FormStart formStart = new FormStart();
+
+                //if (formStart.ShowDialog() == formStart.asPengguna)
+                //{
                 if (login.ShowDialog() == DialogResult.OK)
                 {
-                    //labelKodePegawai.Text = tmpPegawai.KodePegawai.ToString();
-                    //labelNamaPegawai.Text = tmpPegawai.NamaPegawai;
                     MessageBox.Show("Selamat datang " + tmpPengguna.NamaDepan + " \nKoneksi berhasil", "Login Information");
-                    //EnableHakAkses();
-                    //mnuSignOut.Visible = true;
                 }
-
+                //}
             }
             catch (Exception x)
             {

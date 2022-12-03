@@ -1,7 +1,7 @@
 ﻿
 namespace _160421029_Nico_Victorio
 {
-    partial class FormLoginPengguna
+    partial class FormLoginEmployee
     {
         /// <summary>
         /// Required designer variable.
@@ -32,72 +32,69 @@ namespace _160421029_Nico_Victorio
             this.buttonMasuk = new System.Windows.Forms.Button();
             this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBoxEmailNoTelp = new System.Windows.Forms.TextBox();
+            this.textBoxEmail = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // buttonMasuk
             // 
             this.buttonMasuk.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonMasuk.Location = new System.Drawing.Point(212, 137);
+            this.buttonMasuk.Location = new System.Drawing.Point(151, 119);
             this.buttonMasuk.Name = "buttonMasuk";
             this.buttonMasuk.Size = new System.Drawing.Size(97, 23);
-            this.buttonMasuk.TabIndex = 22;
+            this.buttonMasuk.TabIndex = 27;
             this.buttonMasuk.Text = "Masuk";
             this.buttonMasuk.UseVisualStyleBackColor = true;
-            this.buttonMasuk.Click += new System.EventHandler(this.buttonMasuk_Click);
             // 
             // textBoxPassword
             // 
             this.textBoxPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxPassword.Location = new System.Drawing.Point(160, 86);
+            this.textBoxPassword.Location = new System.Drawing.Point(99, 68);
             this.textBoxPassword.Name = "textBoxPassword";
             this.textBoxPassword.PasswordChar = '*';
             this.textBoxPassword.Size = new System.Drawing.Size(191, 23);
-            this.textBoxPassword.TabIndex = 21;
+            this.textBoxPassword.TabIndex = 26;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Corbel", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(97, 90);
+            this.label6.Location = new System.Drawing.Point(36, 72);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(57, 15);
-            this.label6.TabIndex = 20;
+            this.label6.TabIndex = 25;
             this.label6.Text = "Password";
             // 
-            // textBoxEmailNoTelp
+            // textBoxEmail
             // 
-            this.textBoxEmailNoTelp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxEmailNoTelp.Location = new System.Drawing.Point(160, 45);
-            this.textBoxEmailNoTelp.Name = "textBoxEmailNoTelp";
-            this.textBoxEmailNoTelp.Size = new System.Drawing.Size(191, 23);
-            this.textBoxEmailNoTelp.TabIndex = 19;
+            this.textBoxEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxEmail.Location = new System.Drawing.Point(99, 27);
+            this.textBoxEmail.Name = "textBoxEmail";
+            this.textBoxEmail.Size = new System.Drawing.Size(191, 23);
+            this.textBoxEmail.TabIndex = 24;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Corbel", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(25, 49);
+            this.label4.Location = new System.Drawing.Point(56, 31);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(129, 15);
-            this.label4.TabIndex = 18;
-            this.label4.Text = "Email / Nomor Telepon";
+            this.label4.Size = new System.Drawing.Size(37, 15);
+            this.label4.TabIndex = 23;
+            this.label4.Text = "Email";
             // 
-            // FormLoginPengguna
+            // FormLoginEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(464, 190);
+            this.ClientSize = new System.Drawing.Size(361, 159);
             this.Controls.Add(this.buttonMasuk);
             this.Controls.Add(this.textBoxPassword);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.textBoxEmailNoTelp);
+            this.Controls.Add(this.textBoxEmail);
             this.Controls.Add(this.label4);
-            this.Name = "FormLoginPengguna";
-            this.Text = "FormMasuk";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormMasuk_FormClosing);
-            this.Load += new System.EventHandler(this.FormMasuk_Load);
+            this.Name = "FormLoginEmployee";
+            this.Text = "FormLoginEmployee";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -108,7 +105,7 @@ namespace _160421029_Nico_Victorio
         private System.Windows.Forms.Button buttonMasuk;
         private System.Windows.Forms.TextBox textBoxPassword;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBoxEmailNoTelp;
+        private System.Windows.Forms.TextBox textBoxEmail;
         private System.Windows.Forms.Label label4;
     }
 }
