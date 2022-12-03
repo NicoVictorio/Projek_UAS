@@ -54,11 +54,23 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>dbSetting.settings</DependentUpon>
     </Compile>
+    <Compile Include="FormInbox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormInbox.Designer.cs">
+      <DependentUpon>FormInbox.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormMasterEmployee.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormMasterEmployee.Designer.cs">
       <DependentUpon>FormMasterEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTambahInbox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTambahInbox.Designer.cs">
+      <DependentUpon>FormTambahInbox.cs</DependentUpon>
     </Compile>
     <Compile Include="FormTambahPengguna.cs">
       <SubType>Form</SubType>
@@ -114,6 +126,12 @@
     <Compile Include="FormTambahPosition.Designer.cs">
       <DependentUpon>FormTambahPosition.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormUpdateInbox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUpdateInbox.Designer.cs">
+      <DependentUpon>FormUpdateInbox.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormUpdateEmployee.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -140,11 +158,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormInbox.resx">
+      <DependentUpon>FormInbox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormMasterEmployee.resx">
       <DependentUpon>FormMasterEmployee.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormTambahEmployee.resx">
       <DependentUpon>FormTambahEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTambahInbox.resx">
+      <DependentUpon>FormTambahInbox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormTambahPengguna.resx">
       <DependentUpon>FormTambahPengguna.cs</DependentUpon>
@@ -172,6 +196,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormUpdateEmployee.resx">
       <DependentUpon>FormUpdateEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUpdateInbox.resx">
+      <DependentUpon>FormUpdateInbox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormUpdateJenisTransaksi.resx">
       <DependentUpon>FormUpdateJenisTransaksi.cs</DependentUpon>

@@ -40,7 +40,7 @@ namespace _160421029_Nico_Victorio
             // tb_Keterangan
             // 
             this.tb_Keterangan.Location = new System.Drawing.Point(136, 73);
-            this.tb_Keterangan.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tb_Keterangan.Margin = new System.Windows.Forms.Padding(2);
             this.tb_Keterangan.Name = "tb_Keterangan";
             this.tb_Keterangan.Size = new System.Drawing.Size(146, 20);
             this.tb_Keterangan.TabIndex = 50;
@@ -58,17 +58,18 @@ namespace _160421029_Nico_Victorio
             // btn_Exit
             // 
             this.btn_Exit.Location = new System.Drawing.Point(216, 107);
-            this.btn_Exit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_Exit.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Exit.Name = "btn_Exit";
             this.btn_Exit.Size = new System.Drawing.Size(66, 28);
             this.btn_Exit.TabIndex = 47;
             this.btn_Exit.Text = "Exit";
             this.btn_Exit.UseVisualStyleBackColor = true;
+            this.btn_Exit.Click += new System.EventHandler(this.btn_Exit_Click);
             // 
             // btn_Add
             // 
             this.btn_Add.Location = new System.Drawing.Point(35, 107);
-            this.btn_Add.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_Add.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Add.Name = "btn_Add";
             this.btn_Add.Size = new System.Drawing.Size(71, 32);
             this.btn_Add.TabIndex = 46;
@@ -79,7 +80,7 @@ namespace _160421029_Nico_Victorio
             // tb_NamaPosition
             // 
             this.tb_NamaPosition.Location = new System.Drawing.Point(136, 31);
-            this.tb_NamaPosition.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tb_NamaPosition.Margin = new System.Windows.Forms.Padding(2);
             this.tb_NamaPosition.Name = "tb_NamaPosition";
             this.tb_NamaPosition.Size = new System.Drawing.Size(146, 20);
             this.tb_NamaPosition.TabIndex = 48;
@@ -105,7 +106,7 @@ namespace _160421029_Nico_Victorio
             this.Controls.Add(this.btn_Add);
             this.Controls.Add(this.tb_NamaPosition);
             this.Controls.Add(this.label2);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormTambahPosition";
             this.Text = "FormTambahPosition";
             this.Load += new System.EventHandler(this.FormTambahPosition_Load);

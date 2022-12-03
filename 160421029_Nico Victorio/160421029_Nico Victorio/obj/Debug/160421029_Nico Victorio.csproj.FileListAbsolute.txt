@@ -17,33 +17,6 @@ G:\My Drive\Kuliah Nico\Semester 3\Database E\Project UAS\160421029_Nico Victori
 G:\My Drive\Kuliah Nico\Semester 3\Database E\Project UAS\160421029_Nico Victorio\160421029_Nico Victorio\bin\Debug\MySql.Data.dll
 G:\My Drive\Kuliah Nico\Semester 3\Database E\Project UAS\160421029_Nico Victorio\160421029_Nico Victorio\bin\Debug\DiBa_Lib.pdb
 G:\My Drive\Kuliah Nico\Semester 3\Database E\Project UAS\160421029_Nico Victorio\160421029_Nico Victorio\obj\Debug\160421029_Nico Victorio.csproj.CopyComplete
-C:\Users\Cindy Yulinda\Documents\GitHub\Projek_UAS\160421029_Nico Victorio\160421029_Nico Victorio\bin\Debug\160421029_Nico Victorio.exe.config
-C:\Users\Cindy Yulinda\Documents\GitHub\Projek_UAS\160421029_Nico Victorio\160421029_Nico Victorio\bin\Debug\160421029_Nico Victorio.exe
-C:\Users\Cindy Yulinda\Documents\GitHub\Projek_UAS\160421029_Nico Victorio\160421029_Nico Victorio\bin\Debug\160421029_Nico Victorio.pdb
-C:\Users\Cindy Yulinda\Documents\GitHub\Projek_UAS\160421029_Nico Victorio\160421029_Nico Victorio\bin\Debug\DiBa_Lib.dll
-C:\Users\Cindy Yulinda\Documents\GitHub\Projek_UAS\160421029_Nico Victorio\160421029_Nico Victorio\bin\Debug\MySql.Data.dll
-C:\Users\Cindy Yulinda\Documents\GitHub\Projek_UAS\160421029_Nico Victorio\160421029_Nico Victorio\bin\Debug\DiBa_Lib.pdb
-C:\Users\Cindy Yulinda\Documents\GitHub\Projek_UAS\160421029_Nico Victorio\160421029_Nico Victorio\obj\Debug\160421029_Nico Victorio.csproj.AssemblyReference.cache
-C:\Users\Cindy Yulinda\Documents\GitHub\Projek_UAS\160421029_Nico Victorio\160421029_Nico Victorio\obj\Debug\_160421029_Nico_Victorio.FormBuatAkun.resources
-C:\Users\Cindy Yulinda\Documents\GitHub\Projek_UAS\160421029_Nico Victorio\160421029_Nico Victorio\obj\Debug\_160421029_Nico_Victorio.FormJenisTransaksi.resources
-C:\Users\Cindy Yulinda\Documents\GitHub\Projek_UAS\160421029_Nico Victorio\160421029_Nico Victorio\obj\Debug\_160421029_Nico_Victorio.FormLogin.resources
-C:\Users\Cindy Yulinda\Documents\GitHub\Projek_UAS\160421029_Nico Victorio\160421029_Nico Victorio\obj\Debug\_160421029_Nico_Victorio.FormMasterPengguna.resources
-C:\Users\Cindy Yulinda\Documents\GitHub\Projek_UAS\160421029_Nico Victorio\160421029_Nico Victorio\obj\Debug\_160421029_Nico_Victorio.FormMasuk.resources
-C:\Users\Cindy Yulinda\Documents\GitHub\Projek_UAS\160421029_Nico Victorio\160421029_Nico Victorio\obj\Debug\_160421029_Nico_Victorio.FormMenu.resources
-C:\Users\Cindy Yulinda\Documents\GitHub\Projek_UAS\160421029_Nico Victorio\160421029_Nico Victorio\obj\Debug\_160421029_Nico_Victorio.FormPosition.resources
-C:\Users\Cindy Yulinda\Documents\GitHub\Projek_UAS\160421029_Nico Victorio\160421029_Nico Victorio\obj\Debug\_160421029_Nico_Victorio.FormStart.resources
-C:\Users\Cindy Yulinda\Documents\GitHub\Projek_UAS\160421029_Nico Victorio\160421029_Nico Victorio\obj\Debug\_160421029_Nico_Victorio.FormStartEmployee.resources
-C:\Users\Cindy Yulinda\Documents\GitHub\Projek_UAS\160421029_Nico Victorio\160421029_Nico Victorio\obj\Debug\_160421029_Nico_Victorio.FormStartPengguna.resources
-C:\Users\Cindy Yulinda\Documents\GitHub\Projek_UAS\160421029_Nico Victorio\160421029_Nico Victorio\obj\Debug\_160421029_Nico_Victorio.FormTambahJenisTransaksi.resources
-C:\Users\Cindy Yulinda\Documents\GitHub\Projek_UAS\160421029_Nico Victorio\160421029_Nico Victorio\obj\Debug\_160421029_Nico_Victorio.FormTambahPosition.resources
-C:\Users\Cindy Yulinda\Documents\GitHub\Projek_UAS\160421029_Nico Victorio\160421029_Nico Victorio\obj\Debug\_160421029_Nico_Victorio.FormUpdateJenisTransaksi.resources
-C:\Users\Cindy Yulinda\Documents\GitHub\Projek_UAS\160421029_Nico Victorio\160421029_Nico Victorio\obj\Debug\_160421029_Nico_Victorio.FormUpdatePengguna.resources
-C:\Users\Cindy Yulinda\Documents\GitHub\Projek_UAS\160421029_Nico Victorio\160421029_Nico Victorio\obj\Debug\_160421029_Nico_Victorio.FormUpdatePosition.resources
-C:\Users\Cindy Yulinda\Documents\GitHub\Projek_UAS\160421029_Nico Victorio\160421029_Nico Victorio\obj\Debug\_160421029_Nico_Victorio.Properties.Resources.resources
-C:\Users\Cindy Yulinda\Documents\GitHub\Projek_UAS\160421029_Nico Victorio\160421029_Nico Victorio\obj\Debug\160421029_Nico Victorio.csproj.GenerateResource.cache
-C:\Users\Cindy Yulinda\Documents\GitHub\Projek_UAS\160421029_Nico Victorio\160421029_Nico Victorio\obj\Debug\160421029_Nico Victorio.csproj.CoreCompileInputs.cache
-C:\Users\Cindy Yulinda\Documents\GitHub\Projek_UAS\160421029_Nico Victorio\160421029_Nico Victorio\obj\Debug\160421029_Nico Victorio.exe
-C:\Users\Cindy Yulinda\Documents\GitHub\Projek_UAS\160421029_Nico Victorio\160421029_Nico Victorio\obj\Debug\160421029_Nico Victorio.pdb
 C:\Users\nicov\Documents\GitHub\Projek_UAS\160421029_Nico Victorio\160421029_Nico Victorio\obj\Debug\_160421029_Nico_Victorio.FormMasterPengguna.resources
 C:\Users\nicov\Documents\GitHub\Projek_UAS\160421029_Nico Victorio\160421029_Nico Victorio\obj\Debug\_160421029_Nico_Victorio.FormMenu.resources
 C:\Users\nicov\Documents\GitHub\Projek_UAS\160421029_Nico Victorio\160421029_Nico Victorio\obj\Debug\_160421029_Nico_Victorio.FormTambahJenisTransaksi.resources
@@ -71,3 +44,32 @@ C:\Users\nicov\Documents\GitHub\Projek_UAS\160421029_Nico Victorio\160421029_Nic
 C:\Users\nicov\Documents\GitHub\Projek_UAS\160421029_Nico Victorio\160421029_Nico Victorio\obj\Debug\_160421029_Nico_Victorio.FormMasterPosition.resources
 C:\Users\nicov\Documents\GitHub\Projek_UAS\160421029_Nico Victorio\160421029_Nico Victorio\obj\Debug\_160421029_Nico_Victorio.FormUpdateEmployee.resources
 C:\Users\nicov\Documents\GitHub\Projek_UAS\160421029_Nico Victorio\160421029_Nico Victorio\obj\Debug\160421029_Nico Victorio.csproj.CopyComplete
+C:\Users\Cindy Yulinda\Documents\GitHub\Projek_UAS\160421029_Nico Victorio\160421029_Nico Victorio\obj\Debug\_160421029_Nico_Victorio.FormMasterEmployee.resources
+C:\Users\Cindy Yulinda\Documents\GitHub\Projek_UAS\160421029_Nico Victorio\160421029_Nico Victorio\obj\Debug\_160421029_Nico_Victorio.FormTambahEmployee.resources
+C:\Users\Cindy Yulinda\Documents\GitHub\Projek_UAS\160421029_Nico Victorio\160421029_Nico Victorio\obj\Debug\_160421029_Nico_Victorio.FormTambahPengguna.resources
+C:\Users\Cindy Yulinda\Documents\GitHub\Projek_UAS\160421029_Nico Victorio\160421029_Nico Victorio\obj\Debug\_160421029_Nico_Victorio.FormMasterJenisTransaksi.resources
+C:\Users\Cindy Yulinda\Documents\GitHub\Projek_UAS\160421029_Nico Victorio\160421029_Nico Victorio\obj\Debug\_160421029_Nico_Victorio.FormMasterPengguna.resources
+C:\Users\Cindy Yulinda\Documents\GitHub\Projek_UAS\160421029_Nico Victorio\160421029_Nico Victorio\obj\Debug\_160421029_Nico_Victorio.FormLoginPengguna.resources
+C:\Users\Cindy Yulinda\Documents\GitHub\Projek_UAS\160421029_Nico Victorio\160421029_Nico Victorio\obj\Debug\_160421029_Nico_Victorio.FormMenu.resources
+C:\Users\Cindy Yulinda\Documents\GitHub\Projek_UAS\160421029_Nico Victorio\160421029_Nico Victorio\obj\Debug\_160421029_Nico_Victorio.FormMasterPosition.resources
+C:\Users\Cindy Yulinda\Documents\GitHub\Projek_UAS\160421029_Nico Victorio\160421029_Nico Victorio\obj\Debug\_160421029_Nico_Victorio.FormTambahJenisTransaksi.resources
+C:\Users\Cindy Yulinda\Documents\GitHub\Projek_UAS\160421029_Nico Victorio\160421029_Nico Victorio\obj\Debug\_160421029_Nico_Victorio.FormTambahPosition.resources
+C:\Users\Cindy Yulinda\Documents\GitHub\Projek_UAS\160421029_Nico Victorio\160421029_Nico Victorio\obj\Debug\_160421029_Nico_Victorio.FormUpdateEmployee.resources
+C:\Users\Cindy Yulinda\Documents\GitHub\Projek_UAS\160421029_Nico Victorio\160421029_Nico Victorio\obj\Debug\_160421029_Nico_Victorio.FormUpdateJenisTransaksi.resources
+C:\Users\Cindy Yulinda\Documents\GitHub\Projek_UAS\160421029_Nico Victorio\160421029_Nico Victorio\obj\Debug\_160421029_Nico_Victorio.FormUpdatePengguna.resources
+C:\Users\Cindy Yulinda\Documents\GitHub\Projek_UAS\160421029_Nico Victorio\160421029_Nico Victorio\obj\Debug\_160421029_Nico_Victorio.FormUpdatePosition.resources
+C:\Users\Cindy Yulinda\Documents\GitHub\Projek_UAS\160421029_Nico Victorio\160421029_Nico Victorio\obj\Debug\_160421029_Nico_Victorio.Properties.Resources.resources
+C:\Users\Cindy Yulinda\Documents\GitHub\Projek_UAS\160421029_Nico Victorio\160421029_Nico Victorio\obj\Debug\160421029_Nico Victorio.csproj.GenerateResource.cache
+C:\Users\Cindy Yulinda\Documents\GitHub\Projek_UAS\160421029_Nico Victorio\160421029_Nico Victorio\obj\Debug\160421029_Nico Victorio.csproj.CoreCompileInputs.cache
+C:\Users\Cindy Yulinda\Documents\GitHub\Projek_UAS\160421029_Nico Victorio\160421029_Nico Victorio\bin\Debug\160421029_Nico Victorio.exe.config
+C:\Users\Cindy Yulinda\Documents\GitHub\Projek_UAS\160421029_Nico Victorio\160421029_Nico Victorio\bin\Debug\160421029_Nico Victorio.exe
+C:\Users\Cindy Yulinda\Documents\GitHub\Projek_UAS\160421029_Nico Victorio\160421029_Nico Victorio\bin\Debug\160421029_Nico Victorio.pdb
+C:\Users\Cindy Yulinda\Documents\GitHub\Projek_UAS\160421029_Nico Victorio\160421029_Nico Victorio\bin\Debug\DiBa_Lib.dll
+C:\Users\Cindy Yulinda\Documents\GitHub\Projek_UAS\160421029_Nico Victorio\160421029_Nico Victorio\bin\Debug\MySql.Data.dll
+C:\Users\Cindy Yulinda\Documents\GitHub\Projek_UAS\160421029_Nico Victorio\160421029_Nico Victorio\bin\Debug\DiBa_Lib.pdb
+C:\Users\Cindy Yulinda\Documents\GitHub\Projek_UAS\160421029_Nico Victorio\160421029_Nico Victorio\obj\Debug\160421029_Nico Victorio.csproj.AssemblyReference.cache
+C:\Users\Cindy Yulinda\Documents\GitHub\Projek_UAS\160421029_Nico Victorio\160421029_Nico Victorio\obj\Debug\160421029_Nico Victorio.exe
+C:\Users\Cindy Yulinda\Documents\GitHub\Projek_UAS\160421029_Nico Victorio\160421029_Nico Victorio\obj\Debug\160421029_Nico Victorio.pdb
+C:\Users\Cindy Yulinda\Documents\GitHub\Projek_UAS\160421029_Nico Victorio\160421029_Nico Victorio\obj\Debug\_160421029_Nico_Victorio.FormInbox.resources
+C:\Users\Cindy Yulinda\Documents\GitHub\Projek_UAS\160421029_Nico Victorio\160421029_Nico Victorio\obj\Debug\_160421029_Nico_Victorio.FormTambahInbox.resources
+C:\Users\Cindy Yulinda\Documents\GitHub\Projek_UAS\160421029_Nico Victorio\160421029_Nico Victorio\obj\Debug\_160421029_Nico_Victorio.FormUpdateInbox.resources

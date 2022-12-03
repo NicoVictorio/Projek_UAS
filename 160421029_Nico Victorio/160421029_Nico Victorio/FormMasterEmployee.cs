@@ -65,39 +65,39 @@ namespace _160421029_Nico_Victorio
                 string kriteria = "";
                 string nilai = "";
 
-                if (cb_Kriteria.Text == "id")
+                if (cb_Kriteria.Text == "ID")
                 {
                     kriteria = "id";
                 }
-                else if (cb_Kriteria.Text == "nama_depan")
+                else if (cb_Kriteria.Text == "Nama Depan")
                 {
                     kriteria = "nama_depan";
                 }
-                else if (cb_Kriteria.Text == "nama_belakang")
+                else if (cb_Kriteria.Text == "Nama Belakang")
                 {
                     kriteria = "nama_belakang";
                 }
-                else if (cb_Kriteria.Text == "position_id")
+                else if (cb_Kriteria.Text == "Position")
                 {
                     kriteria = "position_id";
                 }
-                else if (cb_Kriteria.Text == "nik")
+                else if (cb_Kriteria.Text == "NIK")
                 {
                     kriteria = "nik";
                 }
-                else if (cb_Kriteria.Text == "email")
+                else if (cb_Kriteria.Text == "Email")
                 {
                     kriteria = "email";
                 }
-                else if (cb_Kriteria.Text == "password")
+                else if (cb_Kriteria.Text == "Password")
                 {
                     kriteria = "password";
                 }
-                else if (cb_Kriteria.Text == "tgl_buat")
+                else if (cb_Kriteria.Text == "Tanggal Buat")
                 {
                     kriteria = "tgl_buat";
                 }
-                else if (cb_Kriteria.Text == "tgl_perubahan")
+                else if (cb_Kriteria.Text == "Tanggal Perubahan")
                 {
                     kriteria = "tgl_perubahan";
                 }

@@ -118,7 +118,28 @@ namespace _160421029_Nico_Victorio
 
         private void signOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            
+        }
+
+        private void signOutToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
             Application.Exit();
+        }
+
+        private void inboxToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form form = Application.OpenForms["FormInbox"];
+            if (form == null)
+            {
+                FormInbox formInbox = new FormInbox();
+                formInbox.MdiParent = this;
+                formInbox.Show();
+            }
+            else
+            {
+                form.Show();
+                form.BringToFront();
+            }
         }
     }
 }

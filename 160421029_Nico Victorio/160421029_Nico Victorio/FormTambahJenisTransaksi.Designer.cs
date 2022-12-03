@@ -82,6 +82,7 @@ namespace _160421029_Nico_Victorio
             this.btn_Exit.TabIndex = 54;
             this.btn_Exit.Text = "Exit";
             this.btn_Exit.UseVisualStyleBackColor = true;
+            this.btn_Exit.Click += new System.EventHandler(this.btn_Exit_Click);
             // 
             // btn_Add
             // 

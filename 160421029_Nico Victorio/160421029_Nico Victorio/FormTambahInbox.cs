@@ -11,31 +11,34 @@ using DiBa_Lib;
 
 namespace _160421029_Nico_Victorio
 {
-    public partial class FormTambahPosition : Form
+    public partial class FormTambahInbox : Form
     {
-        FormMasterPosition formPosition;
-        //int dataCount;
-        public FormTambahPosition()
+        
+        public FormTambahInbox()
         {
             InitializeComponent();
         }
 
-        private void FormTambahPosition_Load(object sender, EventArgs e)
+        private void FormTambahInbox_Load(object sender, EventArgs e)
         {
-            formPosition = (FormMasterPosition)this.Owner;
+            FormInbox formInbox = (FormInbox)this.Owner;
+            List<Pengguna> lisPengguna = Pengguna.BacaData("", "");
+
+            comboBoxIdPengguna.DataSource = lisPengguna;
+            comboBoxIdPengguna.DisplayMember = "Nik";
         }
 
         private void btn_Add_Click(object sender, EventArgs e)
         {
             try
             {
-                //int dataCount = formPosition.listPosition.Count();
-                Position js = new Position(1, tb_NamaPosition.Text, tb_Keterangan.Text);
+                Pengguna penggunaDipilih = (Pengguna) comboBoxIdPengguna.SelectedItem;
+                Inbox js = new Inbox(0, penggunaDipilih, textBoxPesan.Text,DateTime.Now,"Belum Terbaca",DateTime.Now); ;
                 if (js.TambahData())
                 {
-                    MessageBox.Show("Data Position telah tersimpan", "Info");
-                    FormMasterPosition frm = (FormMasterPosition)this.Owner;
-                    frm.FormPosition_Load(this, e);
+                    MessageBox.Show("Data Inbox telah tersimpan", "Info");
+                    FormInbox frm = (FormInbox)this.Owner;
+                    frm.FormInbox_Load(this, e);
                     this.Close();
                 }
                 else
