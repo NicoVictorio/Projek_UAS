@@ -38,6 +38,7 @@ namespace _160421029_Nico_Victorio
                 {
                     MessageBox.Show("Selamat datang " + tmpEmp.NamaDepan, "Information");
                 }
+                SetHakAkses();
             }
             else
             {
@@ -127,6 +128,59 @@ namespace _160421029_Nico_Victorio
                 FormInbox formInbox = new FormInbox();
                 formInbox.MdiParent = this;
                 formInbox.Show();
+            }
+            else
+            {
+                form.Show();
+                form.BringToFront();
+            }
+        }
+
+        private void SetHakAkses()
+        {
+            if(tmpEmp != null)
+            {
+                masterToolStripMenuItem.Visible = true;
+                penggunaToolStripMenuItem.Visible = true;
+                employeeToolStripMenuItem.Visible = true;
+                positionToolStripMenuItem.Visible = true;
+                jenisTransaksiToolStripMenuItem.Visible = true;
+
+                laporanToolStripMenuItem.Visible = true;
+                laporanTabunganToolStripMenuItem.Visible = true;
+                laporanDepositoToolStripMenuItem.Visible = true;
+                laporanTransaksiToolStripMenuItem.Visible = true;
+
+                ubahPasswordToolStripMenuItem.Visible = false;
+                settingToolStripMenuItem.Visible = false;
+            }
+            else
+            {
+                masterToolStripMenuItem.Visible = false;
+                penggunaToolStripMenuItem.Visible = false;
+                employeeToolStripMenuItem.Visible = false;
+                positionToolStripMenuItem.Visible = false;
+                jenisTransaksiToolStripMenuItem.Visible = false;
+
+                laporanToolStripMenuItem.Visible = false;
+                laporanTabunganToolStripMenuItem.Visible = false;
+                laporanDepositoToolStripMenuItem.Visible = false;
+                laporanTransaksiToolStripMenuItem.Visible = false;
+
+                ubahPasswordToolStripMenuItem.Visible = true;
+                settingToolStripMenuItem.Visible = true;
+            }
+        }
+
+        private void ubahPasswordToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form form = Application.OpenForms["FormUpdatePassword"];
+            if (form == null)
+            {
+                FormUpdatePassword formUpdatePassword = new FormUpdatePassword();
+                formUpdatePassword.MdiParent = this;
+                formUpdatePassword.tmpPengguna = tmpPengguna;
+                formUpdatePassword.Show();
             }
             else
             {

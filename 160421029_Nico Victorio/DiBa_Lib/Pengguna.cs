@@ -190,6 +190,13 @@ namespace DiBa_Lib
             }
         }
 
+        public bool UbahPassword()
+        {
+            string sql = "UPDATE pengguna SET password ='" + this.Password + "' where nik=" + this.Nik + ";";
+            bool result = Koneksi.executeDML(sql);
+            return result;
+        }
+
         public override string ToString()
         {
             return Nik;

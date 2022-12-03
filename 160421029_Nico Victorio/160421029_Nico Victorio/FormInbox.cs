@@ -15,6 +15,8 @@ namespace _160421029_Nico_Victorio
     {
         public List<Inbox> listInbox = new List<Inbox>();
         public Pengguna pengguna;
+        public Employee employee;
+        public Inbox inx;
         FormMenu formMenu;
         public FormInbox()
         {
@@ -25,7 +27,16 @@ namespace _160421029_Nico_Victorio
         {
             formMenu = (FormMenu)this.MdiParent;
             pengguna = formMenu.tmpPengguna;
-            listInbox = Inbox.BacaData("", "");
+            employee = formMenu.tmpEmp;
+            if (employee != null)
+            {
+                listInbox = Inbox.BacaData("", "");
+            }
+            else
+            {
+                listInbox = Inbox.DaftarPesan(int.Parse(pengguna.Nik), "", "");
+                btn_Add.Visible = false;
+            }
 
             //untuk menampilkan data pesan dari suatu pengguna
             //listInbox = Inbox.DaftarPesan(int.Parse(pengguna.Nik), "", "");
@@ -35,19 +46,38 @@ namespace _160421029_Nico_Victorio
                 dgvListInbox.DataSource = listInbox;
                 if (dgvListInbox.Columns.Count < 7)
                 {
-                    DataGridViewButtonColumn buttonColumn = new DataGridViewButtonColumn();
-                    buttonColumn.HeaderText = "Aksi";
-                    buttonColumn.Text = "Update";
-                    buttonColumn.Name = "btnUbahGrid";
-                    buttonColumn.UseColumnTextForButtonValue = true;
-                    dgvListInbox.Columns.Add(buttonColumn);
+                    if (employee != null)
+                    {
+                        DataGridViewButtonColumn buttonColumn = new DataGridViewButtonColumn();
+                        buttonColumn.HeaderText = "Aksi";
+                        buttonColumn.Text = "Update";
+                        buttonColumn.Name = "btnUbahGrid";
+                        buttonColumn.UseColumnTextForButtonValue = true;
+                        dgvListInbox.Columns.Add(buttonColumn);
 
-                    DataGridViewButtonColumn btnDeleteColumns = new DataGridViewButtonColumn();
-                    btnDeleteColumns.HeaderText = "Aksi";
-                    btnDeleteColumns.Text = "Delete";
-                    btnDeleteColumns.Name = "btnHapusGrid";
-                    btnDeleteColumns.UseColumnTextForButtonValue = true;
-                    dgvListInbox.Columns.Add(btnDeleteColumns);
+                        DataGridViewButtonColumn btnDeleteColumns = new DataGridViewButtonColumn();
+                        btnDeleteColumns.HeaderText = "Aksi";
+                        btnDeleteColumns.Text = "Delete";
+                        btnDeleteColumns.Name = "btnHapusGrid";
+                        btnDeleteColumns.UseColumnTextForButtonValue = true;
+                        dgvListInbox.Columns.Add(btnDeleteColumns);
+                    }
+                    else
+                    {
+                        DataGridViewButtonColumn buttonColumn = new DataGridViewButtonColumn();
+                        buttonColumn.HeaderText = "Aksi";
+                        buttonColumn.Text = "Ubah Status";
+                        buttonColumn.Name = "btnUbahStatusGrid";
+                        buttonColumn.UseColumnTextForButtonValue = true;
+                        dgvListInbox.Columns.Add(buttonColumn);
+
+                        DataGridViewButtonColumn btnDeleteColumns = new DataGridViewButtonColumn();
+                        btnDeleteColumns.HeaderText = "Aksi";
+                        btnDeleteColumns.Text = "Delete";
+                        btnDeleteColumns.Name = "btnHapusGrid";
+                        btnDeleteColumns.UseColumnTextForButtonValue = true;
+                        dgvListInbox.Columns.Add(btnDeleteColumns);
+                    }
                 }
             }
             else
@@ -74,37 +104,75 @@ namespace _160421029_Nico_Victorio
             string status = dgvListInbox.CurrentRow.Cells["status"].Value.ToString();
             DateTime tglPerubahan = (DateTime)dgvListInbox.CurrentRow.Cells["tglPerubahan"].Value;
 
-            Inbox emp = new Inbox(idPesan, pengguna, pesan, tglKirim, status, tglPerubahan);
-            if (emp != null)
+            inx = new Inbox(idPesan, pengguna, pesan, tglKirim, status, tglPerubahan);
+            if (inx != null)
             {
-                if (e.ColumnIndex == dgvListInbox.Columns["btnUbahGrid"].Index)
+                if (employee != null)
                 {
-                    FormUpdateInbox formUpdateInbox = new FormUpdateInbox();
-                    formUpdateInbox.Owner = this;
-                    formUpdateInbox.idPesan = emp.IdPesan;
-                    formUpdateInbox.ShowDialog();
-                }
-                else if (e.ColumnIndex == dgvListInbox.Columns["btnHapusGrid"].Index)
-                {
-                    try
+                    if (e.ColumnIndex == dgvListInbox.Columns["btnUbahGrid"].Index)
                     {
-                        DialogResult confirmation = MessageBox.Show("Apakah anda yakin ingin menghapus data Inbox '" + emp.IdPesan + "'?", "Konfirmasi Hapus", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                        if (confirmation == DialogResult.Yes)
+                        FormUpdateInbox formUpdateInbox = new FormUpdateInbox();
+                        formUpdateInbox.Owner = this;
+                        formUpdateInbox.idPesan = inx.IdPesan;
+                        formUpdateInbox.ShowDialog();
+                    }
+                    else if (e.ColumnIndex == dgvListInbox.Columns["btnHapusGrid"].Index)
+                    {
+                        try
                         {
-                            if (emp.HapusData())
+                            DialogResult confirmation = MessageBox.Show("Apakah anda yakin ingin menghapus data Inbox '" + inx.IdPesan + "'?", "Konfirmasi Hapus", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                            if (confirmation == DialogResult.Yes)
                             {
-                                MessageBox.Show("Penghapusan data berhasil");
-                                FormInbox_Load(sender, e);
-                            }
-                            else
-                            {
-                                MessageBox.Show("Penghapusan data gagal");
+                                if (inx.HapusData())
+                                {
+                                    MessageBox.Show("Penghapusan data berhasil");
+                                    FormInbox_Load(sender, e);
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Penghapusan data gagal");
+                                }
                             }
                         }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
-                    catch (Exception ex)
+                }
+                else
+                {
+                    if (e.ColumnIndex == dgvListInbox.Columns["btnUbahStatusGrid"].Index)
                     {
-                        MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        if (inx.UbahStatus())
+                        {
+                            MessageBox.Show("Ganti Status berhasil");
+                            FormInbox_Load(sender, e);
+
+                        }
+                    }
+                    else if (e.ColumnIndex == dgvListInbox.Columns["btnHapusGrid"].Index)
+                    {
+                        try
+                        {
+                            DialogResult confirmation = MessageBox.Show("Apakah anda yakin ingin menghapus data Inbox '" + inx.IdPesan + "'?", "Konfirmasi Hapus", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                            if (confirmation == DialogResult.Yes)
+                            {
+                                if (inx.HapusData())
+                                {
+                                    MessageBox.Show("Penghapusan data berhasil");
+                                    FormInbox_Load(sender, e);
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Penghapusan data gagal");
+                                }
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
                 }
             }

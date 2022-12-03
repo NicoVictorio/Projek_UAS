@@ -156,6 +156,12 @@
     <Compile Include="FormUpdateJenisTransaksi.Designer.cs">
       <DependentUpon>FormUpdateJenisTransaksi.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormUpdatePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUpdatePassword.Designer.cs">
+      <DependentUpon>FormUpdatePassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormUpdatePengguna.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -220,6 +226,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormUpdateJenisTransaksi.resx">
       <DependentUpon>FormUpdateJenisTransaksi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUpdatePassword.resx">
+      <DependentUpon>FormUpdatePassword.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormUpdatePengguna.resx">
       <DependentUpon>FormUpdatePengguna.cs</DependentUpon>

@@ -163,5 +163,11 @@ namespace DiBa_Lib
             }
         }
 
+        public bool UbahStatus()
+        {
+            string sql = "UPDATE inbox SET status ='Terbuka' where id_pengguna=" + this.Pengguna.Nik + " and id_pesan="+ this.IdPesan+ ";";
+            bool result = Koneksi.executeDML(sql);
+            return result;
+        }
     }
 }
