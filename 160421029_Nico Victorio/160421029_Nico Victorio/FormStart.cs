@@ -11,7 +11,7 @@ using DiBa_Lib;
 
 namespace _160421029_Nico_Victorio
 {
-    public partial class FormStart : Form
+    public partial class FormStart : System.Windows.Forms.Form
     {
         public Pengguna tmpPengguna;
         public Employee tmpEmp;

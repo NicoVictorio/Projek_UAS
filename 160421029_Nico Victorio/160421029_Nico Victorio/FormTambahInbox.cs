@@ -11,7 +11,7 @@ using DiBa_Lib;
 
 namespace _160421029_Nico_Victorio
 {
-    public partial class FormTambahInbox : Form
+    public partial class FormTambahInbox : System.Windows.Forms.Form
     {
         
         public FormTambahInbox()

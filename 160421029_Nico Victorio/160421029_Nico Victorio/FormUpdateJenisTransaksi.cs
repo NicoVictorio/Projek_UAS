@@ -11,7 +11,7 @@ using DiBa_Lib;
 
 namespace _160421029_Nico_Victorio
 {
-    public partial class FormUpdateJenisTransaksi : Form
+    public partial class FormUpdateJenisTransaksi : System.Windows.Forms.Form
     {
         //public string kodeJenisTransaksi;
         public int idJenisTransaksi;

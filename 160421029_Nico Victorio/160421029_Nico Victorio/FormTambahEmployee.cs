@@ -11,7 +11,7 @@ using DiBa_Lib;
 
 namespace _160421029_Nico_Victorio
 {
-    public partial class FormTambahEmployee : Form
+    public partial class FormTambahEmployee : System.Windows.Forms.Form
     {
         FormMasterEmployee formEmployee;
 

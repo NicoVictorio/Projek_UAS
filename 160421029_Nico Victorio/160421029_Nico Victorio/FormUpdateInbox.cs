@@ -11,7 +11,7 @@ using DiBa_Lib;
 
 namespace _160421029_Nico_Victorio
 {
-    public partial class FormUpdateInbox : Form
+    public partial class FormUpdateInbox : System.Windows.Forms.Form
     {
         public int idPesan;
         //FormMasterEmployee formMasterEmployee;

@@ -11,7 +11,7 @@ using DiBa_Lib;
 
 namespace _160421029_Nico_Victorio
 {
-    public partial class FormUpdatePosition : Form
+    public partial class FormUpdatePosition : System.Windows.Forms.Form
     {
         public int idPosition;
         public FormUpdatePosition()

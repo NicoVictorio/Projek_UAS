@@ -11,7 +11,7 @@ using DiBa_Lib;
 
 namespace _160421029_Nico_Victorio
 {
-    public partial class FormMasterPengguna : Form
+    public partial class FormMasterPengguna : System.Windows.Forms.Form
     {
         public List<Pengguna> listPengguna = new List<Pengguna>();
         public List<Pangkat> listPangkat = new List<Pangkat>();

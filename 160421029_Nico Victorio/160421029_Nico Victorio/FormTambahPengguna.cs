@@ -11,7 +11,7 @@ using DiBa_Lib;
 
 namespace _160421029_Nico_Victorio
 {
-    public partial class FormTambahPengguna : Form
+    public partial class FormTambahPengguna : System.Windows.Forms.Form
     {
         //FormStartPengguna formStartPengguna;
         FormMasterPengguna formPengguna;

@@ -11,7 +11,7 @@ using DiBa_Lib;
 
 namespace _160421029_Nico_Victorio
 {
-    public partial class FormMasterJenisTransaksi : Form
+    public partial class FormMasterJenisTransaksi : System.Windows.Forms.Form
     {
         public List<JenisTransaksi> listTransaksi = new List<JenisTransaksi>();
         

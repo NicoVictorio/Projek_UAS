@@ -11,7 +11,7 @@ using DiBa_Lib;
 
 namespace _160421029_Nico_Victorio
 {
-    public partial class FormInbox : Form
+    public partial class FormInbox : System.Windows.Forms.Form
     {
         public List<Inbox> listInbox = new List<Inbox>();
         public Pengguna pengguna;

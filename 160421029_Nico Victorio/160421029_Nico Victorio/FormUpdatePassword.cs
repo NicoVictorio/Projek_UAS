@@ -11,7 +11,7 @@ using DiBa_Lib;
 
 namespace _160421029_Nico_Victorio
 {
-    public partial class FormUpdatePassword : Form
+    public partial class FormUpdatePassword : System.Windows.Forms.Form
     {
         public Pengguna tmpPengguna;
         public FormMenu formMenu;

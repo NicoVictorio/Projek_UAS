@@ -11,7 +11,7 @@ using DiBa_Lib;
 
 namespace _160421029_Nico_Victorio
 {
-    public partial class FormUpdatePengguna : Form
+    public partial class FormUpdatePengguna : System.Windows.Forms.Form
     {
         public string nik;
         FormMasterPengguna formMasterPengguna;

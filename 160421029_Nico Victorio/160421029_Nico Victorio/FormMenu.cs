@@ -11,7 +11,7 @@ using DiBa_Lib;
 
 namespace _160421029_Nico_Victorio
 {
-    public partial class FormMenu : Form
+    public partial class FormMenu : System.Windows.Forms.Form
     {
         public Pengguna tmpPengguna;
         public Employee tmpEmp;
@@ -48,7 +48,7 @@ namespace _160421029_Nico_Victorio
 
         private void positionToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form form = Application.OpenForms["FormPosition"];
+            System.Windows.Forms.Form form = Application.OpenForms["FormPosition"];
             if (form == null)
             {
                 FormMasterPosition formPosition = new FormMasterPosition();
@@ -64,7 +64,7 @@ namespace _160421029_Nico_Victorio
 
         private void penggunaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form form = Application.OpenForms["FormMasterPengguna"];
+            System.Windows.Forms.Form form = Application.OpenForms["FormMasterPengguna"];
             if (form == null)
             {
                 FormMasterPengguna formMasterPengguna = new FormMasterPengguna();
@@ -80,7 +80,7 @@ namespace _160421029_Nico_Victorio
 
         private void employeeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form form = Application.OpenForms["FormMasterEmployee"];
+            System.Windows.Forms.Form form = Application.OpenForms["FormMasterEmployee"];
             if (form == null)
             {
                 FormMasterEmployee formEmployee = new FormMasterEmployee();
@@ -96,7 +96,7 @@ namespace _160421029_Nico_Victorio
 
         private void jenisTransaksiToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form form = Application.OpenForms["FormJenisTransaksi"];
+            System.Windows.Forms.Form form = Application.OpenForms["FormJenisTransaksi"];
             if (form == null)
             {
                 FormMasterJenisTransaksi formJenisTransaksi = new FormMasterJenisTransaksi();
@@ -122,7 +122,7 @@ namespace _160421029_Nico_Victorio
 
         private void inboxToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form form = Application.OpenForms["FormInbox"];
+            System.Windows.Forms.Form form = Application.OpenForms["FormInbox"];
             if (form == null)
             {
                 FormInbox formInbox = new FormInbox();
@@ -174,7 +174,7 @@ namespace _160421029_Nico_Victorio
 
         private void ubahPasswordToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form form = Application.OpenForms["FormUpdatePassword"];
+            System.Windows.Forms.Form form = Application.OpenForms["FormUpdatePassword"];
             if (form == null)
             {
                 FormUpdatePassword formUpdatePassword = new FormUpdatePassword();

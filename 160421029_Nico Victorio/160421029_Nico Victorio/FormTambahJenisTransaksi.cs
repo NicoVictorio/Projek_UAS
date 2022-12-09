@@ -11,7 +11,7 @@ using DiBa_Lib;
 
 namespace _160421029_Nico_Victorio
 {
-    public partial class FormTambahJenisTransaksi : Form
+    public partial class FormTambahJenisTransaksi : System.Windows.Forms.Form
     {
         FormMasterJenisTransaksi formJenisTransaksi;
         public FormTambahJenisTransaksi()

@@ -11,7 +11,7 @@ using DiBa_Lib;
 
 namespace _160421029_Nico_Victorio
 {
-    public partial class FormMasterPosition : Form
+    public partial class FormMasterPosition : System.Windows.Forms.Form
     {
         public List<Position> listPosition = new List<Position>();
         public FormMasterPosition()

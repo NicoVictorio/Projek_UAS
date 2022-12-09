@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using DiBa_Lib;
 namespace _160421029_Nico_Victorio
 {
-    public partial class FormLoginEmployee : Form
+    public partial class FormLoginEmployee : System.Windows.Forms.Form
     {
         public Employee tmpEmp;
 

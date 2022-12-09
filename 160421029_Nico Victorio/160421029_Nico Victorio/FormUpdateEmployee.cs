@@ -11,7 +11,7 @@ using DiBa_Lib;
 
 namespace _160421029_Nico_Victorio
 {
-    public partial class FormUpdateEmployee : Form
+    public partial class FormUpdateEmployee : System.Windows.Forms.Form
     {
         public int idEmployee;
         FormMasterEmployee formMasterEmployee;

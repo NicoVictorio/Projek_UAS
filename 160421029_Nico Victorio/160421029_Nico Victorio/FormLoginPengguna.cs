@@ -11,7 +11,7 @@ using DiBa_Lib;
 
 namespace _160421029_Nico_Victorio
 {
-    public partial class FormLoginPengguna : Form
+    public partial class FormLoginPengguna : System.Windows.Forms.Form
     {
         public Pengguna tmp;
         //FormLogin formLogin;

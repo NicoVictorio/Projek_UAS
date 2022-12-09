@@ -11,7 +11,7 @@ using DiBa_Lib;
 
 namespace _160421029_Nico_Victorio
 {
-    public partial class FormTambahPosition : Form
+    public partial class FormTambahPosition : System.Windows.Forms.Form
     {
         FormMasterPosition formPosition;
         //int dataCount;
