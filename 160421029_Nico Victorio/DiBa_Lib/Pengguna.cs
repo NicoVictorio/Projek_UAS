@@ -10,7 +10,7 @@ namespace DiBa_Lib
     public class Pengguna
     {
         #region data members
-        private string nik;
+        private int nik;
         private string namaDepan;
         private string namaKeluarga;
         private string alamat;
@@ -21,10 +21,11 @@ namespace DiBa_Lib
         private DateTime tglBuat;
         private DateTime tglPerubahan;
         private Pangkat pangkat;
+        private List<AddressBook> listAddressBook;
         #endregion
 
         #region constructors
-        public Pengguna(string nik, string namaDepan, string namaKeluarga, string alamat, string email,
+        public Pengguna(int nik, string namaDepan, string namaKeluarga, string alamat, string email,
             string noTelp, string password, string pin, DateTime tglBuat, DateTime tglPerubahan, Pangkat pangkat)
         {
             this.Nik = nik;
@@ -38,11 +39,12 @@ namespace DiBa_Lib
             this.TglBuat = tglBuat;
             this.TglPerubahan = tglPerubahan;
             this.Pangkat = pangkat;
+            this.ListAddressBook = new List<AddressBook>();
         }
 
         public Pengguna()
         {
-            Nik = "";
+            Nik = 0;
             NamaDepan = "";
             NamaKeluarga = "";
             Alamat = "";
@@ -53,11 +55,12 @@ namespace DiBa_Lib
             TglBuat = DateTime.Now;
             TglPerubahan = DateTime.Now;
             Pangkat = null;
+            this.ListAddressBook = null;
         }
         #endregion
 
         #region properties
-        public string Nik { get => nik; set => nik = value; }
+        public int Nik { get => nik; set => nik = value; }
         public string NamaDepan { get => namaDepan; set => namaDepan = value; }
         public string NamaKeluarga { get => namaKeluarga; set => namaKeluarga = value; }
         public string Alamat { get => alamat; set => alamat = value; }
@@ -68,7 +71,7 @@ namespace DiBa_Lib
         public DateTime TglBuat { get => tglBuat; set => tglBuat = value; }
         public DateTime TglPerubahan { get => tglPerubahan; set => tglPerubahan = value; }
         public Pangkat Pangkat { get => pangkat; set => pangkat = value; }
-
+        public List<AddressBook> ListAddressBook { get => listAddressBook; set => listAddressBook = value; }
         #endregion
 
         #region methods
@@ -99,7 +102,7 @@ namespace DiBa_Lib
             {
                 Pangkat pg = new Pangkat(hasil.GetValue(10).ToString(), hasil.GetValue(11).ToString());
 
-                Pengguna p = new Pengguna(hasil.GetString(0), hasil.GetString(1), hasil.GetString(2),
+                Pengguna p = new Pengguna(hasil.GetInt32(0), hasil.GetString(1), hasil.GetString(2),
                     hasil.GetString(3), hasil.GetString(4), hasil.GetString(5), hasil.GetString(6), hasil.GetString(7),
                     DateTime.Parse(hasil.GetValue(8).ToString()), DateTime.Parse(hasil.GetValue(9).ToString()), pg);
                 listPengguna.Add(p);
@@ -160,7 +163,7 @@ namespace DiBa_Lib
             {
                 Pangkat pg = new Pangkat(hasil.GetValue(10).ToString(), hasil.GetValue(11).ToString());
 
-                p = new Pengguna(hasil.GetString(0), hasil.GetString(1), hasil.GetString(2),
+                p = new Pengguna(int.Parse(hasil.GetString(0)), hasil.GetString(1), hasil.GetString(2),
                     hasil.GetString(3), hasil.GetString(4), hasil.GetString(5), hasil.GetString(6), hasil.GetString(7),
                     DateTime.Parse(hasil.GetValue(8).ToString()), DateTime.Parse(hasil.GetValue(9).ToString()), pg);
                 return p;
@@ -179,7 +182,7 @@ namespace DiBa_Lib
             {
                 Pangkat pg = new Pangkat(hasil.GetValue(10).ToString(), hasil.GetValue(11).ToString());
 
-                tmp = new Pengguna(hasil.GetString(0), hasil.GetString(1), hasil.GetString(2),
+                tmp = new Pengguna(int.Parse(hasil.GetString(0)), hasil.GetString(1), hasil.GetString(2),
                     hasil.GetString(3), hasil.GetString(4), hasil.GetString(5), hasil.GetString(6), hasil.GetString(7),
                     DateTime.Parse(hasil.GetValue(8).ToString()), DateTime.Parse(hasil.GetValue(9).ToString()), pg);
                 return tmp;
@@ -199,7 +202,7 @@ namespace DiBa_Lib
 
         public override string ToString()
         {
-            return Nik;
+            return Nik.ToString();
         }
         #endregion
     }

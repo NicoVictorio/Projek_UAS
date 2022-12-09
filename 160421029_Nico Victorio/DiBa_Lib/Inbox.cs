@@ -9,13 +9,16 @@ namespace DiBa_Lib
 {
     public class Inbox
     {
+        #region data members
         private int idPesan;
         private Pengguna pengguna;
         private string pesan;
         private DateTime tglKirim;
         private string status;
         private DateTime tglPerubahan;
+        #endregion
 
+        #region constructors
         public Inbox()
         {
             this.idPesan = 0;
@@ -35,14 +38,18 @@ namespace DiBa_Lib
             this.status = status;
             this.tglPerubahan = tglPerubahan;
         }
+        #endregion
 
+        #region properties
         public int IdPesan { get => idPesan; set => idPesan = value; }
         public Pengguna Pengguna { get => pengguna; set => pengguna = value; }
         public string Pesan { get => pesan; set => pesan = value; }
         public DateTime TglKirim { get => tglKirim; set => tglKirim = value; }
         public string Status { get => status; set => status = value; }
         public DateTime TglPerubahan { get => tglPerubahan; set => tglPerubahan = value; }
+        #endregion
 
+        #region methods
         public static List<Inbox> BacaData(string kriteria, string nilaiKriteria)
         {
             string sql = "SELECT id_pesan,id_pengguna, pesan, tanggal_kirim, status, tgl_perubahan  " +
@@ -70,7 +77,7 @@ namespace DiBa_Lib
                 inb.TglPerubahan = DateTime.Parse(hasil.GetString(5));
 
                 Pengguna tmpPengguna = new Pengguna();
-                tmpPengguna.Nik = hasil.GetInt32(1).ToString();
+                tmpPengguna.Nik = hasil.GetInt32(1);
                 inb.Pengguna = tmpPengguna;
 
                 listInbox.Add(inb);
@@ -106,24 +113,24 @@ namespace DiBa_Lib
                 inb.TglPerubahan = DateTime.Parse(result.GetString(5));
 
                 Pengguna tmpPengguna = new Pengguna();
-                tmpPengguna.Nik = result.GetInt32(1).ToString();
+                tmpPengguna.Nik = result.GetInt32(1);
                 inb.Pengguna = tmpPengguna;
 
                 listInbox.Add(inb);
             }
-
             return listInbox;
         }
 
         public bool TambahData()
         {
             string sql = "INSERT INTO inbox(id_pengguna, pesan, tanggal_kirim,status, tgl_perubahan)" +
-                " VALUES ("+ int.Parse(this.Pengguna.Nik) + ",'"+ this.Pesan + "', '" +
+                " VALUES ("+ this.Pengguna.Nik + ",'"+ this.Pesan + "', '" +
                 this.TglKirim.ToString("yyyy-MM-dd") + "', '" + this.Status + "', '"+ 
                 this.TglPerubahan.ToString("yyyy-MM-dd")+ "');";
             bool result = Koneksi.executeDML(sql);
             return result;
         }
+
         public bool UbahData()
         {
             string sql = "UPDATE inbox SET pesan ='" + this.Pesan + "' where id_pesan=" + this.IdPesan + ";";
@@ -153,7 +160,7 @@ namespace DiBa_Lib
                 emp.TglPerubahan = DateTime.Parse(hasil.GetString(5));
 
                 Pengguna tmpPengguna = new Pengguna();
-                tmpPengguna.Nik = hasil.GetInt32(1).ToString();
+                tmpPengguna.Nik = hasil.GetInt32(1);
                 emp.Pengguna = tmpPengguna; ;
                 return emp;
             }
@@ -169,5 +176,6 @@ namespace DiBa_Lib
             bool result = Koneksi.executeDML(sql);
             return result;
         }
+        #endregion
     }
 }
