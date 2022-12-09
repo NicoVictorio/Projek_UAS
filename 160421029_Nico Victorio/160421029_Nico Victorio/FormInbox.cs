@@ -34,7 +34,7 @@ namespace _160421029_Nico_Victorio
             }
             else
             {
-                listInbox = Inbox.DaftarPesan(int.Parse(pengguna.Nik), "", "");
+                listInbox = Inbox.DaftarPesan(pengguna.Nik, "", "");
                 btn_Add.Visible = false;
             }
 

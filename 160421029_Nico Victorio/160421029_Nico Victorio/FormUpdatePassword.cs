@@ -57,7 +57,7 @@ namespace _160421029_Nico_Victorio
         private void FormUpdatePassword_Load(object sender, EventArgs e)
         {
             formMenu = (FormMenu)this.MdiParent;
-            tmpPengguna = Pengguna.penggunaByCode(formMenu.tmpPengguna.Nik);
+            tmpPengguna = Pengguna.penggunaByCode(formMenu.tmpPengguna.Nik.ToString());
         }
     }
 }

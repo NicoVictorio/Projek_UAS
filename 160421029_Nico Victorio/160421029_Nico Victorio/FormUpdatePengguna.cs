@@ -28,7 +28,7 @@ namespace _160421029_Nico_Victorio
             tmp = Pengguna.penggunaByCode(nik);
             if (tmp != null)
             {
-                textBoxNIK.Text = tmp.Nik;
+                textBoxNIK.Text = tmp.Nik.ToString();
                 textBoxNamaDepan.Text = tmp.NamaDepan;
                 textBoxNamaBelakang.Text = tmp.NamaKeluarga;
                 textBoxAlamat.Text = tmp.Alamat;
@@ -43,7 +43,7 @@ namespace _160421029_Nico_Victorio
         {
             try
             {
-                Pengguna k = new Pengguna(textBoxNIK.Text,textBoxNamaDepan.Text,
+                Pengguna k = new Pengguna(int.Parse(textBoxNIK.Text),textBoxNamaDepan.Text,
                     textBoxNamaBelakang.Text,textBoxAlamat.Text,textBoxEmail.Text,
                     textBoxNomorTelepon.Text,textBoxPassword.Text,textBoxPin.Text,
                     tmp.TglBuat,DateTime.Now,tmp.Pangkat); 

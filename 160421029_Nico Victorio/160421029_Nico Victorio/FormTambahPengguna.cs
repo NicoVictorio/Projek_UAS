@@ -40,7 +40,7 @@ namespace _160421029_Nico_Victorio
                 Pangkat pkDipilih = (Pangkat)comboBoxPangkat.SelectedItem;
                 //Pangkat pk = new Pangkat();
                 //int dataCount = formPosition.listPosition.Count();
-                Pengguna js = new Pengguna(textBoxNIK.Text, textBoxNamaDepan.Text,
+                Pengguna js = new Pengguna(int.Parse(textBoxNIK.Text), textBoxNamaDepan.Text,
                 textBoxNamaBelakang.Text, textBoxAlamat.Text, textBoxEmail.Text,
                 textBoxNomorTelepon.Text, textBoxPassword.Text, textBoxPin.Text,
                 DateTime.Now, DateTime.Now, pkDipilih);

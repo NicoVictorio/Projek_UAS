@@ -32,7 +32,7 @@ namespace _160421029_Nico_Victorio
             tmp = Inbox.inboxByCode(idPesan);
             if (tmp != null)
             {
-                comboBoxIdPengguna.Text = tmp.Pengguna.Nik;
+                comboBoxIdPengguna.Text = tmp.Pengguna.Nik.ToString();
                 textBoxPesan.Text = tmp.Pesan;
             }
         }

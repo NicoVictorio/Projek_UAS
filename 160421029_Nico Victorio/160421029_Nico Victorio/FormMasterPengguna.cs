@@ -122,7 +122,7 @@ namespace _160421029_Nico_Victorio
         private void dgvListPengguna_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             //int idPosition = int.Parse(dgvListPengguna.CurrentRow.Cells["idposition"].Value.ToString());
-            string nik = dgvListPengguna.CurrentRow.Cells["nik"].Value.ToString();
+            int nik = (int)dgvListPengguna.CurrentRow.Cells["nik"].Value;
             string namaDepan = dgvListPengguna.CurrentRow.Cells["namadepan"].Value.ToString();
             string namaKeluarga = dgvListPengguna.CurrentRow.Cells["namakeluarga"].Value.ToString();
             string alamat = dgvListPengguna.CurrentRow.Cells["alamat"].Value.ToString();
@@ -142,7 +142,7 @@ namespace _160421029_Nico_Victorio
                 {
                     FormUpdatePengguna formUpdate = new FormUpdatePengguna();
                     formUpdate.Owner = this;
-                    formUpdate.nik = pos.Nik;
+                    formUpdate.nik = pos.Nik.ToString();
                     formUpdate.ShowDialog();
                 }
                 else if (e.ColumnIndex == dgvListPengguna.Columns["btnHapusGrid"].Index)
