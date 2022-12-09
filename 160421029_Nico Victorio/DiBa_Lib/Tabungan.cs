@@ -58,10 +58,38 @@ namespace DiBa_Lib
         #endregion
 
         #region methods
+        public static string GenerateNoRek()
+        {
+            string sql = "SELECT RIGHT(no_rekening,2) as NoRek FROM tabungan WHERE " +
+                " Date(tgl_perubahan) = Date(CURRENT_DATE) order by tgl_perubahan DESC limit 1";
+            MySqlDataReader hasil = Koneksi.ambilData(sql);
+            string hasilNoRek = "";
+            if (hasil.Read())
+            {
+                if (hasil.GetString(0) != "")
+                {
+                    int noRek = hasil.GetInt32(0) + 1;
+                    hasilNoRek = DateTime.Now.Year.ToString() +
+                        DateTime.Now.Month.ToString().PadLeft(2, '0') +
+                        DateTime.Now.Day.ToString().PadLeft(2, '0') +
+                        noRek.ToString().PadLeft(2, '0');
+
+                }
+            }
+            else
+            {
+                hasilNoRek = DateTime.Now.Year.ToString() +
+                    DateTime.Now.Month.ToString().PadLeft(2, '0') +
+                    DateTime.Now.Day.ToString().PadLeft(2, '0') +
+                    "01";
+            }
+            return hasilNoRek;
+
+        }
         public static List<Tabungan> BacaData(string kriteria, string nilaiKriteria)
         {
-            string sql = "SELECT no_rekening, id_pengguna, saldo, status, keterangan, " +
-                         "tgl_buat, tgl_perubahan, employee " +
+            string sql = "SELECT no_rekening, id_pengguna, saldo, status, IFNULL(jeterangan,'') as jeterangan, " +
+                         "tgl_buat, tgl_perubahan, IFNULL(verivikator,0) as verivikator " +
                          "FROM tabungan ";
             if (kriteria == "")
             {
@@ -84,8 +112,8 @@ namespace DiBa_Lib
                 tab.Saldo = hasil.GetDouble(2);
                 tab.Status = hasil.GetString(3);
                 tab.Keterangan = hasil.GetString(4);
-                tab.Tgl_buat = DateTime.Parse(hasil.GetString(5));
-                tab.Tgl_perubahan = DateTime.Parse(hasil.GetString(6));
+                tab.Tgl_buat = DateTime.Parse(hasil.GetValue(5).ToString());
+                tab.Tgl_perubahan = DateTime.Parse(hasil.GetValue(6).ToString());
 
                 Pengguna tmpPengguna = new Pengguna();
                 tmpPengguna.Nik = hasil.GetInt32(1);
@@ -103,21 +131,22 @@ namespace DiBa_Lib
         public bool TambahData()
         {
             string sql = "INSERT INTO tabungan (no_rekening, id_pengguna, saldo, status, " +
-                                         "keterangan, tgl_buat, tgl_perubahan, employee) " +
+                                         "jeterangan, tgl_buat, tgl_perubahan) " +
                          " VALUES ('" + this.NoRekening + "', " + this.Pengguna.Nik + ", " +
                          this.Saldo + ", '" + this.Status + "', '" + this.Keterangan + "', '" +
                          this.Tgl_buat.ToString("yyyy-MM-dd") + "', '" + 
-                         this.Tgl_perubahan.ToString("yyyy-MM-dd") + "', " + this.Employee.Id + ");";
+                         this.Tgl_perubahan.ToString("yyyy-MM-dd") + "') ";
             bool result = Koneksi.executeDML(sql);
             return result;
         }
         public bool UbahData()
         {
             string sql = "UPDATE tabungan SET id_pengguna = " + this.Pengguna.Nik + 
-                         ", saldo = " + this.Saldo + ", status = '" + this.Status + 
-                         "', keterangan = '" + this.Keterangan + "', tgl_buat = '" + this.Tgl_buat + 
-                         "', tgl_perubahan = '" + this.Tgl_perubahan + "', verifikator = " + 
-                         this.Employee.Id + " WHERE no_rekening = " + this.NoRekening + ";";
+                         ", saldo = " + this.Saldo + ", status = '" + this.Status +
+                         "', jeterangan = '" + this.Keterangan + "', tgl_buat = '" + this.Tgl_buat.ToString("yyyy-MM-dd") + 
+                         "', tgl_perubahan = '" + this.Tgl_perubahan.ToString("yyyy-MM-dd") + "' " +
+                         //"verifikator = " + this.Employee.Id + 
+                         " WHERE no_rekening = '" + this.NoRekening + "';";
             bool result = Koneksi.executeDML(sql);
             return result;
         }
@@ -129,30 +158,36 @@ namespace DiBa_Lib
             return result;
         }
 
-        //public static Inbox inboxByCode(int id)
-        //{
-        //    string sql = "SELECT id_pesan,id_pengguna, pesan, tanggal_kirim, status, tgl_perubahan  " +
-        //                 "FROM inbox WHERE id_pesan=" + id;
-        //    MySqlDataReader hasil = Koneksi.ambilData(sql);
-        //    if (hasil.Read() == true)
-        //    {
-        //        Inbox emp = new Inbox();
-        //        emp.IdPesan = hasil.GetInt32(0);
-        //        emp.Pesan = hasil.GetString(2);
-        //        emp.TglKirim = DateTime.Parse(hasil.GetString(3));
-        //        emp.Status = hasil.GetString(4);
-        //        emp.TglPerubahan = DateTime.Parse(hasil.GetString(5));
+        public static Tabungan tabunganByCode(string noRek)
+        {
+            string sql = "SELECT no_rekening, id_pengguna, saldo, status, IFNULL(jeterangan,'') as jeterangan, " +
+                         "tgl_buat, tgl_perubahan, IFNULL(verivikator,0) as verivikator " +
+                         "FROM tabungan WHERE no_rekening='" + noRek+"'";
+            MySqlDataReader hasil = Koneksi.ambilData(sql);
+            if (hasil.Read() == true)
+            {
+                Tabungan tab = new Tabungan();
+                tab.NoRekening = hasil.GetString(0);
+                tab.Saldo = hasil.GetDouble(2);
+                tab.Status = hasil.GetString(3);
+                tab.Keterangan = hasil.GetString(4);
+                tab.Tgl_buat = DateTime.Parse(hasil.GetString(5));
+                tab.Tgl_perubahan = DateTime.Parse(hasil.GetString(6));
 
-        //        Pengguna tmpPengguna = new Pengguna();
-        //        tmpPengguna.Nik = hasil.GetInt32(1);
-        //        emp.Pengguna = tmpPengguna; ;
-        //        return emp;
-        //    }
-        //    else
-        //    {
-        //        return null;
-        //    }
-        //}
+                Pengguna tmpPengguna = new Pengguna();
+                tmpPengguna.Nik = hasil.GetInt32(1);
+                tab.Pengguna = tmpPengguna;
+
+                Employee tmpEmployee = new Employee();
+                tmpEmployee.Id = hasil.GetInt32(7);
+                tab.Pengguna = tmpPengguna;
+                return tab;
+            }
+            else
+            {
+                return null;
+            }
+        }
 
         //public bool UbahStatus()
         //{

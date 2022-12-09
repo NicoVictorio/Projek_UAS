@@ -44,8 +44,20 @@ namespace _160421029_Nico_Victorio
                 textBoxNamaBelakang.Text, textBoxAlamat.Text, textBoxEmail.Text,
                 textBoxNomorTelepon.Text, textBoxPassword.Text, textBoxPin.Text,
                 DateTime.Now, DateTime.Now, pkDipilih);
+
+                //buat employee kosongan
+                //Employee emp = new Employee();
+
+                //generate no rekening
+                //string noRek = Tabungan.GenerateNoRek();
+
+                //panggil tabungan.TambahData()
+                //Tabungan tab = new Tabungan(noRek, js, 0, "", "", DateTime.Now, DateTime.Now, null);
+
+
                 if (js.TambahData())
                 {
+
                     MessageBox.Show("Data Pengguna telah tersimpan", "Info");
                     FormMasterPengguna frm = (FormMasterPengguna)this.Owner;
                     frm.FormMasterPengguna_Load(this, e);

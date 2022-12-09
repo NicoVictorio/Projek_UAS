@@ -120,7 +120,6 @@ namespace _160421029_Nico_Victorio
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormStart";
             this.Text = "FormStart";
-            this.Load += new System.EventHandler(this.FormStart_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

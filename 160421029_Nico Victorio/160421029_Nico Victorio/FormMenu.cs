@@ -110,10 +110,6 @@ namespace _160421029_Nico_Victorio
             }
         }
 
-        private void tabunganToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void signOutToolStripMenuItem1_Click(object sender, EventArgs e)
         {
@@ -181,6 +177,22 @@ namespace _160421029_Nico_Victorio
                 formUpdatePassword.MdiParent = this;
                 formUpdatePassword.tmpPengguna = tmpPengguna;
                 formUpdatePassword.Show();
+            }
+            else
+            {
+                form.Show();
+                form.BringToFront();
+            }
+        }
+
+        private void laporanTabunganToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.Form form = Application.OpenForms["FormDaftarTabungan"];
+            if (form == null)
+            {
+                FormDaftarTabungan formDaftarTabungan = new FormDaftarTabungan();
+                formDaftarTabungan.MdiParent = this;
+                formDaftarTabungan.Show();
             }
             else
             {

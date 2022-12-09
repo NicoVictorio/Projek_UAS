@@ -107,7 +107,7 @@ namespace _160421029_Nico_Victorio
             this.tabunganToolStripMenuItem1.Name = "tabunganToolStripMenuItem1";
             this.tabunganToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.tabunganToolStripMenuItem1.Text = "Tabungan";
-            this.tabunganToolStripMenuItem1.Click += new System.EventHandler(this.tabunganToolStripMenuItem1_Click);
+            
             // 
             // laporanToolStripMenuItem
             // 
@@ -130,6 +130,7 @@ namespace _160421029_Nico_Victorio
             this.laporanTabunganToolStripMenuItem.Name = "laporanTabunganToolStripMenuItem";
             this.laporanTabunganToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.laporanTabunganToolStripMenuItem.Text = "Tabungan";
+            this.laporanTabunganToolStripMenuItem.Click += new System.EventHandler(this.laporanTabunganToolStripMenuItem_Click);
             // 
             // laporanTransaksiToolStripMenuItem
             // 
@@ -150,14 +151,14 @@ namespace _160421029_Nico_Victorio
             // inboxToolStripMenuItem
             // 
             this.inboxToolStripMenuItem.Name = "inboxToolStripMenuItem";
-            this.inboxToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.inboxToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.inboxToolStripMenuItem.Text = "Inbox";
             this.inboxToolStripMenuItem.Click += new System.EventHandler(this.inboxToolStripMenuItem_Click);
             // 
             // signOutToolStripMenuItem1
             // 
             this.signOutToolStripMenuItem1.Name = "signOutToolStripMenuItem1";
-            this.signOutToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.signOutToolStripMenuItem1.Size = new System.Drawing.Size(120, 22);
             this.signOutToolStripMenuItem1.Text = "Sign Out";
             this.signOutToolStripMenuItem1.Click += new System.EventHandler(this.signOutToolStripMenuItem1_Click);
             // 
@@ -166,13 +167,13 @@ namespace _160421029_Nico_Victorio
             this.settingToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ubahPasswordToolStripMenuItem});
             this.settingToolStripMenuItem.Name = "settingToolStripMenuItem";
-            this.settingToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.settingToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.settingToolStripMenuItem.Text = "Setting";
             // 
             // ubahPasswordToolStripMenuItem
             // 
             this.ubahPasswordToolStripMenuItem.Name = "ubahPasswordToolStripMenuItem";
-            this.ubahPasswordToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ubahPasswordToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
             this.ubahPasswordToolStripMenuItem.Text = "Ubah Password";
             this.ubahPasswordToolStripMenuItem.Click += new System.EventHandler(this.ubahPasswordToolStripMenuItem_Click);
             // 

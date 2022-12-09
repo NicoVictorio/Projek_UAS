@@ -35,11 +35,6 @@ namespace _160421029_Nico_Victorio
             }
         }
 
-        private void FormStart_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void buttonEmployee_Click(object sender, EventArgs e)
         {
             FormLoginEmployee form = new FormLoginEmployee();
