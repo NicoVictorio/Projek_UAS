@@ -113,49 +113,53 @@ namespace DiBa_Lib
         }
         public bool UbahData()
         {
-            string sql = "UPDATE inbox SET pesan ='" + this.Pesan + "' where id_pesan=" + this.IdPesan + ";";
+            string sql = "UPDATE tabungan SET id_pengguna = " + this.Pengguna.Nik + 
+                         ", saldo = " + this.Saldo + ", status = '" + this.Status + 
+                         "', keterangan = '" + this.Keterangan + "', tgl_buat = '" + this.Tgl_buat + 
+                         "', tgl_perubahan = '" + this.Tgl_perubahan + "', verifikator = " + 
+                         this.Employee.Id + " WHERE no_rekening = " + this.NoRekening + ";";
             bool result = Koneksi.executeDML(sql);
             return result;
         }
 
         public bool HapusData()
         {
-            string sql = "DELETE from inbox where id_pesan = " + this.idPesan + ";";
+            string sql = "DELETE from tabungan where no_rekening = " + this.NoRekening + ";";
             bool result = Koneksi.executeDML(sql);
             return result;
         }
 
-        public static Inbox inboxByCode(int id)
-        {
-            string sql = "SELECT id_pesan,id_pengguna, pesan, tanggal_kirim, status, tgl_perubahan  " +
-                         "FROM inbox WHERE id_pesan=" + id;
-            MySqlDataReader hasil = Koneksi.ambilData(sql);
-            if (hasil.Read() == true)
-            {
-                Inbox emp = new Inbox();
-                emp.IdPesan = hasil.GetInt32(0);
-                emp.Pesan = hasil.GetString(2);
-                emp.TglKirim = DateTime.Parse(hasil.GetString(3));
-                emp.Status = hasil.GetString(4);
-                emp.TglPerubahan = DateTime.Parse(hasil.GetString(5));
+        //public static Inbox inboxByCode(int id)
+        //{
+        //    string sql = "SELECT id_pesan,id_pengguna, pesan, tanggal_kirim, status, tgl_perubahan  " +
+        //                 "FROM inbox WHERE id_pesan=" + id;
+        //    MySqlDataReader hasil = Koneksi.ambilData(sql);
+        //    if (hasil.Read() == true)
+        //    {
+        //        Inbox emp = new Inbox();
+        //        emp.IdPesan = hasil.GetInt32(0);
+        //        emp.Pesan = hasil.GetString(2);
+        //        emp.TglKirim = DateTime.Parse(hasil.GetString(3));
+        //        emp.Status = hasil.GetString(4);
+        //        emp.TglPerubahan = DateTime.Parse(hasil.GetString(5));
 
-                Pengguna tmpPengguna = new Pengguna();
-                tmpPengguna.Nik = hasil.GetInt32(1);
-                emp.Pengguna = tmpPengguna; ;
-                return emp;
-            }
-            else
-            {
-                return null;
-            }
-        }
+        //        Pengguna tmpPengguna = new Pengguna();
+        //        tmpPengguna.Nik = hasil.GetInt32(1);
+        //        emp.Pengguna = tmpPengguna; ;
+        //        return emp;
+        //    }
+        //    else
+        //    {
+        //        return null;
+        //    }
+        //}
 
-        public bool UbahStatus()
-        {
-            string sql = "UPDATE inbox SET status ='Terbuka' where id_pengguna=" + this.Pengguna.Nik + " and id_pesan=" + this.IdPesan + ";";
-            bool result = Koneksi.executeDML(sql);
-            return result;
-        }
+        //public bool UbahStatus()
+        //{
+        //    string sql = "UPDATE inbox SET status ='Terbuka' where id_pengguna=" + this.Pengguna.Nik + " and id_pesan=" + this.IdPesan + ";";
+        //    bool result = Koneksi.executeDML(sql);
+        //    return result;
+        //}
         #endregion
     }
 }
