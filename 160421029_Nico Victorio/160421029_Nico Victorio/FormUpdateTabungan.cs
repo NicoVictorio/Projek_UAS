@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DiBa_Lib;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,16 +8,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using DiBa_Lib;
+using System.Windows.Forms.VisualStyles;
 
 namespace _160421029_Nico_Victorio
 {
-    
     public partial class FormUpdateTabungan : Form
     {
         public string tmpnoRek;
         FormDaftarTabungan formDaftarTabungan;
         Tabungan tmp;
+
         public FormUpdateTabungan()
         {
             InitializeComponent();
@@ -36,7 +37,7 @@ namespace _160421029_Nico_Victorio
 
             comboBoxVerifikator.DataSource = listEmployee;
             comboBoxVerifikator.DisplayMember = "nama_depan";
-            
+
             tmp = Tabungan.tabunganByCode(tmpnoRek);
             if (tmp != null)
             {
@@ -49,11 +50,11 @@ namespace _160421029_Nico_Victorio
             }
         }
 
-        private void buttonUpdate_Click(object sender, EventArgs e)
+        private void btn_update_Click(object sender, EventArgs e)
         {
             try
             {
-                Pengguna pgDipilih = (Pengguna) comboBoxPengguna.SelectedItem;
+                Pengguna pgDipilih = (Pengguna)comboBoxPengguna.SelectedItem;
                 Employee emDipilih = (Employee)comboBoxVerifikator.SelectedItem;
 
                 Tabungan k = new Tabungan(textBoxNoRek.Text, pgDipilih, double.Parse(textBoxSaldo.Text),
@@ -75,6 +76,11 @@ namespace _160421029_Nico_Victorio
             {
                 MessageBox.Show(x.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void buttonExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

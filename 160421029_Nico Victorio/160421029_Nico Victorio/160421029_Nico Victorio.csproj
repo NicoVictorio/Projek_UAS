@@ -290,9 +290,6 @@
     <EmbeddedResource Include="FormTambahPosition.resx">
       <DependentUpon>FormTambahPosition.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormTambahTabungan.resx">
-      <DependentUpon>FormTambahTabungan.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormTransaksi.resx">
       <DependentUpon>FormTransaksi.cs</DependentUpon>
     </EmbeddedResource>
@@ -313,9 +310,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormUpdatePosition.resx">
       <DependentUpon>FormUpdatePosition.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormUpdateTabungan.resx">
-      <DependentUpon>FormUpdateTabungan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
