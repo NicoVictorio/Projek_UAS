@@ -290,6 +290,9 @@
     <EmbeddedResource Include="FormTambahPosition.resx">
       <DependentUpon>FormTambahPosition.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormTambahTabungan.resx">
+      <DependentUpon>FormTambahTabungan.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormTransaksi.resx">
       <DependentUpon>FormTransaksi.cs</DependentUpon>
     </EmbeddedResource>

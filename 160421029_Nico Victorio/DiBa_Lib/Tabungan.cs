@@ -88,8 +88,8 @@ namespace DiBa_Lib
         }
         public static List<Tabungan> BacaData(string kriteria, string nilaiKriteria)
         {
-            string sql = "SELECT no_rekening, id_pengguna, saldo, status, IFNULL(jeterangan,'') as jeterangan, " +
-                         "tgl_buat, tgl_perubahan, IFNULL(verivikator,0) as verivikator " +
+            string sql = "SELECT no_rekening, id_pengguna, saldo, status, IFNULL(keterangan,'') as jeterangan, " +
+                         "tgl_buat, tgl_perubahan, IFNULL(verifikator,0) as verifikator " +
                          "FROM tabungan ";
             if (kriteria == "")
             {
@@ -131,7 +131,7 @@ namespace DiBa_Lib
         public bool TambahData()
         {
             string sql = "INSERT INTO tabungan (no_rekening, id_pengguna, saldo, status, " +
-                                         "jeterangan, tgl_buat, tgl_perubahan) " +
+                                         "keterangan, tgl_buat, tgl_perubahan) " +
                          " VALUES ('" + this.NoRekening + "', " + this.Pengguna.Nik + ", " +
                          this.Saldo + ", '" + this.Status + "', '" + this.Keterangan + "', '" +
                          this.Tgl_buat.ToString("yyyy-MM-dd") + "', '" + 
@@ -143,7 +143,7 @@ namespace DiBa_Lib
         {
             string sql = "UPDATE tabungan SET id_pengguna = " + this.Pengguna.Nik + 
                          ", saldo = " + this.Saldo + ", status = '" + this.Status +
-                         "', jeterangan = '" + this.Keterangan + "', tgl_buat = '" + this.Tgl_buat.ToString("yyyy-MM-dd") + 
+                         "', keterangan = '" + this.Keterangan + "', tgl_buat = '" + this.Tgl_buat.ToString("yyyy-MM-dd") + 
                          "', tgl_perubahan = '" + this.Tgl_perubahan.ToString("yyyy-MM-dd") + "' " +
                          //"verifikator = " + this.Employee.Id + 
                          " WHERE no_rekening = '" + this.NoRekening + "';";
@@ -161,7 +161,7 @@ namespace DiBa_Lib
         public static Tabungan tabunganByCode(string noRek)
         {
             string sql = "SELECT no_rekening, id_pengguna, saldo, status, IFNULL(jeterangan,'') as jeterangan, " +
-                         "tgl_buat, tgl_perubahan, IFNULL(verivikator,0) as verivikator " +
+                         "tgl_buat, tgl_perubahan, IFNULL(verifikator,0) as verifikator " +
                          "FROM tabungan WHERE no_rekening='" + noRek+"'";
             MySqlDataReader hasil = Koneksi.ambilData(sql);
             if (hasil.Read() == true)
