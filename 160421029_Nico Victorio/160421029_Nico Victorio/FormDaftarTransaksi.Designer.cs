@@ -34,6 +34,7 @@
             this.tb_Kriteria = new System.Windows.Forms.TextBox();
             this.cb_Kriteria = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.btn_Add = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListEmployee)).BeginInit();
             this.SuspendLayout();
             // 
@@ -101,15 +102,26 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(41, 40);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(112, 16);
+            this.label1.Size = new System.Drawing.Size(121, 17);
             this.label1.TabIndex = 59;
             this.label1.Text = "Kriteria Pencarian";
+            // 
+            // btn_Add
+            // 
+            this.btn_Add.Location = new System.Drawing.Point(44, 387);
+            this.btn_Add.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_Add.Name = "btn_Add";
+            this.btn_Add.Size = new System.Drawing.Size(95, 39);
+            this.btn_Add.TabIndex = 65;
+            this.btn_Add.Text = "Add";
+            this.btn_Add.UseVisualStyleBackColor = true;
             // 
             // FormDaftarTransaksi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btn_Add);
             this.Controls.Add(this.btn_Exit);
             this.Controls.Add(this.dgvListEmployee);
             this.Controls.Add(this.btn_Search);
@@ -132,5 +144,6 @@
         private System.Windows.Forms.TextBox tb_Kriteria;
         private System.Windows.Forms.ComboBox cb_Kriteria;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btn_Add;
     }
 }

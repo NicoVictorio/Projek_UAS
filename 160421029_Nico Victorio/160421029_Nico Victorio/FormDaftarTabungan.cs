@@ -19,11 +19,6 @@ namespace _160421029_Nico_Victorio
             InitializeComponent();
         }
 
-        private void btn_Exit_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         public void FormDaftarTabungan_Load(object sender, EventArgs e)
         {
             listTabungan = Tabungan.BacaData("", "");
@@ -163,6 +158,11 @@ namespace _160421029_Nico_Victorio
                     }
                 }
             }
+        }
+
+        private void btn_Exit_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

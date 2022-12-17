@@ -75,11 +75,56 @@ namespace DiBa_Lib
 
         public bool TambahData()
         {
-            string sql = "INSERT INTO addressBook(no_rekening,id_pengguna, keterangan)" +
+            string sql = "INSERT INTO addressBook(no_rekening, id_pengguna, keterangan)" +
                 " VALUES ('" + this.Pengguna.Nik + "','" + this.tabungan.NoRekening + "', '" +
                 this.keterangan + "')";
             bool result = Koneksi.executeDML(sql);
             return result;
+        }
+
+        public bool UbahData()
+        {
+            string sql = "UPDATE addressbook SET id_pengguna = " + this.Pengguna.Nik +
+                         ", keterangan = '" + this.Keterangan +
+                         "'\nWHERE no_rekening = '" + this.Tabungan.NoRekening + "';";
+            bool result = Koneksi.executeDML(sql);
+            return result;
+        }
+
+        public bool HapusData()
+        {
+            string sql = "DELETE from addressbook where no_rekening = '" + this.Tabungan.NoRekening + "';";
+            bool result = Koneksi.executeDML(sql);
+            return result;
+        }
+
+        public static AddressBook addressBookByCode(Pengguna pengguna, Tabungan tabungan)
+        {
+            string sql = "SELECT ab.keterangan, p.nik, t.no_rekening " +
+                         "\nFROM addressbook ab " +
+                         "\nINNER JOIN Pengguna p on p.nik = ab.id_pengguna " +
+                         "\nINNER JOIN Tabungan t on t.no_rekening = ab.no_rekening " +
+                         "\nWHERE ab.id_pengguna = " + pengguna.Nik + 
+                         " AND ab.no_rekening = '" + tabungan.NoRekening + "';";
+            MySqlDataReader hasil = Koneksi.ambilData(sql);
+            if (hasil.Read() == true)
+            {
+                AddressBook address = new AddressBook();
+                address.Keterangan = hasil.GetString("keterangan");
+
+                Pengguna peng = new Pengguna();
+                peng.Nik = hasil.GetInt32("id_pengguna");
+                address.pengguna = peng;
+
+                Tabungan tab = new Tabungan();
+                tab.NoRekening = hasil.GetString("norekening");
+                address.tabungan = tab;
+                return address;
+            }
+            else
+            {
+                return null;
+            }
         }
         #endregion
     }

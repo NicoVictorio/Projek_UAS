@@ -114,6 +114,18 @@
     <Compile Include="FormTabungan.Designer.cs">
       <DependentUpon>FormTabungan.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormTambahAddressBook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTambahAddressBook.Designer.cs">
+      <DependentUpon>FormTambahAddressBook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTambahDeposito.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTambahDeposito.Designer.cs">
+      <DependentUpon>FormTambahDeposito.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormTambahInbox.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -185,6 +197,18 @@
     </Compile>
     <Compile Include="FormTransaksi.Designer.cs">
       <DependentUpon>FormTransaksi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormUpdateAddressBook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUpdateAddressBook.Designer.cs">
+      <DependentUpon>FormUpdateAddressBook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormUpdateDeposito.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUpdateDeposito.Designer.cs">
+      <DependentUpon>FormUpdateDeposito.cs</DependentUpon>
     </Compile>
     <Compile Include="FormUpdateInbox.cs">
       <SubType>Form</SubType>
@@ -295,6 +319,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormTransaksi.resx">
       <DependentUpon>FormTransaksi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUpdateAddressBook.resx">
+      <DependentUpon>FormUpdateAddressBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUpdateDeposito.resx">
+      <DependentUpon>FormUpdateDeposito.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormUpdateEmployee.resx">
       <DependentUpon>FormUpdateEmployee.cs</DependentUpon>

@@ -164,6 +164,7 @@ namespace DiBa_Lib
                 return null;
             }
         }
+
         public static Employee Login(string username, string password)
         {
             string sql = "";
@@ -196,7 +197,6 @@ namespace DiBa_Lib
             }
             return null;
         }
-
         #endregion
     }
 }

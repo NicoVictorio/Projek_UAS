@@ -29,12 +29,13 @@
         private void InitializeComponent()
         {
             this.btn_Exit = new System.Windows.Forms.Button();
-            this.dgvListEmployee = new System.Windows.Forms.DataGridView();
+            this.dgvListDeposito = new System.Windows.Forms.DataGridView();
             this.btn_Search = new System.Windows.Forms.Button();
             this.tb_Kriteria = new System.Windows.Forms.TextBox();
             this.cb_Kriteria = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvListEmployee)).BeginInit();
+            this.btn_Add = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListDeposito)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_Exit
@@ -46,17 +47,19 @@
             this.btn_Exit.TabIndex = 64;
             this.btn_Exit.Text = "Exit";
             this.btn_Exit.UseVisualStyleBackColor = true;
+            this.btn_Exit.Click += new System.EventHandler(this.btn_Exit_Click);
             // 
-            // dgvListEmployee
+            // dgvListDeposito
             // 
-            this.dgvListEmployee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvListEmployee.Location = new System.Drawing.Point(44, 88);
-            this.dgvListEmployee.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dgvListEmployee.Name = "dgvListEmployee";
-            this.dgvListEmployee.RowHeadersWidth = 51;
-            this.dgvListEmployee.RowTemplate.Height = 24;
-            this.dgvListEmployee.Size = new System.Drawing.Size(715, 265);
-            this.dgvListEmployee.TabIndex = 63;
+            this.dgvListDeposito.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvListDeposito.Location = new System.Drawing.Point(44, 88);
+            this.dgvListDeposito.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgvListDeposito.Name = "dgvListDeposito";
+            this.dgvListDeposito.RowHeadersWidth = 51;
+            this.dgvListDeposito.RowTemplate.Height = 24;
+            this.dgvListDeposito.Size = new System.Drawing.Size(715, 265);
+            this.dgvListDeposito.TabIndex = 63;
+            this.dgvListDeposito.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListDeposito_CellContentClick);
             // 
             // btn_Search
             // 
@@ -75,21 +78,23 @@
             this.tb_Kriteria.Name = "tb_Kriteria";
             this.tb_Kriteria.Size = new System.Drawing.Size(245, 22);
             this.tb_Kriteria.TabIndex = 61;
+            this.tb_Kriteria.TextChanged += new System.EventHandler(this.tb_Kriteria_TextChanged);
             // 
             // cb_Kriteria
             // 
             this.cb_Kriteria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_Kriteria.FormattingEnabled = true;
             this.cb_Kriteria.Items.AddRange(new object[] {
-            "ID",
-            "Nama Depan",
-            "Nama Belakang",
-            "Position",
-            "NIK",
-            "Email",
-            "Password",
+            "ID Deposito",
+            "Nomor Rekening",
+            "Jatuh Tempo",
+            "Nominal",
+            "Bunga",
+            "Status",
             "Tanggal Buat",
-            "Tanggal Perubahan"});
+            "Tanggal Perubahan",
+            "Verifikator Buka",
+            "Verifikator Cair"});
             this.cb_Kriteria.Location = new System.Drawing.Point(180, 40);
             this.cb_Kriteria.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cb_Kriteria.Name = "cb_Kriteria";
@@ -101,24 +106,36 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(41, 40);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(112, 16);
+            this.label1.Size = new System.Drawing.Size(121, 17);
             this.label1.TabIndex = 59;
             this.label1.Text = "Kriteria Pencarian";
+            // 
+            // btn_Add
+            // 
+            this.btn_Add.Location = new System.Drawing.Point(44, 387);
+            this.btn_Add.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_Add.Name = "btn_Add";
+            this.btn_Add.Size = new System.Drawing.Size(95, 39);
+            this.btn_Add.TabIndex = 65;
+            this.btn_Add.Text = "Add";
+            this.btn_Add.UseVisualStyleBackColor = true;
             // 
             // FormDaftarDeposito
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btn_Add);
             this.Controls.Add(this.btn_Exit);
-            this.Controls.Add(this.dgvListEmployee);
+            this.Controls.Add(this.dgvListDeposito);
             this.Controls.Add(this.btn_Search);
             this.Controls.Add(this.tb_Kriteria);
             this.Controls.Add(this.cb_Kriteria);
             this.Controls.Add(this.label1);
             this.Name = "FormDaftarDeposito";
             this.Text = "Daftar Deposito";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvListEmployee)).EndInit();
+            this.Load += new System.EventHandler(this.FormDaftarDeposito_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListDeposito)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -127,10 +144,11 @@
         #endregion
 
         private System.Windows.Forms.Button btn_Exit;
-        private System.Windows.Forms.DataGridView dgvListEmployee;
+        private System.Windows.Forms.DataGridView dgvListDeposito;
         private System.Windows.Forms.Button btn_Search;
         private System.Windows.Forms.TextBox tb_Kriteria;
         private System.Windows.Forms.ComboBox cb_Kriteria;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btn_Add;
     }
 }
