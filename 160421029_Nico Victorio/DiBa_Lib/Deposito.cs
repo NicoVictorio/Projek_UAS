@@ -73,6 +73,7 @@ namespace DiBa_Lib
                          "\nINNER JOIN employee emp1 on emp1.id = dep.verivikator_buka " +
                          "\nINNER JOIN employee emp2 on emp2.id = dep.verivikator_cair " +
                          "\nINNER JOIN tabungan tab on tab.no_rekening = dep.no_rekening ";
+
             //string sql = "SELECT id_deposito, no_rekening, jatuh_tempo, nominal, bunga, status, tgl_buat, tgl_perubahan" +
             //    ""
 
@@ -112,7 +113,6 @@ namespace DiBa_Lib
                 Employee emp2 = new Employee();
                 emp2.Nik = hasil.GetString(9);
                 dep.VerivikatorCair = emp2;
-
                 listDeposito.Add(dep);
             }
             return listDeposito;

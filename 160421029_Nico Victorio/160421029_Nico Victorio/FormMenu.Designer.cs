@@ -57,8 +57,8 @@ namespace _160421029_Nico_Victorio
             this.akunToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(600, 24);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(800, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -71,41 +71,41 @@ namespace _160421029_Nico_Victorio
             this.jenisTransaksiToolStripMenuItem,
             this.tabunganToolStripMenuItem1});
             this.masterToolStripMenuItem.Name = "masterToolStripMenuItem";
-            this.masterToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
+            this.masterToolStripMenuItem.Size = new System.Drawing.Size(68, 24);
             this.masterToolStripMenuItem.Text = "Master";
             // 
             // penggunaToolStripMenuItem
             // 
             this.penggunaToolStripMenuItem.Name = "penggunaToolStripMenuItem";
-            this.penggunaToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.penggunaToolStripMenuItem.Size = new System.Drawing.Size(186, 26);
             this.penggunaToolStripMenuItem.Text = "Pengguna";
             this.penggunaToolStripMenuItem.Click += new System.EventHandler(this.penggunaToolStripMenuItem_Click);
             // 
             // employeeToolStripMenuItem
             // 
             this.employeeToolStripMenuItem.Name = "employeeToolStripMenuItem";
-            this.employeeToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.employeeToolStripMenuItem.Size = new System.Drawing.Size(186, 26);
             this.employeeToolStripMenuItem.Text = "Employee";
             this.employeeToolStripMenuItem.Click += new System.EventHandler(this.employeeToolStripMenuItem_Click);
             // 
             // positionToolStripMenuItem
             // 
             this.positionToolStripMenuItem.Name = "positionToolStripMenuItem";
-            this.positionToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.positionToolStripMenuItem.Size = new System.Drawing.Size(186, 26);
             this.positionToolStripMenuItem.Text = "Position";
             this.positionToolStripMenuItem.Click += new System.EventHandler(this.positionToolStripMenuItem_Click);
             // 
             // jenisTransaksiToolStripMenuItem
             // 
             this.jenisTransaksiToolStripMenuItem.Name = "jenisTransaksiToolStripMenuItem";
-            this.jenisTransaksiToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.jenisTransaksiToolStripMenuItem.Size = new System.Drawing.Size(186, 26);
             this.jenisTransaksiToolStripMenuItem.Text = "Jenis Transaksi";
             this.jenisTransaksiToolStripMenuItem.Click += new System.EventHandler(this.jenisTransaksiToolStripMenuItem_Click);
             // 
             // tabunganToolStripMenuItem1
             // 
             this.tabunganToolStripMenuItem1.Name = "tabunganToolStripMenuItem1";
-            this.tabunganToolStripMenuItem1.Size = new System.Drawing.Size(149, 22);
+            this.tabunganToolStripMenuItem1.Size = new System.Drawing.Size(186, 26);
             this.tabunganToolStripMenuItem1.Text = "Tabungan";
             // 
             // laporanToolStripMenuItem
@@ -115,28 +115,29 @@ namespace _160421029_Nico_Victorio
             this.laporanTabunganToolStripMenuItem,
             this.laporanTransaksiToolStripMenuItem});
             this.laporanToolStripMenuItem.Name = "laporanToolStripMenuItem";
-            this.laporanToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
+            this.laporanToolStripMenuItem.Size = new System.Drawing.Size(77, 24);
             this.laporanToolStripMenuItem.Text = "Laporan";
             // 
             // laporanDepositoToolStripMenuItem
             // 
             this.laporanDepositoToolStripMenuItem.Name = "laporanDepositoToolStripMenuItem";
-            this.laporanDepositoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.laporanDepositoToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.laporanDepositoToolStripMenuItem.Text = "Deposito";
             this.laporanDepositoToolStripMenuItem.Click += new System.EventHandler(this.laporanDepositoToolStripMenuItem_Click);
             // 
             // laporanTabunganToolStripMenuItem
             // 
             this.laporanTabunganToolStripMenuItem.Name = "laporanTabunganToolStripMenuItem";
-            this.laporanTabunganToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.laporanTabunganToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.laporanTabunganToolStripMenuItem.Text = "Tabungan";
             this.laporanTabunganToolStripMenuItem.Click += new System.EventHandler(this.laporanTabunganToolStripMenuItem_Click);
             // 
             // laporanTransaksiToolStripMenuItem
             // 
             this.laporanTransaksiToolStripMenuItem.Name = "laporanTransaksiToolStripMenuItem";
-            this.laporanTransaksiToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.laporanTransaksiToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.laporanTransaksiToolStripMenuItem.Text = "Transaksi";
+            this.laporanTransaksiToolStripMenuItem.Click += new System.EventHandler(this.laporanTransaksiToolStripMenuItem_Click);
             // 
             // akunToolStripMenuItem
             // 
@@ -145,20 +146,20 @@ namespace _160421029_Nico_Victorio
             this.signOutToolStripMenuItem1,
             this.settingToolStripMenuItem});
             this.akunToolStripMenuItem.Name = "akunToolStripMenuItem";
-            this.akunToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
+            this.akunToolStripMenuItem.Size = new System.Drawing.Size(56, 24);
             this.akunToolStripMenuItem.Text = "Akun";
             // 
             // inboxToolStripMenuItem
             // 
             this.inboxToolStripMenuItem.Name = "inboxToolStripMenuItem";
-            this.inboxToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
+            this.inboxToolStripMenuItem.Size = new System.Drawing.Size(149, 26);
             this.inboxToolStripMenuItem.Text = "Inbox";
             this.inboxToolStripMenuItem.Click += new System.EventHandler(this.inboxToolStripMenuItem_Click);
             // 
             // signOutToolStripMenuItem1
             // 
             this.signOutToolStripMenuItem1.Name = "signOutToolStripMenuItem1";
-            this.signOutToolStripMenuItem1.Size = new System.Drawing.Size(120, 22);
+            this.signOutToolStripMenuItem1.Size = new System.Drawing.Size(149, 26);
             this.signOutToolStripMenuItem1.Text = "Sign Out";
             this.signOutToolStripMenuItem1.Click += new System.EventHandler(this.signOutToolStripMenuItem1_Click);
             // 
@@ -167,24 +168,24 @@ namespace _160421029_Nico_Victorio
             this.settingToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ubahPasswordToolStripMenuItem});
             this.settingToolStripMenuItem.Name = "settingToolStripMenuItem";
-            this.settingToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
+            this.settingToolStripMenuItem.Size = new System.Drawing.Size(149, 26);
             this.settingToolStripMenuItem.Text = "Setting";
             // 
             // ubahPasswordToolStripMenuItem
             // 
             this.ubahPasswordToolStripMenuItem.Name = "ubahPasswordToolStripMenuItem";
-            this.ubahPasswordToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.ubahPasswordToolStripMenuItem.Size = new System.Drawing.Size(192, 26);
             this.ubahPasswordToolStripMenuItem.Text = "Ubah Password";
             this.ubahPasswordToolStripMenuItem.Click += new System.EventHandler(this.ubahPasswordToolStripMenuItem_Click);
             // 
             // FormMenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(600, 366);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormMenu";
             this.Text = "DiBa";
             this.Load += new System.EventHandler(this.FormMenu_Load);

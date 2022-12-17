@@ -216,5 +216,21 @@ namespace _160421029_Nico_Victorio
                 form.BringToFront();
             }
         }
+
+        private void laporanTransaksiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.Form form = Application.OpenForms["FormDaftarTransaksi"];
+            if (form == null)
+            {
+                FormDaftarTransaksi formDaftarTransaksi = new FormDaftarTransaksi();
+                formDaftarTransaksi.MdiParent = this;
+                formDaftarTransaksi.Show();
+            }
+            else
+            {
+                form.Show();
+                form.BringToFront();
+            }
+        }
     }
 }

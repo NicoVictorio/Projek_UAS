@@ -12,7 +12,7 @@ namespace DiBa_Lib
         #region data members
         Tabungan noRekeningSumber;
         string idTransaksi;
-        string tglTransaksi;
+        DateTime tglTransaksi;
         JenisTransaksi idJenisTransaksi;
         Tabungan noRekeningTujuan;
         double nominal;
@@ -20,34 +20,35 @@ namespace DiBa_Lib
         #endregion
 
         #region constructors
-        public Transaksi(Tabungan noRekeningSumber, string idTransaksi, string tglTransaksi,
-               JenisTransaksi idJenisTransaksi, Tabungan noRekeningTujuan, double nominal, string keterangan)
-        {
-            NoRekeningSumber = noRekeningSumber;
-            IdTransaksi = idTransaksi;
-            TglTransaksi = tglTransaksi;
-            IdJenisTransaksi = idJenisTransaksi;
-            NoRekeningTujuan = noRekeningTujuan;
-            Nominal = nominal;
-            Keterangan = keterangan;
-        }
         public Transaksi()
         {
             this.NoRekeningSumber = null;
             this.IdTransaksi = "";
-            this.TglTransaksi = "";
+            this.TglTransaksi = DateTime.Now;
             this.IdJenisTransaksi = null;
             this.NoRekeningTujuan = null;
             this.Nominal = 0.0;
             this.Keterangan = "";
 
         }
+
+        public Transaksi(Tabungan noRekeningSumber, string idTransaksi, DateTime tglTransaksi, 
+            JenisTransaksi idJenisTransaksi, Tabungan noRekeningTujuan, double nominal, string keterangan)
+        {
+            this.noRekeningSumber = noRekeningSumber;
+            this.idTransaksi = idTransaksi;
+            this.tglTransaksi = tglTransaksi;
+            this.idJenisTransaksi = idJenisTransaksi;
+            this.noRekeningTujuan = noRekeningTujuan;
+            this.nominal = nominal;
+            this.keterangan = keterangan;
+        }
         #endregion
 
         #region properties
         public Tabungan NoRekeningSumber { get => noRekeningSumber; set => noRekeningSumber = value; }
         public string IdTransaksi { get => idTransaksi; set => idTransaksi = value; }
-        public string TglTransaksi { get => tglTransaksi; set => tglTransaksi = value; }
+        public DateTime TglTransaksi { get => tglTransaksi; set => tglTransaksi = value; }
         public JenisTransaksi IdJenisTransaksi { get => idJenisTransaksi; set => idJenisTransaksi = value; }
         public Tabungan NoRekeningTujuan { get => noRekeningTujuan; set => noRekeningTujuan = value; }
         public double Nominal { get => nominal; set => nominal = value; }
@@ -78,7 +79,7 @@ namespace DiBa_Lib
             {
                 Transaksi tra = new Transaksi();
                 tra.IdTransaksi = hasil.GetString(1);
-                tra.TglTransaksi = hasil.GetString(2);
+                tra.TglTransaksi = hasil.GetDateTime(2);
                 tra.Nominal = hasil.GetDouble(5);
                 tra.Keterangan = hasil.GetString(6);
 
@@ -92,7 +93,7 @@ namespace DiBa_Lib
 
                 Tabungan tmpTabungan2 = new Tabungan();
                 tmpTabungan2.NoRekening = hasil.GetString(4);
-                tra.NoRekeningSumber = tmpTabungan2;
+                tra.NoRekeningTujuan = tmpTabungan2;
 
                 listTransaksi.Add(tra);
             }

@@ -104,6 +104,11 @@ namespace DiBa_Lib
             bool result = Koneksi.executeDML(sql);
             return result;
         }
+
+        public override string ToString()
+        {
+            return IdJenisTransaksi.ToString();
+        }
         #endregion
     }
 }

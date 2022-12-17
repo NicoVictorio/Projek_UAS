@@ -16,3 +16,4 @@ C:\Users\nicov\Documents\GitHub\Projek_UAS\160421029_Nico Victorio\DiBa_Lib\bin\
 C:\Users\nicov\Documents\GitHub\Projek_UAS\160421029_Nico Victorio\DiBa_Lib\obj\Debug\DiBa_Lib.csproj.CoreCompileInputs.cache
 C:\Users\nicov\Documents\GitHub\Projek_UAS\160421029_Nico Victorio\DiBa_Lib\obj\Debug\DiBa_Lib.dll
 C:\Users\nicov\Documents\GitHub\Projek_UAS\160421029_Nico Victorio\DiBa_Lib\obj\Debug\DiBa_Lib.pdb
+C:\Users\nicov\Documents\GitHub\Projek_UAS\160421029_Nico Victorio\DiBa_Lib\obj\Debug\DiBa_Lib.csproj.AssemblyReference.cache
