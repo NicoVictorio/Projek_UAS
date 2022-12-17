@@ -69,10 +69,13 @@ namespace DiBa_Lib
         {
             string sql = "SELECT dep.id_deposito, tab.no_rekening, dep.jatuh_tempo, dep.nominal, " +
                          "dep.bunga, dep.status, dep.tgl_buat, dep.tgl_perubahan, " +
-                         "emp1.id, emp2.id " + "FROM deposito dep " +
+                         "emp1.id as verivikator_buka, emp2.id as verivikator_cair " + "FROM deposito dep " +
                          "\nINNER JOIN employee emp1 on emp1.id = dep.verivikator_buka " +
                          "\nINNER JOIN employee emp2 on emp2.id = dep.verivikator_cair " +
                          "\nINNER JOIN tabungan tab on tab.no_rekening = dep.no_rekening ";
+            //string sql = "SELECT id_deposito, no_rekening, jatuh_tempo, nominal, bunga, status, tgl_buat, tgl_perubahan" +
+            //    ""
+
             if (kriteria == "")
             {
                 sql += ";";
@@ -115,14 +118,18 @@ namespace DiBa_Lib
             return listDeposito;
         }
 
-        //public bool TambahData()
-        //{
-        //    string sql = "INSERT INTO addressBook(no_rekening, id_pengguna, keterangan)" +
-        //        " VALUES ('" + this.Pengguna.Nik + "','" + this.tabungan.NoRekening + "', '" +
-        //        this.keterangan + "')";
-        //    bool result = Koneksi.executeDML(sql);
-        //    return result;
-        //}
+        public bool TambahData()
+        {
+            string sql = "INSERT INTO deposito(no_rekening, jatuh_tempo, nominal , bunga, status, tgl_buat," +
+                " tgl_perubahan,verivikator_buka, verivikator_cair)" +
+                " VALUES ('" + this.NoRekening + "','" + this.JatuhTempo + "', " + this.nominal + "," +
+                this.Bunga + ", 'Unverified', '" + this.TglBuat.ToString("yyyy-MM-dd HH-mm-ss") + "','" +
+                this.TglPerubahan.ToString("yyyy-MM-dd HH-mm-ss") + "'," + this.verivikatorBuka.Id + "," +
+                this.verivikatorCair.Id + ")";
+            bool result = Koneksi.executeDML(sql);
+            return result;
+        }
+
 
         //public bool UbahData()
         //{

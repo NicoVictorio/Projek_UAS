@@ -11,26 +11,11 @@ using DiBa_Lib;
 
 namespace _160421029_Nico_Victorio
 {
-    public partial class FormTambahPengguna : System.Windows.Forms.Form
+    public partial class FormSignInPengguna : Form
     {
-        //FormStartPengguna formStartPengguna;
-        FormMasterPengguna formPengguna;
-        public FormTambahPengguna()
+        public FormSignInPengguna()
         {
             InitializeComponent();
-        }
-
-        private void FormBuatAkun_Load(object sender, EventArgs e)
-        {
-            //formPengguna = (FormMasterPengguna)this.Owner;
-
-            //comboBoxPangkat.DataSource = formPengguna.listPangkat;
-            //comboBoxPangkat.DisplayMember = "jenisPangkat";
-        }
-
-        private void FormBuatAkun_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            //formStartPengguna.Show();
         }
 
         private void buttonBuatAkun_Click(object sender, EventArgs e)
@@ -48,7 +33,8 @@ namespace _160421029_Nico_Victorio
 
 
 
-
+                //buat employee kosongan
+                //Employee emp = new Employee();
 
                 //generate no rekening
                 string noRek = Tabungan.GenerateNoRek();
@@ -57,13 +43,12 @@ namespace _160421029_Nico_Victorio
                 Tabungan tab = new Tabungan(noRek, js, 0, "Unverified", "", DateTime.Now, DateTime.Now, null);
 
 
-
                 if (js.TambahData() && tab.TambahData())
                 {
 
                     MessageBox.Show("Data Pengguna telah tersimpan", "Info");
-                    FormMasterPengguna frm = (FormMasterPengguna)this.Owner;
-                    frm.FormMasterPengguna_Load(this, e);
+                    FormLoginPengguna frm = (FormLoginPengguna)this.Owner;
+                    frm.FormMasuk_Load(this, e);
                     this.Close();
                 }
                 else

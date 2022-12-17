@@ -197,6 +197,11 @@ namespace DiBa_Lib
             }
             return null;
         }
+
+        public override string ToString()
+        {
+            return Nik;
+        }
         #endregion
     }
 }

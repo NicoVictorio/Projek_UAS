@@ -200,5 +200,21 @@ namespace _160421029_Nico_Victorio
                 form.BringToFront();
             }
         }
+
+        private void laporanDepositoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.Form form = Application.OpenForms["FormDaftarDeposito"];
+            if (form == null)
+            {
+                FormDaftarDeposito formDaftarDeposito = new FormDaftarDeposito();
+                formDaftarDeposito.MdiParent = this;
+                formDaftarDeposito.Show();
+            }
+            else
+            {
+                form.Show();
+                form.BringToFront();
+            }
+        }
     }
 }

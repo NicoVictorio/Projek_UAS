@@ -16,5 +16,26 @@ namespace _160421029_Nico_Victorio
         {
             InitializeComponent();
         }
+
+
+
+        private void comboBoxJatuhTempo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxNominal_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+
+
+        private void textBoxBunga_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+ 
     }
 }

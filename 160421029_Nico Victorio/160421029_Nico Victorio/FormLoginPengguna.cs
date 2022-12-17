@@ -20,7 +20,7 @@ namespace _160421029_Nico_Victorio
             InitializeComponent();
         }
 
-        private void FormMasuk_Load(object sender, EventArgs e)
+        public void FormMasuk_Load(object sender, EventArgs e)
         {
             try
             {
@@ -68,6 +68,13 @@ namespace _160421029_Nico_Victorio
         {
             this.DialogResult = DialogResult.Cancel;
             this.Close();
+        }
+
+        private void buttonBuatAkun_Click(object sender, EventArgs e)
+        {
+            FormSignInPengguna formSignIn = new FormSignInPengguna();
+            formSignIn.Owner = this;
+            formSignIn.ShowDialog();
         }
     }
 }

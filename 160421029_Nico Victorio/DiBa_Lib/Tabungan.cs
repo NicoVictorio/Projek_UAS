@@ -88,8 +88,8 @@ namespace DiBa_Lib
         }
         public static List<Tabungan> BacaData(string kriteria, string nilaiKriteria)
         {
-            string sql = "SELECT no_rekening, id_pengguna, saldo, status, IFNULL(jeterangan,'') as jeterangan, " +
-                         "tgl_buat, tgl_perubahan, IFNULL(verivikator,0) as verifikator " +
+            string sql = "SELECT no_rekening, id_pengguna, saldo, status, IFNULL(keterangan,'') as keterangan, " +
+                         "tgl_buat, tgl_perubahan, IFNULL(verifikator,0) as verifikator " +
                          "FROM tabungan ";
             if (kriteria == "")
             {
@@ -131,11 +131,11 @@ namespace DiBa_Lib
         public bool TambahData()
         {
             string sql = "INSERT INTO tabungan (no_rekening, id_pengguna, saldo, status, " +
-                                         "jeterangan, tgl_buat, tgl_perubahan) " +
+                                         "keterangan, tgl_buat, tgl_perubahan) " +
                          " VALUES ('" + this.NoRekening + "', " + this.Pengguna.Nik + ", " +
                          this.Saldo + ", '" + this.Status + "', '" + this.Keterangan + "', '" +
-                         this.Tgl_buat.ToString("yyyy-MM-dd") + "', '" + 
-                         this.Tgl_perubahan.ToString("yyyy-MM-dd") + "') ";
+                         this.Tgl_buat.ToString("yyyy-MM-dd HH-mm-ss") + "', '" + 
+                         this.Tgl_perubahan.ToString("yyyy-MM-dd HH-mm-ss") + "') ";
             bool result = Koneksi.executeDML(sql);
             return result;
         }
@@ -143,8 +143,8 @@ namespace DiBa_Lib
         {
             string sql = "UPDATE tabungan SET id_pengguna = " + this.Pengguna.Nik + 
                          ", saldo = " + this.Saldo + ", status = '" + this.Status +
-                         "', jeterangan = '" + this.Keterangan + "', tgl_buat = '" + this.Tgl_buat.ToString("yyyy-MM-dd") + 
-                         "', tgl_perubahan = '" + this.Tgl_perubahan.ToString("yyyy-MM-dd") + "' " +
+                         "', keterangan = '" + this.Keterangan + "', tgl_buat = '" + this.Tgl_buat.ToString("yyyy-MM-dd HH-mm-ss") + 
+                         "', tgl_perubahan = '" + this.Tgl_perubahan.ToString("yyyy-MM-dd HH-mm-ss") + "' " +
                          //"verifikator = " + this.Employee.Id + 
                          " WHERE no_rekening = '" + this.NoRekening + "';";
             bool result = Koneksi.executeDML(sql);
@@ -160,8 +160,8 @@ namespace DiBa_Lib
 
         public static Tabungan tabunganByCode(string noRek)
         {
-            string sql = "SELECT no_rekening, id_pengguna, saldo, status, IFNULL(jeterangan,'') as jeterangan, " +
-                         "tgl_buat, tgl_perubahan, IFNULL(verivikator,0) as verifikator " +
+            string sql = "SELECT no_rekening, id_pengguna, saldo, status, IFNULL(keterangan,'') as keterangan, " +
+                         "tgl_buat, tgl_perubahan, IFNULL(verifikator,0) as verifikator " +
                          "FROM tabungan WHERE no_rekening='" + noRek+"'";
             MySqlDataReader hasil = Koneksi.ambilData(sql);
             if (hasil.Read() == true)
@@ -189,12 +189,17 @@ namespace DiBa_Lib
             }
         }
 
-        //public bool UbahStatus()
-        //{
-        //    string sql = "UPDATE inbox SET status ='Terbuka' where id_pengguna=" + this.Pengguna.Nik + " and id_pesan=" + this.IdPesan + ";";
-        //    bool result = Koneksi.executeDML(sql);
-        //    return result;
-        //}
+        public bool UbahStatus(string statusBaru, Employee employee)
+        {
+            string sql = "UPDATE tabungan SET status ='" + statusBaru + "', verifikator=" + employee.Nik +  " where no_rekening ='" + this.NoRekening + "';";
+            bool result = Koneksi.executeDML(sql);
+            return result;
+        }
+
+        public override string ToString()
+        {
+            return noRekening;
+        }
         #endregion
     }
 }
