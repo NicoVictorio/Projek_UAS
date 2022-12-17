@@ -131,14 +131,14 @@ namespace DiBa_Lib
         }
 
 
-        //public bool UbahData()
-        //{
-        //    string sql = "UPDATE addressbook SET id_pengguna = " + this.Pengguna.Nik +
-        //                 ", keterangan = '" + this.Keterangan +
-        //                 "'\nWHERE no_rekening = '" + this.Tabungan.NoRekening + "';";
-        //    bool result = Koneksi.executeDML(sql);
-        //    return result;
-        //}
+        public bool UbahData()
+        {
+            string sql = "UPDATE deposito SET verivikator_buka = " + this.VerivikatorBuka.Id +
+                         ", verivikator_cair = '" + this.VerivikatorCair.Id + ", tgl_perubahan = " + DateTime.Now +
+                         "'\nWHERE id_deposito = '" + this.idDeposito + "';";
+            bool result = Koneksi.executeDML(sql);
+            return result;
+        }
 
         public bool HapusData()
         {
