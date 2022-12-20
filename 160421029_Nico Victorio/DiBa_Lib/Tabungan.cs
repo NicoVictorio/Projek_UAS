@@ -103,7 +103,6 @@ namespace DiBa_Lib
 
             List<Tabungan> listTabungan = new List<Tabungan>();
 
-            //buat list untk menampung data 
             while (hasil.Read() == true)
             {
                 Tabungan tab = new Tabungan();
@@ -134,7 +133,7 @@ namespace DiBa_Lib
                          " VALUES ('" + this.NoRekening + "', " + this.Pengguna.Nik + ", " +
                          this.Saldo + ", '" + this.Status + "', '" + this.Keterangan + "', '" +
                          this.Tgl_buat.ToString("yyyy-MM-dd HH-mm-ss") + "', '" + 
-                         this.Tgl_perubahan.ToString("yyyy-MM-dd HH-mm-ss") + "') ";
+                         this.Tgl_perubahan.ToString("yyyy-MM-dd HH-mm-ss") + "');";
             bool result = Koneksi.executeDML(sql);
             return result;
         }
@@ -144,7 +143,6 @@ namespace DiBa_Lib
                          ", saldo = " + this.Saldo + ", status = '" + this.Status +
                          "', keterangan = '" + this.Keterangan + "', tgl_buat = '" + this.Tgl_buat.ToString("yyyy-MM-dd HH-mm-ss") + 
                          "', tgl_perubahan = '" + this.Tgl_perubahan.ToString("yyyy-MM-dd HH-mm-ss") + "' " +
-                         //"verifikator = " + this.Employee.Id + 
                          " WHERE no_rekening = '" + this.NoRekening + "';";
             bool result = Koneksi.executeDML(sql);
             return result;

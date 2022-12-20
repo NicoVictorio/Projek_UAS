@@ -99,6 +99,7 @@ namespace DiBa_Lib
             }
             return listTransaksi;
         }
+
         public bool TambahData()
         {
             string sql = "INSERT INTO transaksi (rekening_sumber, tgl_transaksi, " +
@@ -112,6 +113,7 @@ namespace DiBa_Lib
             bool result = Koneksi.executeDML(sql);
             return result;
         }
+
         public bool UbahData()
         {
             string sql = "UPDATE transaksi SET rekening_sumber = " + this.NoRekeningSumber.NoRekening +
@@ -121,6 +123,7 @@ namespace DiBa_Lib
             bool result = Koneksi.executeDML(sql);
             return result;
         }
+
         public bool HapusData()
         {
             string sql = "DELETE from transaksi where idtransaksi = '" + this.IdTransaksi + "';";
