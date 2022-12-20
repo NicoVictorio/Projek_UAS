@@ -66,6 +66,12 @@
     <Compile Include="FormDaftarDeposito.Designer.cs">
       <DependentUpon>FormDaftarDeposito.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormDaftarRekeningTujuan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDaftarRekeningTujuan.Designer.cs">
+      <DependentUpon>FormDaftarRekeningTujuan.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormDaftarTabungan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -204,12 +210,6 @@
     <Compile Include="FormTambahTransaksi.Designer.cs">
       <DependentUpon>FormTambahTransaksi.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormTransaksi.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormTransaksi.Designer.cs">
-      <DependentUpon>FormTransaksi.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormUpdateAddressBook.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -270,6 +270,18 @@
     <Compile Include="FormUpdateTransaksi.Designer.cs">
       <DependentUpon>FormUpdateTransaksi.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormVerifikasiDeposito.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormVerifikasiDeposito.Designer.cs">
+      <DependentUpon>FormVerifikasiDeposito.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormVerifikasiTabungan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormVerifikasiTabungan.Designer.cs">
+      <DependentUpon>FormVerifikasiTabungan.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormDaftarAddressBook.resx">
@@ -277,6 +289,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormDaftarDeposito.resx">
       <DependentUpon>FormDaftarDeposito.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDaftarRekeningTujuan.resx">
+      <DependentUpon>FormDaftarRekeningTujuan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormDaftarTabungan.resx">
       <DependentUpon>FormDaftarTabungan.cs</DependentUpon>
@@ -304,6 +319,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormTabungan.resx">
       <DependentUpon>FormTabungan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTambahAddressBook.resx">
+      <DependentUpon>FormTambahAddressBook.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormTambahDeposito.resx">
       <DependentUpon>FormTambahDeposito.cs</DependentUpon>
@@ -341,8 +359,8 @@
     <EmbeddedResource Include="FormTambahTabungan.resx">
       <DependentUpon>FormTambahTabungan.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormTransaksi.resx">
-      <DependentUpon>FormTransaksi.cs</DependentUpon>
+    <EmbeddedResource Include="FormTambahTransaksi.resx">
+      <DependentUpon>FormTambahTransaksi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormUpdateAddressBook.resx">
       <DependentUpon>FormUpdateAddressBook.cs</DependentUpon>
@@ -370,6 +388,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormUpdateTransaksi.resx">
       <DependentUpon>FormUpdateTransaksi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormVerifikasiDeposito.resx">
+      <DependentUpon>FormVerifikasiDeposito.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormVerifikasiTabungan.resx">
+      <DependentUpon>FormVerifikasiTabungan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

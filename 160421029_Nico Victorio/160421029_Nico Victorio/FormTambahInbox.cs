@@ -22,9 +22,9 @@ namespace _160421029_Nico_Victorio
         private void FormTambahInbox_Load(object sender, EventArgs e)
         {
             FormInbox formInbox = (FormInbox)this.Owner;
-            List<Pengguna> lisPengguna = Pengguna.BacaData("", "");
+            List<Pengguna> listPengguna = Pengguna.BacaData("", "");
 
-            comboBoxIdPengguna.DataSource = lisPengguna;
+            comboBoxIdPengguna.DataSource = listPengguna;
             comboBoxIdPengguna.DisplayMember = "Nik";
         }
 
@@ -33,8 +33,8 @@ namespace _160421029_Nico_Victorio
             try
             {
                 Pengguna penggunaDipilih = (Pengguna) comboBoxIdPengguna.SelectedItem;
-                Inbox js = new Inbox(0, penggunaDipilih, textBoxPesan.Text,DateTime.Now,"Belum Terbaca",DateTime.Now); ;
-                if (js.TambahData())
+                Inbox inb = new Inbox(0, penggunaDipilih, textBoxPesan.Text, DateTime.Now, "Belum Terbaca", DateTime.Now);
+                if (inb.TambahData())
                 {
                     MessageBox.Show("Data Inbox telah tersimpan", "Info");
                     FormInbox frm = (FormInbox)this.Owner;

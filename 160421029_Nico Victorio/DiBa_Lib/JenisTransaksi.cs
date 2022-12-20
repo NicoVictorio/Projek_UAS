@@ -107,7 +107,7 @@ namespace DiBa_Lib
 
         public override string ToString()
         {
-            return IdJenisTransaksi.ToString();
+            return kodeTransaksi;
         }
         #endregion
     }

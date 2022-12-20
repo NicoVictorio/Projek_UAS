@@ -45,6 +45,13 @@ namespace _160421029_Nico_Victorio
             this.signOutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.settingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ubahPasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fiturToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.daftarTransferToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.transaksiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.depositoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.verifyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.verifikasiTabunganToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.verifikasiDepositoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -54,7 +61,9 @@ namespace _160421029_Nico_Victorio
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.masterToolStripMenuItem,
             this.laporanToolStripMenuItem,
-            this.akunToolStripMenuItem});
+            this.akunToolStripMenuItem,
+            this.fiturToolStripMenuItem,
+            this.verifyToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
@@ -121,21 +130,21 @@ namespace _160421029_Nico_Victorio
             // laporanDepositoToolStripMenuItem
             // 
             this.laporanDepositoToolStripMenuItem.Name = "laporanDepositoToolStripMenuItem";
-            this.laporanDepositoToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.laporanDepositoToolStripMenuItem.Size = new System.Drawing.Size(156, 26);
             this.laporanDepositoToolStripMenuItem.Text = "Deposito";
             this.laporanDepositoToolStripMenuItem.Click += new System.EventHandler(this.laporanDepositoToolStripMenuItem_Click);
             // 
             // laporanTabunganToolStripMenuItem
             // 
             this.laporanTabunganToolStripMenuItem.Name = "laporanTabunganToolStripMenuItem";
-            this.laporanTabunganToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.laporanTabunganToolStripMenuItem.Size = new System.Drawing.Size(156, 26);
             this.laporanTabunganToolStripMenuItem.Text = "Tabungan";
             this.laporanTabunganToolStripMenuItem.Click += new System.EventHandler(this.laporanTabunganToolStripMenuItem_Click);
             // 
             // laporanTransaksiToolStripMenuItem
             // 
             this.laporanTransaksiToolStripMenuItem.Name = "laporanTransaksiToolStripMenuItem";
-            this.laporanTransaksiToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.laporanTransaksiToolStripMenuItem.Size = new System.Drawing.Size(156, 26);
             this.laporanTransaksiToolStripMenuItem.Text = "Transaksi";
             this.laporanTransaksiToolStripMenuItem.Click += new System.EventHandler(this.laporanTransaksiToolStripMenuItem_Click);
             // 
@@ -178,6 +187,60 @@ namespace _160421029_Nico_Victorio
             this.ubahPasswordToolStripMenuItem.Text = "Ubah Password";
             this.ubahPasswordToolStripMenuItem.Click += new System.EventHandler(this.ubahPasswordToolStripMenuItem_Click);
             // 
+            // fiturToolStripMenuItem
+            // 
+            this.fiturToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.daftarTransferToolStripMenuItem,
+            this.transaksiToolStripMenuItem,
+            this.depositoToolStripMenuItem});
+            this.fiturToolStripMenuItem.Name = "fiturToolStripMenuItem";
+            this.fiturToolStripMenuItem.Size = new System.Drawing.Size(52, 24);
+            this.fiturToolStripMenuItem.Text = "Fitur";
+            // 
+            // daftarTransferToolStripMenuItem
+            // 
+            this.daftarTransferToolStripMenuItem.Name = "daftarTransferToolStripMenuItem";
+            this.daftarTransferToolStripMenuItem.Size = new System.Drawing.Size(190, 26);
+            this.daftarTransferToolStripMenuItem.Text = "Daftar Transfer";
+            this.daftarTransferToolStripMenuItem.Click += new System.EventHandler(this.daftarTransferToolStripMenuItem_Click);
+            // 
+            // transaksiToolStripMenuItem
+            // 
+            this.transaksiToolStripMenuItem.Name = "transaksiToolStripMenuItem";
+            this.transaksiToolStripMenuItem.Size = new System.Drawing.Size(190, 26);
+            this.transaksiToolStripMenuItem.Text = "Transaksi";
+            this.transaksiToolStripMenuItem.Click += new System.EventHandler(this.transaksiToolStripMenuItem_Click);
+            // 
+            // depositoToolStripMenuItem
+            // 
+            this.depositoToolStripMenuItem.Name = "depositoToolStripMenuItem";
+            this.depositoToolStripMenuItem.Size = new System.Drawing.Size(190, 26);
+            this.depositoToolStripMenuItem.Text = "Deposito";
+            this.depositoToolStripMenuItem.Click += new System.EventHandler(this.depositoToolStripMenuItem_Click);
+            // 
+            // verifyToolStripMenuItem
+            // 
+            this.verifyToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.verifikasiTabunganToolStripMenuItem,
+            this.verifikasiDepositoToolStripMenuItem});
+            this.verifyToolStripMenuItem.Name = "verifyToolStripMenuItem";
+            this.verifyToolStripMenuItem.Size = new System.Drawing.Size(60, 24);
+            this.verifyToolStripMenuItem.Text = "Verify";
+            // 
+            // verifikasiTabunganToolStripMenuItem
+            // 
+            this.verifikasiTabunganToolStripMenuItem.Name = "verifikasiTabunganToolStripMenuItem";
+            this.verifikasiTabunganToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.verifikasiTabunganToolStripMenuItem.Text = "Verifikasi Tabungan";
+            this.verifikasiTabunganToolStripMenuItem.Click += new System.EventHandler(this.verifikasiTabunganToolStripMenuItem_Click);
+            // 
+            // verifikasiDepositoToolStripMenuItem
+            // 
+            this.verifikasiDepositoToolStripMenuItem.Name = "verifikasiDepositoToolStripMenuItem";
+            this.verifikasiDepositoToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.verifikasiDepositoToolStripMenuItem.Text = "Verifikasi Deposito";
+            this.verifikasiDepositoToolStripMenuItem.Click += new System.EventHandler(this.verifikasiDepositoToolStripMenuItem_Click);
+            // 
             // FormMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -214,6 +277,13 @@ namespace _160421029_Nico_Victorio
         private System.Windows.Forms.ToolStripMenuItem signOutToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem settingToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ubahPasswordToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem fiturToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem daftarTransferToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem transaksiToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem depositoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem verifyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem verifikasiTabunganToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem verifikasiDepositoToolStripMenuItem;
     }
 }
 

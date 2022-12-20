@@ -20,7 +20,7 @@ namespace _160421029_Nico_Victorio
             InitializeComponent();
         }
 
-        private void FormMenu_Load(object sender, EventArgs e)
+        public void FormMenu_Load(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Maximized;
             this.IsMdiContainer = true;
@@ -28,17 +28,32 @@ namespace _160421029_Nico_Victorio
             FormStart login = new FormStart();
             login.Owner = this;
 
+            HideAllMenu();
+
             if (login.ShowDialog() == DialogResult.OK)
             {
                 if (tmpPengguna != null)
                 {
                     MessageBox.Show("Selamat datang " + tmpPengguna.NamaDepan, "Information");
+
+                    List<Tabungan> tmpListTabungan = Tabungan.BacaData("id_pengguna", tmpPengguna.Nik.ToString());
+                    Tabungan tabPengguna = tmpListTabungan[0];
+
+                    if (tabPengguna.Status == "Aktif")
+                    {
+                        SetHakAkses();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Harap menunggu konfirmasi admin");
+                    }
                 }
                 else
                 {
                     MessageBox.Show("Selamat datang " + tmpEmp.NamaDepan, "Information");
+                    SetHakAkses();
                 }
-                SetHakAkses();
+                
             }
             else
             {
@@ -110,12 +125,6 @@ namespace _160421029_Nico_Victorio
             }
         }
 
-
-        private void signOutToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
         private void inboxToolStripMenuItem_Click(object sender, EventArgs e)
         {
             System.Windows.Forms.Form form = Application.OpenForms["FormInbox"];
@@ -149,6 +158,9 @@ namespace _160421029_Nico_Victorio
 
                 ubahPasswordToolStripMenuItem.Visible = false;
                 settingToolStripMenuItem.Visible = false;
+
+                fiturToolStripMenuItem.Visible = false;
+                verifyToolStripMenuItem.Visible = true;
             }
             else
             {
@@ -165,7 +177,30 @@ namespace _160421029_Nico_Victorio
 
                 ubahPasswordToolStripMenuItem.Visible = true;
                 settingToolStripMenuItem.Visible = true;
+
+                fiturToolStripMenuItem.Visible = true;
+                verifyToolStripMenuItem.Visible = false;
             }
+        }
+
+        private void HideAllMenu()
+        {
+            masterToolStripMenuItem.Visible = false;
+            penggunaToolStripMenuItem.Visible = false;
+            employeeToolStripMenuItem.Visible = false;
+            positionToolStripMenuItem.Visible = false;
+            jenisTransaksiToolStripMenuItem.Visible = false;
+
+            laporanToolStripMenuItem.Visible = false;
+            laporanTabunganToolStripMenuItem.Visible = false;
+            laporanDepositoToolStripMenuItem.Visible = false;
+            laporanTransaksiToolStripMenuItem.Visible = false;
+
+            ubahPasswordToolStripMenuItem.Visible = false;
+            settingToolStripMenuItem.Visible = false;
+
+            fiturToolStripMenuItem.Visible = false;
+            verifyToolStripMenuItem.Visible = false;
         }
 
         private void ubahPasswordToolStripMenuItem_Click(object sender, EventArgs e)
@@ -231,6 +266,92 @@ namespace _160421029_Nico_Victorio
                 form.Show();
                 form.BringToFront();
             }
+        }
+
+        private void daftarTransferToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.Form form = Application.OpenForms["FormDaftarAddressBook"];
+            if (form == null)
+            {
+                FormDaftarAddressBook formDaftarAddressBook = new FormDaftarAddressBook();
+                formDaftarAddressBook.MdiParent = this;
+                formDaftarAddressBook.Show();
+            }
+            else
+            {
+                form.Show();
+                form.BringToFront();
+            }
+        }
+
+        private void transaksiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.Form form = Application.OpenForms["FormTambahTransaksi"];
+            if (form == null)
+            {
+                FormTambahTransaksi formTambahTransaksi = new FormTambahTransaksi();
+                formTambahTransaksi.MdiParent = this;
+                formTambahTransaksi.penggunaAsal = tmpPengguna;
+                formTambahTransaksi.Show();
+            }
+            else
+            {
+                form.Show();
+                form.BringToFront();
+            }
+        }
+
+        private void depositoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.Form form = Application.OpenForms["FormDaftarDeposito"];
+            if (form == null)
+            {
+                FormDaftarDeposito formDaftarDeposito = new FormDaftarDeposito();
+                formDaftarDeposito.MdiParent = this;
+                formDaftarDeposito.Show();
+            }
+            else
+            {
+                form.Show();
+                form.BringToFront();
+            }
+        }
+
+        private void verifikasiTabunganToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.Form form = Application.OpenForms["FormVerifikasiTabungan"];
+            if (form == null)
+            {
+                FormVerifikasiTabungan formVerifikasiTabungan = new FormVerifikasiTabungan();
+                formVerifikasiTabungan.MdiParent = this;
+                formVerifikasiTabungan.Show();
+            }
+            else
+            {
+                form.Show();
+                form.BringToFront();
+            }
+        }
+
+        private void verifikasiDepositoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.Form form = Application.OpenForms["FormVerifikasiDeposito"];
+            if (form == null)
+            {
+                FormVerifikasiDeposito formVerifikasiDeposito = new FormVerifikasiDeposito();
+                formVerifikasiDeposito.MdiParent = this;
+                formVerifikasiDeposito.Show();
+            }
+            else
+            {
+                form.Show();
+                form.BringToFront();
+            }
+        }
+
+        private void signOutToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

@@ -13,6 +13,8 @@ namespace _160421029_Nico_Victorio
 {
     public partial class FormDaftarAddressBook : System.Windows.Forms.Form
     {
+        FormMenu formMenu;
+        public Pengguna penggunaLogin;
         public List<AddressBook> listAddressBook = new List<AddressBook>();
         public FormDaftarAddressBook()
         {
@@ -21,7 +23,10 @@ namespace _160421029_Nico_Victorio
 
         public void FormDaftarAddressBook_Load(object sender, EventArgs e)
         {
-            listAddressBook = AddressBook.BacaData("", "");
+            formMenu = (FormMenu)this.MdiParent;
+            penggunaLogin = formMenu.tmpPengguna;
+
+            listAddressBook = AddressBook.BacaDataEmployee("", "");
             if (listAddressBook.Count > 0)
             {
                 dgvListAddressBook.DataSource = listAddressBook;
@@ -48,6 +53,13 @@ namespace _160421029_Nico_Victorio
             }
         }
 
+        private void btn_Add_Click(object sender, EventArgs e)
+        {
+            FormTambahAddressBook formTambahAddressBook = new FormTambahAddressBook();
+            formTambahAddressBook.Owner = this;
+            formTambahAddressBook.ShowDialog();
+        }
+
         private void tb_Kriteria_TextChanged(object sender, EventArgs e)
         {
             try
@@ -68,7 +80,7 @@ namespace _160421029_Nico_Victorio
                     kriteria = "no_rekening";
                 }
                 nilai = tb_Kriteria.Text;
-                listAddressBook = AddressBook.BacaData(kriteria, nilai);
+                listAddressBook = AddressBook.BacaDataPengguna(kriteria, nilai, formMenu.tmpPengguna.Nik);
 
                 if (listAddressBook.Count > 0)
                 {
@@ -90,7 +102,7 @@ namespace _160421029_Nico_Victorio
             string keterangan = dgvListAddressBook.CurrentRow.Cells["keterangan"].Value.ToString();
 
             Pengguna pengguna = (Pengguna)dgvListAddressBook.CurrentRow.Cells["pengguna"].Value;
-            Tabungan noRek = (Tabungan)dgvListAddressBook.CurrentRow.Cells["nomor rekening"].Value;
+            Tabungan noRek = (Tabungan)dgvListAddressBook.CurrentRow.Cells["tabungan"].Value;
 
             AddressBook address = new AddressBook(noRek, pengguna, keterangan);
             if (address != null)

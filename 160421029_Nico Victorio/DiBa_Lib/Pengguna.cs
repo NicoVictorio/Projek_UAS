@@ -112,10 +112,19 @@ namespace DiBa_Lib
 
         public  bool TambahData()
         {
-            string sql = "insert into pengguna(nik, nama_depan,nama_keluarga, alamat, email, no_telepon, password, " +
-                "pin, tgl_buat, tgl_perubahan, kode_pangkat) " + "values ('" + this.Nik + "','" + this.NamaDepan.Replace("'", "\\'") + "','"
-                + this.NamaKeluarga.Replace("'", "\\'") + "','" + this.Alamat + "','" + this.Email + "','" + this.NoTelp + "','"
-                + this.Password + "','" + this.Pin + "','" + this.TglBuat.ToString("yyyy-MM-dd") + "','" + this.TglPerubahan.ToString("yyyy-MM-dd") +"', '" + this.Pangkat.KodePangkat + "')";
+            string sql = "INSERT INTO pengguna (nik, nama_depan,nama_keluarga, alamat, email, " +
+                         "no_telepon, password, pin, tgl_buat, tgl_perubahan, kode_pangkat) " + 
+                         "values (" + this.Nik + ", '"
+                                    + this.NamaDepan.Replace("'", "\\'") + "', '"
+                                    + this.NamaKeluarga.Replace("'", "\\'") + "', '" 
+                                    + this.Alamat + "', '" 
+                                    + this.Email + "', '" 
+                                    + this.NoTelp + "', '"
+                                    + this.Password + "', '" 
+                                    + this.Pin + "', '" 
+                                    + this.TglBuat.ToString("yyyy-MM-dd HH-mm-ss") + "', '" 
+                                    + this.TglPerubahan.ToString("yyyy-MM-dd HH-mm-ss") + "', '" 
+                                    + this.Pangkat.KodePangkat + "');";
             bool result = Koneksi.executeDML(sql);
             return result;
         }

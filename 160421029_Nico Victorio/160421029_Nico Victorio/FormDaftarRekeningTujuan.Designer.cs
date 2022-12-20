@@ -1,6 +1,7 @@
-﻿namespace _160421029_Nico_Victorio
+﻿
+namespace _160421029_Nico_Victorio
 {
-    partial class FormDaftarAddressBook
+    partial class FormDaftarRekeningTujuan
     {
         /// <summary>
         /// Required designer variable.
@@ -29,44 +30,43 @@
         private void InitializeComponent()
         {
             this.btn_Exit = new System.Windows.Forms.Button();
-            this.dgvListAddressBook = new System.Windows.Forms.DataGridView();
+            this.dgvListRekeningTujuan = new System.Windows.Forms.DataGridView();
             this.tb_Kriteria = new System.Windows.Forms.TextBox();
             this.cb_Kriteria = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btn_Add = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvListAddressBook)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListRekeningTujuan)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_Exit
             // 
-            this.btn_Exit.Location = new System.Drawing.Point(535, 379);
+            this.btn_Exit.Location = new System.Drawing.Point(280, 388);
             this.btn_Exit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_Exit.Name = "btn_Exit";
             this.btn_Exit.Size = new System.Drawing.Size(93, 39);
-            this.btn_Exit.TabIndex = 52;
+            this.btn_Exit.TabIndex = 66;
             this.btn_Exit.Text = "Exit";
             this.btn_Exit.UseVisualStyleBackColor = true;
             this.btn_Exit.Click += new System.EventHandler(this.btn_Exit_Click);
             // 
-            // dgvListAddressBook
+            // dgvListRekeningTujuan
             // 
-            this.dgvListAddressBook.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvListAddressBook.Location = new System.Drawing.Point(35, 80);
-            this.dgvListAddressBook.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dgvListAddressBook.Name = "dgvListAddressBook";
-            this.dgvListAddressBook.RowHeadersWidth = 51;
-            this.dgvListAddressBook.RowTemplate.Height = 24;
-            this.dgvListAddressBook.Size = new System.Drawing.Size(593, 265);
-            this.dgvListAddressBook.TabIndex = 50;
-            this.dgvListAddressBook.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListAddressBook_CellContentClick);
+            this.dgvListRekeningTujuan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvListRekeningTujuan.Location = new System.Drawing.Point(44, 88);
+            this.dgvListRekeningTujuan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgvListRekeningTujuan.Name = "dgvListRekeningTujuan";
+            this.dgvListRekeningTujuan.RowHeadersWidth = 51;
+            this.dgvListRekeningTujuan.RowTemplate.Height = 24;
+            this.dgvListRekeningTujuan.Size = new System.Drawing.Size(593, 265);
+            this.dgvListRekeningTujuan.TabIndex = 65;
+            this.dgvListRekeningTujuan.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListRekeningTujuan_CellContentClick);
             // 
             // tb_Kriteria
             // 
-            this.tb_Kriteria.Location = new System.Drawing.Point(383, 32);
+            this.tb_Kriteria.Location = new System.Drawing.Point(392, 40);
             this.tb_Kriteria.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tb_Kriteria.Name = "tb_Kriteria";
             this.tb_Kriteria.Size = new System.Drawing.Size(245, 22);
-            this.tb_Kriteria.TabIndex = 48;
+            this.tb_Kriteria.TabIndex = 63;
             this.tb_Kriteria.TextChanged += new System.EventHandler(this.tb_Kriteria_TextChanged);
             // 
             // cb_Kriteria
@@ -74,62 +74,47 @@
             this.cb_Kriteria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_Kriteria.FormattingEnabled = true;
             this.cb_Kriteria.Items.AddRange(new object[] {
-            "Keterangan",
-            "Nomor Rekening",
-            "Pengguna"});
-            this.cb_Kriteria.Location = new System.Drawing.Point(171, 32);
+            "Nama Pengguna",
+            "Nomor Rekening"});
+            this.cb_Kriteria.Location = new System.Drawing.Point(180, 40);
             this.cb_Kriteria.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cb_Kriteria.Name = "cb_Kriteria";
             this.cb_Kriteria.Size = new System.Drawing.Size(193, 24);
-            this.cb_Kriteria.TabIndex = 47;
+            this.cb_Kriteria.TabIndex = 62;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(32, 32);
+            this.label1.Location = new System.Drawing.Point(41, 40);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(121, 17);
-            this.label1.TabIndex = 46;
+            this.label1.TabIndex = 61;
             this.label1.Text = "Kriteria Pencarian";
             // 
-            // btn_Add
-            // 
-            this.btn_Add.Location = new System.Drawing.Point(35, 379);
-            this.btn_Add.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_Add.Name = "btn_Add";
-            this.btn_Add.Size = new System.Drawing.Size(95, 39);
-            this.btn_Add.TabIndex = 60;
-            this.btn_Add.Text = "Add";
-            this.btn_Add.UseVisualStyleBackColor = true;
-            this.btn_Add.Click += new System.EventHandler(this.btn_Add_Click);
-            // 
-            // FormDaftarAddressBook
+            // FormDaftarRekeningTujuan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(666, 450);
-            this.Controls.Add(this.btn_Add);
+            this.ClientSize = new System.Drawing.Size(674, 450);
             this.Controls.Add(this.btn_Exit);
-            this.Controls.Add(this.dgvListAddressBook);
+            this.Controls.Add(this.dgvListRekeningTujuan);
             this.Controls.Add(this.tb_Kriteria);
             this.Controls.Add(this.cb_Kriteria);
             this.Controls.Add(this.label1);
-            this.Name = "FormDaftarAddressBook";
-            this.Text = "Address Book";
-            this.Load += new System.EventHandler(this.FormDaftarAddressBook_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvListAddressBook)).EndInit();
+            this.Name = "FormDaftarRekeningTujuan";
+            this.Text = "FormDaftarRekeningTujuan";
+            this.Load += new System.EventHandler(this.FormDaftarRekeningTujuan_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListRekeningTujuan)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
         private System.Windows.Forms.Button btn_Exit;
-        private System.Windows.Forms.DataGridView dgvListAddressBook;
+        private System.Windows.Forms.DataGridView dgvListRekeningTujuan;
         private System.Windows.Forms.TextBox tb_Kriteria;
         private System.Windows.Forms.ComboBox cb_Kriteria;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btn_Add;
     }
 }

@@ -82,7 +82,6 @@ C:\Users\nicov\Documents\GitHub\Projek_UAS\160421029_Nico Victorio\160421029_Nic
 C:\Users\nicov\Documents\GitHub\Projek_UAS\160421029_Nico Victorio\160421029_Nico Victorio\obj\Debug\_160421029_Nico_Victorio.FormTabungan.resources
 C:\Users\nicov\Documents\GitHub\Projek_UAS\160421029_Nico Victorio\160421029_Nico Victorio\obj\Debug\_160421029_Nico_Victorio.FormTambahInbox.resources
 C:\Users\nicov\Documents\GitHub\Projek_UAS\160421029_Nico Victorio\160421029_Nico Victorio\obj\Debug\_160421029_Nico_Victorio.FormTambahTabungan.resources
-C:\Users\nicov\Documents\GitHub\Projek_UAS\160421029_Nico Victorio\160421029_Nico Victorio\obj\Debug\_160421029_Nico_Victorio.FormTransaksi.resources
 C:\Users\nicov\Documents\GitHub\Projek_UAS\160421029_Nico Victorio\160421029_Nico Victorio\obj\Debug\_160421029_Nico_Victorio.FormUpdateInbox.resources
 C:\Users\nicov\Documents\GitHub\Projek_UAS\160421029_Nico Victorio\160421029_Nico Victorio\obj\Debug\_160421029_Nico_Victorio.FormUpdatePassword.resources
 C:\Users\nicov\Documents\GitHub\Projek_UAS\160421029_Nico Victorio\160421029_Nico Victorio\obj\Debug\_160421029_Nico_Victorio.FormUpdateAddressBook.resources
@@ -106,3 +105,8 @@ C:\Users\Cindy Yulinda\Documents\GitHub\Projek_UAS\160421029_Nico Victorio\16042
 C:\Users\nicov\Documents\GitHub\Projek_UAS\160421029_Nico Victorio\160421029_Nico Victorio\obj\Debug\_160421029_Nico_Victorio.FormSignInPengguna.resources
 C:\Users\nicov\Documents\GitHub\Projek_UAS\160421029_Nico Victorio\160421029_Nico Victorio\obj\Debug\_160421029_Nico_Victorio.FormTambahDeposito.resources
 C:\Users\nicov\Documents\GitHub\Projek_UAS\160421029_Nico Victorio\160421029_Nico Victorio\obj\Debug\_160421029_Nico_Victorio.FormUpdateTransaksi.resources
+C:\Users\nicov\Documents\GitHub\Projek_UAS\160421029_Nico Victorio\160421029_Nico Victorio\obj\Debug\_160421029_Nico_Victorio.FormTambahAddressBook.resources
+C:\Users\nicov\Documents\GitHub\Projek_UAS\160421029_Nico Victorio\160421029_Nico Victorio\obj\Debug\_160421029_Nico_Victorio.FormDaftarRekeningTujuan.resources
+C:\Users\nicov\Documents\GitHub\Projek_UAS\160421029_Nico Victorio\160421029_Nico Victorio\obj\Debug\_160421029_Nico_Victorio.FormVerifikasiDeposito.resources
+C:\Users\nicov\Documents\GitHub\Projek_UAS\160421029_Nico Victorio\160421029_Nico Victorio\obj\Debug\_160421029_Nico_Victorio.FormVerifikasiTabungan.resources
+C:\Users\nicov\Documents\GitHub\Projek_UAS\160421029_Nico Victorio\160421029_Nico Victorio\obj\Debug\_160421029_Nico_Victorio.FormTambahTransaksi.resources

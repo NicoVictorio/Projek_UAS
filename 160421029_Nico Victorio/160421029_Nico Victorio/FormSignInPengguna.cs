@@ -31,11 +31,6 @@ namespace _160421029_Nico_Victorio
                 textBoxNomorTelepon.Text, textBoxPassword.Text, "",
                 DateTime.Now, DateTime.Now, pkDipilih);
 
-
-
-                //buat employee kosongan
-                //Employee emp = new Employee();
-
                 //generate no rekening
                 string noRek = Tabungan.GenerateNoRek();
 

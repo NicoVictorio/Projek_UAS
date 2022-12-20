@@ -73,7 +73,6 @@ namespace DiBa_Lib
                         DateTime.Now.Month.ToString().PadLeft(2, '0') +
                         DateTime.Now.Day.ToString().PadLeft(2, '0') +
                         noRek.ToString().PadLeft(2, '0');
-
                 }
             }
             else
@@ -162,7 +161,7 @@ namespace DiBa_Lib
         {
             string sql = "SELECT no_rekening, id_pengguna, saldo, status, IFNULL(keterangan,'') as keterangan, " +
                          "tgl_buat, tgl_perubahan, IFNULL(verifikator,0) as verifikator " +
-                         "FROM tabungan WHERE no_rekening='" + noRek+"'";
+                         "FROM tabungan WHERE no_rekening = '" + noRek + "'";
             MySqlDataReader hasil = Koneksi.ambilData(sql);
             if (hasil.Read() == true)
             {
@@ -189,9 +188,10 @@ namespace DiBa_Lib
             }
         }
 
-        public bool UbahStatus(string statusBaru, Employee employee)
+        public bool UbahStatus(int idEmployee)
         {
-            string sql = "UPDATE tabungan SET status ='" + statusBaru + "', verifikator=" + employee.Nik +  " where no_rekening ='" + this.NoRekening + "';";
+            string sql = "UPDATE tabungan SET status = 'Aktif', verifikator=" + idEmployee +  
+                         " where no_rekening ='" + this.NoRekening + "';";
             bool result = Koneksi.executeDML(sql);
             return result;
         }

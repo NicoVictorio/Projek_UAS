@@ -13,7 +13,7 @@ namespace _160421029_Nico_Victorio
     public partial class FormUpdateTransaksi : Form
     {
         public string rekeningSumber;
-        public string idTransaksi;
+        public int idTransaksi;
         public FormUpdateTransaksi()
         {
             InitializeComponent();

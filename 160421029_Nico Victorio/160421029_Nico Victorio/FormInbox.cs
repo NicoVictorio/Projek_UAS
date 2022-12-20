@@ -93,8 +93,6 @@ namespace _160421029_Nico_Victorio
             formTambahInbox.ShowDialog();
         }
 
-
-
         private void dgvListInbox_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             int idPesan = int.Parse(dgvListInbox.CurrentRow.Cells["IdPesan"].Value.ToString());

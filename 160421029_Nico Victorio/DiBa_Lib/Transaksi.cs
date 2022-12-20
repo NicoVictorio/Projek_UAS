@@ -11,7 +11,7 @@ namespace DiBa_Lib
     {
         #region data members
         Tabungan noRekeningSumber;
-        string idTransaksi;
+        int idTransaksi;
         DateTime tglTransaksi;
         JenisTransaksi idJenisTransaksi;
         Tabungan noRekeningTujuan;
@@ -23,7 +23,7 @@ namespace DiBa_Lib
         public Transaksi()
         {
             this.NoRekeningSumber = null;
-            this.IdTransaksi = "";
+            this.IdTransaksi = 0;
             this.TglTransaksi = DateTime.Now;
             this.IdJenisTransaksi = null;
             this.NoRekeningTujuan = null;
@@ -32,7 +32,7 @@ namespace DiBa_Lib
 
         }
 
-        public Transaksi(Tabungan noRekeningSumber, string idTransaksi, DateTime tglTransaksi, 
+        public Transaksi(Tabungan noRekeningSumber, int idTransaksi, DateTime tglTransaksi, 
             JenisTransaksi idJenisTransaksi, Tabungan noRekeningTujuan, double nominal, string keterangan)
         {
             this.noRekeningSumber = noRekeningSumber;
@@ -47,7 +47,7 @@ namespace DiBa_Lib
 
         #region properties
         public Tabungan NoRekeningSumber { get => noRekeningSumber; set => noRekeningSumber = value; }
-        public string IdTransaksi { get => idTransaksi; set => idTransaksi = value; }
+        public int IdTransaksi { get => idTransaksi; set => idTransaksi = value; }
         public DateTime TglTransaksi { get => tglTransaksi; set => tglTransaksi = value; }
         public JenisTransaksi IdJenisTransaksi { get => idJenisTransaksi; set => idJenisTransaksi = value; }
         public Tabungan NoRekeningTujuan { get => noRekeningTujuan; set => noRekeningTujuan = value; }
@@ -78,7 +78,7 @@ namespace DiBa_Lib
             while (hasil.Read() == true)
             {
                 Transaksi tra = new Transaksi();
-                tra.IdTransaksi = hasil.GetString(1);
+                tra.IdTransaksi = hasil.GetInt32(1);
                 tra.TglTransaksi = hasil.GetDateTime(2);
                 tra.Nominal = hasil.GetDouble(5);
                 tra.Keterangan = hasil.GetString(6);
@@ -101,11 +101,14 @@ namespace DiBa_Lib
         }
         public bool TambahData()
         {
-            string sql = "INSERT INTO transaksi (rekening_sumber, idtransaksi, tgl_transaksi, id_jenisTransaksi, " +
-                "rekening_tujuan, nominal, keterangan) " +
-                         " VALUES ('" + this.NoRekeningSumber.NoRekening + "', " + this.IdTransaksi + ", " +
-                         this.TglTransaksi + ", '" + this.NoRekeningTujuan.NoRekening + "', '" + this.Nominal + "', '" +
-                         this.Keterangan + "' );";
+            string sql = "INSERT INTO transaksi (rekening_sumber, tgl_transaksi, " +
+                         "id_jenisTransaksi, rekening_tujuan, nominal, keterangan) " +
+                         "VALUES ('" + this.NoRekeningSumber.NoRekening + "', '" + 
+                                       this.TglTransaksi.ToString("yyyy-MM-dd HH-mm-ss") + "', " + 
+                                       this.IdJenisTransaksi.IdJenisTransaksi + ", '" +
+                                       this.NoRekeningTujuan.NoRekening + "', " + 
+                                       this.Nominal + ", '" +
+                                       this.Keterangan + "');";
             bool result = Koneksi.executeDML(sql);
             return result;
         }
