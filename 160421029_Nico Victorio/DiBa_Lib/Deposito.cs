@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
+
 namespace DiBa_Lib
 {
     public class Deposito
@@ -175,6 +176,15 @@ namespace DiBa_Lib
         //        return null;
         //    }
         //}
+
+        public bool UbahStatus(int idEmployee)
+        {
+            string sql = "UPDATE deposito SET status = 'Aktif', verifikator_buka =" + idEmployee +
+                         " where id_deposito ='" + this.IdDeposito + "';";
+            this.VerivikatorBuka = Employee.employeeByCode(idEmployee);
+            bool result = Koneksi.executeDML(sql);
+            return result;
+        }
         #endregion
     }
 }

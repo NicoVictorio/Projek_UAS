@@ -200,7 +200,7 @@ namespace DiBa_Lib
 
         public override string ToString()
         {
-            return Nik;
+            return Id.ToString();
         }
         #endregion
     }

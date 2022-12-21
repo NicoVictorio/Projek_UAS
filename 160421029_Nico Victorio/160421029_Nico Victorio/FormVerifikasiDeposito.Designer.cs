@@ -36,7 +36,7 @@ namespace _160421029_Nico_Victorio
             // 
             // buttonExit
             // 
-            this.buttonExit.Location = new System.Drawing.Point(374, 430);
+            this.buttonExit.Location = new System.Drawing.Point(363, 423);
             this.buttonExit.Name = "buttonExit";
             this.buttonExit.Size = new System.Drawing.Size(91, 48);
             this.buttonExit.TabIndex = 3;
@@ -59,7 +59,7 @@ namespace _160421029_Nico_Victorio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(850, 504);
+            this.ClientSize = new System.Drawing.Size(838, 487);
             this.Controls.Add(this.buttonExit);
             this.Controls.Add(this.dataGridViewListVerifikasiDeposito);
             this.Name = "FormVerifikasiDeposito";

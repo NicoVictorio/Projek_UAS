@@ -48,13 +48,13 @@ namespace DiBa_Lib
 
         #region properties
         public string NoRekening { get => noRekening; set => noRekening = value; }
+        public Pengguna Pengguna { get => pengguna; set => pengguna = value; }
         public double Saldo { get => saldo; set => saldo = value; }
         public string Status { get => status; set => status = value; }
         public string Keterangan { get => keterangan; set => keterangan = value; }
         public DateTime Tgl_buat { get => tgl_buat; set => tgl_buat = value; }
         public DateTime Tgl_perubahan { get => tgl_perubahan; set => tgl_perubahan = value; }
         public Employee Employee { get => employee; set => employee = value; }
-        public Pengguna Pengguna { get => pengguna; set => pengguna = value; }
         #endregion
 
         #region methods
@@ -85,10 +85,11 @@ namespace DiBa_Lib
             return hasilNoRek;
 
         }
+
         public static List<Tabungan> BacaData(string kriteria, string nilaiKriteria)
         {
             string sql = "SELECT no_rekening, id_pengguna, saldo, status, IFNULL(keterangan,'') as keterangan, " +
-                         "tgl_buat, tgl_perubahan, IFNULL(verifikator,0) as verifikator " +
+                         "tgl_buat, tgl_perubahan, IFNULL(verifikator, 0) as verifikator " +
                          "FROM tabungan ";
             if (kriteria == "")
             {
@@ -106,20 +107,21 @@ namespace DiBa_Lib
             while (hasil.Read() == true)
             {
                 Tabungan tab = new Tabungan();
-                tab.NoRekening = hasil.GetString(0);
-                tab.Saldo = hasil.GetDouble(2);
-                tab.Status = hasil.GetString(3);
-                tab.Keterangan = hasil.GetString(4);
+                tab.NoRekening = hasil.GetString("no_rekening");
+ 
+                Pengguna tmpPengguna = new Pengguna();
+                tmpPengguna.Nik = hasil.GetInt32("id_pengguna");
+                tab.Pengguna = tmpPengguna;
+
+                tab.Saldo = hasil.GetDouble("saldo");
+                tab.Status = hasil.GetString("status");
+                tab.Keterangan = hasil.GetString("keterangan");
                 tab.Tgl_buat = DateTime.Parse(hasil.GetValue(5).ToString());
                 tab.Tgl_perubahan = DateTime.Parse(hasil.GetValue(6).ToString());
 
-                Pengguna tmpPengguna = new Pengguna();
-                tmpPengguna.Nik = hasil.GetInt32(1);
-                tab.Pengguna = tmpPengguna;
-
                 Employee tmpEmployee = new Employee();
-                tmpEmployee.Id = hasil.GetInt32(7);
-                tab.Pengguna = tmpPengguna;
+                tmpEmployee.Id = hasil.GetInt32("verifikator");
+                tab.Employee = tmpEmployee;
 
                 listTabungan.Add(tab);
             }
@@ -137,6 +139,7 @@ namespace DiBa_Lib
             bool result = Koneksi.executeDML(sql);
             return result;
         }
+
         public bool UbahData()
         {
             string sql = "UPDATE tabungan SET id_pengguna = " + this.Pengguna.Nik + 
@@ -146,6 +149,13 @@ namespace DiBa_Lib
                          " WHERE no_rekening = '" + this.NoRekening + "';";
             bool result = Koneksi.executeDML(sql);
             return result;
+        }
+
+        public static void TambahSaldo(string nomorRekening, int nominal)
+        {
+            string sql = "UPDATE tabungan SET saldo = saldo + " + nominal +
+                         " WHERE no_rekening = '" + nomorRekening + "';";
+            bool result = Koneksi.executeDML(sql);
         }
 
         public bool HapusData()
@@ -158,7 +168,7 @@ namespace DiBa_Lib
         public static Tabungan tabunganByCode(string noRek)
         {
             string sql = "SELECT no_rekening, id_pengguna, saldo, status, IFNULL(keterangan,'') as keterangan, " +
-                         "tgl_buat, tgl_perubahan, IFNULL(verifikator,0) as verifikator " +
+                         "tgl_buat, tgl_perubahan, verifikator " +
                          "FROM tabungan WHERE no_rekening = '" + noRek + "'";
             MySqlDataReader hasil = Koneksi.ambilData(sql);
             if (hasil.Read() == true)
@@ -177,7 +187,7 @@ namespace DiBa_Lib
 
                 Employee tmpEmployee = new Employee();
                 tmpEmployee.Id = hasil.GetInt32(7);
-                tab.Pengguna = tmpPengguna;
+                tab.Employee = tmpEmployee;
                 return tab;
             }
             else
@@ -190,6 +200,7 @@ namespace DiBa_Lib
         {
             string sql = "UPDATE tabungan SET status = 'Aktif', verifikator=" + idEmployee +  
                          " where no_rekening ='" + this.NoRekening + "';";
+            this.Employee = Employee.employeeByCode(idEmployee);
             bool result = Koneksi.executeDML(sql);
             return result;
         }

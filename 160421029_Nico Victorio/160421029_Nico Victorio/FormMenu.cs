@@ -53,7 +53,6 @@ namespace _160421029_Nico_Victorio
                     MessageBox.Show("Selamat datang " + tmpEmp.NamaDepan, "Information");
                     SetHakAkses();
                 }
-                
             }
             else
             {
@@ -260,6 +259,22 @@ namespace _160421029_Nico_Victorio
                 FormDaftarTransaksi formDaftarTransaksi = new FormDaftarTransaksi();
                 formDaftarTransaksi.MdiParent = this;
                 formDaftarTransaksi.Show();
+            }
+            else
+            {
+                form.Show();
+                form.BringToFront();
+            }
+        }
+
+        private void topUpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.Form form = Application.OpenForms["FormTopUp"];
+            if (form == null)
+            {
+                FormTopUp formTopUp = new FormTopUp();
+                formTopUp.MdiParent = this;
+                formTopUp.Show();
             }
             else
             {

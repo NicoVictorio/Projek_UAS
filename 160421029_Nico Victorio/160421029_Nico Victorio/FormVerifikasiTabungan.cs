@@ -27,42 +27,42 @@ namespace _160421029_Nico_Victorio
             List<Tabungan> listTabungan = Tabungan.BacaData("", "");
             if (listTabungan.Count > 0)
             {
-                dataGridViewListVerifikasiDeposito.DataSource = listTabungan;
+                dataGridViewListVerifikasiTabungan.DataSource = listTabungan;
 
-                if (dataGridViewListVerifikasiDeposito.ColumnCount < 9)
+                if (dataGridViewListVerifikasiTabungan.ColumnCount < 9)
                 {
                     DataGridViewButtonColumn confirmButton = new DataGridViewButtonColumn();
                     confirmButton.HeaderText = "Aksi";
                     confirmButton.Text = "Confirm";
                     confirmButton.Name = "btnConfirm";
                     confirmButton.UseColumnTextForButtonValue = true;
-                    dataGridViewListVerifikasiDeposito.Columns.Add(confirmButton);
+                    dataGridViewListVerifikasiTabungan.Columns.Add(confirmButton);
                 }
             }
             else
             {
-                dataGridViewListVerifikasiDeposito.DataSource = null;
+                dataGridViewListVerifikasiTabungan.DataSource = null;
             }
         }
 
-        private void dataGridViewListVerifikasiDeposito_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dataGridViewListVerifikasiTabungan_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            string noRek = dataGridViewListVerifikasiDeposito.CurrentRow.Cells["noRekening"].Value.ToString();
-            Pengguna pengguna = (Pengguna)dataGridViewListVerifikasiDeposito.CurrentRow.Cells["pengguna"].Value;
-            double saldo = (double)dataGridViewListVerifikasiDeposito.CurrentRow.Cells["saldo"].Value;
-            string status = dataGridViewListVerifikasiDeposito.CurrentRow.Cells["status"].Value.ToString();
-            string keterangan = dataGridViewListVerifikasiDeposito.CurrentRow.Cells["keterangan"].Value.ToString();
-            DateTime tglBuat = DateTime.Parse(dataGridViewListVerifikasiDeposito.CurrentRow.Cells["tgl_buat"].Value.ToString());
-            DateTime tglPerubahan = DateTime.Parse(dataGridViewListVerifikasiDeposito.CurrentRow.Cells["tgl_perubahan"].Value.ToString());
-            Employee employee = (Employee)dataGridViewListVerifikasiDeposito.CurrentRow.Cells["employee"].Value;
+            string noRek = dataGridViewListVerifikasiTabungan.CurrentRow.Cells["noRekening"].Value.ToString();
+            Pengguna pengguna = (Pengguna)dataGridViewListVerifikasiTabungan.CurrentRow.Cells["pengguna"].Value;
+            double saldo = (double)dataGridViewListVerifikasiTabungan.CurrentRow.Cells["saldo"].Value;
+            string status = dataGridViewListVerifikasiTabungan.CurrentRow.Cells["status"].Value.ToString();
+            string keterangan = dataGridViewListVerifikasiTabungan.CurrentRow.Cells["keterangan"].Value.ToString();
+            DateTime tglBuat = DateTime.Parse(dataGridViewListVerifikasiTabungan.CurrentRow.Cells["tgl_buat"].Value.ToString());
+            DateTime tglPerubahan = DateTime.Parse(dataGridViewListVerifikasiTabungan.CurrentRow.Cells["tgl_perubahan"].Value.ToString());
+            Employee employee = (Employee)dataGridViewListVerifikasiTabungan.CurrentRow.Cells["employee"].Value;
 
-            if (e.ColumnIndex == dataGridViewListVerifikasiDeposito.Columns["btnConfirm"].Index && e.RowIndex >= 0)
+            if (e.ColumnIndex == dataGridViewListVerifikasiTabungan.Columns["btnConfirm"].Index && e.RowIndex >= 0)
             {
                 if (MessageBox.Show("Apakah anda yakin mengverifikasi tabungan?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     try
                     {
-                        Tabungan tab = new Tabungan(noRek, pengguna,  saldo,  status,  keterangan,  tglBuat,  tglPerubahan,  employee);
+                        Tabungan tab = new Tabungan(noRek, pengguna, saldo, status, keterangan, tglBuat, tglPerubahan, employee);
                         if (tab.UbahStatus(emp.Id))
                         {
                             MessageBox.Show("Tabungan telah terverifikasi.");

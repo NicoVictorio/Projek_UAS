@@ -36,6 +36,9 @@ namespace _160421029_Nico_Victorio
 
         }
 
- 
+        private void FormDeposito_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

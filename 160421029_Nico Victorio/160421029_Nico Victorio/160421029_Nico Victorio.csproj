@@ -210,11 +210,11 @@
     <Compile Include="FormTambahTransaksi.Designer.cs">
       <DependentUpon>FormTambahTransaksi.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormUpdateAddressBook.cs">
+    <Compile Include="FormTopUp.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormUpdateAddressBook.Designer.cs">
-      <DependentUpon>FormUpdateAddressBook.cs</DependentUpon>
+    <Compile Include="FormTopUp.Designer.cs">
+      <DependentUpon>FormTopUp.cs</DependentUpon>
     </Compile>
     <Compile Include="FormUpdateDeposito.cs">
       <SubType>Form</SubType>
@@ -362,8 +362,8 @@
     <EmbeddedResource Include="FormTambahTransaksi.resx">
       <DependentUpon>FormTambahTransaksi.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormUpdateAddressBook.resx">
-      <DependentUpon>FormUpdateAddressBook.cs</DependentUpon>
+    <EmbeddedResource Include="FormTopUp.resx">
+      <DependentUpon>FormTopUp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormUpdateDeposito.resx">
       <DependentUpon>FormUpdateDeposito.cs</DependentUpon>

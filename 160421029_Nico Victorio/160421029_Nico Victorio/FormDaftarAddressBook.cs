@@ -32,13 +32,6 @@ namespace _160421029_Nico_Victorio
                 dgvListAddressBook.DataSource = listAddressBook;
                 if (dgvListAddressBook.Columns.Count < 4)
                 {
-                    DataGridViewButtonColumn buttonColumn = new DataGridViewButtonColumn();
-                    buttonColumn.HeaderText = "Aksi";
-                    buttonColumn.Text = "Update";
-                    buttonColumn.Name = "btnUbahGrid";
-                    buttonColumn.UseColumnTextForButtonValue = true;
-                    dgvListAddressBook.Columns.Add(buttonColumn);
-
                     DataGridViewButtonColumn btnDeleteColumns = new DataGridViewButtonColumn();
                     btnDeleteColumns.HeaderText = "Aksi";
                     btnDeleteColumns.Text = "Delete";
@@ -107,15 +100,7 @@ namespace _160421029_Nico_Victorio
             AddressBook address = new AddressBook(noRek, pengguna, keterangan);
             if (address != null)
             {
-                if (e.ColumnIndex == dgvListAddressBook.Columns["btnUbahGrid"].Index)
-                {
-                    FormUpdateAddressBook formUpdate = new FormUpdateAddressBook();
-                    formUpdate.Owner = this;
-                    formUpdate.idpenguna = address.Pengguna.Nik;
-                    formUpdate.noRekening = address.Tabungan.NoRekening;
-                    formUpdate.ShowDialog();
-                }
-                else if (e.ColumnIndex == dgvListAddressBook.Columns["btnHapusGrid"].Index)
+                if (e.ColumnIndex == dgvListAddressBook.Columns["btnHapusGrid"].Index)
                 {
                     try
                     {

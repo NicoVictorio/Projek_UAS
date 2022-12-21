@@ -24,8 +24,7 @@ namespace _160421029_Nico_Victorio
             {
                 List<Pangkat> listPangkat = Pangkat.BacaData("kode_pangkat", "BRZ");
                 Pangkat pkDipilih = listPangkat[0];
-                //Pangkat pk = new Pangkat();
-                //int dataCount = formPosition.listPosition.Count();
+
                 Pengguna js = new Pengguna(int.Parse(textBoxNIK.Text), textBoxNamaDepan.Text,
                 textBoxNamaBelakang.Text, textBoxAlamat.Text, textBoxEmail.Text,
                 textBoxNomorTelepon.Text, textBoxPassword.Text, "",
@@ -37,10 +36,8 @@ namespace _160421029_Nico_Victorio
                 //panggil tabungan.TambahData()
                 Tabungan tab = new Tabungan(noRek, js, 0, "Unverified", "", DateTime.Now, DateTime.Now, null);
 
-
                 if (js.TambahData() && tab.TambahData())
                 {
-
                     MessageBox.Show("Data Pengguna telah tersimpan", "Info");
                     FormLoginPengguna frm = (FormLoginPengguna)this.Owner;
                     frm.FormMasuk_Load(this, e);
@@ -50,7 +47,6 @@ namespace _160421029_Nico_Victorio
                 {
                     throw new Exception("Tidak dapat menambahkan data dalam database");
                 }
-
             }
             catch (Exception x)
             {
