@@ -54,6 +54,12 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>dbSetting.settings</DependentUpon>
     </Compile>
+    <Compile Include="FormBuatPin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBuatPin.Designer.cs">
+      <DependentUpon>FormBuatPin.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormCairDeposito.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -113,6 +119,12 @@
     </Compile>
     <Compile Include="FormMasterEmployee.Designer.cs">
       <DependentUpon>FormMasterEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPin.Designer.cs">
+      <DependentUpon>FormPin.cs</DependentUpon>
     </Compile>
     <Compile Include="FormSignInPengguna.cs">
       <SubType>Form</SubType>
@@ -270,6 +282,12 @@
     <Compile Include="FormUpdateTransaksi.Designer.cs">
       <DependentUpon>FormUpdateTransaksi.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormVerifikasiCair.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormVerifikasiCair.Designer.cs">
+      <DependentUpon>FormVerifikasiCair.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormVerifikasiDeposito.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -284,6 +302,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormBuatPin.resx">
+      <DependentUpon>FormBuatPin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormCairDeposito.resx">
       <DependentUpon>FormCairDeposito.cs</DependentUpon>
     </EmbeddedResource>
@@ -313,6 +334,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormMasterEmployee.resx">
       <DependentUpon>FormMasterEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPin.resx">
+      <DependentUpon>FormPin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSignInPengguna.resx">
       <DependentUpon>FormSignInPengguna.cs</DependentUpon>
@@ -388,6 +412,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormUpdateTransaksi.resx">
       <DependentUpon>FormUpdateTransaksi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormVerifikasiCair.resx">
+      <DependentUpon>FormVerifikasiCair.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormVerifikasiDeposito.resx">
       <DependentUpon>FormVerifikasiDeposito.cs</DependentUpon>

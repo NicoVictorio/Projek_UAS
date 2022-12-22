@@ -209,6 +209,13 @@ namespace DiBa_Lib
             return result;
         }
 
+        public bool TambahPin(string pin)
+        {
+            string sql = "UPDATE pengguna SET pin ='" + pin  + "' where nik=" + this.Nik + ";";
+            bool result = Koneksi.executeDML(sql);
+            return result;
+        }
+
         public override string ToString()
         {
             return Nik.ToString();

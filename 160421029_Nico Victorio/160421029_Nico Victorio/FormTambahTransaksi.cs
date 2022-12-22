@@ -63,21 +63,53 @@ namespace _160421029_Nico_Victorio
             try
             {
                 Tabungan noRekeningSumber = Tabungan.tabunganByCode(textBoxRekeningAsal.Text);
-                JenisTransaksi idJenisTransaksi = (JenisTransaksi)ComboBoxJenisTransaksi.SelectedItem;
+                JenisTransaksi jenisTransaksi = (JenisTransaksi)ComboBoxJenisTransaksi.SelectedItem;
                 double nominal = double.Parse(textBoxNominal.Text);
                 string keterangan = textBoxKeterangan.Text;
-                Transaksi trans = new Transaksi(noRekeningSumber, 0, DateTime.Now,
-                                                idJenisTransaksi, rekeningTujuan, 
+                string idTransaksi = Transaksi.GenerateNoTransaksi(jenisTransaksi.KodeTransaksi);
+                rekeningTujuan = Tabungan.tabunganByCode(textBoxRekeningTujuan.Text);
+                Transaksi trans = new Transaksi(noRekeningSumber,idTransaksi, DateTime.Now,
+                                                jenisTransaksi, rekeningTujuan, 
                                                 nominal, keterangan);
-                if (trans.TambahData())
+
+                FormPin formPin = new FormPin();
+                formPin.Owner = this;
+
+                if (formPin.ShowDialog() == DialogResult.OK)
                 {
-                    MessageBox.Show("Data Transaksi telah tersimpan", "Info");
-                    FormMenu frm = (FormMenu)this.MdiParent;
-                    this.Close();
+                    if (trans.TambahData(jenisTransaksi.KodeTransaksi))
+                    {
+                        MessageBox.Show("Data Transaksi telah tersimpan", "Info");
+                        List<AddressBook> listAddressbook = AddressBook.BacaDataPengguna("no_rekening", rekeningTujuan.NoRekening, penggunaAsal.Nik);
+                        if (listAddressbook.Count == 0)
+                        {
+                            DialogResult confirmation = MessageBox.Show("Simpan " + rekeningTujuan.NoRekening + " ke address book?", "Konfirmasi Address Book", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                            if (confirmation == DialogResult.Yes)
+                            {
+                                AddressBook ab = new AddressBook(rekeningTujuan, penggunaAsal, "");
+                                if (ab.TambahData())
+                                {
+                                    MessageBox.Show("Address Book berhasil ditambahkan");
+                                }
+                            }
+                        }
+                        FormMenu frm = (FormMenu)this.MdiParent;
+                        this.Close();
+                    }
+                    else
+                    {
+                        throw new Exception("Tidak dapat menambahkan data dalam database");
+                    }
                 }
                 else
                 {
-                    throw new Exception("Tidak dapat menambahkan data dalam database");
+                    if (noRekeningSumber.UbahStatusSuspend())
+                    {
+                        MessageBox.Show("Akun anda telah disuspend sementara");
+                        this.Close();
+                        formMenu.HideAllMenu();
+                    }
+                    
                 }
             }
             catch (Exception x)

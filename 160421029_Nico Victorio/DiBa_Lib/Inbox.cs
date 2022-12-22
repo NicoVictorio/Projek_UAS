@@ -130,6 +130,15 @@ namespace DiBa_Lib
             bool result = Koneksi.executeDML(sql);
             return result;
         }
+        public bool TambahData(Koneksi k)
+        {
+            string sql = "INSERT INTO inbox(id_pengguna, pesan, tanggal_kirim,status, tgl_perubahan)" +
+                " VALUES (" + this.Pengguna.Nik + ",'" + this.Pesan + "', '" +
+                this.TglKirim.ToString("yyyy-MM-dd") + "', '" + this.Status + "', '" +
+                this.TglPerubahan.ToString("yyyy-MM-dd") + "');";
+            bool result = Koneksi.executeDML(sql,k);
+            return result;
+        }
 
         public bool UbahData()
         {

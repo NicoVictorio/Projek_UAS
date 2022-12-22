@@ -88,6 +88,17 @@ namespace DiBa_Lib
                 return false;
             }
         }
+        public static bool executeDML(string sql, Koneksi k)
+        {
+            //Koneksi k = new Koneksi();
+            MySqlCommand c = new MySqlCommand(sql, k.connection);
+            int result = c.ExecuteNonQuery();
+            if (result > 0)
+                return true;
+            else
+                return false;
+
+        }
         #endregion
     }
 }

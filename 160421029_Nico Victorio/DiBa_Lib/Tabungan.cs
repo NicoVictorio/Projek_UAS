@@ -157,6 +157,22 @@ namespace DiBa_Lib
             bool result = Koneksi.executeDML(sql);
         }
 
+        public static void UpdateSaldoTransaksi(string jenisTransaksi,string nomorRekening, double nominal, Koneksi k)
+        {
+            string sql = "";
+            if (jenisTransaksi == "pengeluaran")
+            {
+                sql = "UPDATE tabungan SET saldo = saldo - " + nominal +
+                             " WHERE no_rekening = '" + nomorRekening + "';";
+            }
+            else
+            {
+                sql = "UPDATE tabungan SET saldo = saldo + " + nominal +
+                             " WHERE no_rekening = '" + nomorRekening + "';";
+            }
+            Koneksi.executeDML(sql,k);
+        }
+
         public bool HapusData()
         {
             string sql = "DELETE from tabungan where no_rekening = " + this.NoRekening + ";";
@@ -200,6 +216,14 @@ namespace DiBa_Lib
             string sql = "UPDATE tabungan SET status = 'Aktif', verifikator=" + idEmployee +  
                          " where no_rekening ='" + this.NoRekening + "';";
             this.Employee = Employee.employeeByCode(idEmployee);
+            bool result = Koneksi.executeDML(sql);
+            return result;
+        }
+
+        public bool UbahStatusSuspend()
+        {
+            string sql = "UPDATE tabungan SET status = 'Suspend', verifikator = NULL"  +
+                         " where no_rekening ='" + this.NoRekening + "';";
             bool result = Koneksi.executeDML(sql);
             return result;
         }

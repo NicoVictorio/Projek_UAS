@@ -16,6 +16,7 @@ namespace _160421029_Nico_Victorio
         public Pengguna tmpPengguna;
         public Employee tmpEmp;
         public Deposito tmpDep;
+        public Tabungan tabPengguna;
         public FormMenu()
         {
             InitializeComponent();
@@ -38,11 +39,21 @@ namespace _160421029_Nico_Victorio
                     MessageBox.Show("Selamat datang " + tmpPengguna.NamaDepan, "Information");
 
                     List<Tabungan> tmpListTabungan = Tabungan.BacaData("id_pengguna", tmpPengguna.Nik.ToString());
-                    Tabungan tabPengguna = tmpListTabungan[0];
+                    tabPengguna = tmpListTabungan[0];
 
                     if (tabPengguna.Status == "Aktif")
                     {
                         SetHakAkses();
+                        
+                        if (tmpPengguna.Pin == "")
+                        {
+                            MessageBox.Show("Silahkan buat PIN");
+                            FormBuatPin formPin = new FormBuatPin();
+                            formPin.Owner = this;
+                            formPin.tabPengguna = tabPengguna;
+                            formPin.pengguna = tmpPengguna;
+                            formPin.ShowDialog();
+                        }
                     }
                     else
                     {
@@ -183,7 +194,7 @@ namespace _160421029_Nico_Victorio
             }
         }
 
-        private void HideAllMenu()
+        public void HideAllMenu()
         {
             masterToolStripMenuItem.Visible = false;
             penggunaToolStripMenuItem.Visible = false;
@@ -368,6 +379,26 @@ namespace _160421029_Nico_Victorio
         private void signOutToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             Application.Exit();
+            //FormMenu_Load(sender, e);
+            //tmpDep = null;
+            //tmpEmp = null;
+            //tmpPengguna = null;
+        }
+
+        private void verifikasiCairToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.Form form = Application.OpenForms["FormVerifikasiCair"];
+            if (form == null)
+            {
+                FormVerifikasiCair formVerifikasiCair = new FormVerifikasiCair();
+                formVerifikasiCair.MdiParent = this;
+                formVerifikasiCair.Show();
+            }
+            else
+            {
+                form.Show();
+                form.BringToFront();
+            }
         }
     }
 }

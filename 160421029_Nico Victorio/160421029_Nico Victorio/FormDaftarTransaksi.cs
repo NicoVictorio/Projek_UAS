@@ -111,7 +111,7 @@ namespace _160421029_Nico_Victorio
 
         private void dgvListTransaksi_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            int idTransaksi = (int)dgvListTransaksi.CurrentRow.Cells["IdTransaksi"].Value;
+            string idTransaksi = dgvListTransaksi.CurrentRow.Cells["IdTransaksi"].Value.ToString();
             double nominal = (double)dgvListTransaksi.CurrentRow.Cells["nominal"].Value;
             string keterangan = dgvListTransaksi.CurrentRow.Cells["keterangan"].Value.ToString();
 

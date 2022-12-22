@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Transactions;
 using MySql.Data.MySqlClient;
 
 namespace DiBa_Lib
@@ -160,18 +161,32 @@ namespace DiBa_Lib
 
         public bool TambahData()
         {
-            string sql = "INSERT INTO deposito(id_deposito, no_rekening, jatuh_tempo, " +
-                                               "nominal, bunga, status, tgl_buat, tgl_perubahan) " +
-                         "VALUES ('" + this.IdDeposito + "', '" +
-                                       this.Tabungan.NoRekening + "', '" +
-                                       this.JatuhTempo + "', " +
-                                       this.Nominal + ", " +
-                                       this.Bunga + ", '" +
-                                       this.Status + "', '" +
-                                       this.TglBuat.ToString("yyyy-MM-dd HH-mm-ss") + "', '" +
-                                       this.TglPerubahan.ToString("yyyy-MM-dd HH-mm-ss") + "'); ";
-            bool result = Koneksi.executeDML(sql);
-            return result;
+            using (TransactionScope transcope = new TransactionScope())
+            {
+                try
+                {
+                    Koneksi k = new Koneksi();
+                    string sql = "INSERT INTO deposito(id_deposito, no_rekening, jatuh_tempo, " +
+                                                       "nominal, bunga, status, tgl_buat, tgl_perubahan) " +
+                                 "VALUES ('" + this.IdDeposito + "', '" +
+                                               this.Tabungan.NoRekening + "', '" +
+                                               this.JatuhTempo + "', " +
+                                               this.Nominal + ", " +
+                                               this.Bunga + ", '" +
+                                               this.Status + "', '" +
+                                               this.TglBuat.ToString("yyyy-MM-dd HH-mm-ss") + "', '" +
+                                               this.TglPerubahan.ToString("yyyy-MM-dd HH-mm-ss") + "'); ";
+                    Tabungan.UpdateSaldoTransaksi("pengeluaran", this.Tabungan.NoRekening, this.Nominal, k);
+                    bool result = Koneksi.executeDML(sql, k);
+                    transcope.Complete();
+                    return result;
+                }
+                catch (Exception x)
+                {
+                    transcope.Dispose();
+                    throw new Exception(x.Message);
+                }
+            }
         }
 
         public bool UbahData()
@@ -219,13 +234,44 @@ namespace DiBa_Lib
         //    }
         //}
 
-        public bool UbahStatus(int idEmployee)
+        public bool UbahStatusAktif(int idEmployee)
         {
             string sql = "UPDATE deposito SET status = 'Aktif', verivikator_buka =" + idEmployee +
                          " where id_deposito ='" + this.IdDeposito + "';";
             this.VerivikatorBuka = Employee.employeeByCode(idEmployee);
             bool result = Koneksi.executeDML(sql);
             return result;
+        }
+        public bool UbahStatusSiapCair()
+        {
+            string sql = "UPDATE deposito SET status = 'Siap Cair'" +
+                         " where id_deposito ='" + this.IdDeposito + "';";
+            
+            bool result = Koneksi.executeDML(sql);
+            return result;
+        }
+        public bool UbahStatusSudahCair(int idEmployee)
+        {
+            using (TransactionScope transcope = new TransactionScope())
+            {
+                try
+                {
+                    Koneksi k = new Koneksi();
+                    string sql = "UPDATE deposito SET status = 'Sudah Cair', verivikator_cair =" + idEmployee +
+                     " where id_deposito ='" + this.IdDeposito + "';";
+                    this.verivikatorCair = Employee.employeeByCode(idEmployee);
+                    bool result = Koneksi.executeDML(sql, k);
+
+                    Tabungan.UpdateSaldoTransaksi("pemasukan", this.Tabungan.NoRekening, this.Nominal, k);
+                    transcope.Complete();
+                    return result;
+                }
+                catch (Exception x)
+                {
+                    transcope.Dispose();
+                    throw new Exception(x.Message);
+                }
+            }
         }
 
         public override string ToString()

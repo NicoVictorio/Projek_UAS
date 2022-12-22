@@ -11,20 +11,20 @@ using DiBa_Lib;
 
 namespace _160421029_Nico_Victorio
 {
-    public partial class FormVerifikasiDeposito : Form
+    public partial class FormVerifikasiCair : Form
     {
         FormMenu formMenu;
         Employee emp;
-        public FormVerifikasiDeposito()
+        public FormVerifikasiCair()
         {
             InitializeComponent();
         }
 
-        private void FormVerifikasiDeposito_Load(object sender, EventArgs e)
+        private void FormVerifikasiCair_Load(object sender, EventArgs e)
         {
             formMenu = (FormMenu)this.MdiParent;
             emp = formMenu.tmpEmp;
-            List<Deposito> listDeposito = Deposito.BacaData("", "");
+            List<Deposito> listDeposito = Deposito.BacaData("status", "Siap Cair");
             if (listDeposito.Count > 0)
             {
                 dataGridViewListVerifikasiDeposito.DataSource = listDeposito;
@@ -60,15 +60,15 @@ namespace _160421029_Nico_Victorio
 
             if (e.ColumnIndex == dataGridViewListVerifikasiDeposito.Columns["btnConfirm"].Index && e.RowIndex >= 0)
             {
-                if (MessageBox.Show("Apakah anda yakin mengverifikasi deposito?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("Apakah anda yakin mengverifikasi cair deposito?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     try
                     {
                         Deposito dep = new Deposito(idDeposito, noRek, jatuhTempo, nominal, bunga, status, tglBuat, tglPerubahan, verivikatorBuka, verivikatorCair);
-                        if (dep.UbahStatusAktif(emp.Id))
+                        if (dep.UbahStatusSudahCair(emp.Id))
                         {
-                            MessageBox.Show("Deposito telah terverifikasi.");
-                            FormVerifikasiDeposito_Load(sender, e);
+                            MessageBox.Show("Deposito telah dicairkan.");
+                            FormVerifikasiCair_Load(sender, e);
                         }
                     }
                     catch (Exception ex)
@@ -77,11 +77,6 @@ namespace _160421029_Nico_Victorio
                     }
                 }
             }
-        }
-
-        private void buttonExit_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
     }
 }
