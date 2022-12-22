@@ -83,7 +83,6 @@ namespace DiBa_Lib
                     "01";
             }
             return hasilNoRek;
-
         }
 
         public static List<Tabungan> BacaData(string kriteria, string nilaiKriteria)

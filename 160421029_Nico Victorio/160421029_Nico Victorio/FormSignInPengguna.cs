@@ -51,7 +51,6 @@ namespace _160421029_Nico_Victorio
             catch (Exception x)
             {
                 MessageBox.Show(x.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                //MessageBox.Show("Penyimpanan gagal. Pesan kesalahan: " + x.Message, "Kesalahan");
             }
         }
     }

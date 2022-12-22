@@ -14,6 +14,9 @@ namespace _160421029_Nico_Victorio
     public partial class FormDaftarDeposito : Form
     {
         public List<Deposito> listDeposito = new List<Deposito>();
+        FormMenu formMenu;
+        public Pengguna penggunaAsal;
+        Tabungan tabPengguna;
         public FormDaftarDeposito()
         {
             InitializeComponent();
@@ -21,6 +24,12 @@ namespace _160421029_Nico_Victorio
 
         public void FormDaftarDeposito_Load(object sender, EventArgs e)
         {
+            formMenu = (FormMenu)this.MdiParent;
+            penggunaAsal = formMenu.tmpPengguna;
+
+            List<Tabungan> tmpListTabungan = Tabungan.BacaData("id_pengguna", penggunaAsal.Nik.ToString());
+            tabPengguna = tmpListTabungan[0];
+
             listDeposito = Deposito.BacaData("", "");
             if (listDeposito.Count > 0)
             {
@@ -29,23 +38,23 @@ namespace _160421029_Nico_Victorio
                 {
                     DataGridViewButtonColumn buttonColumn = new DataGridViewButtonColumn();
                     buttonColumn.HeaderText = "Aksi";
-                    buttonColumn.Text = "Update";
-                    buttonColumn.Name = "btnUbahGrid";
+                    buttonColumn.Text = "Cair";
+                    buttonColumn.Name = "btnCairGrid";
                     buttonColumn.UseColumnTextForButtonValue = true;
                     dgvListDeposito.Columns.Add(buttonColumn);
-
-                    DataGridViewButtonColumn btnDeleteColumns = new DataGridViewButtonColumn();
-                    btnDeleteColumns.HeaderText = "Aksi";
-                    btnDeleteColumns.Text = "Delete";
-                    btnDeleteColumns.Name = "btnHapusGrid";
-                    btnDeleteColumns.UseColumnTextForButtonValue = true;
-                    dgvListDeposito.Columns.Add(btnDeleteColumns);
                 }
             }
             else
             {
                 dgvListDeposito.DataSource = null;
             }
+        }
+
+        private void btn_Add_Click(object sender, EventArgs e)
+        {
+            FormPengajuanDeposito formPengajuanDeposito = new FormPengajuanDeposito();
+            formPengajuanDeposito.Owner = this;
+            formPengajuanDeposito.ShowDialog();
         }
 
         private void tb_Kriteria_TextChanged(object sender, EventArgs e)
@@ -91,6 +100,7 @@ namespace _160421029_Nico_Victorio
                 {
                     kriteria = "verivikator_cair";
                 }
+
                 nilai = tb_Kriteria.Text;
                 listDeposito = Deposito.BacaData(kriteria, nilai);
 
@@ -111,7 +121,7 @@ namespace _160421029_Nico_Victorio
 
         private void dgvListDeposito_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            int idDeposito = (int)dgvListDeposito.CurrentRow.Cells["idDeposito"].Value;
+            string idDeposito = dgvListDeposito.CurrentRow.Cells["idDeposito"].Value.ToString();
             Tabungan noRekening = (Tabungan)dgvListDeposito.CurrentRow.Cells["NoRekening"].Value;
 
             string jatuhTempo = dgvListDeposito.CurrentRow.Cells["JatuhTempo"].Value.ToString();
@@ -125,40 +135,21 @@ namespace _160421029_Nico_Victorio
             Employee verifikatorCair = (Employee)dgvListDeposito.CurrentRow.Cells["verivikatorcair"].Value;
 
             Deposito dep = new Deposito(idDeposito, noRekening, jatuhTempo, nominal, bunga, status, 
-                tglBuat, tglPerubahan, verifikatorBuka, verifikatorBuka);
+                                        tglBuat, tglPerubahan, verifikatorBuka, verifikatorCair);
             if (dep != null)
             {
-                if (e.ColumnIndex == dgvListDeposito.Columns["btnUbahGrid"].Index)
+                if (e.ColumnIndex == dgvListDeposito.Columns["btnCairGrid"].Index)
                 {
-                    FormUpdateDeposito formUpdate = new FormUpdateDeposito();
-                    formUpdate.Owner = this;
-                    formUpdate.idDeposito = dep.IdDeposito;
-                    formUpdate.ShowDialog();
-                }
-                else if (e.ColumnIndex == dgvListDeposito.Columns["btnHapusGrid"].Index)
-                {
-                    try
+                    if (dep.Status == "Aktif" && tabPengguna.Status == "Aktif")
                     {
-                        DialogResult confirmation = MessageBox.Show(
-                            "Apakah anda yakin ingin menghapus data deposito '" + 
-                            idDeposito + "'?", "Konfirmasi Hapus", 
-                            MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                        if (confirmation == DialogResult.Yes)
-                        {
-                            if (dep.HapusData())
-                            {
-                                MessageBox.Show("Penghapusan data berhasil");
-                                FormDaftarDeposito_Load(sender, e);
-                            }
-                            else
-                            {
-                                MessageBox.Show("Penghapusan data gagal");
-                            }
-                        }
+                        FormCairDeposito formCairDeposito = new FormCairDeposito();
+                        formCairDeposito.Owner = this;
+                        formCairDeposito.idDeposito = dep.IdDeposito;
+                        formCairDeposito.ShowDialog();
                     }
-                    catch (Exception ex)
+                    else
                     {
-                        MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Status deposito anda tidak aktif");
                     }
                 }
             }
@@ -167,13 +158,6 @@ namespace _160421029_Nico_Victorio
         private void btn_Exit_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void btn_Add_Click(object sender, EventArgs e)
-        {
-            FormTambahDeposito formTambahDeposito = new FormTambahDeposito();
-            formTambahDeposito.Owner = this;
-            formTambahDeposito.ShowDialog();
         }
     }
 }

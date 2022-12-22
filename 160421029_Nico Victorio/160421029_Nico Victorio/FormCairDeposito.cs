@@ -11,16 +11,15 @@ using DiBa_Lib;
 
 namespace _160421029_Nico_Victorio
 {
-    public partial class FormUpdateDeposito : Form
+    public partial class FormCairDeposito : Form
     {
         public string idDeposito;
-
-        public FormUpdateDeposito()
+        public FormCairDeposito()
         {
             InitializeComponent();
         }
 
-        private void FormUpdateDeposito_Load(object sender, EventArgs e)
+        private void FormCairDeposito_Load(object sender, EventArgs e)
         {
 
         }

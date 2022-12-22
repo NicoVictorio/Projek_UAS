@@ -15,6 +15,7 @@ namespace _160421029_Nico_Victorio
     {
         public Pengguna tmpPengguna;
         public Employee tmpEmp;
+        public Deposito tmpDep;
         public FormMenu()
         {
             InitializeComponent();
