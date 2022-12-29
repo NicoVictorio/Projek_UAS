@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Transactions;
 using MySql.Data.MySqlClient;
 
 namespace DiBa_Lib
@@ -114,23 +115,40 @@ namespace DiBa_Lib
             return listPengguna;
         }
 
-        public  bool TambahData()
+        public  bool TambahData(Pengguna p, string noRek)
         {
-            string sql = "INSERT INTO pengguna (nik, nama_depan,nama_keluarga, alamat, email, " +
-                         "no_telepon, password, pin, tgl_buat, tgl_perubahan, kode_pangkat) " + 
-                         "values (" + this.Nik + ", '"
-                                    + this.NamaDepan.Replace("'", "\\'") + "', '"
-                                    + this.NamaKeluarga.Replace("'", "\\'") + "', '" 
-                                    + this.Alamat + "', '" 
-                                    + this.Email + "', '" 
-                                    + this.NoTelp + "', '"
-                                    + this.Password + "', '" 
-                                    + this.Pin + "', '" 
-                                    + this.TglBuat.ToString("yyyy-MM-dd HH-mm-ss") + "', '" 
-                                    + this.TglPerubahan.ToString("yyyy-MM-dd HH-mm-ss") + "', '" 
-                                    + this.Pangkat.KodePangkat + "');";
-            bool result = Koneksi.executeDML(sql);
-            return result;
+            using (TransactionScope transcope = new TransactionScope())
+            {
+                try
+                {
+                    Koneksi k = new Koneksi();
+                    string sql = "INSERT INTO pengguna (nik, nama_depan,nama_keluarga, alamat, email, " +
+                             "no_telepon, password, pin, tgl_buat, tgl_perubahan, kode_pangkat) " +
+                             "values (" + this.Nik + ", '"
+                                        + this.NamaDepan.Replace("'", "\\'") + "', '"
+                                        + this.NamaKeluarga.Replace("'", "\\'") + "', '"
+                                        + this.Alamat + "', '"
+                                        + this.Email + "', '"
+                                        + this.NoTelp + "', '"
+                                        + this.Password + "', '"
+                                        + this.Pin + "', '"
+                                        + this.TglBuat.ToString("yyyy-MM-dd HH-mm-ss") + "', '"
+                                        + this.TglPerubahan.ToString("yyyy-MM-dd HH-mm-ss") + "', '"
+                                        + this.Pangkat.KodePangkat + "');";
+                    bool result = Koneksi.executeDML(sql,k);
+                    
+                    Tabungan tab = new Tabungan(noRek, p, 0, "Unverified", "", DateTime.Now, DateTime.Now, null);
+                    tab.TambahData(k);
+                    
+                    transcope.Complete();
+                    return result;
+                }
+                catch(Exception x)
+                {
+                    transcope.Dispose();
+                    throw new Exception(x.Message);
+                }
+            }
         }
 
         public  bool UbahData()

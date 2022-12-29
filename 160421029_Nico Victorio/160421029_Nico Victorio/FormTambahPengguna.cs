@@ -31,7 +31,7 @@ namespace _160421029_Nico_Victorio
                 string noRek = Tabungan.GenerateNoRek();
                 Tabungan tab = new Tabungan(noRek, js, 0, "Unverified", "", DateTime.Now, DateTime.Now, null);
 
-                if (js.TambahData() && tab.TambahData())
+                if (js.TambahData(js,noRek)) //&& tab.TambahData())
                 {
                     MessageBox.Show("Data Pengguna telah tersimpan", "Info");
                     FormMasterPengguna frm = (FormMasterPengguna)this.Owner;

@@ -38,9 +38,9 @@ namespace _160421029_Nico_Victorio
            
                 string noRek = Tabungan.GenerateNoRek();
 
-                Tabungan tab = new Tabungan(noRek, pengguna, 0, "Unverified", "", DateTime.Now, DateTime.Now, null);
+                //Tabungan tab = new Tabungan(noRek, pengguna, 0, "Unverified", "", DateTime.Now, DateTime.Now, null);
 
-                if (pengguna.TambahData() && tab.TambahData())
+                if (pengguna.TambahData(pengguna,noRek))// && tab.TambahData())
                 {
                     MessageBox.Show("Data Pengguna telah tersimpan", "Info");
                     FormLogin frm = (FormLogin)this.Owner;

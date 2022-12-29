@@ -139,6 +139,18 @@ namespace DiBa_Lib
             return result;
         }
 
+        public bool TambahData(Koneksi k)
+        {
+            string sql = "INSERT INTO tabungan (no_rekening, pengguna_id, saldo, status, " +
+                                         "keterangan, tgl_buat, tgl_perubahan) " +
+                         " VALUES ('" + this.NoRekening + "', " + this.Pengguna.Id + ", " +
+                         this.Saldo + ", '" + this.Status + "', '" + this.Keterangan + "', '" +
+                         this.Tgl_buat.ToString("yyyy-MM-dd HH-mm-ss") + "', '" +
+                         this.Tgl_perubahan.ToString("yyyy-MM-dd HH-mm-ss") + "');";
+            bool result = Koneksi.executeDML(sql,k);
+            return result;
+        }
+
         public bool UbahData()
         {
             string sql = "UPDATE tabungan SET pengguna_id = " + this.Pengguna.Id + 
