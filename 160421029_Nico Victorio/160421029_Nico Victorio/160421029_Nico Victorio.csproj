@@ -96,6 +96,12 @@
     <Compile Include="FormDaftarTransaksi.Designer.cs">
       <DependentUpon>FormDaftarTransaksi.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLogin.Designer.cs">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormPengajuanDeposito.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,12 +113,6 @@
     </Compile>
     <Compile Include="FormInbox.Designer.cs">
       <DependentUpon>FormInbox.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormLoginEmployee.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormLoginEmployee.Designer.cs">
-      <DependentUpon>FormLoginEmployee.cs</DependentUpon>
     </Compile>
     <Compile Include="FormMasterEmployee.cs">
       <SubType>Form</SubType>
@@ -126,11 +126,23 @@
     <Compile Include="FormPin.Designer.cs">
       <DependentUpon>FormPin.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormSignInPengguna.cs">
+    <Compile Include="FormProfileEmployee.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormSignInPengguna.Designer.cs">
-      <DependentUpon>FormSignInPengguna.cs</DependentUpon>
+    <Compile Include="FormProfileEmployee.Designer.cs">
+      <DependentUpon>FormProfileEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormProfilePengguna.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormProfilePengguna.Designer.cs">
+      <DependentUpon>FormProfilePengguna.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSignUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSignUp.Designer.cs">
+      <DependentUpon>FormSignUp.cs</DependentUpon>
     </Compile>
     <Compile Include="FormStart.cs">
       <SubType>Form</SubType>
@@ -173,12 +185,6 @@
     </Compile>
     <Compile Include="FormMasterPengguna.Designer.cs">
       <DependentUpon>FormMasterPengguna.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormLoginPengguna.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormLoginPengguna.Designer.cs">
-      <DependentUpon>FormLoginPengguna.cs</DependentUpon>
     </Compile>
     <Compile Include="FormMenu.cs">
       <SubType>Form</SubType>
@@ -323,14 +329,14 @@
     <EmbeddedResource Include="FormDaftarTransaksi.resx">
       <DependentUpon>FormDaftarTransaksi.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormLogin.resx">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormPengajuanDeposito.resx">
       <DependentUpon>FormPengajuanDeposito.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormInbox.resx">
       <DependentUpon>FormInbox.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormLoginEmployee.resx">
-      <DependentUpon>FormLoginEmployee.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormMasterEmployee.resx">
       <DependentUpon>FormMasterEmployee.cs</DependentUpon>
@@ -338,8 +344,11 @@
     <EmbeddedResource Include="FormPin.resx">
       <DependentUpon>FormPin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormSignInPengguna.resx">
-      <DependentUpon>FormSignInPengguna.cs</DependentUpon>
+    <EmbeddedResource Include="FormProfilePengguna.resx">
+      <DependentUpon>FormProfilePengguna.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSignUp.resx">
+      <DependentUpon>FormSignUp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormStart.resx">
       <DependentUpon>FormStart.cs</DependentUpon>
@@ -364,9 +373,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormMasterPengguna.resx">
       <DependentUpon>FormMasterPengguna.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormLoginPengguna.resx">
-      <DependentUpon>FormLoginPengguna.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormMenu.resx">
       <DependentUpon>FormMenu.cs</DependentUpon>

@@ -11,36 +11,40 @@ using DiBa_Lib;
 
 namespace _160421029_Nico_Victorio
 {
-    public partial class FormSignInPengguna : Form
+    public partial class FormSignUp : Form
     {
-        public FormSignInPengguna()
+        FormMenu formMenu;
+        public Pengguna tmpPengguna;
+        public Employee tmpEmployee;
+        public FormSignUp()
         {
             InitializeComponent();
         }
 
-        private void buttonBuatAkun_Click(object sender, EventArgs e)
+        private void FormSignUp_Load(object sender, EventArgs e)
+        {
+            formMenu = (FormMenu)this.MdiParent;
+        }
+
+        private void buttonSignUp_Click(object sender, EventArgs e)
         {
             try
             {
                 List<Pangkat> listPangkat = Pangkat.BacaData("kode_pangkat", "BRZ");
                 Pangkat pkDipilih = listPangkat[0];
-
-                Pengguna js = new Pengguna(int.Parse(textBoxNIK.Text), textBoxNamaDepan.Text,
-                textBoxNamaBelakang.Text, textBoxAlamat.Text, textBoxEmail.Text,
-                textBoxNomorTelepon.Text, textBoxPassword.Text, "",
-                DateTime.Now, DateTime.Now, pkDipilih);
-
-                //generate no rekening
+                Pengguna pengguna = new Pengguna(0, 0, "", "", "", textBoxEmail.Text,
+                                           "", textBoxPassword.Text, "",
+                                           DateTime.Now, DateTime.Now, pkDipilih);
+           
                 string noRek = Tabungan.GenerateNoRek();
 
-                //panggil tabungan.TambahData()
-                Tabungan tab = new Tabungan(noRek, js, 0, "Unverified", "", DateTime.Now, DateTime.Now, null);
+                Tabungan tab = new Tabungan(noRek, pengguna, 0, "Unverified", "", DateTime.Now, DateTime.Now, null);
 
-                if (js.TambahData() && tab.TambahData())
+                if (pengguna.TambahData() && tab.TambahData())
                 {
                     MessageBox.Show("Data Pengguna telah tersimpan", "Info");
-                    FormLoginPengguna frm = (FormLoginPengguna)this.Owner;
-                    frm.FormMasuk_Load(this, e);
+                    FormLogin frm = (FormLogin)this.Owner;
+                    frm.FormLogin_Load(this, e);
                     this.Close();
                 }
                 else
@@ -52,6 +56,11 @@ namespace _160421029_Nico_Victorio
             {
                 MessageBox.Show(x.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void buttonExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

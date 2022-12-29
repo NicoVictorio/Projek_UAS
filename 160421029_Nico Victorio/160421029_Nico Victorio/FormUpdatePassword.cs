@@ -33,7 +33,7 @@ namespace _160421029_Nico_Victorio
                     throw new Exception("Password tidak sama");
                 }
 
-                Pengguna k = new Pengguna(tmpPengguna.Nik, tmpPengguna.NamaDepan,
+                Pengguna k = new Pengguna(tmpPengguna.Id, tmpPengguna.Nik, tmpPengguna.NamaDepan,
                     tmpPengguna.NamaKeluarga, tmpPengguna.Alamat, tmpPengguna.Email,
                     tmpPengguna.NoTelp, textBoxPasswordBaru.Text, tmpPengguna.Pin,
                     tmpPengguna.TglBuat, DateTime.Now, tmpPengguna.Pangkat);
@@ -57,7 +57,7 @@ namespace _160421029_Nico_Victorio
         private void FormUpdatePassword_Load(object sender, EventArgs e)
         {
             formMenu = (FormMenu)this.MdiParent;
-            tmpPengguna = Pengguna.penggunaByCode(formMenu.tmpPengguna.Nik.ToString());
+            tmpPengguna = Pengguna.penggunaByCode(formMenu.tmpPengguna.Id.ToString());
         }
     }
 }

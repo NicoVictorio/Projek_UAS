@@ -38,7 +38,7 @@ namespace _160421029_Nico_Victorio
                 {
                     MessageBox.Show("Selamat datang " + tmpPengguna.NamaDepan, "Information");
 
-                    List<Tabungan> tmpListTabungan = Tabungan.BacaData("id_pengguna", tmpPengguna.Nik.ToString());
+                    List<Tabungan> tmpListTabungan = Tabungan.BacaData("pengguna_id", tmpPengguna.Nik.ToString());
                     tabPengguna = tmpListTabungan[0];
 
                     if (tabPengguna.Status == "Aktif")

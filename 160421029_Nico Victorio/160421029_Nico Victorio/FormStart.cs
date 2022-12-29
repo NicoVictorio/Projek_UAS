@@ -14,37 +14,41 @@ namespace _160421029_Nico_Victorio
     public partial class FormStart : System.Windows.Forms.Form
     {
         public Pengguna tmpPengguna;
-        public Employee tmpEmp;
+        public Employee tmpEmployee;
         public DialogResult asEmployee, asPengguna;
         public FormStart()
         {
             InitializeComponent();
         }
 
-        private void buttonPengguna_Click(object sender, EventArgs e)
+        private void buttonLogin_Click(object sender, EventArgs e)
         {
-            FormLoginPengguna form = new FormLoginPengguna();
+            FormLogin form = new FormLogin();
             form.Owner = this;
             if (form.ShowDialog() == DialogResult.OK)
             {
                 this.DialogResult = DialogResult.OK;
-                this.tmpPengguna = form.tmp;
-                FormMenu formmenu = (FormMenu)this.Owner;
-                formmenu.tmpPengguna = tmpPengguna;
+                FormMenu formMenu = (FormMenu)this.Owner;
+                if (tmpEmployee != null)
+                {
+                    formMenu.tmpEmp = tmpEmployee;
+                }
+                else if (tmpPengguna != null)
+                {
+                    formMenu.tmpPengguna = tmpPengguna;
+                }
                 this.Close();
             }
         }
 
-        private void buttonEmployee_Click(object sender, EventArgs e)
+        private void buttonSignUp_Click(object sender, EventArgs e)
         {
-            FormLoginEmployee form = new FormLoginEmployee();
+            FormSignUp form = new FormSignUp();
             form.Owner = this;
             if (form.ShowDialog() == DialogResult.OK)
             {
                 this.DialogResult = DialogResult.OK;
-                this.tmpEmp = form.tmpEmp;
                 FormMenu formmenu = (FormMenu)this.Owner;
-                formmenu.tmpEmp = tmpEmp;
                 this.Close();
             }
         }

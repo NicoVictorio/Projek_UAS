@@ -87,7 +87,7 @@ namespace DiBa_Lib
 
         public static List<Tabungan> BacaData(string kriteria, string nilaiKriteria)
         {
-            string sql = "SELECT no_rekening, id_pengguna, saldo, status, IFNULL(keterangan,'') as keterangan, " +
+            string sql = "SELECT no_rekening, pengguna_id, saldo, status, IFNULL(keterangan,'') as keterangan, " +
                          "tgl_buat, tgl_perubahan, IFNULL(verifikator, 0) as verifikator " +
                          "FROM tabungan ";
             if (kriteria == "")
@@ -109,7 +109,7 @@ namespace DiBa_Lib
                 tab.NoRekening = hasil.GetString("no_rekening");
  
                 Pengguna tmpPengguna = new Pengguna();
-                tmpPengguna.Nik = hasil.GetInt32("id_pengguna");
+                tmpPengguna.Id = hasil.GetInt32("pengguna_id");
                 tab.Pengguna = tmpPengguna;
 
                 tab.Saldo = hasil.GetDouble("saldo");
@@ -129,9 +129,9 @@ namespace DiBa_Lib
 
         public bool TambahData()
         {
-            string sql = "INSERT INTO tabungan (no_rekening, id_pengguna, saldo, status, " +
+            string sql = "INSERT INTO tabungan (no_rekening, pengguna_id, saldo, status, " +
                                          "keterangan, tgl_buat, tgl_perubahan) " +
-                         " VALUES ('" + this.NoRekening + "', " + this.Pengguna.Nik + ", " +
+                         " VALUES ('" + this.NoRekening + "', " + this.Pengguna.Id + ", " +
                          this.Saldo + ", '" + this.Status + "', '" + this.Keterangan + "', '" +
                          this.Tgl_buat.ToString("yyyy-MM-dd HH-mm-ss") + "', '" + 
                          this.Tgl_perubahan.ToString("yyyy-MM-dd HH-mm-ss") + "');";
@@ -141,7 +141,7 @@ namespace DiBa_Lib
 
         public bool UbahData()
         {
-            string sql = "UPDATE tabungan SET id_pengguna = " + this.Pengguna.Nik + 
+            string sql = "UPDATE tabungan SET pengguna_id = " + this.Pengguna.Id + 
                          ", saldo = " + this.Saldo + ", status = '" + this.Status +
                          "', keterangan = '" + this.Keterangan + "', tgl_buat = '" + this.Tgl_buat.ToString("yyyy-MM-dd HH-mm-ss") + 
                          "', tgl_perubahan = '" + this.Tgl_perubahan.ToString("yyyy-MM-dd HH-mm-ss") + "' " +
@@ -182,7 +182,7 @@ namespace DiBa_Lib
 
         public static Tabungan tabunganByCode(string noRek)
         {
-            string sql = "SELECT no_rekening, id_pengguna, saldo, status, IFNULL(keterangan,'') as keterangan, " +
+            string sql = "SELECT no_rekening, pengguna_id, saldo, status, IFNULL(keterangan,'') as keterangan, " +
                          "tgl_buat, tgl_perubahan, verifikator " +
                          "FROM tabungan WHERE no_rekening = '" + noRek + "'";
             MySqlDataReader hasil = Koneksi.ambilData(sql);
@@ -197,7 +197,7 @@ namespace DiBa_Lib
                 tab.Tgl_perubahan = DateTime.Parse(hasil.GetString(6));
 
                 Pengguna tmpPengguna = new Pengguna();
-                tmpPengguna.Nik = hasil.GetInt32(1);
+                tmpPengguna.Id = hasil.GetInt32(1);
                 tab.Pengguna = tmpPengguna;
 
                 Employee tmpEmployee = new Employee();

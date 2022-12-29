@@ -30,46 +30,22 @@ namespace _160421029_Nico_Victorio
         private void InitializeComponent()
         {
             this.label5 = new System.Windows.Forms.Label();
-            this.buttonEmployee = new System.Windows.Forms.Button();
-            this.buttonPengguna = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.buttonLogin = new System.Windows.Forms.Button();
+            this.buttonSignUp = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(268, 244);
+            this.label5.Location = new System.Drawing.Point(267, 243);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(36, 17);
             this.label5.TabIndex = 25;
             this.label5.Text = "atau";
-            // 
-            // buttonEmployee
-            // 
-            this.buttonEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonEmployee.Location = new System.Drawing.Point(221, 272);
-            this.buttonEmployee.Margin = new System.Windows.Forms.Padding(4);
-            this.buttonEmployee.Name = "buttonEmployee";
-            this.buttonEmployee.Size = new System.Drawing.Size(129, 37);
-            this.buttonEmployee.TabIndex = 24;
-            this.buttonEmployee.Text = "Employee";
-            this.buttonEmployee.UseVisualStyleBackColor = true;
-            this.buttonEmployee.Click += new System.EventHandler(this.buttonEmployee_Click);
-            // 
-            // buttonPengguna
-            // 
-            this.buttonPengguna.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonPengguna.Location = new System.Drawing.Point(221, 202);
-            this.buttonPengguna.Margin = new System.Windows.Forms.Padding(4);
-            this.buttonPengguna.Name = "buttonPengguna";
-            this.buttonPengguna.Size = new System.Drawing.Size(129, 38);
-            this.buttonPengguna.TabIndex = 23;
-            this.buttonPengguna.Text = "Pengguna";
-            this.buttonPengguna.UseVisualStyleBackColor = true;
-            this.buttonPengguna.Click += new System.EventHandler(this.buttonPengguna_Click);
             // 
             // label3
             // 
@@ -106,14 +82,38 @@ namespace _160421029_Nico_Victorio
             this.label1.TabIndex = 19;
             this.label1.Text = "Selamat Datang!";
             // 
+            // buttonLogin
+            // 
+            this.buttonLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonLogin.Location = new System.Drawing.Point(221, 201);
+            this.buttonLogin.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonLogin.Name = "buttonLogin";
+            this.buttonLogin.Size = new System.Drawing.Size(129, 38);
+            this.buttonLogin.TabIndex = 26;
+            this.buttonLogin.Text = "Login";
+            this.buttonLogin.UseVisualStyleBackColor = true;
+            this.buttonLogin.Click += new System.EventHandler(this.buttonLogin_Click);
+            // 
+            // buttonSignUp
+            // 
+            this.buttonSignUp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSignUp.Location = new System.Drawing.Point(221, 264);
+            this.buttonSignUp.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonSignUp.Name = "buttonSignUp";
+            this.buttonSignUp.Size = new System.Drawing.Size(129, 38);
+            this.buttonSignUp.TabIndex = 27;
+            this.buttonSignUp.Text = "Sign Up";
+            this.buttonSignUp.UseVisualStyleBackColor = true;
+            this.buttonSignUp.Click += new System.EventHandler(this.buttonSignUp_Click);
+            // 
             // FormStart
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(557, 348);
+            this.Controls.Add(this.buttonSignUp);
+            this.Controls.Add(this.buttonLogin);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.buttonEmployee);
-            this.Controls.Add(this.buttonPengguna);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -128,10 +128,10 @@ namespace _160421029_Nico_Victorio
         #endregion
 
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button buttonEmployee;
-        private System.Windows.Forms.Button buttonPengguna;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button buttonLogin;
+        private System.Windows.Forms.Button buttonSignUp;
     }
 }

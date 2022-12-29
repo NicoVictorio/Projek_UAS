@@ -43,7 +43,7 @@ namespace _160421029_Nico_Victorio
         {
             try
             {
-                Pengguna k = new Pengguna(int.Parse(textBoxNIK.Text),textBoxNamaDepan.Text,
+                Pengguna k = new Pengguna(0, int.Parse(textBoxNIK.Text),textBoxNamaDepan.Text,
                     textBoxNamaBelakang.Text,textBoxAlamat.Text,textBoxEmail.Text,
                     textBoxNomorTelepon.Text,textBoxPassword.Text,textBoxPin.Text,
                     tmp.TglBuat,DateTime.Now,tmp.Pangkat); 

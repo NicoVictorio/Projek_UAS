@@ -122,6 +122,7 @@ namespace _160421029_Nico_Victorio
         private void dgvListPengguna_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             //int idPosition = int.Parse(dgvListPengguna.CurrentRow.Cells["idposition"].Value.ToString());
+            int id = (int)dgvListPengguna.CurrentRow.Cells["id"].Value;
             int nik = (int)dgvListPengguna.CurrentRow.Cells["nik"].Value;
             string namaDepan = dgvListPengguna.CurrentRow.Cells["namadepan"].Value.ToString();
             string namaKeluarga = dgvListPengguna.CurrentRow.Cells["namakeluarga"].Value.ToString();
@@ -134,7 +135,7 @@ namespace _160421029_Nico_Victorio
             DateTime tglPerubahan = (DateTime)dgvListPengguna.CurrentRow.Cells["tglPerubahan"].Value;
             Pangkat pangkat = (Pangkat)dgvListPengguna.CurrentRow.Cells["pangkat"].Value;
 
-            Pengguna pos = new Pengguna(nik, namaDepan, namaKeluarga, alamat, email, noTelp, 
+            Pengguna pos = new Pengguna(id, nik, namaDepan, namaKeluarga, alamat, email, noTelp, 
                                         password, pin, tglBuat, tglPerubahan, pangkat);
             if (pos != null)
             {
