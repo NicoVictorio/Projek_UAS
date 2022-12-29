@@ -17,6 +17,7 @@ namespace _160421029_Nico_Victorio
         FormMenu formMenu;
         public Pengguna penggunaAsal;
         Tabungan tabPengguna;
+
         public FormDaftarDeposito()
         {
             InitializeComponent();
@@ -27,7 +28,7 @@ namespace _160421029_Nico_Victorio
             formMenu = (FormMenu)this.MdiParent;
             penggunaAsal = formMenu.tmpPengguna;
 
-            List<Tabungan> tmpListTabungan = Tabungan.BacaData("id_pengguna", penggunaAsal.Nik.ToString());
+            List<Tabungan> tmpListTabungan = Tabungan.BacaData("pengguna_id", penggunaAsal.Id.ToString());
             tabPengguna = tmpListTabungan[0];
 
             listDeposito = Deposito.BacaData("", "");
@@ -151,29 +152,15 @@ namespace _160421029_Nico_Victorio
                                 if (dep.UbahStatusSiapCair())
                                 {
                                     throw new Exception("Permintaan cair deposit berhasil. Harap tunggu konfirmasi admin");
-                                    
-
                                 }
                                 FormDaftarDeposito_Load(sender, e);
                             }
                             else
                             {
-
                                 throw new Exception("Pencairan deposit gagal. Anda akan dikenakan penalti 5% dari "
                                     + dep.Nominal + " dan dana akan dikembalikan tanpa bunga");
                             }
                         }
-                        //if (dep.Status == "Aktif" && tabPengguna.Status == "Aktif")
-                        //{
-                        //    FormCairDeposito formCairDeposito = new FormCairDeposito();
-                        //    formCairDeposito.Owner = this;
-                        //    formCairDeposito.idDeposito = dep.IdDeposito;
-                        //    formCairDeposito.ShowDialog();
-                        //}
-                        //else
-                        //{
-                        //    MessageBox.Show("Status deposito anda tidak aktif");
-                        //}
                     }
                 }
             }

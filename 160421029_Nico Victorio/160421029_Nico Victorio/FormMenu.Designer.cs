@@ -41,6 +41,7 @@ namespace _160421029_Nico_Victorio
             this.laporanTabunganToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.laporanTransaksiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.akunToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.profileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.topUpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.inboxToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -54,7 +55,6 @@ namespace _160421029_Nico_Victorio
             this.verifikasiTabunganToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.verifikasiDepositoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.verifikasiCairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.profileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -163,6 +163,13 @@ namespace _160421029_Nico_Victorio
             this.akunToolStripMenuItem.Size = new System.Drawing.Size(56, 24);
             this.akunToolStripMenuItem.Text = "Akun";
             // 
+            // profileToolStripMenuItem
+            // 
+            this.profileToolStripMenuItem.Name = "profileToolStripMenuItem";
+            this.profileToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.profileToolStripMenuItem.Text = "Profile";
+            this.profileToolStripMenuItem.Click += new System.EventHandler(this.profileToolStripMenuItem_Click);
+            // 
             // topUpToolStripMenuItem
             // 
             this.topUpToolStripMenuItem.Name = "topUpToolStripMenuItem";
@@ -260,12 +267,6 @@ namespace _160421029_Nico_Victorio
             this.verifikasiCairToolStripMenuItem.Size = new System.Drawing.Size(219, 26);
             this.verifikasiCairToolStripMenuItem.Text = "Verifikasi Cair";
             this.verifikasiCairToolStripMenuItem.Click += new System.EventHandler(this.verifikasiCairToolStripMenuItem_Click);
-            // 
-            // profileToolStripMenuItem
-            // 
-            this.profileToolStripMenuItem.Name = "profileToolStripMenuItem";
-            this.profileToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.profileToolStripMenuItem.Text = "Profile";
             // 
             // FormMenu
             // 

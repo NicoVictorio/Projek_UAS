@@ -31,20 +31,20 @@ namespace _160421029_Nico_Victorio
             try
             {
                 List<Pangkat> listPangkat = Pangkat.BacaData("kode_pangkat", "BRZ");
-                Pangkat pkDipilih = listPangkat[0];
-                Pengguna pengguna = new Pengguna(0, 0, "", "", "", textBoxEmail.Text,
+                Pangkat pangkat = listPangkat[0];
+
+                List<Pengguna> listPengguna = Pengguna.BacaData("", "");
+
+                Pengguna pengguna = new Pengguna((listPengguna.Count + 1), 0, "", "", "", textBoxEmail.Text,
                                            "", textBoxPassword.Text, "",
-                                           DateTime.Now, DateTime.Now, pkDipilih);
-           
+                                           DateTime.Now, DateTime.Now, pangkat);
+
                 string noRek = Tabungan.GenerateNoRek();
 
-                //Tabungan tab = new Tabungan(noRek, pengguna, 0, "Unverified", "", DateTime.Now, DateTime.Now, null);
-
-                if (pengguna.TambahData(pengguna,noRek))// && tab.TambahData())
+                if (pengguna.TambahData(pengguna,noRek))
                 {
                     MessageBox.Show("Data Pengguna telah tersimpan", "Info");
-                    FormLogin frm = (FormLogin)this.Owner;
-                    frm.FormLogin_Load(this, e);
+                    FormStart frm = (FormStart)this.Owner;
                     this.Close();
                 }
                 else

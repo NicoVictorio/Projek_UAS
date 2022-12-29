@@ -38,8 +38,6 @@
             this.label10 = new System.Windows.Forms.Label();
             this.textBoxNominal = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.ComboBoxJenisTransaksi = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.buttonSubmit = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
@@ -47,7 +45,7 @@
             // 
             // btn_Exit
             // 
-            this.btn_Exit.Location = new System.Drawing.Point(332, 324);
+            this.btn_Exit.Location = new System.Drawing.Point(331, 305);
             this.btn_Exit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_Exit.Name = "btn_Exit";
             this.btn_Exit.Size = new System.Drawing.Size(93, 39);
@@ -67,12 +65,10 @@
             this.panel1.Controls.Add(this.label10);
             this.panel1.Controls.Add(this.textBoxNominal);
             this.panel1.Controls.Add(this.label9);
-            this.panel1.Controls.Add(this.ComboBoxJenisTransaksi);
-            this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(413, 307);
+            this.panel1.Size = new System.Drawing.Size(413, 278);
             this.panel1.TabIndex = 61;
             // 
             // textBoxRekeningAsal
@@ -93,7 +89,7 @@
             // 
             // buttonCariRekening
             // 
-            this.buttonCariRekening.Location = new System.Drawing.Point(178, 146);
+            this.buttonCariRekening.Location = new System.Drawing.Point(178, 108);
             this.buttonCariRekening.Name = "buttonCariRekening";
             this.buttonCariRekening.Size = new System.Drawing.Size(212, 34);
             this.buttonCariRekening.TabIndex = 26;
@@ -103,14 +99,14 @@
             // 
             // textBoxRekeningTujuan
             // 
-            this.textBoxRekeningTujuan.Location = new System.Drawing.Point(178, 106);
+            this.textBoxRekeningTujuan.Location = new System.Drawing.Point(178, 68);
             this.textBoxRekeningTujuan.Name = "textBoxRekeningTujuan";
             this.textBoxRekeningTujuan.Size = new System.Drawing.Size(212, 22);
             this.textBoxRekeningTujuan.TabIndex = 25;
             // 
             // textBoxKeterangan
             // 
-            this.textBoxKeterangan.Location = new System.Drawing.Point(178, 236);
+            this.textBoxKeterangan.Location = new System.Drawing.Point(178, 198);
             this.textBoxKeterangan.Multiline = true;
             this.textBoxKeterangan.Name = "textBoxKeterangan";
             this.textBoxKeterangan.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -120,7 +116,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(76, 236);
+            this.label10.Location = new System.Drawing.Point(76, 198);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(86, 17);
             this.label10.TabIndex = 23;
@@ -128,7 +124,7 @@
             // 
             // textBoxNominal
             // 
-            this.textBoxNominal.Location = new System.Drawing.Point(178, 197);
+            this.textBoxNominal.Location = new System.Drawing.Point(178, 159);
             this.textBoxNominal.Name = "textBoxNominal";
             this.textBoxNominal.Size = new System.Drawing.Size(212, 22);
             this.textBoxNominal.TabIndex = 22;
@@ -136,33 +132,16 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(95, 200);
+            this.label9.Location = new System.Drawing.Point(95, 162);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(63, 17);
             this.label9.TabIndex = 21;
             this.label9.Text = "Nominal:";
             // 
-            // ComboBoxJenisTransaksi
-            // 
-            this.ComboBoxJenisTransaksi.FormattingEnabled = true;
-            this.ComboBoxJenisTransaksi.Location = new System.Drawing.Point(178, 62);
-            this.ComboBoxJenisTransaksi.Name = "ComboBoxJenisTransaksi";
-            this.ComboBoxJenisTransaksi.Size = new System.Drawing.Size(212, 24);
-            this.ComboBoxJenisTransaksi.TabIndex = 19;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(50, 62);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(111, 17);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Jenis Transaksi:";
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(43, 106);
+            this.label4.Location = new System.Drawing.Point(43, 68);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(120, 17);
             this.label4.TabIndex = 3;
@@ -170,9 +149,9 @@
             // 
             // buttonSubmit
             // 
-            this.buttonSubmit.Location = new System.Drawing.Point(12, 330);
+            this.buttonSubmit.Location = new System.Drawing.Point(12, 305);
             this.buttonSubmit.Name = "buttonSubmit";
-            this.buttonSubmit.Size = new System.Drawing.Size(91, 33);
+            this.buttonSubmit.Size = new System.Drawing.Size(91, 39);
             this.buttonSubmit.TabIndex = 63;
             this.buttonSubmit.Text = "Submit";
             this.buttonSubmit.UseVisualStyleBackColor = true;
@@ -182,7 +161,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(436, 374);
+            this.ClientSize = new System.Drawing.Size(436, 359);
             this.Controls.Add(this.buttonSubmit);
             this.Controls.Add(this.btn_Exit);
             this.Controls.Add(this.panel1);
@@ -202,8 +181,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox textBoxNominal;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.ComboBox ComboBoxJenisTransaksi;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBoxKeterangan;
         private System.Windows.Forms.Button buttonSubmit;

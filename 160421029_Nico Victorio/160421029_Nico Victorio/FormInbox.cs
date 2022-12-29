@@ -34,7 +34,7 @@ namespace _160421029_Nico_Victorio
             }
             else
             {
-                listInbox = Inbox.DaftarPesan(pengguna.Nik, "", "");
+                listInbox = Inbox.DaftarPesan(pengguna.Id, "", "");
                 btn_Add.Visible = false;
             }
 
@@ -192,7 +192,7 @@ namespace _160421029_Nico_Victorio
             }
             else if (cb_Kriteria.Text == "Id Pengguna")
             {
-                kriteria = "id_pengguna";
+                kriteria = "pengguna_id";
             }
             else if (cb_Kriteria.Text == "Pesan")
             {

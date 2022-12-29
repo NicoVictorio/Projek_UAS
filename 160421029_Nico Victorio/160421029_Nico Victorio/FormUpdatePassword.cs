@@ -26,11 +26,15 @@ namespace _160421029_Nico_Victorio
             {
                 if(textBoxPasswordLama.Text != tmpPengguna.Password)
                 {
-                    throw new Exception("Password tidak sama dengan data tersimpan");
+                    throw new Exception("Password tidak sama dengan data tersimpan.");
                 }
                 else if (textBoxPasswordBaru.Text != textBoxUlangiPasswordBaru.Text)
                 {
-                    throw new Exception("Password tidak sama");
+                    throw new Exception("Password tidak sama.");
+                }
+                if(textBoxPasswordLama.Text == textBoxPasswordBaru.Text)
+                {
+                    throw new Exception("Password baru tidak boleh sama dengan password lama.");
                 }
 
                 Pengguna k = new Pengguna(tmpPengguna.Id, tmpPengguna.Nik, tmpPengguna.NamaDepan,

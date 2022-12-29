@@ -40,7 +40,7 @@ namespace DiBa_Lib
         #region methods
         public static List<AddressBook> BacaDataEmployee(string kriteria, string nilaiKriteria)
         {
-            string sql = "SELECT no_rekening, id_pengguna, keterangan " +
+            string sql = "SELECT no_rekening, pengguna_id, keterangan " +
                          "FROM addressbook ";
             if (kriteria == "")
             {
@@ -64,7 +64,7 @@ namespace DiBa_Lib
                 adb.Tabungan = tmpTabungan;
 
                 Pengguna tmpPengguna = new Pengguna();
-                tmpPengguna.Nik = hasil.GetInt32(1);
+                tmpPengguna.Id = hasil.GetInt32(1);
                 adb.Pengguna = tmpPengguna;
 
                 adb.Keterangan = hasil.GetString(2);
@@ -76,16 +76,16 @@ namespace DiBa_Lib
 
         public static List<AddressBook> BacaDataPengguna(string kriteria, string nilaiKriteria, int idPengguna)
         {
-            string sql = "SELECT no_rekening, id_pengguna, keterangan " +
+            string sql = "SELECT no_rekening, pengguna_id, keterangan " +
                          "FROM addressbook ";
             if (kriteria == "")
             {
-                sql += ";";
+                sql += "WHERE pengguna_id = " + idPengguna + ";";
             }
             else
             {
-                sql += " WHERE " + kriteria + " LIKE '%" + nilaiKriteria + "%' " + 
-                       " AND id_pengguna = " + idPengguna + ";";
+                sql += " WHERE " + kriteria + " LIKE '%" + nilaiKriteria + "%' " +
+                       " AND pengguna_id = " + idPengguna + ";";
             }
 
             MySqlDataReader hasil = Koneksi.ambilData(sql);
@@ -101,7 +101,7 @@ namespace DiBa_Lib
                 adb.Tabungan = tmpTabungan;
 
                 Pengguna tmpPengguna = new Pengguna();
-                tmpPengguna.Nik = hasil.GetInt32(1);
+                tmpPengguna.Id = hasil.GetInt32(1);
                 adb.Pengguna = tmpPengguna;
 
                 adb.Keterangan = hasil.GetString(2);
@@ -113,8 +113,8 @@ namespace DiBa_Lib
 
         public bool TambahData()
         {
-            string sql = "INSERT INTO addressbook(no_rekening, id_pengguna, keterangan)" +
-                " VALUES ('" + this.tabungan.NoRekening + "', " + this.Pengguna.Nik + ", '" +
+            string sql = "INSERT INTO addressbook(no_rekening, pengguna_id, keterangan)" +
+                " VALUES ('" + this.tabungan.NoRekening + "', " + this.Pengguna.Id + ", '" +
                 this.keterangan + "')";
             bool result = Koneksi.executeDML(sql);
             return result;
@@ -122,7 +122,7 @@ namespace DiBa_Lib
 
         public bool UbahData()
         {
-            string sql = "UPDATE addressbook SET id_pengguna = " + this.Pengguna.Nik +
+            string sql = "UPDATE addressbook SET pengguna_id = " + this.Pengguna.Id +
                          ", keterangan = '" + this.Keterangan +
                          "'\nWHERE no_rekening = '" + this.Tabungan.NoRekening + "';";
             bool result = Koneksi.executeDML(sql);
@@ -138,11 +138,11 @@ namespace DiBa_Lib
 
         public static AddressBook addressBookByCode(Pengguna pengguna, Tabungan tabungan)
         {
-            string sql = "SELECT ab.keterangan, p.nik, t.no_rekening " +
+            string sql = "SELECT ab.keterangan, p.id, t.no_rekening " +
                          "\nFROM addressbook ab " +
-                         "\nINNER JOIN Pengguna p on p.nik = ab.id_pengguna " +
+                         "\nINNER JOIN Pengguna p on p.id = ab.pengguna_id " +
                          "\nINNER JOIN Tabungan t on t.no_rekening = ab.no_rekening " +
-                         "\nWHERE ab.id_pengguna = " + pengguna.Nik + 
+                         "\nWHERE ab.pengguna_id = " + pengguna.Id + 
                          " AND ab.no_rekening = '" + tabungan.NoRekening + "';";
             MySqlDataReader hasil = Koneksi.ambilData(sql);
             if (hasil.Read() == true)
@@ -151,7 +151,7 @@ namespace DiBa_Lib
                 address.Keterangan = hasil.GetString("keterangan");
 
                 Pengguna peng = new Pengguna();
-                peng.Nik = hasil.GetInt32("id_pengguna");
+                peng.Id = hasil.GetInt32("pengguna_id");
                 address.pengguna = peng;
 
                 Tabungan tab = new Tabungan();

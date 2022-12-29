@@ -70,7 +70,7 @@ namespace DiBa_Lib
         public static string AmbilNoRek(int idPengguna)
         {
             string sql = "SELECT RIGHT(no_rekening,4) as NoRek FROM tabungan WHERE " +
-                          "id_pengguna = " + idPengguna;
+                          "pengguna_id = " + idPengguna;
             MySqlDataReader hasilNoRek = Koneksi.ambilData(sql);
             string noRek = "";
             if (hasilNoRek.Read())

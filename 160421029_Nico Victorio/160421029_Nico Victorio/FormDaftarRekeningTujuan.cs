@@ -25,7 +25,7 @@ namespace _160421029_Nico_Victorio
         {
             formTambahTransaksi = (FormTambahTransaksi)this.Owner;
             pengguna = formTambahTransaksi.penggunaAsal;
-            int idPengguna = pengguna.Nik;
+            int idPengguna = pengguna.Id;
 
             listAddressBook = AddressBook.BacaDataPengguna("", "", idPengguna);
             if (listAddressBook.Count > 0)
@@ -84,7 +84,7 @@ namespace _160421029_Nico_Victorio
                     kriteria = "no_rekening";
                 }
                 nilai = tb_Kriteria.Text;
-                listAddressBook = AddressBook.BacaDataPengguna(kriteria, nilai, formTambahTransaksi.penggunaAsal.Nik);
+                listAddressBook = AddressBook.BacaDataPengguna(kriteria, nilai, formTambahTransaksi.penggunaAsal.Id);
 
                 if (listAddressBook.Count > 0)
                 {

@@ -36,9 +36,7 @@ namespace _160421029_Nico_Victorio
             {
                 if (tmpPengguna != null)
                 {
-                    MessageBox.Show("Selamat datang " + tmpPengguna.NamaDepan, "Information");
-
-                    List<Tabungan> tmpListTabungan = Tabungan.BacaData("pengguna_id", tmpPengguna.Nik.ToString());
+                    List<Tabungan> tmpListTabungan = Tabungan.BacaData("pengguna_id", tmpPengguna.Id.ToString());
                     tabPengguna = tmpListTabungan[0];
 
                     if (tabPengguna.Status == "Aktif")
@@ -62,7 +60,6 @@ namespace _160421029_Nico_Victorio
                 }
                 else
                 {
-                    MessageBox.Show("Selamat datang " + tmpEmp.NamaDepan, "Information");
                     SetHakAkses();
                 }
             }
@@ -378,11 +375,10 @@ namespace _160421029_Nico_Victorio
 
         private void signOutToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            Application.Exit();
-            //FormMenu_Load(sender, e);
-            //tmpDep = null;
-            //tmpEmp = null;
-            //tmpPengguna = null;
+            tmpDep = null;
+            tmpEmp = null;
+            tmpPengguna = null;
+            FormMenu_Load(sender, e);
         }
 
         private void verifikasiCairToolStripMenuItem_Click(object sender, EventArgs e)
@@ -393,6 +389,23 @@ namespace _160421029_Nico_Victorio
                 FormVerifikasiCair formVerifikasiCair = new FormVerifikasiCair();
                 formVerifikasiCair.MdiParent = this;
                 formVerifikasiCair.Show();
+            }
+            else
+            {
+                form.Show();
+                form.BringToFront();
+            }
+        }
+
+        private void profileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.Form form = Application.OpenForms["FormProfilePengguna"];
+            if (form == null)
+            {
+                FormProfilePengguna formProfilePengguna = new FormProfilePengguna();
+                formProfilePengguna.MdiParent = this;
+                formProfilePengguna.tmpPengguna = tmpPengguna;
+                formProfilePengguna.Show();
             }
             else
             {

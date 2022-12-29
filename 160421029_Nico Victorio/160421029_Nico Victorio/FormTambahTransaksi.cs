@@ -29,14 +29,12 @@ namespace _160421029_Nico_Victorio
             formMenu = (FormMenu)this.MdiParent;
             penggunaAsal = formMenu.tmpPengguna;
 
-            List<Tabungan> tmpListTabungan = Tabungan.BacaData("id_pengguna", penggunaAsal.Nik.ToString());
+            List<Tabungan> tmpListTabungan = Tabungan.BacaData("pengguna_id", penggunaAsal.Id.ToString());
             Tabungan tabPengguna = tmpListTabungan[0];
 
             textBoxRekeningAsal.Text = tabPengguna.NoRekening;
 
             List<JenisTransaksi> listJenisTransaksi = JenisTransaksi.BacaData("", "");
-            ComboBoxJenisTransaksi.DataSource = listJenisTransaksi;
-            ComboBoxJenisTransaksi.DisplayMember = "kode";
         }
 
         private void buttonCariRekening_Click(object sender, EventArgs e)
@@ -63,12 +61,12 @@ namespace _160421029_Nico_Victorio
             try
             {
                 Tabungan noRekeningSumber = Tabungan.tabunganByCode(textBoxRekeningAsal.Text);
-                JenisTransaksi jenisTransaksi = (JenisTransaksi)ComboBoxJenisTransaksi.SelectedItem;
+                JenisTransaksi jenisTransaksi = JenisTransaksi.jenisTransaksiByCode(1);
                 double nominal = double.Parse(textBoxNominal.Text);
                 string keterangan = textBoxKeterangan.Text;
                 string idTransaksi = Transaksi.GenerateNoTransaksi(jenisTransaksi.KodeTransaksi);
                 rekeningTujuan = Tabungan.tabunganByCode(textBoxRekeningTujuan.Text);
-                Transaksi trans = new Transaksi(noRekeningSumber,idTransaksi, DateTime.Now,
+                Transaksi trans = new Transaksi(noRekeningSumber, idTransaksi, DateTime.Now,
                                                 jenisTransaksi, rekeningTujuan, 
                                                 nominal, keterangan);
 
@@ -80,7 +78,7 @@ namespace _160421029_Nico_Victorio
                     if (trans.TambahData(jenisTransaksi.KodeTransaksi))
                     {
                         MessageBox.Show("Data Transaksi telah tersimpan", "Info");
-                        List<AddressBook> listAddressbook = AddressBook.BacaDataPengguna("no_rekening", rekeningTujuan.NoRekening, penggunaAsal.Nik);
+                        List<AddressBook> listAddressbook = AddressBook.BacaDataPengguna("no_rekening", rekeningTujuan.NoRekening, penggunaAsal.Id);
                         if (listAddressbook.Count == 0)
                         {
                             DialogResult confirmation = MessageBox.Show("Simpan " + rekeningTujuan.NoRekening + " ke address book?", "Konfirmasi Address Book", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -101,7 +99,7 @@ namespace _160421029_Nico_Victorio
                         throw new Exception("Tidak dapat menambahkan data dalam database");
                     }
                 }
-                else
+                else if(formPin.count == 3)
                 {
                     if (noRekeningSumber.UbahStatusSuspend())
                     {

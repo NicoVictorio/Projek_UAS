@@ -64,7 +64,8 @@ namespace DiBa_Lib
 
         public static JenisTransaksi jenisTransaksiByCode(int id)
         {
-            string sql = "SELECT id_jenisTransaksi, kode, nama " + " FROM jenisTransaksi " + " WHERE id_jenisTransaksi = " + id ;
+            string sql = "SELECT id_jenisTransaksi, kode, nama " + " FROM jenisTransaksi " + 
+                         "WHERE id_jenisTransaksi = " + id ;
             MySqlDataReader hasil = Koneksi.ambilData(sql);
             JenisTransaksi tmp = new JenisTransaksi();
             if (hasil.Read() == true)

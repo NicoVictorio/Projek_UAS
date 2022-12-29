@@ -15,7 +15,7 @@ namespace _160421029_Nico_Victorio
     {
         FormTambahTransaksi formTambahTransaksi;
         Pengguna pengguna;
-        int count = 0;
+        public int count = 0;
         public FormPin()
         {
             InitializeComponent();
@@ -35,7 +35,7 @@ namespace _160421029_Nico_Victorio
                 count++;
                 if(count == 3)
                 {
-                    MessageBox.Show("Anda salah memasukkan PIN 3 kali ");
+                    MessageBox.Show("Anda salah memasukkan PIN 3 kali.");
                     this.DialogResult = DialogResult.Cancel;
                     this.Close();
                 }

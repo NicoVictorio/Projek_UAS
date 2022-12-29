@@ -52,7 +52,7 @@ namespace DiBa_Lib
         #region methods
         public static List<Inbox> BacaData(string kriteria, string nilaiKriteria)
         {
-            string sql = "SELECT id_pesan, id_pengguna, pesan, tanggal_kirim, status, tgl_perubahan  " +
+            string sql = "SELECT id_pesan, pengguna_id, pesan, tanggal_kirim, status, tgl_perubahan  " +
                          "FROM inbox ";
             if (kriteria == "")
             {
@@ -87,8 +87,8 @@ namespace DiBa_Lib
 
         public static List<Inbox> DaftarPesan(int idPengguna, string kriteria, string nilaiKriteria)
         {
-            string sql = "SELECT id_pesan,id_pengguna, pesan, tanggal_kirim, status, tgl_perubahan  " +
-                         "FROM inbox WHERE id_pengguna="+ idPengguna;
+            string sql = "SELECT id_pesan, pengguna_id, pesan, tanggal_kirim, status, tgl_perubahan  " +
+                         "FROM inbox WHERE pengguna_id = "+ idPengguna;
 
             if (kriteria == "")
             {
@@ -123,7 +123,7 @@ namespace DiBa_Lib
 
         public bool TambahData()
         {
-            string sql = "INSERT INTO inbox(id_pengguna, pesan, tanggal_kirim,status, tgl_perubahan)" +
+            string sql = "INSERT INTO inbox(pengguna_id, pesan, tanggal_kirim,status, tgl_perubahan)" +
                 " VALUES ("+ this.Pengguna.Id + ",'"+ this.Pesan + "', '" +
                 this.TglKirim.ToString("yyyy-MM-dd") + "', '" + this.Status + "', '"+ 
                 this.TglPerubahan.ToString("yyyy-MM-dd")+ "');";
@@ -132,7 +132,7 @@ namespace DiBa_Lib
         }
         public bool TambahData(Koneksi k)
         {
-            string sql = "INSERT INTO inbox(id_pengguna, pesan, tanggal_kirim,status, tgl_perubahan)" +
+            string sql = "INSERT INTO inbox(pengguna_id, pesan, tanggal_kirim,status, tgl_perubahan)" +
                 " VALUES (" + this.Pengguna.Id + ",'" + this.Pesan + "', '" +
                 this.TglKirim.ToString("yyyy-MM-dd") + "', '" + this.Status + "', '" +
                 this.TglPerubahan.ToString("yyyy-MM-dd") + "');";
@@ -156,7 +156,7 @@ namespace DiBa_Lib
 
         public static Inbox inboxByCode(int id)
         {
-            string sql = "SELECT id_pesan,id_pengguna, pesan, tanggal_kirim, status, tgl_perubahan  " +
+            string sql = "SELECT id_pesan,pengguna_id, pesan, tanggal_kirim, status, tgl_perubahan  " +
                          "FROM inbox WHERE id_pesan=" + id;
             MySqlDataReader hasil = Koneksi.ambilData(sql);
             if (hasil.Read() == true)
@@ -181,7 +181,7 @@ namespace DiBa_Lib
 
         public bool UbahStatus()
         {
-            string sql = "UPDATE inbox SET status ='Terbuka' where id_pengguna=" + this.Pengguna.Id + " and id_pesan="+ this.IdPesan+ ";";
+            string sql = "UPDATE inbox SET status ='Terbuka' where pengguna_id=" + this.Pengguna.Id + " and id_pesan="+ this.IdPesan+ ";";
             bool result = Koneksi.executeDML(sql);
             return result;
         }

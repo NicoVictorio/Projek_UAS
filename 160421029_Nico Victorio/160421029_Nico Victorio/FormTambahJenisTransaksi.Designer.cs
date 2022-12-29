@@ -39,7 +39,7 @@ namespace _160421029_Nico_Victorio
             // 
             // tb_KodeJenisTransaksi
             // 
-            this.tb_KodeJenisTransaksi.Location = new System.Drawing.Point(193, 44);
+            this.tb_KodeJenisTransaksi.Location = new System.Drawing.Point(175, 35);
             this.tb_KodeJenisTransaksi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tb_KodeJenisTransaksi.Name = "tb_KodeJenisTransaksi";
             this.tb_KodeJenisTransaksi.Size = new System.Drawing.Size(193, 22);
@@ -47,7 +47,7 @@ namespace _160421029_Nico_Victorio
             // 
             // tb_NamaJenisTransaksi
             // 
-            this.tb_NamaJenisTransaksi.Location = new System.Drawing.Point(193, 91);
+            this.tb_NamaJenisTransaksi.Location = new System.Drawing.Point(175, 82);
             this.tb_NamaJenisTransaksi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tb_NamaJenisTransaksi.Name = "tb_NamaJenisTransaksi";
             this.tb_NamaJenisTransaksi.Size = new System.Drawing.Size(193, 22);
@@ -56,7 +56,7 @@ namespace _160421029_Nico_Victorio
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(44, 95);
+            this.label1.Location = new System.Drawing.Point(26, 86);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(148, 17);
             this.label1.TabIndex = 50;
@@ -65,7 +65,7 @@ namespace _160421029_Nico_Victorio
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(44, 44);
+            this.label4.Location = new System.Drawing.Point(26, 35);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(144, 17);
             this.label4.TabIndex = 49;
@@ -73,7 +73,7 @@ namespace _160421029_Nico_Victorio
             // 
             // btn_Exit
             // 
-            this.btn_Exit.Location = new System.Drawing.Point(289, 149);
+            this.btn_Exit.Location = new System.Drawing.Point(271, 140);
             this.btn_Exit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_Exit.Name = "btn_Exit";
             this.btn_Exit.Size = new System.Drawing.Size(88, 34);
@@ -84,7 +84,7 @@ namespace _160421029_Nico_Victorio
             // 
             // btn_Add
             // 
-            this.btn_Add.Location = new System.Drawing.Point(48, 149);
+            this.btn_Add.Location = new System.Drawing.Point(30, 140);
             this.btn_Add.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_Add.Name = "btn_Add";
             this.btn_Add.Size = new System.Drawing.Size(95, 39);
@@ -97,14 +97,14 @@ namespace _160421029_Nico_Victorio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(406, 208);
+            this.ClientSize = new System.Drawing.Size(393, 198);
             this.Controls.Add(this.btn_Exit);
             this.Controls.Add(this.btn_Add);
             this.Controls.Add(this.tb_KodeJenisTransaksi);
             this.Controls.Add(this.tb_NamaJenisTransaksi);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label4);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormTambahJenisTransaksi";
             this.Text = "FormTambahJenisTransaksi";
             this.Load += new System.EventHandler(this.FormTambahJenisTransaksi_Load);

@@ -72,8 +72,9 @@ namespace _160421029_Nico_Victorio
                 {
                     kriteria = "no_rekening";
                 }
+
                 nilai = tb_Kriteria.Text;
-                listAddressBook = AddressBook.BacaDataPengguna(kriteria, nilai, formMenu.tmpPengguna.Nik);
+                listAddressBook = AddressBook.BacaDataPengguna(kriteria, nilai, formMenu.tmpPengguna.Id);
 
                 if (listAddressBook.Count > 0)
                 {

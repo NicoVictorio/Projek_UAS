@@ -60,12 +60,6 @@
     <Compile Include="FormBuatPin.Designer.cs">
       <DependentUpon>FormBuatPin.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormCairDeposito.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormCairDeposito.Designer.cs">
-      <DependentUpon>FormCairDeposito.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormDaftarAddressBook.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,12 +119,6 @@
     </Compile>
     <Compile Include="FormPin.Designer.cs">
       <DependentUpon>FormPin.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormProfileEmployee.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormProfileEmployee.Designer.cs">
-      <DependentUpon>FormProfileEmployee.cs</DependentUpon>
     </Compile>
     <Compile Include="FormProfilePengguna.cs">
       <SubType>Form</SubType>
@@ -310,9 +298,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormBuatPin.resx">
       <DependentUpon>FormBuatPin.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormCairDeposito.resx">
-      <DependentUpon>FormCairDeposito.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormDaftarAddressBook.resx">
       <DependentUpon>FormDaftarAddressBook.cs</DependentUpon>
