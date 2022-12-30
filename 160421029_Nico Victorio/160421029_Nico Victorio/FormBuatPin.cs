@@ -39,6 +39,8 @@ namespace _160421029_Nico_Victorio
                 if (pengguna.TambahPin(textBoxPin.Text))
                 {
                     MessageBox.Show("Pin berhasil ditambahkan");
+                    formMenu.tmpPengguna = pengguna;
+                    this.DialogResult = DialogResult.OK;
                     this.Close();
                 }
             }

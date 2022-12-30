@@ -97,7 +97,6 @@ namespace DiBa_Lib
                 return true;
             else
                 return false;
-
         }
         #endregion
     }

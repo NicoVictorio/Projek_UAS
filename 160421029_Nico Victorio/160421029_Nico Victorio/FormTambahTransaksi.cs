@@ -75,28 +75,35 @@ namespace _160421029_Nico_Victorio
 
                 if (formPin.ShowDialog() == DialogResult.OK)
                 {
-                    if (trans.TambahData(jenisTransaksi.KodeTransaksi))
+                    if(noRekeningSumber.Saldo - nominal >= 0)
                     {
-                        MessageBox.Show("Data Transaksi telah tersimpan", "Info");
-                        List<AddressBook> listAddressbook = AddressBook.BacaDataPengguna("no_rekening", rekeningTujuan.NoRekening, penggunaAsal.Id);
-                        if (listAddressbook.Count == 0)
+                        if (trans.TambahData(jenisTransaksi.KodeTransaksi))
                         {
-                            DialogResult confirmation = MessageBox.Show("Simpan " + rekeningTujuan.NoRekening + " ke address book?", "Konfirmasi Address Book", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                            if (confirmation == DialogResult.Yes)
+                            MessageBox.Show("Data Transaksi telah tersimpan", "Info");
+                            List<AddressBook> listAddressbook = AddressBook.BacaDataPengguna("no_rekening", rekeningTujuan.NoRekening, penggunaAsal.Id);
+                            if (listAddressbook.Count == 0)
                             {
-                                AddressBook ab = new AddressBook(rekeningTujuan, penggunaAsal, "");
-                                if (ab.TambahData())
+                                DialogResult confirmation = MessageBox.Show("Simpan " + rekeningTujuan.NoRekening + " ke address book?", "Konfirmasi Address Book", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                                if (confirmation == DialogResult.Yes)
                                 {
-                                    MessageBox.Show("Address Book berhasil ditambahkan");
+                                    AddressBook ab = new AddressBook(rekeningTujuan, penggunaAsal, "");
+                                    if (ab.TambahData())
+                                    {
+                                        MessageBox.Show("Address Book berhasil ditambahkan");
+                                    }
                                 }
                             }
+                            FormMenu frm = (FormMenu)this.MdiParent;
+                            this.Close();
                         }
-                        FormMenu frm = (FormMenu)this.MdiParent;
-                        this.Close();
+                        else
+                        {
+                            throw new Exception("Tidak dapat menambahkan data dalam database");
+                        }
                     }
                     else
                     {
-                        throw new Exception("Tidak dapat menambahkan data dalam database");
+                        throw new Exception("Saldo anda tidak mencukupi");
                     }
                 }
                 else if(formPin.count == 3)

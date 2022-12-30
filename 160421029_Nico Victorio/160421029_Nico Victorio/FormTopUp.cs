@@ -37,6 +37,7 @@ namespace _160421029_Nico_Victorio
                 int nominal = int.Parse(textBoxNominal.Text);
                 Tabungan.TambahSaldo(tabungan.NoRekening, nominal);
                 MessageBox.Show("Saldo telah berhasil ditambahkan");
+                formMenu.tabPengguna = tabungan;
                 this.Close();
             }
             catch(Exception ex)

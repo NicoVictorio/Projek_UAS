@@ -24,8 +24,20 @@ namespace _160421029_Nico_Victorio
         {
             formMenu = (FormMenu)this.MdiParent;
             emp = formMenu.tmpEmp;
-            List<Tabungan> listTabungan = Tabungan.BacaData("", "");
-            if (listTabungan.Count > 0)
+            List<Tabungan> listTabungan = new List<Tabungan>();
+            List<Tabungan> listSemuaTabungan = Tabungan.BacaData("", "");
+            for(int i=0; i<listSemuaTabungan.Count; i++)
+            {
+                if (listSemuaTabungan[i].Status == "Unverified")
+                {
+                    listTabungan.Add(listSemuaTabungan[i]);
+                }
+                else if(listSemuaTabungan[i].Status == "Suspend")
+                {
+                    listTabungan.Add(listSemuaTabungan[i]);
+                }
+            }
+            if (listTabungan.Count > 0 )
             {
                 dataGridViewListVerifikasiTabungan.DataSource = listTabungan;
 

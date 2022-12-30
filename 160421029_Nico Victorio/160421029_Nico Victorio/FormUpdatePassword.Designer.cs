@@ -43,7 +43,7 @@ namespace _160421029_Nico_Victorio
             // 
             this.textBoxPasswordLama.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxPasswordLama.Location = new System.Drawing.Point(208, 22);
-            this.textBoxPasswordLama.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxPasswordLama.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxPasswordLama.Name = "textBoxPasswordLama";
             this.textBoxPasswordLama.PasswordChar = '*';
             this.textBoxPasswordLama.Size = new System.Drawing.Size(253, 26);
@@ -64,7 +64,7 @@ namespace _160421029_Nico_Victorio
             // 
             this.textBoxUlangiPasswordBaru.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxUlangiPasswordBaru.Location = new System.Drawing.Point(208, 94);
-            this.textBoxUlangiPasswordBaru.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxUlangiPasswordBaru.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxUlangiPasswordBaru.Name = "textBoxUlangiPasswordBaru";
             this.textBoxUlangiPasswordBaru.PasswordChar = '*';
             this.textBoxUlangiPasswordBaru.Size = new System.Drawing.Size(253, 26);
@@ -74,7 +74,7 @@ namespace _160421029_Nico_Victorio
             // 
             this.textBoxPasswordBaru.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxPasswordBaru.Location = new System.Drawing.Point(208, 58);
-            this.textBoxPasswordBaru.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxPasswordBaru.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxPasswordBaru.Name = "textBoxPasswordBaru";
             this.textBoxPasswordBaru.PasswordChar = '*';
             this.textBoxPasswordBaru.Size = new System.Drawing.Size(253, 26);
@@ -106,18 +106,19 @@ namespace _160421029_Nico_Victorio
             // 
             this.buttonExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonExit.Location = new System.Drawing.Point(365, 153);
-            this.buttonExit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonExit.Margin = new System.Windows.Forms.Padding(4);
             this.buttonExit.Name = "buttonExit";
             this.buttonExit.Size = new System.Drawing.Size(96, 32);
             this.buttonExit.TabIndex = 88;
             this.buttonExit.Text = "Exit";
             this.buttonExit.UseVisualStyleBackColor = true;
+            this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);
             // 
             // buttonUpdate
             // 
             this.buttonUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonUpdate.Location = new System.Drawing.Point(241, 153);
-            this.buttonUpdate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonUpdate.Margin = new System.Windows.Forms.Padding(4);
             this.buttonUpdate.Name = "buttonUpdate";
             this.buttonUpdate.Size = new System.Drawing.Size(96, 32);
             this.buttonUpdate.TabIndex = 87;
@@ -138,7 +139,7 @@ namespace _160421029_Nico_Victorio
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBoxPasswordLama);
             this.Controls.Add(this.label6);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormUpdatePassword";
             this.Text = "FormUpdatePassword";
             this.Load += new System.EventHandler(this.FormUpdatePassword_Load);

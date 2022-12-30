@@ -127,9 +127,7 @@ namespace _160421029_Nico_Victorio
                 string idDeposito = dgvListDeposito.CurrentRow.Cells["idDeposito"].Value.ToString();
                 Tabungan noRekening = (Tabungan)dgvListDeposito.CurrentRow.Cells["tabungan"].Value;
 
-                string jatuhTempo = dgvListDeposito.CurrentRow.Cells["JatuhTempo"].Value.ToString();
                 double nominal = (double)dgvListDeposito.CurrentRow.Cells["nominal"].Value;
-                double bunga = (double)dgvListDeposito.CurrentRow.Cells["bunga"].Value;
                 string status = dgvListDeposito.CurrentRow.Cells["status"].Value.ToString();
 
                 DateTime tglBuat = (DateTime)dgvListDeposito.CurrentRow.Cells["tglBuat"].Value;
@@ -137,29 +135,48 @@ namespace _160421029_Nico_Victorio
                 Employee verifikatorBuka = (Employee)dgvListDeposito.CurrentRow.Cells["verivikatorbuka"].Value;
                 Employee verifikatorCair = (Employee)dgvListDeposito.CurrentRow.Cells["verivikatorcair"].Value;
 
-                Deposito dep = new Deposito(idDeposito, noRekening, jatuhTempo, nominal, bunga, status,
-                                            tglBuat, tglPerubahan, verifikatorBuka, verifikatorCair);
+                Bunga idBunga = (Bunga)dgvListDeposito.CurrentRow.Cells["bunga"].Value;
+                bool aro = (bool)dgvListDeposito.CurrentRow.Cells["aro"].Value;
+
+                Deposito dep = new Deposito(idDeposito, noRekening, nominal, status,
+                                            tglBuat, tglPerubahan, verifikatorBuka, 
+                                            verifikatorCair, idBunga, aro);
                 if (dep != null)
                 {
                     if (e.ColumnIndex == dgvListDeposito.Columns["btnCairGrid"].Index)
                     {
-                        DialogResult confirmation = MessageBox.Show("Apakah anda yakin ingin mencairkan deposito '" + dep.IdDeposito + "' pada tanggal " + DateTime.Now + " ?", "Konfirmasi Hapus", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                        int bulan = HitungBulan(dep.JatuhTempo);
-                        if (confirmation == DialogResult.Yes)
+                        if (dep.Status == "Aktif")
                         {
-                            if (DateTime.Now.ToShortDateString() == dep.TglBuat.AddMonths(bulan).ToShortDateString())
+                            DialogResult confirmation = MessageBox.Show("Apakah anda yakin ingin mencairkan deposito '" + dep.IdDeposito + "' pada tanggal " + DateTime.Now + " ?", "Konfirmasi Hapus", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                            int bulan = HitungBulan(dep.Bunga.JatuhTempo);
+                            if (confirmation == DialogResult.Yes)
                             {
-                                if (dep.UbahStatusSiapCair())
+                                if (DateTime.Now.ToShortDateString() == dep.TglBuat.AddMonths(bulan).ToShortDateString())
                                 {
-                                    throw new Exception("Permintaan cair deposit berhasil. Harap tunggu konfirmasi admin");
+                                    if (dep.UbahStatusWaiting())
+                                    {
+                                        throw new Exception("Permintaan cair deposit berhasil. Harap tunggu konfirmasi admin");
+                                    }
+                                    FormDaftarDeposito_Load(sender, e);
                                 }
-                                FormDaftarDeposito_Load(sender, e);
+                                else
+                                {
+                                    throw new Exception("Pencairan deposit gagal. Anda akan dikenakan penalti 5% dari "
+                                        + dep.Nominal + " dan dana akan dikembalikan tanpa bunga");
+                                }
                             }
-                            else
-                            {
-                                throw new Exception("Pencairan deposit gagal. Anda akan dikenakan penalti 5% dari "
-                                    + dep.Nominal + " dan dana akan dikembalikan tanpa bunga");
-                            }
+                        }
+                        else if (dep.Status == "Unverified")
+                        {
+                            throw new Exception("Deposito anda belum terverifikasi oleh employee. Silahkan verifikasi terlebih dahulu.");
+                        }
+                        else if (dep.Status == "Waiting")
+                        {
+                            throw new Exception("Deposito anda masih dalam proses verifikasi. Harap tunggu.");
+                        }
+                        else if (dep.Status == "Completed")
+                        {
+                            throw new Exception("Deposito anda sudah cair.");
                         }
                     }
                 }

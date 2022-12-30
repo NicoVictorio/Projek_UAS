@@ -26,12 +26,12 @@ namespace _160421029_Nico_Victorio
             form = (FormDaftarDeposito)this.Owner;
             penggunaAsal = form.penggunaAsal;
 
-            List<Tabungan> tmpListTabungan = Tabungan.BacaData("id_pengguna", penggunaAsal.Nik.ToString());
+            List<Tabungan> tmpListTabungan = Tabungan.BacaData("pengguna_id", penggunaAsal.Id.ToString());
             tabPengguna = tmpListTabungan[0];
 
             if (tabPengguna.Status == "Aktif")
             {
-                labelId.Text = penggunaAsal.Nik.ToString();
+                labelId.Text = penggunaAsal.Id.ToString();
                 labelNomorRekening.Text = tabPengguna.NoRekening;
             }
             else
@@ -45,42 +45,141 @@ namespace _160421029_Nico_Victorio
         {
             try
             {
-                int idPengguna = penggunaAsal.Nik;
+                int idPengguna = penggunaAsal.Id;
                 string idDeposito = Deposito.GenerateNoDeposito(idPengguna);
 
-                List<Tabungan> tmpListTabungan = Tabungan.BacaData("id_pengguna", penggunaAsal.Nik.ToString());
+                List<Tabungan> tmpListTabungan = Tabungan.BacaData("pengguna_id", penggunaAsal.Id.ToString());
                 tabPengguna = tmpListTabungan[0];
                 Tabungan rekeningSumber = tabPengguna;
 
                 string jatuhTempo = comboBoxJatuhTempo.Text;
                 double nominal = double.Parse(textBoxNominal.Text);
-                double bunga = 0.0;
+                
+                Bunga bunga = new Bunga();
+                List<Bunga> tmpListBunga = new List<Bunga>();
+
                 if (jatuhTempo == "1 bulan")
                 {
-                    bunga = 0.03/12;
+                    if (nominal >= 10000000 && nominal < 50000000)
+                    {
+                        tmpListBunga = Bunga.BacaBunga("jatuhtempo", jatuhTempo, "nominal", "10 juta s/d < 50 juta");
+                    }
+                    else if (nominal >= 50000000 && nominal < 100000000)
+                    {
+                        tmpListBunga = Bunga.BacaBunga("jatuhtempo", jatuhTempo, "nominal", "50 juta s/d < 100 juta");
+                    }
+                    else if (nominal >= 100000000)
+                    {
+                        tmpListBunga = Bunga.BacaBunga("jatuhtempo", jatuhTempo, "nominal", ">= 100 juta");
+                    }
+                    else
+                    {
+                        throw new Exception("Nominal deposito minimal 10 juta.");
+                    }
                 }
-                else if (jatuhTempo == "3 bulan") 
+                else if (jatuhTempo == "3 bulan")
                 {
-                    bunga = 0.05/12;
+                    if (nominal >= 10000000 && nominal < 50000000)
+                    {
+                        tmpListBunga = Bunga.BacaBunga("jatuhtempo", jatuhTempo, "nominal", "10 juta s/d < 50 juta");
+                    }
+                    else if (nominal >= 50000000 && nominal < 100000000)
+                    {
+                        tmpListBunga = Bunga.BacaBunga("jatuhtempo", jatuhTempo, "nominal", "50 juta s/d < 100 juta");
+                    }
+                    else if (nominal >= 100000000)
+                    {
+                        tmpListBunga = Bunga.BacaBunga("jatuhtempo", jatuhTempo, "nominal", ">= 100 juta");
+                    }
+                    else
+                    {
+                        throw new Exception("Nominal deposito minimal 10 juta.");
+                    }
                 }
-                else if(jatuhTempo == "6 bulan")
+                else if (jatuhTempo == "6 bulan")
                 {
-                    bunga = 0.06/12;
+                    if (nominal >= 10000000 && nominal < 50000000)
+                    {
+                        tmpListBunga = Bunga.BacaBunga("jatuhtempo", jatuhTempo, "nominal", "10 juta s/d < 50 juta");
+                    }
+                    else if (nominal >= 50000000 && nominal < 100000000)
+                    {
+                        tmpListBunga = Bunga.BacaBunga("jatuhtempo", jatuhTempo, "nominal", "50 juta s/d < 100 juta");
+                    }
+                    else if (nominal >= 100000000)
+                    {
+                        tmpListBunga = Bunga.BacaBunga("jatuhtempo", jatuhTempo, "nominal", ">= 100 juta");
+                    }
+                    else
+                    {
+                        throw new Exception("Nominal deposito minimal 10 juta.");
+                    }
                 }
-                else if (jatuhTempo == "1 tahun")
+                else if (jatuhTempo == "12 bulan")
                 {
-                    bunga = 0.08 / 12;
+                    if (nominal >= 10000000 && nominal < 50000000)
+                    {
+                        tmpListBunga = Bunga.BacaBunga("jatuhtempo", jatuhTempo, "nominal", "10 juta s/d < 50 juta");
+                    }
+                    else if (nominal >= 50000000 && nominal < 100000000)
+                    {
+                        tmpListBunga = Bunga.BacaBunga("jatuhtempo", jatuhTempo, "nominal", "50 juta s/d < 100 juta");
+                    }
+                    else if (nominal >= 100000000)
+                    {
+                        tmpListBunga = Bunga.BacaBunga("jatuhtempo", jatuhTempo, "nominal", ">= 100 juta");
+                    }
+                    else
+                    {
+                        throw new Exception("Nominal deposito minimal 10 juta.");
+                    }
                 }
-                else if (jatuhTempo == "2 tahun")
+                else if (jatuhTempo == "24 bulan")
                 {
-                    bunga = 0.08 / 12;
+                    if (nominal >= 10000000 && nominal < 50000000)
+                    {
+                        tmpListBunga = Bunga.BacaBunga("jatuhtempo", jatuhTempo, "nominal", "10 juta s/d < 50 juta");
+                    }
+                    else if (nominal >= 50000000 && nominal < 100000000)
+                    {
+                        tmpListBunga = Bunga.BacaBunga("jatuhtempo", jatuhTempo, "nominal", "50 juta s/d < 100 juta");
+                    }
+                    else if (nominal >= 100000000)
+                    {
+                        tmpListBunga = Bunga.BacaBunga("jatuhtempo", jatuhTempo, "nominal", ">= 100 juta");
+                    }
+                    else
+                    {
+                        throw new Exception("Nominal deposito minimal 10 juta.");
+                    }
                 }
-                else if (jatuhTempo == "3 tahun")
+                else if (jatuhTempo == "36 bulan")
                 {
-                    bunga = 0.08 / 12;
+                    if (nominal >= 10000000 && nominal < 50000000)
+                    {
+                        tmpListBunga = Bunga.BacaBunga("jatuhtempo", jatuhTempo, "nominal", "10 juta s/d < 50 juta");
+                    }
+                    else if (nominal >= 50000000 && nominal < 100000000)
+                    {
+                        tmpListBunga = Bunga.BacaBunga("jatuhtempo", jatuhTempo, "nominal", "50 juta s/d < 100 juta");
+                    }
+                    else if (nominal >= 100000000)
+                    {
+                        tmpListBunga = Bunga.BacaBunga("jatuhtempo", jatuhTempo, "nominal", ">= 100 juta");
+                    }
+                    else
+                    {
+                        throw new Exception("Nominal deposito minimal 10 juta.");
+                    }
+                }
+                bunga = tmpListBunga[0];
+                bool aro = false;
+                if (checkBoxARO.Checked)
+                {
+                    aro = true;
                 }
                 string status = "Unverified";
-                Deposito dep = new Deposito(idDeposito, rekeningSumber, jatuhTempo, nominal, bunga, status, DateTime.Now, DateTime.Now, null, null);
+                Deposito dep = new Deposito(idDeposito, rekeningSumber, nominal, status, DateTime.Now, DateTime.Now, null, null, bunga, aro);
                 if (dep.TambahData())
                 {
                     MessageBox.Show("Pengajuan deposito telah berhasil.", "Info");
@@ -102,6 +201,36 @@ namespace _160421029_Nico_Victorio
         private void btn_Exit_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void buttonDetail_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.Form form = Application.OpenForms["FormMasterBunga"];
+            if (form == null)
+            {
+                FormMasterBunga formMasterDeposito = new FormMasterBunga();
+                formMasterDeposito.Owner = this;
+                formMasterDeposito.Show();
+            }
+            else
+            {
+                form.Show();
+                form.BringToFront();
+            }
+        }
+
+        private void checkBoxARO_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxARO.Checked)
+            {
+                radioButtonDeposito.Enabled = true;
+                radioButtonTabungan.Enabled = true;
+            }
+            else
+            {
+                radioButtonDeposito.Enabled = false;
+                radioButtonTabungan.Enabled = false;
+            }
         }
     }
 }

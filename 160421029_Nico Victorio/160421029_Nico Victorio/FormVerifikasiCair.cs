@@ -49,14 +49,14 @@ namespace _160421029_Nico_Victorio
         {
             string idDeposito = dataGridViewListVerifikasiDeposito.CurrentRow.Cells["iddeposito"].Value.ToString();
             Tabungan noRek = (Tabungan)dataGridViewListVerifikasiDeposito.CurrentRow.Cells["tabungan"].Value;
-            string jatuhTempo = dataGridViewListVerifikasiDeposito.CurrentRow.Cells["jatuhtempo"].Value.ToString();
             double nominal = (double)dataGridViewListVerifikasiDeposito.CurrentRow.Cells["nominal"].Value;
-            double bunga = (double)dataGridViewListVerifikasiDeposito.CurrentRow.Cells["bunga"].Value;
             string status = dataGridViewListVerifikasiDeposito.CurrentRow.Cells["status"].Value.ToString();
             DateTime tglBuat = DateTime.Parse(dataGridViewListVerifikasiDeposito.CurrentRow.Cells["tglbuat"].Value.ToString());
             DateTime tglPerubahan = DateTime.Parse(dataGridViewListVerifikasiDeposito.CurrentRow.Cells["tglperubahan"].Value.ToString());
             Employee verivikatorBuka = (Employee)dataGridViewListVerifikasiDeposito.CurrentRow.Cells["verivikatorbuka"].Value;
             Employee verivikatorCair = (Employee)dataGridViewListVerifikasiDeposito.CurrentRow.Cells["verivikatorcair"].Value;
+            Bunga idBunga = (Bunga)dataGridViewListVerifikasiDeposito.CurrentRow.Cells["idbunga"].Value;
+            Boolean aro = (Boolean)dataGridViewListVerifikasiDeposito.CurrentRow.Cells["aro"].Value;
 
             if (e.ColumnIndex == dataGridViewListVerifikasiDeposito.Columns["btnConfirm"].Index && e.RowIndex >= 0)
             {
@@ -64,8 +64,8 @@ namespace _160421029_Nico_Victorio
                 {
                     try
                     {
-                        Deposito dep = new Deposito(idDeposito, noRek, jatuhTempo, nominal, bunga, status, tglBuat, tglPerubahan, verivikatorBuka, verivikatorCair);
-                        if (dep.UbahStatusSudahCair(emp.Id))
+                        Deposito dep = new Deposito(idDeposito, noRek, nominal, status, tglBuat, tglPerubahan, verivikatorBuka, verivikatorCair, idBunga, aro);
+                        if (dep.UbahStatusCompleted(emp.Id))
                         {
                             MessageBox.Show("Deposito telah dicairkan.");
                             FormVerifikasiCair_Load(sender, e);

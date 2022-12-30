@@ -39,12 +39,16 @@
             this.textBoxNominal = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.buttonAdd = new System.Windows.Forms.Button();
+            this.buttonDetail = new System.Windows.Forms.Button();
+            this.checkBoxARO = new System.Windows.Forms.CheckBox();
+            this.radioButtonTabungan = new System.Windows.Forms.RadioButton();
+            this.radioButtonDeposito = new System.Windows.Forms.RadioButton();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btn_Exit
             // 
-            this.btn_Exit.Location = new System.Drawing.Point(332, 247);
+            this.btn_Exit.Location = new System.Drawing.Point(332, 346);
             this.btn_Exit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_Exit.Name = "btn_Exit";
             this.btn_Exit.Size = new System.Drawing.Size(93, 39);
@@ -115,9 +119,9 @@
             "1 bulan",
             "3 bulan",
             "6 bulan",
-            "1 tahun",
-            "2 tahun",
-            "3 tahun"});
+            "12 bulan",
+            "24 bulan",
+            "36 bulan"});
             this.comboBoxJatuhTempo.Location = new System.Drawing.Point(163, 98);
             this.comboBoxJatuhTempo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxJatuhTempo.Name = "comboBoxJatuhTempo";
@@ -135,6 +139,9 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.panel1.Controls.Add(this.radioButtonDeposito);
+            this.panel1.Controls.Add(this.radioButtonTabungan);
+            this.panel1.Controls.Add(this.checkBoxARO);
             this.panel1.Controls.Add(this.textBoxNominal);
             this.panel1.Controls.Add(this.comboBoxJatuhTempo);
             this.panel1.Controls.Add(this.label1);
@@ -146,12 +153,12 @@
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(413, 203);
+            this.panel1.Size = new System.Drawing.Size(413, 320);
             this.panel1.TabIndex = 20;
             // 
             // buttonAdd
             // 
-            this.buttonAdd.Location = new System.Drawing.Point(12, 247);
+            this.buttonAdd.Location = new System.Drawing.Point(12, 346);
             this.buttonAdd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(93, 39);
@@ -160,11 +167,58 @@
             this.buttonAdd.UseVisualStyleBackColor = true;
             this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
+            // buttonDetail
+            // 
+            this.buttonDetail.Location = new System.Drawing.Point(175, 346);
+            this.buttonDetail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonDetail.Name = "buttonDetail";
+            this.buttonDetail.Size = new System.Drawing.Size(93, 39);
+            this.buttonDetail.TabIndex = 62;
+            this.buttonDetail.Text = "Detail";
+            this.buttonDetail.UseVisualStyleBackColor = true;
+            this.buttonDetail.Click += new System.EventHandler(this.buttonDetail_Click);
+            // 
+            // checkBoxARO
+            // 
+            this.checkBoxARO.AutoSize = true;
+            this.checkBoxARO.Location = new System.Drawing.Point(163, 194);
+            this.checkBoxARO.Name = "checkBoxARO";
+            this.checkBoxARO.Size = new System.Drawing.Size(199, 21);
+            this.checkBoxARO.TabIndex = 21;
+            this.checkBoxARO.Text = "ARO (Automatic Roll Over)";
+            this.checkBoxARO.UseVisualStyleBackColor = true;
+            this.checkBoxARO.CheckedChanged += new System.EventHandler(this.checkBoxARO_CheckedChanged);
+            // 
+            // radioButtonTabungan
+            // 
+            this.radioButtonTabungan.AutoSize = true;
+            this.radioButtonTabungan.Checked = true;
+            this.radioButtonTabungan.Enabled = false;
+            this.radioButtonTabungan.Location = new System.Drawing.Point(163, 238);
+            this.radioButtonTabungan.Name = "radioButtonTabungan";
+            this.radioButtonTabungan.Size = new System.Drawing.Size(179, 21);
+            this.radioButtonTabungan.TabIndex = 22;
+            this.radioButtonTabungan.TabStop = true;
+            this.radioButtonTabungan.Text = "Bunga masuk tabungan";
+            this.radioButtonTabungan.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonDeposito
+            // 
+            this.radioButtonDeposito.AutoSize = true;
+            this.radioButtonDeposito.Enabled = false;
+            this.radioButtonDeposito.Location = new System.Drawing.Point(163, 277);
+            this.radioButtonDeposito.Name = "radioButtonDeposito";
+            this.radioButtonDeposito.Size = new System.Drawing.Size(173, 21);
+            this.radioButtonDeposito.TabIndex = 23;
+            this.radioButtonDeposito.Text = "Bunga masuk deposito";
+            this.radioButtonDeposito.UseVisualStyleBackColor = true;
+            // 
             // FormPengajuanDeposito
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(444, 308);
+            this.ClientSize = new System.Drawing.Size(444, 396);
+            this.Controls.Add(this.buttonDetail);
             this.Controls.Add(this.buttonAdd);
             this.Controls.Add(this.btn_Exit);
             this.Controls.Add(this.panel1);
@@ -190,5 +244,9 @@
         private System.Windows.Forms.TextBox textBoxNominal;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button buttonAdd;
+        private System.Windows.Forms.Button buttonDetail;
+        private System.Windows.Forms.RadioButton radioButtonDeposito;
+        private System.Windows.Forms.RadioButton radioButtonTabungan;
+        private System.Windows.Forms.CheckBox checkBoxARO;
     }
 }

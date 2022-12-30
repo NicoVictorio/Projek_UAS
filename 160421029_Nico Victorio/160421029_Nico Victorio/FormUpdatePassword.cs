@@ -63,5 +63,10 @@ namespace _160421029_Nico_Victorio
             formMenu = (FormMenu)this.MdiParent;
             tmpPengguna = Pengguna.penggunaByCode(formMenu.tmpPengguna.Id.ToString());
         }
+
+        private void buttonExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

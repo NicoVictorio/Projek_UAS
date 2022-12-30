@@ -122,7 +122,7 @@ namespace DiBa_Lib
                 try
                 {
                     Koneksi k = new Koneksi();
-                    string sql = "INSERT INTO pengguna (nik, nama_depan,nama_keluarga, alamat, email, " +
+                    string sql = "INSERT INTO pengguna (nik, nama_depan, nama_keluarga, alamat, email, " +
                              "no_telepon, password, pin, tgl_buat, tgl_perubahan, kode_pangkat) " +
                              "values (" + this.Nik + ", '"
                                         + this.NamaDepan.Replace("'", "\\'") + "', '"

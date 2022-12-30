@@ -96,6 +96,12 @@
     <Compile Include="FormLogin.Designer.cs">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormMasterBunga.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMasterBunga.Designer.cs">
+      <DependentUpon>FormMasterBunga.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormPengajuanDeposito.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -138,11 +144,11 @@
     <Compile Include="FormStart.Designer.cs">
       <DependentUpon>FormStart.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormTabungan.cs">
+    <Compile Include="FormTabunganPengguna.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormTabungan.Designer.cs">
-      <DependentUpon>FormTabungan.cs</DependentUpon>
+    <Compile Include="FormTabunganPengguna.Designer.cs">
+      <DependentUpon>FormTabunganPengguna.cs</DependentUpon>
     </Compile>
     <Compile Include="FormTambahAddressBook.cs">
       <SubType>Form</SubType>
@@ -317,6 +323,9 @@
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormMasterBunga.resx">
+      <DependentUpon>FormMasterBunga.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormPengajuanDeposito.resx">
       <DependentUpon>FormPengajuanDeposito.cs</DependentUpon>
     </EmbeddedResource>
@@ -338,8 +347,8 @@
     <EmbeddedResource Include="FormStart.resx">
       <DependentUpon>FormStart.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormTabungan.resx">
-      <DependentUpon>FormTabungan.cs</DependentUpon>
+    <EmbeddedResource Include="FormTabunganPengguna.resx">
+      <DependentUpon>FormTabunganPengguna.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormTambahAddressBook.resx">
       <DependentUpon>FormTambahAddressBook.cs</DependentUpon>

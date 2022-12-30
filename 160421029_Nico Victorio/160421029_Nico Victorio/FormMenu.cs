@@ -51,6 +51,11 @@ namespace _160421029_Nico_Victorio
                             formPin.tabPengguna = tabPengguna;
                             formPin.pengguna = tmpPengguna;
                             formPin.ShowDialog();
+                            if(formPin.DialogResult == DialogResult.OK)
+                            {
+                                List<Pengguna> tmpListPengguna = Pengguna.BacaData("id", tmpPengguna.Id.ToString());
+                                tmpPengguna = tmpListPengguna[0];
+                            }
                         }
                     }
                     else
@@ -61,6 +66,46 @@ namespace _160421029_Nico_Victorio
                 else
                 {
                     SetHakAkses();
+                    int tabUnverifiedCount = 0;
+                    int tabSuspendCount = 0;
+                    int depUnverifiedCount = 0;
+                    int depWaitingCount = 0;
+                    if (tmpEmp != null)
+                    {
+                        List<Tabungan> listTabungan = Tabungan.BacaData("", "");
+                        for(int i=0; i<listTabungan.Count; i++)
+                        {
+                            if (listTabungan[i].Status == "Unverified")
+                            {
+                                tabUnverifiedCount++;
+                            }
+                            else if(listTabungan[i].Status == "Suspend")
+                            {
+                                tabSuspendCount++;
+                            }
+                        }
+                        if (tabUnverifiedCount > 0 || tabSuspendCount > 0)
+                        {
+                            MessageBox.Show("Terdapat " + tabUnverifiedCount.ToString() + " tabungan unverified dan " + tabSuspendCount.ToString() + " tabungan suspend.");
+                        }
+
+                        List<Deposito> listDeposito = Deposito.BacaData("", "");
+                        for (int i = 0; i < listDeposito.Count; i++)
+                        {
+                            if (listDeposito[i].Status == "Unverified")
+                            {
+                                depUnverifiedCount++;
+                            }
+                            else if (listTabungan[i].Status == "Waiting")
+                            {
+                                depWaitingCount++;
+                            }
+                        }
+                        if (depUnverifiedCount > 0 || depWaitingCount > 0)
+                        {
+                            MessageBox.Show("Terdapat " + depUnverifiedCount.ToString() + " deposito unverified dan " + depWaitingCount.ToString() + " deposito siap cair.");
+                        }
+                    }
                 }
             }
             else
@@ -406,6 +451,39 @@ namespace _160421029_Nico_Victorio
                 formProfilePengguna.MdiParent = this;
                 formProfilePengguna.tmpPengguna = tmpPengguna;
                 formProfilePengguna.Show();
+            }
+            else
+            {
+                form.Show();
+                form.BringToFront();
+            }
+        }
+
+        private void tabunganToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.Form form = Application.OpenForms["FormDaftarTabungan"];
+            if (form == null)
+            {
+                FormDaftarTabungan formDaftarTabungan = new FormDaftarTabungan();
+                formDaftarTabungan.MdiParent = this;
+                formDaftarTabungan.Show();
+            }
+            else
+            {
+                form.Show();
+                form.BringToFront();
+            }
+        }
+
+        private void tabunganToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.Form form = Application.OpenForms["FormTabunganPengguna"];
+            if (form == null)
+            {
+                FormTabunganPengguna formTabunganPengguna = new FormTabunganPengguna();
+                formTabunganPengguna.MdiParent = this;
+                formTabunganPengguna.penggunaAsal = tmpPengguna;
+                formTabunganPengguna.Show();
             }
             else
             {

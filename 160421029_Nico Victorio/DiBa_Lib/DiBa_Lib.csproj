@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AddressBook.cs" />
+    <Compile Include="Bunga.cs" />
     <Compile Include="Deposito.cs" />
     <Compile Include="Employee.cs" />
     <Compile Include="Inbox.cs" />
