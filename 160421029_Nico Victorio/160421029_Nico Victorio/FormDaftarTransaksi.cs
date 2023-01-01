@@ -33,22 +33,6 @@ namespace _160421029_Nico_Victorio
             if (listTransaksi.Count > 0)
             {
                 dgvListTransaksi.DataSource = listTransaksi;
-                if (dgvListTransaksi.Columns.Count < 8)
-                {
-                    DataGridViewButtonColumn buttonColumn = new DataGridViewButtonColumn();
-                    buttonColumn.HeaderText = "Aksi";
-                    buttonColumn.Text = "Update";
-                    buttonColumn.Name = "btnUbahGrid";
-                    buttonColumn.UseColumnTextForButtonValue = true;
-                    dgvListTransaksi.Columns.Add(buttonColumn);
-
-                    DataGridViewButtonColumn btnDeleteColumns = new DataGridViewButtonColumn();
-                    btnDeleteColumns.HeaderText = "Aksi";
-                    btnDeleteColumns.Text = "Delete";
-                    btnDeleteColumns.Name = "btnHapusGrid";
-                    btnDeleteColumns.UseColumnTextForButtonValue = true;
-                    dgvListTransaksi.Columns.Add(btnDeleteColumns);
-                }
             }
             else
             {
@@ -106,55 +90,6 @@ namespace _160421029_Nico_Victorio
             catch (Exception x)
             {
                 MessageBox.Show(x.Message);
-            }
-        }
-
-        private void dgvListTransaksi_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            string idTransaksi = dgvListTransaksi.CurrentRow.Cells["IdTransaksi"].Value.ToString();
-            double nominal = (double)dgvListTransaksi.CurrentRow.Cells["nominal"].Value;
-            string keterangan = dgvListTransaksi.CurrentRow.Cells["keterangan"].Value.ToString();
-
-            DateTime tglTransaksi = (DateTime)dgvListTransaksi.CurrentRow.Cells["TglTransaksi"].Value;
-            JenisTransaksi jenisTransaksi = (JenisTransaksi)dgvListTransaksi.CurrentRow.Cells["IdJenisTransaksi"].Value;
-            Tabungan rekeningSumber = (Tabungan)dgvListTransaksi.CurrentRow.Cells["NoRekeningSumber"].Value;
-            Tabungan rekeningTujuan = (Tabungan)dgvListTransaksi.CurrentRow.Cells["NoRekeningTujuan"].Value;
-
-            Transaksi trans = new Transaksi(rekeningSumber, idTransaksi, tglTransaksi, 
-                jenisTransaksi, rekeningTujuan, nominal, keterangan);
-            if (trans != null)
-            {
-                if (e.ColumnIndex == dgvListTransaksi.Columns["btnUbahGrid"].Index)
-                {
-                    FormUpdateTransaksi formUpdate = new FormUpdateTransaksi();
-                    formUpdate.Owner = this;
-                    formUpdate.rekeningSumber = trans.NoRekeningSumber.ToString();
-                    formUpdate.idTransaksi = trans.IdTransaksi;
-                    formUpdate.ShowDialog();
-                }
-                else if (e.ColumnIndex == dgvListTransaksi.Columns["btnHapusGrid"].Index)
-                {
-                    try
-                    {
-                        DialogResult confirmation = MessageBox.Show("Apakah anda yakin ingin menghapus data transaksi '" + idTransaksi + "'?", "Konfirmasi Hapus", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                        if (confirmation == DialogResult.Yes)
-                        {
-                            if (trans.HapusData())
-                            {
-                                MessageBox.Show("Penghapusan data berhasil");
-                                FormDaftarTransaksi_Load(sender, e);
-                            }
-                            else
-                            {
-                                MessageBox.Show("Penghapusan data gagal");
-                            }
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
             }
         }
 

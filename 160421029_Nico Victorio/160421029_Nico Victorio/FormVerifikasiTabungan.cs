@@ -62,6 +62,7 @@ namespace _160421029_Nico_Victorio
             string noRek = dataGridViewListVerifikasiTabungan.CurrentRow.Cells["noRekening"].Value.ToString();
             Pengguna pengguna = (Pengguna)dataGridViewListVerifikasiTabungan.CurrentRow.Cells["pengguna"].Value;
             double saldo = (double)dataGridViewListVerifikasiTabungan.CurrentRow.Cells["saldo"].Value;
+            double poin = (double)dataGridViewListVerifikasiTabungan.CurrentRow.Cells["poin"].Value;
             string status = dataGridViewListVerifikasiTabungan.CurrentRow.Cells["status"].Value.ToString();
             string keterangan = dataGridViewListVerifikasiTabungan.CurrentRow.Cells["keterangan"].Value.ToString();
             DateTime tglBuat = DateTime.Parse(dataGridViewListVerifikasiTabungan.CurrentRow.Cells["tgl_buat"].Value.ToString());
@@ -74,7 +75,7 @@ namespace _160421029_Nico_Victorio
                 {
                     try
                     {
-                        Tabungan tab = new Tabungan(noRek, pengguna, saldo, status, keterangan, tglBuat, tglPerubahan, employee);
+                        Tabungan tab = new Tabungan(noRek, pengguna, saldo, poin, status, keterangan, tglBuat, tglPerubahan, employee);
                         if (tab.UbahStatus(emp.Id))
                         {
                             MessageBox.Show("Tabungan telah terverifikasi.");

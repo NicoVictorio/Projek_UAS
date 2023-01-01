@@ -67,11 +67,11 @@ namespace DiBa_Lib
 
         public static MySqlDataReader ambilData(string sql)
         {
-            MySqlDataReader result = null;
+            MySqlDataReader result1 = null;
             Koneksi conn = new Koneksi();
             MySqlCommand comm = new MySqlCommand(sql, conn.connection);
-            result = comm.ExecuteReader();
-            return result;
+            result1 = comm.ExecuteReader();
+            return result1;
         }
 
         public static bool executeDML(string sql)
@@ -80,17 +80,13 @@ namespace DiBa_Lib
             MySqlCommand comm = new MySqlCommand(sql, conn.connection);
             int result = comm.ExecuteNonQuery();
             if (result > 0)
-            {
                 return true;
-            }
             else
-            {
                 return false;
-            }
         }
+
         public static bool executeDML(string sql, Koneksi k)
         {
-            //Koneksi k = new Koneksi();
             MySqlCommand c = new MySqlCommand(sql, k.connection);
             int result = c.ExecuteNonQuery();
             if (result > 0)

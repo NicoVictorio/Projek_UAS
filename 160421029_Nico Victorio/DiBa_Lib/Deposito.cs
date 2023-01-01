@@ -209,35 +209,6 @@ namespace DiBa_Lib
             return result;
         }
 
-        //public static AddressBook addressBookByCode(Pengguna pengguna, Tabungan tabungan)
-        //{
-        //    string sql = "SELECT ab.keterangan, p.nik, t.no_rekening " +
-        //                 "\nFROM addressbook ab " +
-        //                 "\nINNER JOIN Pengguna p on p.nik = ab.id_pengguna " +
-        //                 "\nINNER JOIN Tabungan t on t.no_rekening = ab.no_rekening " +
-        //                 "\nWHERE ab.id_pengguna = " + pengguna.Nik +
-        //                 " AND ab.no_rekening = '" + tabungan.NoRekening + "';";
-        //    MySqlDataReader hasil = Koneksi.ambilData(sql);
-        //    if (hasil.Read() == true)
-        //    {
-        //        AddressBook address = new AddressBook();
-        //        address.Keterangan = hasil.GetString("keterangan");
-
-        //        Pengguna peng = new Pengguna();
-        //        peng.Nik = hasil.GetInt32("id_pengguna");
-        //        address.pengguna = peng;
-
-        //        Tabungan tab = new Tabungan();
-        //        tab.NoRekening = hasil.GetString("norekening");
-        //        address.tabungan = tab;
-        //        return address;
-        //    }
-        //    else
-        //    {
-        //        return null;
-        //    }
-        //}
-
         public bool UbahStatusAktif(int idEmployee)
         {
             string sql = "UPDATE deposito SET status = 'Aktif', verivikator_buka =" + idEmployee +
@@ -256,19 +227,25 @@ namespace DiBa_Lib
             return result;
         }
 
-        public bool UbahStatusCompleted(int idEmployee)
+        public bool UbahStatusCompleted(int idEmployee, double denda, double bunga)
         {
             using (TransactionScope transcope = new TransactionScope())
             {
                 try
                 {
                     Koneksi k = new Koneksi();
-                    string sql = "UPDATE deposito SET status = 'Completed', verivikator_cair =" + idEmployee +
-                     " where id_deposito ='" + this.IdDeposito + "';";
-                    this.verivikatorCair = Employee.employeeByCode(idEmployee);
+                    string sql = "UPDATE deposito SET status = 'Completed', verivikator_cair = " + idEmployee +
+                     " where id_deposito = '" + this.IdDeposito + "';";
                     bool result = Koneksi.executeDML(sql, k);
-
-                    Tabungan.UpdateSaldoTransaksi("pemasukan", this.Tabungan.NoRekening, this.Nominal, k);
+                    if (bunga != 0)
+                    {
+                        Tabungan.UpdateSaldoTransaksi("pemasukan", this.Tabungan.NoRekening, this.Nominal + bunga, k);
+                    }
+                    else if (denda != 0)
+                    {
+                        Tabungan.UpdateSaldoTransaksi("pemasukan", this.Tabungan.NoRekening, this.Nominal, k);
+                        Tabungan.UpdateSaldoTransaksi("pengeluaran", this.Tabungan.NoRekening, denda, k);
+                    }
                     transcope.Complete();
                     return result;
                 }

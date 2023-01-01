@@ -179,28 +179,30 @@ namespace _160421029_Nico_Victorio
                     aro = true;
                 }
                 string status = "Unverified";
-                Deposito dep = new Deposito(idDeposito, rekeningSumber, nominal, status, DateTime.Now, DateTime.Now, null, null, bunga, aro);
-                if (dep.TambahData())
+                if (nominal <= tabPengguna.Saldo)
                 {
-                    MessageBox.Show("Pengajuan deposito telah berhasil.", "Info");
-                    FormDaftarDeposito frm = (FormDaftarDeposito)this.Owner;
-                    frm.FormDaftarDeposito_Load(sender, e);
-                    this.Close();
+                    Deposito dep = new Deposito(idDeposito, rekeningSumber, nominal, status, DateTime.Now, DateTime.Now, null, null, bunga, aro);
+                    if (dep.TambahData())
+                    {
+                        MessageBox.Show("Pengajuan deposito telah berhasil.", "Info");
+                        FormDaftarDeposito frm = (FormDaftarDeposito)this.Owner;
+                        frm.FormDaftarDeposito_Load(sender, e);
+                        this.Close();
+                    }
+                    else
+                    {
+                        throw new Exception("Pengajuan deposito gagal.");
+                    }
                 }
                 else
                 {
-                    throw new Exception("Pengajuan deposito gagal.");
+                    throw new Exception("Saldo anda tidak mencukupi.");
                 }
             }
             catch (Exception x)
             {
                 MessageBox.Show(x.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        private void btn_Exit_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
 
         private void buttonDetail_Click(object sender, EventArgs e)
@@ -231,6 +233,11 @@ namespace _160421029_Nico_Victorio
                 radioButtonDeposito.Enabled = false;
                 radioButtonTabungan.Enabled = false;
             }
+        }
+
+        private void btn_Exit_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

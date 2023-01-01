@@ -24,7 +24,7 @@ namespace _160421029_Nico_Victorio
         {
             formMenu = (FormMenu)this.MdiParent;
             emp = formMenu.tmpEmp;
-            List<Deposito> listDeposito = Deposito.BacaData("status", "Siap Cair");
+            List<Deposito> listDeposito = Deposito.BacaData("status", "Waiting");
             if (listDeposito.Count > 0)
             {
                 dataGridViewListVerifikasiDeposito.DataSource = listDeposito;
@@ -55,7 +55,7 @@ namespace _160421029_Nico_Victorio
             DateTime tglPerubahan = DateTime.Parse(dataGridViewListVerifikasiDeposito.CurrentRow.Cells["tglperubahan"].Value.ToString());
             Employee verivikatorBuka = (Employee)dataGridViewListVerifikasiDeposito.CurrentRow.Cells["verivikatorbuka"].Value;
             Employee verivikatorCair = (Employee)dataGridViewListVerifikasiDeposito.CurrentRow.Cells["verivikatorcair"].Value;
-            Bunga idBunga = (Bunga)dataGridViewListVerifikasiDeposito.CurrentRow.Cells["idbunga"].Value;
+            Bunga idBunga = (Bunga)dataGridViewListVerifikasiDeposito.CurrentRow.Cells["bunga"].Value;
             Boolean aro = (Boolean)dataGridViewListVerifikasiDeposito.CurrentRow.Cells["aro"].Value;
 
             if (e.ColumnIndex == dataGridViewListVerifikasiDeposito.Columns["btnConfirm"].Index && e.RowIndex >= 0)
@@ -65,7 +65,18 @@ namespace _160421029_Nico_Victorio
                     try
                     {
                         Deposito dep = new Deposito(idDeposito, noRek, nominal, status, tglBuat, tglPerubahan, verivikatorBuka, verivikatorCair, idBunga, aro);
-                        if (dep.UbahStatusCompleted(emp.Id))
+                        int bulan = HitungBulan(dep.Bunga.JatuhTempo);
+                        double denda = 0;
+                        double bunga = 0;
+                        if (DateTime.Now.ToShortDateString() == dep.TglBuat.AddMonths(bulan).ToShortDateString())
+                        {
+                            bunga = nominal * idBunga.PersenBunga / 100;
+                        }
+                        else
+                        {
+                            denda = dep.Nominal * 5 / 100;
+                        }
+                        if (dep.UbahStatusCompleted(emp.Id, denda, bunga))
                         {
                             MessageBox.Show("Deposito telah dicairkan.");
                             FormVerifikasiCair_Load(sender, e);
@@ -77,6 +88,41 @@ namespace _160421029_Nico_Victorio
                     }
                 }
             }
+        }
+
+        private int HitungBulan(string jatuhTempo)
+        {
+            int bulan = 0;
+            if (jatuhTempo == "1 bulan")
+            {
+                bulan = 1;
+            }
+            else if (jatuhTempo == "3 bulan")
+            {
+                bulan = 3;
+            }
+            else if (jatuhTempo == "6 bulan")
+            {
+                bulan = 6;
+            }
+            else if (jatuhTempo == "1 tahun")
+            {
+                bulan = 12;
+            }
+            else if (jatuhTempo == "2 tahun")
+            {
+                bulan = 24;
+            }
+            else if (jatuhTempo == "3 tahun")
+            {
+                bulan = 36;
+            }
+            return bulan;
+        }
+
+        private void buttonExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -56,7 +56,6 @@
     <Compile Include="Koneksi.cs" />
     <Compile Include="Pangkat.cs" />
     <Compile Include="Pengguna.cs" />
-    <Compile Include="Poin.cs" />
     <Compile Include="Position.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tabungan.cs" />

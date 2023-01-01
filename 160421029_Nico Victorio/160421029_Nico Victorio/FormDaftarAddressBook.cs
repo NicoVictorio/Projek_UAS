@@ -26,7 +26,7 @@ namespace _160421029_Nico_Victorio
             formMenu = (FormMenu)this.MdiParent;
             penggunaLogin = formMenu.tmpPengguna;
 
-            listAddressBook = AddressBook.BacaDataEmployee("", "");
+            listAddressBook = AddressBook.BacaDataEmployee("pengguna_id", penggunaLogin.Id.ToString());
             if (listAddressBook.Count > 0)
             {
                 dgvListAddressBook.DataSource = listAddressBook;

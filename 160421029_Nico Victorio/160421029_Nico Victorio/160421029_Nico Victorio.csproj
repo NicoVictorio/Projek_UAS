@@ -210,12 +210,6 @@
     <Compile Include="FormTambahPosition.Designer.cs">
       <DependentUpon>FormTambahPosition.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormTambahTabungan.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormTambahTabungan.Designer.cs">
-      <DependentUpon>FormTambahTabungan.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormTambahTransaksi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -227,12 +221,6 @@
     </Compile>
     <Compile Include="FormTopUp.Designer.cs">
       <DependentUpon>FormTopUp.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormUpdateDeposito.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormUpdateDeposito.Designer.cs">
-      <DependentUpon>FormUpdateDeposito.cs</DependentUpon>
     </Compile>
     <Compile Include="FormUpdateInbox.cs">
       <SubType>Form</SubType>
@@ -275,12 +263,6 @@
     </Compile>
     <Compile Include="FormUpdateTabungan.Designer.cs">
       <DependentUpon>FormUpdateTabungan.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormUpdateTransaksi.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormUpdateTransaksi.Designer.cs">
-      <DependentUpon>FormUpdateTransaksi.cs</DependentUpon>
     </Compile>
     <Compile Include="FormVerifikasiCair.cs">
       <SubType>Form</SubType>
@@ -380,17 +362,11 @@
     <EmbeddedResource Include="FormTambahPosition.resx">
       <DependentUpon>FormTambahPosition.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormTambahTabungan.resx">
-      <DependentUpon>FormTambahTabungan.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormTambahTransaksi.resx">
       <DependentUpon>FormTambahTransaksi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormTopUp.resx">
       <DependentUpon>FormTopUp.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormUpdateDeposito.resx">
-      <DependentUpon>FormUpdateDeposito.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormUpdateEmployee.resx">
       <DependentUpon>FormUpdateEmployee.cs</DependentUpon>
@@ -410,8 +386,8 @@
     <EmbeddedResource Include="FormUpdatePosition.resx">
       <DependentUpon>FormUpdatePosition.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormUpdateTransaksi.resx">
-      <DependentUpon>FormUpdateTransaksi.cs</DependentUpon>
+    <EmbeddedResource Include="FormUpdateTabungan.resx">
+      <DependentUpon>FormUpdateTabungan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormVerifikasiCair.resx">
       <DependentUpon>FormVerifikasiCair.cs</DependentUpon>

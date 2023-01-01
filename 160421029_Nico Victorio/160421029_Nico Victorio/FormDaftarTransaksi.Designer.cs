@@ -59,7 +59,6 @@
             this.dgvListTransaksi.RowTemplate.Height = 24;
             this.dgvListTransaksi.Size = new System.Drawing.Size(715, 265);
             this.dgvListTransaksi.TabIndex = 63;
-            this.dgvListTransaksi.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListTransaksi_CellContentClick);
             // 
             // btn_Search
             // 

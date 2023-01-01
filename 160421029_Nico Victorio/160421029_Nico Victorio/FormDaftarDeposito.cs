@@ -148,21 +148,12 @@ namespace _160421029_Nico_Victorio
                         if (dep.Status == "Aktif")
                         {
                             DialogResult confirmation = MessageBox.Show("Apakah anda yakin ingin mencairkan deposito '" + dep.IdDeposito + "' pada tanggal " + DateTime.Now + " ?", "Konfirmasi Hapus", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                            int bulan = HitungBulan(dep.Bunga.JatuhTempo);
                             if (confirmation == DialogResult.Yes)
                             {
-                                if (DateTime.Now.ToShortDateString() == dep.TglBuat.AddMonths(bulan).ToShortDateString())
+                                if (dep.UbahStatusWaiting())
                                 {
-                                    if (dep.UbahStatusWaiting())
-                                    {
-                                        throw new Exception("Permintaan cair deposit berhasil. Harap tunggu konfirmasi admin");
-                                    }
                                     FormDaftarDeposito_Load(sender, e);
-                                }
-                                else
-                                {
-                                    throw new Exception("Pencairan deposit gagal. Anda akan dikenakan penalti 5% dari "
-                                        + dep.Nominal + " dan dana akan dikembalikan tanpa bunga");
+                                    throw new Exception("Pencairan deposit berhasil. Harap tunggu konfirmasi admin.");
                                 }
                             }
                         }
@@ -185,36 +176,6 @@ namespace _160421029_Nico_Victorio
             {
                 MessageBox.Show(x.Message);
             }
-        }
-
-        private int HitungBulan(string jatuhTempo)
-        {
-            int bulan = 0;
-            if (jatuhTempo == "1 bulan")
-            {
-                bulan = 1;
-            }
-            else if (jatuhTempo == "3 bulan")
-            {
-                bulan = 3;
-            }
-            else if (jatuhTempo == "6 bulan")
-            {
-                bulan = 6;
-            }
-            else if (jatuhTempo == "1 tahun")
-            {
-                bulan = 12;
-            }
-            else if (jatuhTempo == "2 tahun")
-            {
-                bulan = 24;
-            }
-            else if (jatuhTempo == "3 tahun")
-            {
-                bulan = 36;
-            }
-            return bulan;
         }
 
         private void btn_Exit_Click(object sender, EventArgs e)

@@ -57,8 +57,9 @@ namespace _160421029_Nico_Victorio
                 Pengguna pgDipilih = (Pengguna)comboBoxPengguna.SelectedItem;
                 Employee emDipilih = (Employee)comboBoxVerifikator.SelectedItem;
 
-                Tabungan k = new Tabungan(textBoxNoRek.Text, pgDipilih, double.Parse(textBoxSaldo.Text),
-                    comboBoxStatus.Text, textBoxKeterangan.Text, tmp.Tgl_buat, DateTime.Now, null);
+                Tabungan k = new Tabungan(textBoxNoRek.Text, pgDipilih, double.Parse(textBoxSaldo.Text), 
+                                          double.Parse(textBoxPoin.Text), comboBoxStatus.Text, 
+                                          textBoxKeterangan.Text, tmp.Tgl_buat, DateTime.Now, null);
                 if (k.UbahData())
                 {
                     MessageBox.Show("Data Tabungan telah terubah", "Info");

@@ -17,6 +17,7 @@ namespace _160421029_Nico_Victorio
         public Pengguna penggunaAsal;
         public Tabungan rekeningTujuan;
         public Pengguna penggunaTujuan;
+        public Tabungan tabPengguna;
 
         public FormTambahTransaksi()
         {
@@ -30,7 +31,7 @@ namespace _160421029_Nico_Victorio
             penggunaAsal = formMenu.tmpPengguna;
 
             List<Tabungan> tmpListTabungan = Tabungan.BacaData("pengguna_id", penggunaAsal.Id.ToString());
-            Tabungan tabPengguna = tmpListTabungan[0];
+            tabPengguna = tmpListTabungan[0];
 
             textBoxRekeningAsal.Text = tabPengguna.NoRekening;
 
@@ -126,6 +127,11 @@ namespace _160421029_Nico_Victorio
         private void btn_Exit_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void FormTambahTransaksi_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Pengguna.UpdatePangkat(tabPengguna.NoRekening, penggunaAsal.Id);
         }
     }
 }

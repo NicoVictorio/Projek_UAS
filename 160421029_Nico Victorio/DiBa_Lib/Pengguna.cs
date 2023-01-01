@@ -137,7 +137,7 @@ namespace DiBa_Lib
                                         + this.Pangkat.KodePangkat + "');";
                     bool result = Koneksi.executeDML(sql,k);
                     
-                    Tabungan tab = new Tabungan(noRek, p, 0, "Unverified", "", DateTime.Now, DateTime.Now, null);
+                    Tabungan tab = new Tabungan(noRek, p, 0, 0, "Unverified", "", DateTime.Now, DateTime.Now, null);
                     tab.TambahData(k);
                     
                     transcope.Complete();
@@ -236,8 +236,70 @@ namespace DiBa_Lib
 
         public bool TambahPin(string pin)
         {
-            string sql = "UPDATE pengguna SET pin ='" + pin  + "' where id = " + this.Id + ";";
+            string sql = "UPDATE pengguna SET pin = '" + pin  + "' where id = " + this.Id + ";";
             bool result = Koneksi.executeDML(sql);
+            return result;
+        }
+
+        public static bool UpdatePangkat(string nomorRekening, int id)
+        {
+            List<Tabungan> tmpListTabungan = Tabungan.BacaData("no_rekening", nomorRekening);
+            Tabungan tabPengguna = tmpListTabungan[0];
+            string sql = "";
+            if (tabPengguna.Poin < 1000000)
+            {
+                sql = "UPDATE pengguna SET kode_pangkat = 'BRZ' " +
+                      "WHERE id = " + id + ";";
+            }
+            else if (tabPengguna.Poin >= 1000000 && tabPengguna.Poin < 10000000)
+            {
+                sql = "UPDATE pengguna SET kode_pangkat = 'SLV' " +
+                      "WHERE id = " + id + ";";
+            }
+            else if (tabPengguna.Poin >= 10000000 && tabPengguna.Poin < 100000000)
+            {
+                sql = "UPDATE pengguna SET kode_pangkat = 'GLD' " +
+                      "WHERE id = " + id + ";";
+            }
+            else
+            {
+                sql = "UPDATE pengguna SET kode_pangkat = 'PLT' " +
+                      "WHERE id = " + id + ";";
+            }
+            bool result = Koneksi.executeDML(sql);
+            return result;
+        }
+
+        public static bool UpdatePangkat(string nomorRekening, Koneksi k)
+        {
+            List<Tabungan> tmpListTabungan = Tabungan.BacaData("no_rekening", nomorRekening);
+            Tabungan tabPengguna = tmpListTabungan[0];
+            string sql = "";
+            if (tabPengguna.Poin < 1000000)
+            {
+                sql = "UPDATE pengguna SET pangkat = 'BRZ' " +
+                      "INNER JOIN tabungan tab on tab.pengguna_id = pengguna.id " +
+                      "WHERE tab.no_rekening = " + nomorRekening + ";";
+            }
+            else if (tabPengguna.Poin >= 1000000 && tabPengguna.Poin < 10000000)
+            {
+                sql = "UPDATE pengguna SET pangkat = 'SLV' " +
+                      "INNER JOIN tabungan tab on tab.pengguna_id = pengguna.id " +
+                      "WHERE tab.no_rekening = " + nomorRekening + ";";
+            }
+            else if (tabPengguna.Poin >= 10000000 && tabPengguna.Poin < 100000000)
+            {
+                sql = "UPDATE pengguna SET pangkat = 'GLD' " +
+                      "INNER JOIN tabungan tab on tab.pengguna_id = pengguna.id " +
+                      "WHERE tab.no_rekening = " + nomorRekening + ";";
+            }
+            else
+            {
+                sql = "UPDATE pengguna SET pangkat = 'PLT' " +
+                      "INNER JOIN tabungan tab on tab.pengguna_id = pengguna.id " +
+                      "WHERE tab.no_rekening = " + nomorRekening + ";";
+            }
+            bool result = Koneksi.executeDML(sql, k);
             return result;
         }
 

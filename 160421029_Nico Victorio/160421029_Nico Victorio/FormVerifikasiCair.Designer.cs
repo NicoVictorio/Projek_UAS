@@ -36,33 +36,35 @@ namespace _160421029_Nico_Victorio
             // 
             // buttonExit
             // 
-            this.buttonExit.Location = new System.Drawing.Point(311, 349);
-            this.buttonExit.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonExit.Location = new System.Drawing.Point(415, 430);
+            this.buttonExit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonExit.Name = "buttonExit";
-            this.buttonExit.Size = new System.Drawing.Size(68, 39);
+            this.buttonExit.Size = new System.Drawing.Size(91, 48);
             this.buttonExit.TabIndex = 5;
             this.buttonExit.Text = "Exit";
             this.buttonExit.UseVisualStyleBackColor = true;
+            this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);
             // 
             // dataGridViewListVerifikasiDeposito
             // 
             this.dataGridViewListVerifikasiDeposito.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewListVerifikasiDeposito.Location = new System.Drawing.Point(62, 26);
-            this.dataGridViewListVerifikasiDeposito.Margin = new System.Windows.Forms.Padding(2);
+            this.dataGridViewListVerifikasiDeposito.Location = new System.Drawing.Point(83, 32);
+            this.dataGridViewListVerifikasiDeposito.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridViewListVerifikasiDeposito.Name = "dataGridViewListVerifikasiDeposito";
             this.dataGridViewListVerifikasiDeposito.RowHeadersWidth = 51;
             this.dataGridViewListVerifikasiDeposito.RowTemplate.Height = 24;
-            this.dataGridViewListVerifikasiDeposito.Size = new System.Drawing.Size(586, 299);
+            this.dataGridViewListVerifikasiDeposito.Size = new System.Drawing.Size(781, 368);
             this.dataGridViewListVerifikasiDeposito.TabIndex = 4;
             this.dataGridViewListVerifikasiDeposito.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewListVerifikasiDeposito_CellContentClick);
             // 
             // FormVerifikasiCair
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(707, 402);
+            this.ClientSize = new System.Drawing.Size(943, 495);
             this.Controls.Add(this.buttonExit);
             this.Controls.Add(this.dataGridViewListVerifikasiDeposito);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FormVerifikasiCair";
             this.Text = "FormVerifikasiCair";
             this.Load += new System.EventHandler(this.FormVerifikasiCair_Load);

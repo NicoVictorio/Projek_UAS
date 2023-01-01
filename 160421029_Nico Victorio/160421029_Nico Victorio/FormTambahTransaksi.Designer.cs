@@ -167,6 +167,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "FormTambahTransaksi";
             this.Text = "Transaksi";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormTambahTransaksi_FormClosing);
             this.Load += new System.EventHandler(this.FormTransaksi_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

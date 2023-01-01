@@ -29,7 +29,7 @@ namespace _160421029_Nico_Victorio
                 textBoxNomorTelepon.Text, textBoxPassword.Text, "",
                 DateTime.Now, DateTime.Now, pkDipilih);
                 string noRek = Tabungan.GenerateNoRek();
-                Tabungan tab = new Tabungan(noRek, js, 0, "Unverified", "", DateTime.Now, DateTime.Now, null);
+                Tabungan tab = new Tabungan(noRek, js, 0, 0, "Unverified", "", DateTime.Now, DateTime.Now, null);
 
                 if (js.TambahData(js,noRek)) //&& tab.TambahData())
                 {

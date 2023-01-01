@@ -24,7 +24,7 @@ namespace _160421029_Nico_Victorio
         {
             formMenu = (FormMenu)this.MdiParent;
             emp = formMenu.tmpEmp;
-            List<Deposito> listDeposito = Deposito.BacaData("", "");
+            List<Deposito> listDeposito = Deposito.BacaData("status", "Unverified");
             if (listDeposito.Count > 0)
             {
                 dataGridViewListVerifikasiDeposito.DataSource = listDeposito;

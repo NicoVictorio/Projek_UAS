@@ -17,6 +17,7 @@ namespace _160421029_Nico_Victorio
         public Employee tmpEmp;
         public Deposito tmpDep;
         public Tabungan tabPengguna;
+        public Pangkat tmpPangkat;
         public FormMenu()
         {
             InitializeComponent();
@@ -38,7 +39,6 @@ namespace _160421029_Nico_Victorio
                 {
                     List<Tabungan> tmpListTabungan = Tabungan.BacaData("pengguna_id", tmpPengguna.Id.ToString());
                     tabPengguna = tmpListTabungan[0];
-
                     if (tabPengguna.Status == "Aktif")
                     {
                         SetHakAkses();
@@ -73,7 +73,7 @@ namespace _160421029_Nico_Victorio
                     if (tmpEmp != null)
                     {
                         List<Tabungan> listTabungan = Tabungan.BacaData("", "");
-                        for(int i=0; i<listTabungan.Count; i++)
+                        for (int i = 0; i < listTabungan.Count; i++)
                         {
                             if (listTabungan[i].Status == "Unverified")
                             {
@@ -96,7 +96,7 @@ namespace _160421029_Nico_Victorio
                             {
                                 depUnverifiedCount++;
                             }
-                            else if (listTabungan[i].Status == "Waiting")
+                            else if (listDeposito[i].Status == "Waiting")
                             {
                                 depWaitingCount++;
                             }

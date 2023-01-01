@@ -34,6 +34,10 @@ namespace _160421029_Nico_Victorio
             this.labelNomorRekening = new System.Windows.Forms.Label();
             this.labelSaldo = new System.Windows.Forms.Label();
             this.buttonExit = new System.Windows.Forms.Button();
+            this.labelPangkat = new System.Windows.Forms.Label();
+            this.labelPoin = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -48,7 +52,7 @@ namespace _160421029_Nico_Victorio
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(29, 93);
+            this.label2.Location = new System.Drawing.Point(26, 79);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(52, 17);
             this.label2.TabIndex = 1;
@@ -66,7 +70,7 @@ namespace _160421029_Nico_Victorio
             // labelSaldo
             // 
             this.labelSaldo.AutoSize = true;
-            this.labelSaldo.Location = new System.Drawing.Point(204, 92);
+            this.labelSaldo.Location = new System.Drawing.Point(201, 78);
             this.labelSaldo.Name = "labelSaldo";
             this.labelSaldo.Size = new System.Drawing.Size(46, 17);
             this.labelSaldo.TabIndex = 3;
@@ -75,7 +79,7 @@ namespace _160421029_Nico_Victorio
             // buttonExit
             // 
             this.buttonExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonExit.Location = new System.Drawing.Point(129, 145);
+            this.buttonExit.Location = new System.Drawing.Point(113, 205);
             this.buttonExit.Margin = new System.Windows.Forms.Padding(4);
             this.buttonExit.Name = "buttonExit";
             this.buttonExit.Size = new System.Drawing.Size(90, 37);
@@ -84,11 +88,51 @@ namespace _160421029_Nico_Victorio
             this.buttonExit.UseVisualStyleBackColor = true;
             this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);
             // 
+            // labelPangkat
+            // 
+            this.labelPangkat.AutoSize = true;
+            this.labelPangkat.Location = new System.Drawing.Point(201, 162);
+            this.labelPangkat.Name = "labelPangkat";
+            this.labelPangkat.Size = new System.Drawing.Size(46, 17);
+            this.labelPangkat.TabIndex = 88;
+            this.labelPangkat.Text = "label4";
+            // 
+            // labelPoin
+            // 
+            this.labelPoin.AutoSize = true;
+            this.labelPoin.Location = new System.Drawing.Point(201, 119);
+            this.labelPoin.Name = "labelPoin";
+            this.labelPoin.Size = new System.Drawing.Size(46, 17);
+            this.labelPoin.TabIndex = 87;
+            this.labelPoin.Text = "label3";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(26, 163);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(64, 17);
+            this.label5.TabIndex = 86;
+            this.label5.Text = "Pangkat:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(29, 119);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(40, 17);
+            this.label6.TabIndex = 85;
+            this.label6.Text = "Poin:";
+            // 
             // FormTabunganPengguna
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(357, 195);
+            this.ClientSize = new System.Drawing.Size(311, 259);
+            this.Controls.Add(this.labelPangkat);
+            this.Controls.Add(this.labelPoin);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.buttonExit);
             this.Controls.Add(this.labelSaldo);
             this.Controls.Add(this.labelNomorRekening);
@@ -109,5 +153,9 @@ namespace _160421029_Nico_Victorio
         private System.Windows.Forms.Label labelNomorRekening;
         private System.Windows.Forms.Label labelSaldo;
         private System.Windows.Forms.Button buttonExit;
+        private System.Windows.Forms.Label labelPangkat;
+        private System.Windows.Forms.Label labelPoin;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
     }
 }

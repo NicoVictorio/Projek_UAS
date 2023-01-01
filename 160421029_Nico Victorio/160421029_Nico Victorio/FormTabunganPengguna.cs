@@ -27,9 +27,14 @@ namespace _160421029_Nico_Victorio
             
             List<Tabungan> tmpListTabungan = Tabungan.BacaData("pengguna_id", penggunaAsal.Id.ToString());
             tabunganAsal = tmpListTabungan[0];
-            
+
+            List<Pengguna> tmpListPengguna = Pengguna.BacaData("id", penggunaAsal.Id.ToString());
+            penggunaAsal = tmpListPengguna[0];
+
             labelNomorRekening.Text = tabunganAsal.NoRekening;
-            labelSaldo.Text = tabunganAsal.Saldo.ToString();
+            labelSaldo.Text = tabunganAsal.Saldo.ToString("C2");
+            labelPoin.Text = tabunganAsal.Poin.ToString("C2");
+            labelPangkat.Text = penggunaAsal.Pangkat.ToString();
         }
 
         private void buttonExit_Click(object sender, EventArgs e)

@@ -25,7 +25,7 @@ namespace _160421029_Nico_Victorio
             if (listTabungan.Count > 0)
             {
                 dgvListTabungan.DataSource = listTabungan;
-                if (dgvListTabungan.Columns.Count < 9)
+                if (dgvListTabungan.Columns.Count < 10)
                 {
                     DataGridViewButtonColumn buttonColumn = new DataGridViewButtonColumn();
                     buttonColumn.HeaderText = "Aksi";
@@ -67,6 +67,10 @@ namespace _160421029_Nico_Victorio
                 {
                     kriteria = "saldo";
                 }
+                else if (cb_Kriteria.Text == "Poin")
+                {
+                    kriteria = "poin";
+                }
                 else if (cb_Kriteria.Text == "Status")
                 {
                     kriteria = "status";
@@ -105,17 +109,11 @@ namespace _160421029_Nico_Victorio
             }
         }
 
-        private void btn_Add_Click(object sender, EventArgs e)
-        {
-            FormTambahTabungan formTambahTabungan = new FormTambahTabungan();
-            formTambahTabungan.Owner = this;
-            formTambahTabungan.ShowDialog();
-        }
-
         private void dgvListTabungan_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             string noRek = dgvListTabungan.CurrentRow.Cells["norekening"].Value.ToString();
             double saldo = (double)dgvListTabungan.CurrentRow.Cells["saldo"].Value;
+            double poin = (double)dgvListTabungan.CurrentRow.Cells["poin"].Value;
             string status = dgvListTabungan.CurrentRow.Cells["status"].Value.ToString();
             string keterangan = dgvListTabungan.CurrentRow.Cells["keterangan"].Value.ToString();
 
@@ -124,7 +122,7 @@ namespace _160421029_Nico_Victorio
             Employee employee = (Employee)dgvListTabungan.CurrentRow.Cells["employee"].Value;
             Pengguna pengguna = (Pengguna)dgvListTabungan.CurrentRow.Cells["pengguna"].Value;
 
-            Tabungan tab = new Tabungan(noRek, pengguna, saldo, status, keterangan, tglBuat, tglPerubahan, employee);
+            Tabungan tab = new Tabungan(noRek, pengguna, saldo, poin, status, keterangan, tglBuat, tglPerubahan, employee);
             if (tab != null)
             {
                 if (e.ColumnIndex == dgvListTabungan.Columns["btnUbahGrid"].Index)

@@ -13,11 +13,11 @@ namespace DiBa_Lib
         private int idBunga;
         private string jatuhTempo;
         private string nominal;
-        private string persenBunga;
+        private int persenBunga;
         #endregion
 
         #region constructors
-        public Bunga(int idBunga, string jatuhTempo, string nominal, string persenBunga)
+        public Bunga(int idBunga, string jatuhTempo, string nominal, int persenBunga)
         {
             this.IdBunga = idBunga;
             this.JatuhTempo = jatuhTempo;
@@ -30,7 +30,7 @@ namespace DiBa_Lib
             this.IdBunga = 0;
             this.JatuhTempo = "";
             this.Nominal = "";
-            this.PersenBunga = "";
+            this.PersenBunga = 0;
         }
         #endregion
 
@@ -38,7 +38,7 @@ namespace DiBa_Lib
         public int IdBunga { get => idBunga; set => idBunga = value; }
         public string JatuhTempo { get => jatuhTempo; set => jatuhTempo = value; }
         public string Nominal { get => nominal; set => nominal = value; }
-        public string PersenBunga { get => persenBunga; set => persenBunga = value; }
+        public int PersenBunga { get => persenBunga; set => persenBunga = value; }
         #endregion
 
         #region methods
@@ -55,7 +55,7 @@ namespace DiBa_Lib
                 tmp.IdBunga = hasil.GetInt32(0);
                 tmp.JatuhTempo = hasil.GetValue(1).ToString();
                 tmp.Nominal = hasil.GetValue(2).ToString();
-                tmp.PersenBunga = hasil.GetValue(3).ToString();
+                tmp.PersenBunga = hasil.GetInt32(3);
                 listHasil.Add(tmp);
             }
             return listHasil;
@@ -79,7 +79,7 @@ namespace DiBa_Lib
                 tmp.IdBunga = hasil.GetInt32(0);
                 tmp.JatuhTempo = hasil.GetValue(1).ToString();
                 tmp.Nominal = hasil.GetValue(2).ToString();
-                tmp.PersenBunga = hasil.GetValue(3).ToString();
+                tmp.PersenBunga = hasil.GetInt32(3);
                 listHasil.Add(tmp);
             }
             return listHasil;
@@ -97,7 +97,7 @@ namespace DiBa_Lib
                 tmp.IdBunga = hasil.GetInt32("idbunga");
                 tmp.JatuhTempo = hasil.GetString("jatuhtempo");
                 tmp.Nominal = hasil.GetString("nominal");
-                tmp.PersenBunga = hasil.GetString("persenbunga");
+                tmp.PersenBunga = hasil.GetInt32("persenbunga");
                 return tmp;
             }
             else
