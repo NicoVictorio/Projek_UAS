@@ -121,13 +121,11 @@ namespace _160421029_Nico_Victorio
 
         private void dgvListPengguna_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            //int idPosition = int.Parse(dgvListPengguna.CurrentRow.Cells["idposition"].Value.ToString());
-            int id = (int)dgvListPengguna.CurrentRow.Cells["id"].Value;
+            string email = dgvListPengguna.CurrentRow.Cells["email"].Value.ToString();
             int nik = (int)dgvListPengguna.CurrentRow.Cells["nik"].Value;
             string namaDepan = dgvListPengguna.CurrentRow.Cells["namadepan"].Value.ToString();
             string namaKeluarga = dgvListPengguna.CurrentRow.Cells["namakeluarga"].Value.ToString();
             string alamat = dgvListPengguna.CurrentRow.Cells["alamat"].Value.ToString();
-            string email = dgvListPengguna.CurrentRow.Cells["email"].Value.ToString();
             string noTelp = dgvListPengguna.CurrentRow.Cells["noTelp"].Value.ToString();
             string password = dgvListPengguna.CurrentRow.Cells["password"].Value.ToString();
             string pin = dgvListPengguna.CurrentRow.Cells["pin"].Value.ToString();
@@ -135,7 +133,7 @@ namespace _160421029_Nico_Victorio
             DateTime tglPerubahan = (DateTime)dgvListPengguna.CurrentRow.Cells["tglPerubahan"].Value;
             Pangkat pangkat = (Pangkat)dgvListPengguna.CurrentRow.Cells["pangkat"].Value;
 
-            Pengguna pos = new Pengguna(id, nik, namaDepan, namaKeluarga, alamat, email, noTelp, 
+            Pengguna pos = new Pengguna(email, nik, namaDepan, namaKeluarga, alamat, noTelp, 
                                         password, pin, tglBuat, tglPerubahan, pangkat);
             if (pos != null)
             {
@@ -143,7 +141,7 @@ namespace _160421029_Nico_Victorio
                 {
                     FormUpdatePengguna formUpdate = new FormUpdatePengguna();
                     formUpdate.Owner = this;
-                    formUpdate.nik = pos.Nik.ToString();
+                    formUpdate.emailPengguna = pos.Email.ToString();
                     formUpdate.ShowDialog();
                 }
                 else if (e.ColumnIndex == dgvListPengguna.Columns["btnHapusGrid"].Index)

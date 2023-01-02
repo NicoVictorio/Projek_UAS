@@ -24,14 +24,16 @@ namespace _160421029_Nico_Victorio
             {
                 List<Pangkat> listPangkat = Pangkat.BacaData("kode_pangkat", "BRZ");
                 Pangkat pkDipilih = listPangkat[0];
-                Pengguna js = new Pengguna(0, int.Parse(textBoxNIK.Text), textBoxNamaDepan.Text,
-                textBoxNamaBelakang.Text, textBoxAlamat.Text, textBoxEmail.Text,
-                textBoxNomorTelepon.Text, textBoxPassword.Text, "",
-                DateTime.Now, DateTime.Now, pkDipilih);
-                string noRek = Tabungan.GenerateNoRek();
-                Tabungan tab = new Tabungan(noRek, js, 0, 0, "Unverified", "", DateTime.Now, DateTime.Now, null);
+                Pengguna pengguna = new Pengguna(textBoxEmail.Text, int.Parse(textBoxNIK.Text), 
+                                           textBoxNamaDepan.Text, textBoxNamaBelakang.Text, 
+                                           textBoxAlamat.Text, textBoxNomorTelepon.Text, 
+                                           textBoxPassword.Text, "", DateTime.Now, 
+                                           DateTime.Now, pkDipilih);
 
-                if (js.TambahData(js,noRek)) //&& tab.TambahData())
+                string noRek = Tabungan.GenerateNoRek();
+                Tabungan tab = new Tabungan(noRek, pengguna, 0, 0, "Unverified", "", DateTime.Now, DateTime.Now, null);
+
+                if (pengguna.TambahData(pengguna, noRek))
                 {
                     MessageBox.Show("Data Pengguna telah tersimpan", "Info");
                     FormMasterPengguna frm = (FormMasterPengguna)this.Owner;

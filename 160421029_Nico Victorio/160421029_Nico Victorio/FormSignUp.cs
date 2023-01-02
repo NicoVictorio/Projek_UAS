@@ -30,26 +30,32 @@ namespace _160421029_Nico_Victorio
         {
             try
             {
-                List<Pangkat> listPangkat = Pangkat.BacaData("kode_pangkat", "BRZ");
-                Pangkat pangkat = listPangkat[0];
-
-                List<Pengguna> listPengguna = Pengguna.BacaData("", "");
-
-                Pengguna pengguna = new Pengguna((listPengguna.Count + 1), 0, "", "", "", textBoxEmail.Text,
-                                           "", textBoxPassword.Text, "",
-                                           DateTime.Now, DateTime.Now, pangkat);
-
-                string noRek = Tabungan.GenerateNoRek();
-
-                if (pengguna.TambahData(pengguna,noRek))
+                bool checker = textBoxEmail.Text.Contains("@gmail.com");
+                if (checker == true)
                 {
-                    MessageBox.Show("Data Pengguna telah tersimpan", "Info");
-                    FormStart frm = (FormStart)this.Owner;
-                    this.Close();
+                    List<Pangkat> listPangkat = Pangkat.BacaData("kode_pangkat", "BRZ");
+                    Pangkat pangkat = listPangkat[0];
+
+                    Pengguna pengguna = new Pengguna(textBoxEmail.Text, 0, "", "", "", "",
+                                                     textBoxPassword.Text, "",
+                                                     DateTime.Now, DateTime.Now, pangkat);
+
+                    string noRek = Tabungan.GenerateNoRek();
+
+                    if (pengguna.TambahData(pengguna, noRek))
+                    {
+                        MessageBox.Show("Data Pengguna telah tersimpan", "Info");
+                        FormStart frm = (FormStart)this.Owner;
+                        this.Close();
+                    }
+                    else
+                    {
+                        throw new Exception("Tidak dapat menambahkan data dalam database");
+                    }
                 }
                 else
                 {
-                    throw new Exception("Tidak dapat menambahkan data dalam database");
+                    throw new Exception("Email tidak valid");
                 }
             }
             catch (Exception x)

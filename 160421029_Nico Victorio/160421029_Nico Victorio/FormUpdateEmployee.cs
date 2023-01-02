@@ -13,7 +13,7 @@ namespace _160421029_Nico_Victorio
 {
     public partial class FormUpdateEmployee : System.Windows.Forms.Form
     {
-        public int idEmployee;
+        public string emailEmployee;
         FormMasterEmployee formMasterEmployee;
         Employee tmp;
 
@@ -27,11 +27,10 @@ namespace _160421029_Nico_Victorio
             formMasterEmployee = (FormMasterEmployee)this.Owner;
             comboBoxPosition.DataSource = formMasterEmployee.listPosition;
             comboBoxPosition.DisplayMember = "nama";
-            textBoxID.Enabled = false;
-            tmp = Employee.employeeByCode(idEmployee);
+            textBoxEmail.Enabled = false;
+            tmp = Employee.employeeByCode(emailEmployee);
             if (tmp != null)
             {
-                textBoxID.Text = tmp.Id.ToString();
                 textBoxNamaDepan.Text = tmp.NamaDepan;
                 textBoxNamaBelakang.Text = tmp.NamaKeluarga;
                 comboBoxPosition.SelectedItem = tmp.Position;
@@ -47,9 +46,10 @@ namespace _160421029_Nico_Victorio
             try
             {
                 Position posDipilih = (Position)comboBoxPosition.SelectedItem;
-                Employee emp = new Employee(int.Parse(textBoxID.Text), textBoxNamaDepan.Text,
-                textBoxNamaBelakang.Text, posDipilih, textBoxNIK.Text, textBoxEmail.Text,
-                textBoxPassword.Text, tmp.TglBuat, DateTime.Now); ;
+                Employee emp = new Employee(textBoxEmail.Text, textBoxNamaDepan.Text,
+                                            textBoxNamaBelakang.Text, posDipilih, 
+                                            textBoxNIK.Text, textBoxPassword.Text, 
+                                            tmp.TglBuat, DateTime.Now); ;
                 if (emp.UbahData())
                 {
                     MessageBox.Show("Data employee telah terubah", "Info");

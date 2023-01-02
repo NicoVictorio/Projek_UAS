@@ -28,7 +28,7 @@ namespace _160421029_Nico_Victorio
             formMenu = (FormMenu)this.MdiParent;
             penggunaAsal = formMenu.tmpPengguna;
 
-            List<Tabungan> tmpListTabungan = Tabungan.BacaData("pengguna_id", penggunaAsal.Id.ToString());
+            List<Tabungan> tmpListTabungan = Tabungan.BacaData("pengguna_email", penggunaAsal.Email);
             tabPengguna = tmpListTabungan[0];
 
             listDeposito = Deposito.BacaData("", "");
@@ -95,11 +95,11 @@ namespace _160421029_Nico_Victorio
                 }
                 else if (cb_Kriteria.Text == "Verifikator Buka")
                 {
-                    kriteria = "verivikator_buka";
+                    kriteria = "verifikator_buka";
                 }
                 else if (cb_Kriteria.Text == "Verifikator Cair")
                 {
-                    kriteria = "verivikator_cair";
+                    kriteria = "verifikator_cair";
                 }
 
                 nilai = tb_Kriteria.Text;
@@ -132,8 +132,8 @@ namespace _160421029_Nico_Victorio
 
                 DateTime tglBuat = (DateTime)dgvListDeposito.CurrentRow.Cells["tglBuat"].Value;
                 DateTime tglPerubahan = (DateTime)dgvListDeposito.CurrentRow.Cells["tglPerubahan"].Value;
-                Employee verifikatorBuka = (Employee)dgvListDeposito.CurrentRow.Cells["verivikatorbuka"].Value;
-                Employee verifikatorCair = (Employee)dgvListDeposito.CurrentRow.Cells["verivikatorcair"].Value;
+                Employee verifikatorBuka = (Employee)dgvListDeposito.CurrentRow.Cells["verifikatorbuka"].Value;
+                Employee verifikatorCair = (Employee)dgvListDeposito.CurrentRow.Cells["verifikatorcair"].Value;
 
                 Bunga idBunga = (Bunga)dgvListDeposito.CurrentRow.Cells["bunga"].Value;
                 bool aro = (bool)dgvListDeposito.CurrentRow.Cells["aro"].Value;

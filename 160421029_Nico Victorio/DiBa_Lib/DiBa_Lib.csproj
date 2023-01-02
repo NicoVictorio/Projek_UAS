@@ -51,7 +51,6 @@
     <Compile Include="Deposito.cs" />
     <Compile Include="Employee.cs" />
     <Compile Include="Inbox.cs" />
-    <Compile Include="Investasi.cs" />
     <Compile Include="JenisTransaksi.cs" />
     <Compile Include="Koneksi.cs" />
     <Compile Include="Pangkat.cs" />

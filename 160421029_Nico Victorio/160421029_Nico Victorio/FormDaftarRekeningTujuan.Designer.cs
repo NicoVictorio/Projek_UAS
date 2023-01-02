@@ -75,7 +75,8 @@ namespace _160421029_Nico_Victorio
             this.cb_Kriteria.FormattingEnabled = true;
             this.cb_Kriteria.Items.AddRange(new object[] {
             "Nama Pengguna",
-            "Nomor Rekening"});
+            "Nomor Rekening",
+            "Keterangan"});
             this.cb_Kriteria.Location = new System.Drawing.Point(180, 40);
             this.cb_Kriteria.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cb_Kriteria.Name = "cb_Kriteria";

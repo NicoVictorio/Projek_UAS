@@ -57,7 +57,6 @@ namespace DiBa_Lib
         #endregion
 
         #region methods
-
         public static string GenerateNoTransaksi(string kodeJenisTransaksi)
         {
             string sql = "SELECT RIGHT(idtransaksi,4) as idTransaksi FROM transaksi WHERE " +

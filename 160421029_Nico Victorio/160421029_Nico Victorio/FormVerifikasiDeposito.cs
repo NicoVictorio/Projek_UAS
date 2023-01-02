@@ -53,8 +53,8 @@ namespace _160421029_Nico_Victorio
             string status = dataGridViewListVerifikasiDeposito.CurrentRow.Cells["status"].Value.ToString();
             DateTime tglBuat = DateTime.Parse(dataGridViewListVerifikasiDeposito.CurrentRow.Cells["tglbuat"].Value.ToString());
             DateTime tglPerubahan = DateTime.Parse(dataGridViewListVerifikasiDeposito.CurrentRow.Cells["tglperubahan"].Value.ToString());
-            Employee verivikatorBuka = (Employee)dataGridViewListVerifikasiDeposito.CurrentRow.Cells["verivikatorbuka"].Value;
-            Employee verivikatorCair = (Employee)dataGridViewListVerifikasiDeposito.CurrentRow.Cells["verivikatorcair"].Value;
+            Employee verifikatorBuka = (Employee)dataGridViewListVerifikasiDeposito.CurrentRow.Cells["verifikatorbuka"].Value;
+            Employee verifikatorCair = (Employee)dataGridViewListVerifikasiDeposito.CurrentRow.Cells["verifikatorcair"].Value;
             Bunga idBunga = (Bunga)dataGridViewListVerifikasiDeposito.CurrentRow.Cells["bunga"].Value;
             bool aro = (Boolean)dataGridViewListVerifikasiDeposito.CurrentRow.Cells["aro"].Value;
 
@@ -64,8 +64,8 @@ namespace _160421029_Nico_Victorio
                 {
                     try
                     {
-                        Deposito dep = new Deposito(idDeposito, noRek, nominal, status, tglBuat, tglPerubahan, verivikatorBuka, verivikatorCair, idBunga, aro);
-                        if (dep.UbahStatusAktif(emp.Id))
+                        Deposito dep = new Deposito(idDeposito, noRek, nominal, status, tglBuat, tglPerubahan, verifikatorBuka, verifikatorCair, idBunga, aro);
+                        if (dep.UbahStatusAktif(emp.Email))
                         {
                             MessageBox.Show("Deposito telah terverifikasi.");
                             FormVerifikasiDeposito_Load(sender, e);

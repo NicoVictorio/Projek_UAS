@@ -76,7 +76,7 @@ namespace _160421029_Nico_Victorio
                         {
                             denda = dep.Nominal * 5 / 100;
                         }
-                        if (dep.UbahStatusCompleted(emp.Id, denda, bunga))
+                        if (dep.UbahStatusCompleted(emp.Email, denda, bunga))
                         {
                             MessageBox.Show("Deposito telah dicairkan.");
                             FormVerifikasiCair_Load(sender, e);

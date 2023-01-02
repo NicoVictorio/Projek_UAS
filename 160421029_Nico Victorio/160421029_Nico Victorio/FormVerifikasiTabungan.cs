@@ -26,7 +26,7 @@ namespace _160421029_Nico_Victorio
             emp = formMenu.tmpEmp;
             List<Tabungan> listTabungan = new List<Tabungan>();
             List<Tabungan> listSemuaTabungan = Tabungan.BacaData("", "");
-            for(int i=0; i<listSemuaTabungan.Count; i++)
+            for (int i = 0; i < listSemuaTabungan.Count; i++)
             {
                 if (listSemuaTabungan[i].Status == "Unverified")
                 {
@@ -41,7 +41,7 @@ namespace _160421029_Nico_Victorio
             {
                 dataGridViewListVerifikasiTabungan.DataSource = listTabungan;
 
-                if (dataGridViewListVerifikasiTabungan.ColumnCount < 9)
+                if (dataGridViewListVerifikasiTabungan.ColumnCount < 10)
                 {
                     DataGridViewButtonColumn confirmButton = new DataGridViewButtonColumn();
                     confirmButton.HeaderText = "Aksi";
@@ -76,7 +76,7 @@ namespace _160421029_Nico_Victorio
                     try
                     {
                         Tabungan tab = new Tabungan(noRek, pengguna, saldo, poin, status, keterangan, tglBuat, tglPerubahan, employee);
-                        if (tab.UbahStatus(emp.Id))
+                        if (tab.UbahStatus(emp.Email))
                         {
                             MessageBox.Show("Tabungan telah terverifikasi.");
                             FormVerifikasiTabungan_Load(sender, e);

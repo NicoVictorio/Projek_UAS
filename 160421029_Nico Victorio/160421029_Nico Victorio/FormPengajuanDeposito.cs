@@ -26,12 +26,12 @@ namespace _160421029_Nico_Victorio
             form = (FormDaftarDeposito)this.Owner;
             penggunaAsal = form.penggunaAsal;
 
-            List<Tabungan> tmpListTabungan = Tabungan.BacaData("pengguna_id", penggunaAsal.Id.ToString());
+            List<Tabungan> tmpListTabungan = Tabungan.BacaData("pengguna_email", penggunaAsal.Email);
             tabPengguna = tmpListTabungan[0];
 
             if (tabPengguna.Status == "Aktif")
             {
-                labelId.Text = penggunaAsal.Id.ToString();
+                labelEmail.Text = penggunaAsal.Email;
                 labelNomorRekening.Text = tabPengguna.NoRekening;
             }
             else
@@ -45,10 +45,10 @@ namespace _160421029_Nico_Victorio
         {
             try
             {
-                int idPengguna = penggunaAsal.Id;
-                string idDeposito = Deposito.GenerateNoDeposito(idPengguna);
+                string emailPengguna = penggunaAsal.Email;
+                string idDeposito = Deposito.GenerateNoDeposito(emailPengguna);
 
-                List<Tabungan> tmpListTabungan = Tabungan.BacaData("pengguna_id", penggunaAsal.Id.ToString());
+                List<Tabungan> tmpListTabungan = Tabungan.BacaData("pengguna_email", penggunaAsal.Email);
                 tabPengguna = tmpListTabungan[0];
                 Tabungan rekeningSumber = tabPengguna;
 

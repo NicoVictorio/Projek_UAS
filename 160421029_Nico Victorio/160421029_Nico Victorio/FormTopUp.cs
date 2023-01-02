@@ -26,7 +26,7 @@ namespace _160421029_Nico_Victorio
             formMenu = (FormMenu)this.MdiParent;
             penggunaAsal = formMenu.tmpPengguna;
 
-            List<Tabungan> tmpListTabungan = Tabungan.BacaData("pengguna_id", penggunaAsal.Id.ToString());
+            List<Tabungan> tmpListTabungan = Tabungan.BacaData("pengguna_email", penggunaAsal.Email);
             tabungan = tmpListTabungan[0];
         }
 

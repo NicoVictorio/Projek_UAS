@@ -31,14 +31,12 @@ namespace _160421029_Nico_Victorio
         {
             this.buttonSave = new System.Windows.Forms.Button();
             this.textBoxNomorTelepon = new System.Windows.Forms.TextBox();
-            this.textBoxEmail = new System.Windows.Forms.TextBox();
             this.textBoxAlamat = new System.Windows.Forms.TextBox();
             this.textBoxNamaBelakang = new System.Windows.Forms.TextBox();
             this.textBoxNamaDepan = new System.Windows.Forms.TextBox();
             this.textBoxNIK = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -48,7 +46,7 @@ namespace _160421029_Nico_Victorio
             // buttonSave
             // 
             this.buttonSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSave.Location = new System.Drawing.Point(427, 300);
+            this.buttonSave.Location = new System.Drawing.Point(427, 271);
             this.buttonSave.Margin = new System.Windows.Forms.Padding(4);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(95, 35);
@@ -60,20 +58,11 @@ namespace _160421029_Nico_Victorio
             // textBoxNomorTelepon
             // 
             this.textBoxNomorTelepon.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxNomorTelepon.Location = new System.Drawing.Point(150, 246);
+            this.textBoxNomorTelepon.Location = new System.Drawing.Point(150, 217);
             this.textBoxNomorTelepon.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxNomorTelepon.Name = "textBoxNomorTelepon";
             this.textBoxNomorTelepon.Size = new System.Drawing.Size(491, 26);
             this.textBoxNomorTelepon.TabIndex = 84;
-            // 
-            // textBoxEmail
-            // 
-            this.textBoxEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxEmail.Location = new System.Drawing.Point(150, 204);
-            this.textBoxEmail.Margin = new System.Windows.Forms.Padding(4);
-            this.textBoxEmail.Name = "textBoxEmail";
-            this.textBoxEmail.Size = new System.Drawing.Size(491, 26);
-            this.textBoxEmail.TabIndex = 83;
             // 
             // textBoxAlamat
             // 
@@ -128,23 +117,12 @@ namespace _160421029_Nico_Victorio
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Corbel", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(23, 251);
+            this.label5.Location = new System.Drawing.Point(23, 222);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(117, 21);
             this.label5.TabIndex = 75;
             this.label5.Text = "Nomor Telepon";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Corbel", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(93, 209);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(49, 21);
-            this.label4.TabIndex = 74;
-            this.label4.Text = "Email";
             // 
             // label3
             // 
@@ -182,7 +160,7 @@ namespace _160421029_Nico_Victorio
             // buttonExit
             // 
             this.buttonExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonExit.Location = new System.Drawing.Point(546, 300);
+            this.buttonExit.Location = new System.Drawing.Point(546, 271);
             this.buttonExit.Margin = new System.Windows.Forms.Padding(4);
             this.buttonExit.Name = "buttonExit";
             this.buttonExit.Size = new System.Drawing.Size(95, 35);
@@ -195,18 +173,16 @@ namespace _160421029_Nico_Victorio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(669, 364);
+            this.ClientSize = new System.Drawing.Size(669, 327);
             this.Controls.Add(this.buttonExit);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.textBoxNomorTelepon);
-            this.Controls.Add(this.textBoxEmail);
             this.Controls.Add(this.textBoxAlamat);
             this.Controls.Add(this.textBoxNamaBelakang);
             this.Controls.Add(this.textBoxNamaDepan);
             this.Controls.Add(this.textBoxNIK);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -222,14 +198,12 @@ namespace _160421029_Nico_Victorio
 
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.TextBox textBoxNomorTelepon;
-        private System.Windows.Forms.TextBox textBoxEmail;
         private System.Windows.Forms.TextBox textBoxAlamat;
         private System.Windows.Forms.TextBox textBoxNamaBelakang;
         private System.Windows.Forms.TextBox textBoxNamaDepan;
         private System.Windows.Forms.TextBox textBoxNIK;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;

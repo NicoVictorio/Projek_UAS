@@ -52,7 +52,7 @@ namespace DiBa_Lib
         #region methods
         public static List<Inbox> BacaData(string kriteria, string nilaiKriteria)
         {
-            string sql = "SELECT id_pesan, pengguna_id, pesan, tanggal_kirim, status, tgl_perubahan  " +
+            string sql = "SELECT id_pesan, pengguna_email, pesan, tanggal_kirim, status, tgl_perubahan  " +
                          "FROM inbox ";
             if (kriteria == "")
             {
@@ -77,7 +77,7 @@ namespace DiBa_Lib
                 inb.TglPerubahan = DateTime.Parse(hasil.GetString(5));
 
                 Pengguna tmpPengguna = new Pengguna();
-                tmpPengguna.Id = hasil.GetInt32(1);
+                tmpPengguna.Email = hasil.GetString(1);
                 inb.Pengguna = tmpPengguna;
 
                 listInbox.Add(inb);
@@ -85,18 +85,18 @@ namespace DiBa_Lib
             return listInbox;
         }
 
-        public static List<Inbox> DaftarPesan(int idPengguna, string kriteria, string nilaiKriteria)
+        public static List<Inbox> DaftarPesan(string emailPengguna, string kriteria, string nilaiKriteria)
         {
-            string sql = "SELECT id_pesan, pengguna_id, pesan, tanggal_kirim, status, tgl_perubahan  " +
-                         "FROM inbox WHERE pengguna_id = "+ idPengguna;
+            string sql = "SELECT id_pesan, pengguna_email, pesan, tanggal_kirim, status, tgl_perubahan  " +
+                         "FROM inbox WHERE pengguna_email = '"+ emailPengguna;
 
             if (kriteria == "")
             {
-                sql += ";";
+                sql += "';";
             }
             else
             {
-                sql += " AND " + kriteria + " LIKE '%" + nilaiKriteria + "%';";
+                sql += "' AND " + kriteria + " LIKE '%" + nilaiKriteria + "%';";
             }
 
             MySqlDataReader result = Koneksi.ambilData(sql);
@@ -113,7 +113,7 @@ namespace DiBa_Lib
                 inb.TglPerubahan = DateTime.Parse(result.GetString(5));
 
                 Pengguna tmpPengguna = new Pengguna();
-                tmpPengguna.Id = result.GetInt32(1);
+                tmpPengguna.Email = result.GetString(1);
                 inb.Pengguna = tmpPengguna;
 
                 listInbox.Add(inb);
@@ -123,17 +123,18 @@ namespace DiBa_Lib
 
         public bool TambahData()
         {
-            string sql = "INSERT INTO inbox(pengguna_id, pesan, tanggal_kirim,status, tgl_perubahan)" +
-                " VALUES ("+ this.Pengguna.Id + ",'"+ this.Pesan + "', '" +
+            string sql = "INSERT INTO inbox(pengguna_email, pesan, tanggal_kirim,status, tgl_perubahan)" +
+                " VALUES ('"+ this.Pengguna.Email + "', '"+ this.Pesan + "', '" +
                 this.TglKirim.ToString("yyyy-MM-dd") + "', '" + this.Status + "', '"+ 
                 this.TglPerubahan.ToString("yyyy-MM-dd")+ "');";
             bool result = Koneksi.executeDML(sql);
             return result;
         }
+
         public bool TambahData(Koneksi k)
         {
-            string sql = "INSERT INTO inbox(pengguna_id, pesan, tanggal_kirim,status, tgl_perubahan)" +
-                " VALUES (" + this.Pengguna.Id + ",'" + this.Pesan + "', '" +
+            string sql = "INSERT INTO inbox(pengguna_email, pesan, tanggal_kirim,status, tgl_perubahan)" +
+                " VALUES ('" + this.Pengguna.Email + "', '" + this.Pesan + "', '" +
                 this.TglKirim.ToString("yyyy-MM-dd") + "', '" + this.Status + "', '" +
                 this.TglPerubahan.ToString("yyyy-MM-dd") + "');";
             bool result = Koneksi.executeDML(sql,k);
@@ -156,8 +157,8 @@ namespace DiBa_Lib
 
         public static Inbox inboxByCode(int id)
         {
-            string sql = "SELECT id_pesan,pengguna_id, pesan, tanggal_kirim, status, tgl_perubahan  " +
-                         "FROM inbox WHERE id_pesan=" + id;
+            string sql = "SELECT id_pesan, pengguna_email, pesan, tanggal_kirim, status, tgl_perubahan  " +
+                         "FROM inbox WHERE id_pesan = " + id;
             MySqlDataReader hasil = Koneksi.ambilData(sql);
             if (hasil.Read() == true)
             {
@@ -169,7 +170,7 @@ namespace DiBa_Lib
                 emp.TglPerubahan = DateTime.Parse(hasil.GetString(5));
 
                 Pengguna tmpPengguna = new Pengguna();
-                tmpPengguna.Id = hasil.GetInt32(1);
+                tmpPengguna.Email = hasil.GetString(1);
                 emp.Pengguna = tmpPengguna; ;
                 return emp;
             }
@@ -181,7 +182,8 @@ namespace DiBa_Lib
 
         public bool UbahStatus()
         {
-            string sql = "UPDATE inbox SET status ='Terbuka' where pengguna_id=" + this.Pengguna.Id + " and id_pesan="+ this.IdPesan+ ";";
+            string sql = "UPDATE inbox SET status ='Terbuka' where pengguna_email = '" + 
+                         this.Pengguna.Email + "' and id_pesan = "+ this.IdPesan + ";";
             bool result = Koneksi.executeDML(sql);
             return result;
         }

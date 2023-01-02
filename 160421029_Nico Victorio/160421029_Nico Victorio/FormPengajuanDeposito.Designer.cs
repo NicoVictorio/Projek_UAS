@@ -30,7 +30,7 @@
         {
             this.btn_Exit = new System.Windows.Forms.Button();
             this.labelNomorRekening = new System.Windows.Forms.Label();
-            this.labelId = new System.Windows.Forms.Label();
+            this.labelEmail = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -38,11 +38,11 @@
             this.comboBoxJatuhTempo = new System.Windows.Forms.ComboBox();
             this.textBoxNominal = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.radioButtonDeposito = new System.Windows.Forms.RadioButton();
+            this.radioButtonTabungan = new System.Windows.Forms.RadioButton();
+            this.checkBoxARO = new System.Windows.Forms.CheckBox();
             this.buttonAdd = new System.Windows.Forms.Button();
             this.buttonDetail = new System.Windows.Forms.Button();
-            this.checkBoxARO = new System.Windows.Forms.CheckBox();
-            this.radioButtonTabungan = new System.Windows.Forms.RadioButton();
-            this.radioButtonDeposito = new System.Windows.Forms.RadioButton();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -66,14 +66,14 @@
             this.labelNomorRekening.TabIndex = 12;
             this.labelNomorRekening.Text = "-";
             // 
-            // labelId
+            // labelEmail
             // 
-            this.labelId.AutoSize = true;
-            this.labelId.Location = new System.Drawing.Point(163, 30);
-            this.labelId.Name = "labelId";
-            this.labelId.Size = new System.Drawing.Size(13, 17);
-            this.labelId.TabIndex = 13;
-            this.labelId.Text = "-";
+            this.labelEmail.AutoSize = true;
+            this.labelEmail.Location = new System.Drawing.Point(163, 30);
+            this.labelEmail.Name = "labelEmail";
+            this.labelEmail.Size = new System.Drawing.Size(13, 17);
+            this.labelEmail.TabIndex = 13;
+            this.labelEmail.Text = "-";
             // 
             // label4
             // 
@@ -96,11 +96,11 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(133, 30);
+            this.label2.Location = new System.Drawing.Point(112, 30);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(25, 17);
+            this.label2.Size = new System.Drawing.Size(46, 17);
             this.label2.TabIndex = 1;
-            this.label2.Text = "ID:";
+            this.label2.Text = "Email:";
             // 
             // label1
             // 
@@ -148,13 +148,48 @@
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.labelId);
+            this.panel1.Controls.Add(this.labelEmail);
             this.panel1.Controls.Add(this.labelNomorRekening);
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(413, 320);
             this.panel1.TabIndex = 20;
+            // 
+            // radioButtonDeposito
+            // 
+            this.radioButtonDeposito.AutoSize = true;
+            this.radioButtonDeposito.Enabled = false;
+            this.radioButtonDeposito.Location = new System.Drawing.Point(163, 277);
+            this.radioButtonDeposito.Name = "radioButtonDeposito";
+            this.radioButtonDeposito.Size = new System.Drawing.Size(173, 21);
+            this.radioButtonDeposito.TabIndex = 23;
+            this.radioButtonDeposito.Text = "Bunga masuk deposito";
+            this.radioButtonDeposito.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonTabungan
+            // 
+            this.radioButtonTabungan.AutoSize = true;
+            this.radioButtonTabungan.Checked = true;
+            this.radioButtonTabungan.Enabled = false;
+            this.radioButtonTabungan.Location = new System.Drawing.Point(163, 238);
+            this.radioButtonTabungan.Name = "radioButtonTabungan";
+            this.radioButtonTabungan.Size = new System.Drawing.Size(179, 21);
+            this.radioButtonTabungan.TabIndex = 22;
+            this.radioButtonTabungan.TabStop = true;
+            this.radioButtonTabungan.Text = "Bunga masuk tabungan";
+            this.radioButtonTabungan.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxARO
+            // 
+            this.checkBoxARO.AutoSize = true;
+            this.checkBoxARO.Location = new System.Drawing.Point(163, 194);
+            this.checkBoxARO.Name = "checkBoxARO";
+            this.checkBoxARO.Size = new System.Drawing.Size(199, 21);
+            this.checkBoxARO.TabIndex = 21;
+            this.checkBoxARO.Text = "ARO (Automatic Roll Over)";
+            this.checkBoxARO.UseVisualStyleBackColor = true;
+            this.checkBoxARO.CheckedChanged += new System.EventHandler(this.checkBoxARO_CheckedChanged);
             // 
             // buttonAdd
             // 
@@ -178,41 +213,6 @@
             this.buttonDetail.UseVisualStyleBackColor = true;
             this.buttonDetail.Click += new System.EventHandler(this.buttonDetail_Click);
             // 
-            // checkBoxARO
-            // 
-            this.checkBoxARO.AutoSize = true;
-            this.checkBoxARO.Location = new System.Drawing.Point(163, 194);
-            this.checkBoxARO.Name = "checkBoxARO";
-            this.checkBoxARO.Size = new System.Drawing.Size(199, 21);
-            this.checkBoxARO.TabIndex = 21;
-            this.checkBoxARO.Text = "ARO (Automatic Roll Over)";
-            this.checkBoxARO.UseVisualStyleBackColor = true;
-            this.checkBoxARO.CheckedChanged += new System.EventHandler(this.checkBoxARO_CheckedChanged);
-            // 
-            // radioButtonTabungan
-            // 
-            this.radioButtonTabungan.AutoSize = true;
-            this.radioButtonTabungan.Checked = true;
-            this.radioButtonTabungan.Enabled = false;
-            this.radioButtonTabungan.Location = new System.Drawing.Point(163, 238);
-            this.radioButtonTabungan.Name = "radioButtonTabungan";
-            this.radioButtonTabungan.Size = new System.Drawing.Size(179, 21);
-            this.radioButtonTabungan.TabIndex = 22;
-            this.radioButtonTabungan.TabStop = true;
-            this.radioButtonTabungan.Text = "Bunga masuk tabungan";
-            this.radioButtonTabungan.UseVisualStyleBackColor = true;
-            // 
-            // radioButtonDeposito
-            // 
-            this.radioButtonDeposito.AutoSize = true;
-            this.radioButtonDeposito.Enabled = false;
-            this.radioButtonDeposito.Location = new System.Drawing.Point(163, 277);
-            this.radioButtonDeposito.Name = "radioButtonDeposito";
-            this.radioButtonDeposito.Size = new System.Drawing.Size(173, 21);
-            this.radioButtonDeposito.TabIndex = 23;
-            this.radioButtonDeposito.Text = "Bunga masuk deposito";
-            this.radioButtonDeposito.UseVisualStyleBackColor = true;
-            // 
             // FormPengajuanDeposito
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -235,7 +235,7 @@
         #endregion
         private System.Windows.Forms.Button btn_Exit;
         private System.Windows.Forms.Label labelNomorRekening;
-        private System.Windows.Forms.Label labelId;
+        private System.Windows.Forms.Label labelEmail;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;

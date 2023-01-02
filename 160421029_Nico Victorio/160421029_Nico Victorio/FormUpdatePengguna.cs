@@ -13,7 +13,7 @@ namespace _160421029_Nico_Victorio
 {
     public partial class FormUpdatePengguna : System.Windows.Forms.Form
     {
-        public string nik;
+        public string emailPengguna;
         FormMasterPengguna formMasterPengguna;
         Pengguna tmp;
         public FormUpdatePengguna()
@@ -24,8 +24,8 @@ namespace _160421029_Nico_Victorio
         private void FormUpdatePengguna_Load(object sender, EventArgs e)
         {
             formMasterPengguna = (FormMasterPengguna)this.Owner;
-            textBoxNIK.Enabled = false;
-            tmp = Pengguna.penggunaByCode(nik);
+            textBoxEmail.Enabled = false;
+            tmp = Pengguna.penggunaByCode(emailPengguna);
             if (tmp != null)
             {
                 textBoxNIK.Text = tmp.Nik.ToString();
@@ -43,11 +43,12 @@ namespace _160421029_Nico_Victorio
         {
             try
             {
-                Pengguna k = new Pengguna(0, int.Parse(textBoxNIK.Text),textBoxNamaDepan.Text,
-                    textBoxNamaBelakang.Text,textBoxAlamat.Text,textBoxEmail.Text,
-                    textBoxNomorTelepon.Text,textBoxPassword.Text,textBoxPin.Text,
-                    tmp.TglBuat,DateTime.Now,tmp.Pangkat); 
-                if (k.UbahData())
+                Pengguna peng = new Pengguna(textBoxEmail.Text, int.Parse(textBoxNIK.Text),
+                                             textBoxNamaDepan.Text, textBoxNamaBelakang.Text,
+                                             textBoxAlamat.Text, textBoxNomorTelepon.Text,
+                                             textBoxPassword.Text, textBoxPin.Text,
+                                             tmp.TglBuat, DateTime.Now, tmp.Pangkat); 
+                if (peng.UbahData())
                 {
                     MessageBox.Show("Data Pengguna telah terubah", "Info");
 

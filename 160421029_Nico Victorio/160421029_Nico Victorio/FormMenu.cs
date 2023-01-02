@@ -37,7 +37,7 @@ namespace _160421029_Nico_Victorio
             {
                 if (tmpPengguna != null)
                 {
-                    List<Tabungan> tmpListTabungan = Tabungan.BacaData("pengguna_id", tmpPengguna.Id.ToString());
+                    List<Tabungan> tmpListTabungan = Tabungan.BacaData("pengguna_email", tmpPengguna.Email);
                     tabPengguna = tmpListTabungan[0];
                     if (tabPengguna.Status == "Aktif")
                     {
@@ -53,7 +53,7 @@ namespace _160421029_Nico_Victorio
                             formPin.ShowDialog();
                             if(formPin.DialogResult == DialogResult.OK)
                             {
-                                List<Pengguna> tmpListPengguna = Pengguna.BacaData("id", tmpPengguna.Id.ToString());
+                                List<Pengguna> tmpListPengguna = Pengguna.BacaData("email", tmpPengguna.Email);
                                 tmpPengguna = tmpListPengguna[0];
                             }
                         }

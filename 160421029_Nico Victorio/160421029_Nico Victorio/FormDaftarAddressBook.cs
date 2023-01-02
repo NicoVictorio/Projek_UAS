@@ -26,7 +26,7 @@ namespace _160421029_Nico_Victorio
             formMenu = (FormMenu)this.MdiParent;
             penggunaLogin = formMenu.tmpPengguna;
 
-            listAddressBook = AddressBook.BacaDataEmployee("pengguna_id", penggunaLogin.Id.ToString());
+            listAddressBook = AddressBook.BacaDataEmployee("pengguna_email", penggunaLogin.Email.ToString());
             if (listAddressBook.Count > 0)
             {
                 dgvListAddressBook.DataSource = listAddressBook;
@@ -66,7 +66,7 @@ namespace _160421029_Nico_Victorio
                 }
                 else if (cb_Kriteria.Text == "Pengguna")
                 {
-                    kriteria = "id_pengguna";
+                    kriteria = "pengguna_email";
                 }
                 else if (cb_Kriteria.Text == "Nomor Rekening")
                 {
@@ -74,7 +74,7 @@ namespace _160421029_Nico_Victorio
                 }
 
                 nilai = tb_Kriteria.Text;
-                listAddressBook = AddressBook.BacaDataPengguna(kriteria, nilai, formMenu.tmpPengguna.Id);
+                listAddressBook = AddressBook.BacaDataPengguna(kriteria, nilai, formMenu.tmpPengguna.Email);
 
                 if (listAddressBook.Count > 0)
                 {

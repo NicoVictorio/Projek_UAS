@@ -28,7 +28,7 @@ namespace _160421029_Nico_Victorio
             if (listEmployee.Count > 0)
             {
                 dgvListEmployee.DataSource = listEmployee;
-                if (dgvListEmployee.Columns.Count < 10)
+                if (dgvListEmployee.Columns.Count < 9)
                 {
                     DataGridViewButtonColumn buttonColumn = new DataGridViewButtonColumn();
                     buttonColumn.HeaderText = "Aksi";
@@ -65,9 +65,9 @@ namespace _160421029_Nico_Victorio
                 string kriteria = "";
                 string nilai = "";
 
-                if (cb_Kriteria.Text == "ID")
+                if (cb_Kriteria.Text == "Email")
                 {
-                    kriteria = "id";
+                    kriteria = "email";
                 }
                 else if (cb_Kriteria.Text == "Nama Depan")
                 {
@@ -84,10 +84,6 @@ namespace _160421029_Nico_Victorio
                 else if (cb_Kriteria.Text == "NIK")
                 {
                     kriteria = "nik";
-                }
-                else if (cb_Kriteria.Text == "Email")
-                {
-                    kriteria = "email";
                 }
                 else if (cb_Kriteria.Text == "Password")
                 {
@@ -121,24 +117,23 @@ namespace _160421029_Nico_Victorio
 
         private void dgvListEmployee_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            int id = int.Parse(dgvListEmployee.CurrentRow.Cells["ID"].Value.ToString());
+            string email = dgvListEmployee.CurrentRow.Cells["Email"].Value.ToString();
             string namaDepan = dgvListEmployee.CurrentRow.Cells["namaDepan"].Value.ToString();
             string namaKeluarga = dgvListEmployee.CurrentRow.Cells["namaKeluarga"].Value.ToString();
             Position position = (Position)dgvListEmployee.CurrentRow.Cells["Position"].Value;
             string nik = dgvListEmployee.CurrentRow.Cells["NIK"].Value.ToString();
-            string email = dgvListEmployee.CurrentRow.Cells["Email"].Value.ToString();
             string password = dgvListEmployee.CurrentRow.Cells["Password"].Value.ToString();
             DateTime tglBuat = (DateTime)dgvListEmployee.CurrentRow.Cells["tglBuat"].Value;
             DateTime tglPerubahan = (DateTime)dgvListEmployee.CurrentRow.Cells["tglPerubahan"].Value;
 
-            Employee emp = new Employee(id, namaDepan, namaKeluarga, position, nik, email, password, tglBuat, tglPerubahan);
+            Employee emp = new Employee(email, namaDepan, namaKeluarga, position, nik, password, tglBuat, tglPerubahan);
             if (emp != null)
             {
                 if (e.ColumnIndex == dgvListEmployee.Columns["btnUbahGrid"].Index)
                 {
                     FormUpdateEmployee formUpdateEmployee = new FormUpdateEmployee();
                     formUpdateEmployee.Owner = this;
-                    formUpdateEmployee.idEmployee = emp.Id;
+                    formUpdateEmployee.emailEmployee = emp.Email;
                     formUpdateEmployee.ShowDialog();
                 }
                 else if (e.ColumnIndex == dgvListEmployee.Columns["btnHapusGrid"].Index)

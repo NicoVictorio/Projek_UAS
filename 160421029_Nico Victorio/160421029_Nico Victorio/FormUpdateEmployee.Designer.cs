@@ -39,13 +39,11 @@ namespace _160421029_Nico_Victorio
             this.textBoxEmail = new System.Windows.Forms.TextBox();
             this.textBoxNamaBelakang = new System.Windows.Forms.TextBox();
             this.textBoxNamaDepan = new System.Windows.Forms.TextBox();
-            this.textBoxID = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.buttonExit = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -149,16 +147,6 @@ namespace _160421029_Nico_Victorio
             this.textBoxNamaDepan.Size = new System.Drawing.Size(159, 26);
             this.textBoxNamaDepan.TabIndex = 76;
             // 
-            // textBoxID
-            // 
-            this.textBoxID.Enabled = false;
-            this.textBoxID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxID.Location = new System.Drawing.Point(171, 35);
-            this.textBoxID.Margin = new System.Windows.Forms.Padding(4);
-            this.textBoxID.Name = "textBoxID";
-            this.textBoxID.Size = new System.Drawing.Size(491, 26);
-            this.textBoxID.TabIndex = 75;
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -214,17 +202,6 @@ namespace _160421029_Nico_Victorio
             this.label2.TabIndex = 70;
             this.label2.Text = "Nama Depan";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Corbel", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(135, 39);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(25, 21);
-            this.label1.TabIndex = 69;
-            this.label1.Text = "ID";
-            // 
             // buttonExit
             // 
             this.buttonExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -253,13 +230,11 @@ namespace _160421029_Nico_Victorio
             this.Controls.Add(this.textBoxEmail);
             this.Controls.Add(this.textBoxNamaBelakang);
             this.Controls.Add(this.textBoxNamaDepan);
-            this.Controls.Add(this.textBoxID);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
             this.Name = "FormUpdateEmployee";
             this.Text = "FormUpdateEmployee";
             this.Load += new System.EventHandler(this.FormUpdateEmployee_Load);
@@ -280,13 +255,11 @@ namespace _160421029_Nico_Victorio
         private System.Windows.Forms.TextBox textBoxEmail;
         private System.Windows.Forms.TextBox textBoxNamaBelakang;
         private System.Windows.Forms.TextBox textBoxNamaDepan;
-        private System.Windows.Forms.TextBox textBoxID;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonExit;
     }
 }

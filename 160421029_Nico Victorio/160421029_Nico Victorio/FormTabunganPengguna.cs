@@ -25,10 +25,10 @@ namespace _160421029_Nico_Victorio
         {
             formMenu = (FormMenu)this.MdiParent;
             
-            List<Tabungan> tmpListTabungan = Tabungan.BacaData("pengguna_id", penggunaAsal.Id.ToString());
+            List<Tabungan> tmpListTabungan = Tabungan.BacaData("pengguna_email", penggunaAsal.Email);
             tabunganAsal = tmpListTabungan[0];
 
-            List<Pengguna> tmpListPengguna = Pengguna.BacaData("id", penggunaAsal.Id.ToString());
+            List<Pengguna> tmpListPengguna = Pengguna.BacaData("email", penggunaAsal.Email);
             penggunaAsal = tmpListPengguna[0];
 
             labelNomorRekening.Text = tabunganAsal.NoRekening;

@@ -41,10 +41,10 @@ namespace _160421029_Nico_Victorio
             // 
             // btn_Exit
             // 
-            this.btn_Exit.Location = new System.Drawing.Point(499, 315);
-            this.btn_Exit.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_Exit.Location = new System.Drawing.Point(665, 388);
+            this.btn_Exit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_Exit.Name = "btn_Exit";
-            this.btn_Exit.Size = new System.Drawing.Size(70, 32);
+            this.btn_Exit.Size = new System.Drawing.Size(93, 39);
             this.btn_Exit.TabIndex = 45;
             this.btn_Exit.Text = "Exit";
             this.btn_Exit.UseVisualStyleBackColor = true;
@@ -52,10 +52,10 @@ namespace _160421029_Nico_Victorio
             // 
             // btn_Add
             // 
-            this.btn_Add.Location = new System.Drawing.Point(33, 315);
-            this.btn_Add.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_Add.Location = new System.Drawing.Point(44, 388);
+            this.btn_Add.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_Add.Name = "btn_Add";
-            this.btn_Add.Size = new System.Drawing.Size(71, 32);
+            this.btn_Add.Size = new System.Drawing.Size(95, 39);
             this.btn_Add.TabIndex = 44;
             this.btn_Add.Text = "Add";
             this.btn_Add.UseVisualStyleBackColor = true;
@@ -64,31 +64,31 @@ namespace _160421029_Nico_Victorio
             // dgvListEmployee
             // 
             this.dgvListEmployee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvListEmployee.Location = new System.Drawing.Point(33, 72);
-            this.dgvListEmployee.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvListEmployee.Location = new System.Drawing.Point(44, 89);
+            this.dgvListEmployee.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvListEmployee.Name = "dgvListEmployee";
             this.dgvListEmployee.RowHeadersWidth = 51;
             this.dgvListEmployee.RowTemplate.Height = 24;
-            this.dgvListEmployee.Size = new System.Drawing.Size(536, 215);
+            this.dgvListEmployee.Size = new System.Drawing.Size(715, 265);
             this.dgvListEmployee.TabIndex = 43;
             this.dgvListEmployee.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListEmployee_CellContentClick);
             // 
             // btn_Search
             // 
-            this.btn_Search.Location = new System.Drawing.Point(490, 20);
-            this.btn_Search.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_Search.Location = new System.Drawing.Point(653, 25);
+            this.btn_Search.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_Search.Name = "btn_Search";
-            this.btn_Search.Size = new System.Drawing.Size(77, 34);
+            this.btn_Search.Size = new System.Drawing.Size(103, 42);
             this.btn_Search.TabIndex = 42;
             this.btn_Search.Text = "Search";
             this.btn_Search.UseVisualStyleBackColor = true;
             // 
             // tb_Kriteria
             // 
-            this.tb_Kriteria.Location = new System.Drawing.Point(294, 33);
-            this.tb_Kriteria.Margin = new System.Windows.Forms.Padding(2);
+            this.tb_Kriteria.Location = new System.Drawing.Point(392, 41);
+            this.tb_Kriteria.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tb_Kriteria.Name = "tb_Kriteria";
-            this.tb_Kriteria.Size = new System.Drawing.Size(185, 20);
+            this.tb_Kriteria.Size = new System.Drawing.Size(245, 22);
             this.tb_Kriteria.TabIndex = 41;
             this.tb_Kriteria.TextChanged += new System.EventHandler(this.tb_Kriteria_TextChanged);
             // 
@@ -97,36 +97,34 @@ namespace _160421029_Nico_Victorio
             this.cb_Kriteria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_Kriteria.FormattingEnabled = true;
             this.cb_Kriteria.Items.AddRange(new object[] {
-            "ID",
+            "Email",
             "Nama Depan",
             "Nama Belakang",
             "Position",
             "NIK",
-            "Email",
             "Password",
             "Tanggal Buat",
             "Tanggal Perubahan"});
-            this.cb_Kriteria.Location = new System.Drawing.Point(135, 33);
-            this.cb_Kriteria.Margin = new System.Windows.Forms.Padding(2);
+            this.cb_Kriteria.Location = new System.Drawing.Point(180, 41);
+            this.cb_Kriteria.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cb_Kriteria.Name = "cb_Kriteria";
-            this.cb_Kriteria.Size = new System.Drawing.Size(146, 21);
+            this.cb_Kriteria.Size = new System.Drawing.Size(193, 24);
             this.cb_Kriteria.TabIndex = 40;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(31, 33);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(41, 41);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(90, 13);
+            this.label1.Size = new System.Drawing.Size(121, 17);
             this.label1.TabIndex = 39;
             this.label1.Text = "Kriteria Pencarian";
             // 
             // FormMasterEmployee
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(600, 366);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btn_Exit);
             this.Controls.Add(this.btn_Add);
             this.Controls.Add(this.dgvListEmployee);
@@ -134,7 +132,7 @@ namespace _160421029_Nico_Victorio
             this.Controls.Add(this.tb_Kriteria);
             this.Controls.Add(this.cb_Kriteria);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormMasterEmployee";
             this.Text = "FormMasterEmployee";
             this.Load += new System.EventHandler(this.FormMasterEmployee_Load);

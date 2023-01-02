@@ -34,9 +34,6 @@ namespace _160421029_Nico_Victorio
             textBoxAlamat.Enabled = false;
             textBoxAlamat.Text = tmpPengguna.Alamat;
 
-            textBoxEmail.Enabled = false;
-            textBoxEmail.Text = tmpPengguna.Email;
-
             textBoxNIK.Enabled = false;
             textBoxNIK.Text = tmpPengguna.Nik.ToString();
 
@@ -51,7 +48,6 @@ namespace _160421029_Nico_Victorio
                 textBoxNamaDepan.Enabled = true;
                 textBoxNamaBelakang.Enabled = true;
                 textBoxAlamat.Enabled = true;
-                textBoxEmail.Enabled = true;
                 textBoxNIK.Enabled = true;
                 textBoxNomorTelepon.Enabled = true;
                 buttonSave.Text = "Save";
@@ -60,11 +56,11 @@ namespace _160421029_Nico_Victorio
             {
                 try
                 {
-                    Pengguna pengguna = new Pengguna(tmpPengguna.Id,
+                    Pengguna pengguna = new Pengguna(tmpPengguna.Email,
                                                      int.Parse(textBoxNIK.Text),
                                                      textBoxNamaDepan.Text,
                                                      textBoxNamaBelakang.Text,
-                                                     textBoxAlamat.Text, textBoxEmail.Text,
+                                                     textBoxAlamat.Text,
                                                      textBoxNomorTelepon.Text,
                                                      tmpPengguna.Password,
                                                      tmpPengguna.Pin, tmpPengguna.TglBuat,

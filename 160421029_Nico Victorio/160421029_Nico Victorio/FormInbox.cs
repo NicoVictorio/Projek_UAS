@@ -34,12 +34,9 @@ namespace _160421029_Nico_Victorio
             }
             else
             {
-                listInbox = Inbox.DaftarPesan(pengguna.Id, "", "");
+                listInbox = Inbox.DaftarPesan(pengguna.Email, "", "");
                 btn_Add.Visible = false;
             }
-
-            //untuk menampilkan data pesan dari suatu pengguna
-            //listInbox = Inbox.DaftarPesan(int.Parse(pengguna.Nik), "", "");
 
             if (listInbox.Count > 0)
             {

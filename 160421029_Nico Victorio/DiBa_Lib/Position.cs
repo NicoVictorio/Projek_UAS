@@ -64,7 +64,7 @@ namespace DiBa_Lib
 
         public static Position positionByCode(int id)
         {
-            string sql = "SELECT id, nama, keterangan " + " FROM position " + " WHERE id=" + id ;
+            string sql = "SELECT id, nama, keterangan " + " FROM position " + " WHERE id = " + id ;
             MySqlDataReader hasil = Koneksi.ambilData(sql);
             Position tmp = new Position();
             if (hasil.Read() == true)
@@ -83,8 +83,7 @@ namespace DiBa_Lib
 
         public bool TambahData()
         {
-            //string sql = "INSERT INTO position( nama, keterangan)" + " VALUES ('" + this.NamaPosition + "', '" + this.Keterangan + "');";
-            string sql = "INSERT INTO `position`(`nama`, `keterangan`) VALUES('" + this.NamaPosition + "', '" + this.Keterangan + "');";
+            string sql = "INSERT INTO position(nama, keterangan) VALUES('" + this.NamaPosition + "', '" + this.Keterangan + "');";
             bool result = Koneksi.executeDML(sql);
             return result;
         }

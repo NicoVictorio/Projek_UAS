@@ -79,7 +79,7 @@ namespace _160421029_Nico_Victorio
             // buttonExit
             // 
             this.buttonExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonExit.Location = new System.Drawing.Point(113, 205);
+            this.buttonExit.Location = new System.Drawing.Point(145, 209);
             this.buttonExit.Margin = new System.Windows.Forms.Padding(4);
             this.buttonExit.Name = "buttonExit";
             this.buttonExit.Size = new System.Drawing.Size(90, 37);
@@ -128,7 +128,7 @@ namespace _160421029_Nico_Victorio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(311, 259);
+            this.ClientSize = new System.Drawing.Size(383, 259);
             this.Controls.Add(this.labelPangkat);
             this.Controls.Add(this.labelPoin);
             this.Controls.Add(this.label5);

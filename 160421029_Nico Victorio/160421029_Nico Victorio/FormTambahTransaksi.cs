@@ -30,7 +30,7 @@ namespace _160421029_Nico_Victorio
             formMenu = (FormMenu)this.MdiParent;
             penggunaAsal = formMenu.tmpPengguna;
 
-            List<Tabungan> tmpListTabungan = Tabungan.BacaData("pengguna_id", penggunaAsal.Id.ToString());
+            List<Tabungan> tmpListTabungan = Tabungan.BacaData("pengguna_email", penggunaAsal.Email);
             tabPengguna = tmpListTabungan[0];
 
             textBoxRekeningAsal.Text = tabPengguna.NoRekening;
@@ -81,7 +81,7 @@ namespace _160421029_Nico_Victorio
                         if (trans.TambahData(jenisTransaksi.KodeTransaksi))
                         {
                             MessageBox.Show("Data Transaksi telah tersimpan", "Info");
-                            List<AddressBook> listAddressbook = AddressBook.BacaDataPengguna("no_rekening", rekeningTujuan.NoRekening, penggunaAsal.Id);
+                            List<AddressBook> listAddressbook = AddressBook.BacaDataPengguna("no_rekening", rekeningTujuan.NoRekening, penggunaAsal.Email);
                             if (listAddressbook.Count == 0)
                             {
                                 DialogResult confirmation = MessageBox.Show("Simpan " + rekeningTujuan.NoRekening + " ke address book?", "Konfirmasi Address Book", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -131,7 +131,7 @@ namespace _160421029_Nico_Victorio
 
         private void FormTambahTransaksi_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Pengguna.UpdatePangkat(tabPengguna.NoRekening, penggunaAsal.Id);
+            Pengguna.UpdatePangkat(tabPengguna.NoRekening, penggunaAsal.Email);
         }
     }
 }

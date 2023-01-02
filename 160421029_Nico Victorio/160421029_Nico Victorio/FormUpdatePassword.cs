@@ -37,11 +37,13 @@ namespace _160421029_Nico_Victorio
                     throw new Exception("Password baru tidak boleh sama dengan password lama.");
                 }
 
-                Pengguna k = new Pengguna(tmpPengguna.Id, tmpPengguna.Nik, tmpPengguna.NamaDepan,
-                    tmpPengguna.NamaKeluarga, tmpPengguna.Alamat, tmpPengguna.Email,
-                    tmpPengguna.NoTelp, textBoxPasswordBaru.Text, tmpPengguna.Pin,
-                    tmpPengguna.TglBuat, DateTime.Now, tmpPengguna.Pangkat);
-                if (k.UbahData())
+                Pengguna peng = new Pengguna(tmpPengguna.Email, tmpPengguna.Nik, 
+                                             tmpPengguna.NamaDepan, tmpPengguna.NamaKeluarga, 
+                                             tmpPengguna.Alamat, tmpPengguna.NoTelp, 
+                                             textBoxPasswordBaru.Text, tmpPengguna.Pin,
+                                             tmpPengguna.TglBuat, DateTime.Now, 
+                                             tmpPengguna.Pangkat);
+                if (peng.UbahData())
                 {
                     MessageBox.Show("Data Password telah terubah", "Info");
                     this.Close();
@@ -61,7 +63,7 @@ namespace _160421029_Nico_Victorio
         private void FormUpdatePassword_Load(object sender, EventArgs e)
         {
             formMenu = (FormMenu)this.MdiParent;
-            tmpPengguna = Pengguna.penggunaByCode(formMenu.tmpPengguna.Id.ToString());
+            tmpPengguna = Pengguna.penggunaByCode(formMenu.tmpPengguna.Email);
         }
 
         private void buttonExit_Click(object sender, EventArgs e)

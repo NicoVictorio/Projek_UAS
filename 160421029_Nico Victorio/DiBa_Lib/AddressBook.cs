@@ -40,7 +40,7 @@ namespace DiBa_Lib
         #region methods
         public static List<AddressBook> BacaDataEmployee(string kriteria, string nilaiKriteria)
         {
-            string sql = "SELECT no_rekening, pengguna_id, keterangan " +
+            string sql = "SELECT no_rekening, pengguna_email, keterangan " +
                          "FROM addressbook ";
             if (kriteria == "")
             {
@@ -64,7 +64,7 @@ namespace DiBa_Lib
                 adb.Tabungan = tmpTabungan;
 
                 Pengguna tmpPengguna = new Pengguna();
-                tmpPengguna.Id = hasil.GetInt32(1);
+                tmpPengguna.Email = hasil.GetString(1);
                 adb.Pengguna = tmpPengguna;
 
                 adb.Keterangan = hasil.GetString(2);
@@ -74,18 +74,18 @@ namespace DiBa_Lib
             return listAddressBook;
         }
 
-        public static List<AddressBook> BacaDataPengguna(string kriteria, string nilaiKriteria, int idPengguna)
+        public static List<AddressBook> BacaDataPengguna(string kriteria, string nilaiKriteria, string email)
         {
-            string sql = "SELECT no_rekening, pengguna_id, keterangan " +
+            string sql = "SELECT no_rekening, pengguna_email, keterangan " +
                          "FROM addressbook ";
             if (kriteria == "")
             {
-                sql += "WHERE pengguna_id = " + idPengguna + ";";
+                sql += "WHERE pengguna_email = '" + email + "';";
             }
             else
             {
                 sql += " WHERE " + kriteria + " LIKE '%" + nilaiKriteria + "%' " +
-                       " AND pengguna_id = " + idPengguna + ";";
+                       " AND pengguna_email = '" + email + "';";
             }
 
             MySqlDataReader hasil = Koneksi.ambilData(sql);
@@ -101,7 +101,7 @@ namespace DiBa_Lib
                 adb.Tabungan = tmpTabungan;
 
                 Pengguna tmpPengguna = new Pengguna();
-                tmpPengguna.Id = hasil.GetInt32(1);
+                tmpPengguna.Email = hasil.GetString(1);
                 adb.Pengguna = tmpPengguna;
 
                 adb.Keterangan = hasil.GetString(2);
@@ -113,8 +113,8 @@ namespace DiBa_Lib
 
         public bool TambahData()
         {
-            string sql = "INSERT INTO addressbook(no_rekening, pengguna_id, keterangan)" +
-                " VALUES ('" + this.tabungan.NoRekening + "', " + this.Pengguna.Id + ", '" +
+            string sql = "INSERT INTO addressbook(no_rekening, pengguna_email, keterangan)" +
+                " VALUES ('" + this.tabungan.NoRekening + "', '" + this.Pengguna.Email + "', '" +
                 this.keterangan + "')";
             bool result = Koneksi.executeDML(sql);
             return result;
@@ -122,7 +122,7 @@ namespace DiBa_Lib
 
         public bool UbahData()
         {
-            string sql = "UPDATE addressbook SET pengguna_id = " + this.Pengguna.Id +
+            string sql = "UPDATE addressbook SET pengguna_email = " + this.Pengguna.Email +
                          ", keterangan = '" + this.Keterangan +
                          "'\nWHERE no_rekening = '" + this.Tabungan.NoRekening + "';";
             bool result = Koneksi.executeDML(sql);
@@ -138,11 +138,11 @@ namespace DiBa_Lib
 
         public static AddressBook addressBookByCode(Pengguna pengguna, Tabungan tabungan)
         {
-            string sql = "SELECT ab.keterangan, p.id, t.no_rekening " +
+            string sql = "SELECT ab.keterangan, p.email, t.no_rekening " +
                          "\nFROM addressbook ab " +
-                         "\nINNER JOIN Pengguna p on p.id = ab.pengguna_id " +
+                         "\nINNER JOIN Pengguna p on p.email = ab.pengguna_email " +
                          "\nINNER JOIN Tabungan t on t.no_rekening = ab.no_rekening " +
-                         "\nWHERE ab.pengguna_id = " + pengguna.Id + 
+                         "\nWHERE ab.pengguna_email = " + pengguna.Email + 
                          " AND ab.no_rekening = '" + tabungan.NoRekening + "';";
             MySqlDataReader hasil = Koneksi.ambilData(sql);
             if (hasil.Read() == true)
@@ -151,7 +151,7 @@ namespace DiBa_Lib
                 address.Keterangan = hasil.GetString("keterangan");
 
                 Pengguna peng = new Pengguna();
-                peng.Id = hasil.GetInt32("pengguna_id");
+                peng.Email = hasil.GetString("pengguna_email");
                 address.pengguna = peng;
 
                 Tabungan tab = new Tabungan();

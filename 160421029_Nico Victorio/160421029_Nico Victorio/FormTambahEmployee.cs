@@ -33,8 +33,8 @@ namespace _160421029_Nico_Victorio
             try
             {
                 Position posDipilih = (Position)comboBoxPosition.SelectedItem;
-                Employee emp = new Employee(0, textBoxNamaDepan.Text,
-                textBoxNamaBelakang.Text, posDipilih, textBoxNIK.Text, textBoxEmail.Text,
+                Employee emp = new Employee(textBoxEmail.Text, textBoxNamaDepan.Text,
+                textBoxNamaBelakang.Text, posDipilih, textBoxNIK.Text,
                 textBoxPassword.Text, DateTime.Now, DateTime.Now);
                 if (emp.TambahData())
                 {

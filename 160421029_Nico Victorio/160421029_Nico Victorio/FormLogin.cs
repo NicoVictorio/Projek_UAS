@@ -43,7 +43,7 @@ namespace _160421029_Nico_Victorio
                 {
                     if (textBoxEmail.Text == "")
                     {
-                        throw new Exception("Email/No Telepon tidak boleh kosong");
+                        throw new Exception("Email tidak boleh kosong");
                     }
                     if (textBoxPassword.Text == "")
                     {
