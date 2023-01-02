@@ -133,19 +133,6 @@ namespace DiBa_Lib
             return listTabungan;
         }
 
-        public bool TambahData()
-        {
-            string sql = "INSERT INTO tabungan (no_rekening, pengguna_email, saldo, poin, status, " +
-                                         "keterangan, tgl_buat, tgl_perubahan) " +
-                         " VALUES ('" + this.NoRekening + "', '" + this.Pengguna.Email + "', " +
-                                        this.Saldo + ", " + this.Poin + ", '" + 
-                                        this.Status + "', '" + this.Keterangan + "', '" +
-                                        this.Tgl_buat.ToString("yyyy-MM-dd HH-mm-ss") + "', '" + 
-                                        this.Tgl_perubahan.ToString("yyyy-MM-dd HH-mm-ss") + "');";
-            bool result = Koneksi.executeDML(sql);
-            return result;
-        }
-
         public bool TambahData(Koneksi k)
         {
             string sql = "INSERT INTO tabungan (no_rekening, pengguna_email, saldo, poin, status, " +

@@ -15,9 +15,10 @@ namespace _160421029_Nico_Victorio
     {
         public Pengguna tmpPengguna;
         public Employee tmpEmp;
-        public Deposito tmpDep;
         public Tabungan tabPengguna;
         public Pangkat tmpPangkat;
+        public Deposito tmpDeposito;
+
         public FormMenu()
         {
             InitializeComponent();
@@ -39,6 +40,28 @@ namespace _160421029_Nico_Victorio
                 {
                     List<Tabungan> tmpListTabungan = Tabungan.BacaData("pengguna_email", tmpPengguna.Email);
                     tabPengguna = tmpListTabungan[0];
+
+                    List<Deposito> tmpListDeposito = Deposito.DepositoByCode("aro", 1.ToString(), "no_rekening", tabPengguna.NoRekening);
+                    for (int i = 0; i < tmpListDeposito.Count; i++)
+                    {
+                        if (tmpListDeposito[i].TglCair.ToShortDateString() == DateTime.Now.ToShortDateString() && tmpListDeposito[i].Status == "Aktif")
+                        {
+                            int bulan = tmpListDeposito[i].TglCair.Month - tmpListDeposito[i].TglAwal.Month;
+                            double bunga = tmpListDeposito[i].Nominal * tmpListDeposito[i].Bunga.PersenBunga / 100;
+                            if (tmpListDeposito[i].Keterangan == "Bunga masuk ke pokok deposito.")
+                            {
+                                tmpListDeposito[i].Nominal += bunga;
+                                tmpListDeposito[i].TglAwal = DateTime.Now;
+                                tmpListDeposito[i].TglCair = DateTime.Now.AddMonths(bulan);
+                            }
+                            else if (tmpListDeposito[i].Keterangan == "Bunga masuk ke rekening tabungan.")
+                            {
+                                tabPengguna.Saldo += bunga;
+                                tmpListDeposito[i].TglAwal = DateTime.Now;
+                                tmpListDeposito[i].TglCair = DateTime.Now.AddMonths(bulan);
+                            }
+                        }
+                    }
                     if (tabPengguna.Status == "Aktif")
                     {
                         SetHakAkses();
@@ -199,17 +222,11 @@ namespace _160421029_Nico_Victorio
             if(tmpEmp != null)
             {
                 masterToolStripMenuItem.Visible = true;
-                penggunaToolStripMenuItem.Visible = true;
-                employeeToolStripMenuItem.Visible = true;
-                positionToolStripMenuItem.Visible = true;
-                jenisTransaksiToolStripMenuItem.Visible = true;
-
                 laporanToolStripMenuItem.Visible = true;
-                laporanTabunganToolStripMenuItem.Visible = true;
-                laporanDepositoToolStripMenuItem.Visible = true;
-                laporanTransaksiToolStripMenuItem.Visible = true;
-
-                ubahPasswordToolStripMenuItem.Visible = false;
+                
+                akunToolStripMenuItem.Visible = true;
+                topUpToolStripMenuItem.Visible = false;
+                tabunganToolStripMenuItem.Visible = false;
                 settingToolStripMenuItem.Visible = false;
 
                 fiturToolStripMenuItem.Visible = false;
@@ -218,17 +235,11 @@ namespace _160421029_Nico_Victorio
             else
             {
                 masterToolStripMenuItem.Visible = false;
-                penggunaToolStripMenuItem.Visible = false;
-                employeeToolStripMenuItem.Visible = false;
-                positionToolStripMenuItem.Visible = false;
-                jenisTransaksiToolStripMenuItem.Visible = false;
-
                 laporanToolStripMenuItem.Visible = false;
-                laporanTabunganToolStripMenuItem.Visible = false;
-                laporanDepositoToolStripMenuItem.Visible = false;
-                laporanTransaksiToolStripMenuItem.Visible = false;
 
-                ubahPasswordToolStripMenuItem.Visible = true;
+                akunToolStripMenuItem.Visible = true;
+                topUpToolStripMenuItem.Visible = true;
+                tabunganToolStripMenuItem.Visible = true;
                 settingToolStripMenuItem.Visible = true;
 
                 fiturToolStripMenuItem.Visible = true;
@@ -239,19 +250,10 @@ namespace _160421029_Nico_Victorio
         public void HideAllMenu()
         {
             masterToolStripMenuItem.Visible = false;
-            penggunaToolStripMenuItem.Visible = false;
-            employeeToolStripMenuItem.Visible = false;
-            positionToolStripMenuItem.Visible = false;
-            jenisTransaksiToolStripMenuItem.Visible = false;
-
             laporanToolStripMenuItem.Visible = false;
-            laporanTabunganToolStripMenuItem.Visible = false;
-            laporanDepositoToolStripMenuItem.Visible = false;
-            laporanTransaksiToolStripMenuItem.Visible = false;
-
-            ubahPasswordToolStripMenuItem.Visible = false;
-            settingToolStripMenuItem.Visible = false;
-
+            akunToolStripMenuItem.Visible = false;
+            topUpToolStripMenuItem.Visible = false;
+            inboxToolStripMenuItem.Visible = false;
             fiturToolStripMenuItem.Visible = false;
             verifyToolStripMenuItem.Visible = false;
         }
@@ -420,7 +422,7 @@ namespace _160421029_Nico_Victorio
 
         private void signOutToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            tmpDep = null;
+            tmpDeposito = null;
             tmpEmp = null;
             tmpPengguna = null;
             FormMenu_Load(sender, e);

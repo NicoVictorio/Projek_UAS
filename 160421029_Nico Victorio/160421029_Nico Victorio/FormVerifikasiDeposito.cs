@@ -29,7 +29,7 @@ namespace _160421029_Nico_Victorio
             {
                 dataGridViewListVerifikasiDeposito.DataSource = listDeposito;
 
-                if (dataGridViewListVerifikasiDeposito.ColumnCount < 11)
+                if (dataGridViewListVerifikasiDeposito.ColumnCount < 12)
                 {
                     DataGridViewButtonColumn confirmButton = new DataGridViewButtonColumn();
                     confirmButton.HeaderText = "Aksi";
@@ -51,12 +51,13 @@ namespace _160421029_Nico_Victorio
             Tabungan noRek = (Tabungan)dataGridViewListVerifikasiDeposito.CurrentRow.Cells["tabungan"].Value;
             double nominal = (double)dataGridViewListVerifikasiDeposito.CurrentRow.Cells["nominal"].Value;
             string status = dataGridViewListVerifikasiDeposito.CurrentRow.Cells["status"].Value.ToString();
-            DateTime tglBuat = DateTime.Parse(dataGridViewListVerifikasiDeposito.CurrentRow.Cells["tglbuat"].Value.ToString());
-            DateTime tglPerubahan = DateTime.Parse(dataGridViewListVerifikasiDeposito.CurrentRow.Cells["tglperubahan"].Value.ToString());
+            DateTime tglAwal = DateTime.Parse(dataGridViewListVerifikasiDeposito.CurrentRow.Cells["tglawal"].Value.ToString());
+            DateTime tglCair = DateTime.Parse(dataGridViewListVerifikasiDeposito.CurrentRow.Cells["tglcair"].Value.ToString());
             Employee verifikatorBuka = (Employee)dataGridViewListVerifikasiDeposito.CurrentRow.Cells["verifikatorbuka"].Value;
             Employee verifikatorCair = (Employee)dataGridViewListVerifikasiDeposito.CurrentRow.Cells["verifikatorcair"].Value;
             Bunga idBunga = (Bunga)dataGridViewListVerifikasiDeposito.CurrentRow.Cells["bunga"].Value;
             bool aro = (Boolean)dataGridViewListVerifikasiDeposito.CurrentRow.Cells["aro"].Value;
+            string keterangan = dataGridViewListVerifikasiDeposito.CurrentRow.Cells["keterangan"].Value.ToString();
 
             if (e.ColumnIndex == dataGridViewListVerifikasiDeposito.Columns["btnConfirm"].Index && e.RowIndex >= 0)
             {
@@ -64,7 +65,7 @@ namespace _160421029_Nico_Victorio
                 {
                     try
                     {
-                        Deposito dep = new Deposito(idDeposito, noRek, nominal, status, tglBuat, tglPerubahan, verifikatorBuka, verifikatorCair, idBunga, aro);
+                        Deposito dep = new Deposito(idDeposito, noRek, nominal, status, tglAwal, tglCair, verifikatorBuka, verifikatorCair, idBunga, aro, keterangan);
                         if (dep.UbahStatusAktif(emp.Email))
                         {
                             MessageBox.Show("Deposito telah terverifikasi.");

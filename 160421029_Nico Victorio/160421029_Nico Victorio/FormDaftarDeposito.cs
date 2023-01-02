@@ -35,14 +35,21 @@ namespace _160421029_Nico_Victorio
             if (listDeposito.Count > 0)
             {
                 dgvListDeposito.DataSource = listDeposito;
-                if (dgvListDeposito.Columns.Count < 11)
+                if (dgvListDeposito.Columns.Count < 12)
                 {
-                    DataGridViewButtonColumn buttonColumn = new DataGridViewButtonColumn();
-                    buttonColumn.HeaderText = "Aksi";
-                    buttonColumn.Text = "Cair";
-                    buttonColumn.Name = "btnCairGrid";
-                    buttonColumn.UseColumnTextForButtonValue = true;
-                    dgvListDeposito.Columns.Add(buttonColumn);
+                    DataGridViewButtonColumn buttonCair = new DataGridViewButtonColumn();
+                    buttonCair.HeaderText = "Aksi";
+                    buttonCair.Text = "Cair";
+                    buttonCair.Name = "btnCairGrid";
+                    buttonCair.UseColumnTextForButtonValue = true;
+                    dgvListDeposito.Columns.Add(buttonCair);
+
+                    DataGridViewButtonColumn buttonUpdate = new DataGridViewButtonColumn();
+                    buttonUpdate.HeaderText = "Aksi";
+                    buttonUpdate.Text = "Update";
+                    buttonUpdate.Name = "btnUpdateGrid";
+                    buttonUpdate.UseColumnTextForButtonValue = true;
+                    dgvListDeposito.Columns.Add(buttonUpdate);
                 }
             }
             else
@@ -130,17 +137,18 @@ namespace _160421029_Nico_Victorio
                 double nominal = (double)dgvListDeposito.CurrentRow.Cells["nominal"].Value;
                 string status = dgvListDeposito.CurrentRow.Cells["status"].Value.ToString();
 
-                DateTime tglBuat = (DateTime)dgvListDeposito.CurrentRow.Cells["tglBuat"].Value;
-                DateTime tglPerubahan = (DateTime)dgvListDeposito.CurrentRow.Cells["tglPerubahan"].Value;
+                DateTime tglAwal = (DateTime)dgvListDeposito.CurrentRow.Cells["tglAwal"].Value;
+                DateTime tglCair = (DateTime)dgvListDeposito.CurrentRow.Cells["tglCair"].Value;
                 Employee verifikatorBuka = (Employee)dgvListDeposito.CurrentRow.Cells["verifikatorbuka"].Value;
                 Employee verifikatorCair = (Employee)dgvListDeposito.CurrentRow.Cells["verifikatorcair"].Value;
 
                 Bunga idBunga = (Bunga)dgvListDeposito.CurrentRow.Cells["bunga"].Value;
                 bool aro = (bool)dgvListDeposito.CurrentRow.Cells["aro"].Value;
 
+                string keterangan = dgvListDeposito.CurrentRow.Cells["keterangan"].Value.ToString();
                 Deposito dep = new Deposito(idDeposito, noRekening, nominal, status,
-                                            tglBuat, tglPerubahan, verifikatorBuka, 
-                                            verifikatorCair, idBunga, aro);
+                                            tglAwal, tglCair, verifikatorBuka, 
+                                            verifikatorCair, idBunga, aro, keterangan);
                 if (dep != null)
                 {
                     if (e.ColumnIndex == dgvListDeposito.Columns["btnCairGrid"].Index)
@@ -169,6 +177,11 @@ namespace _160421029_Nico_Victorio
                         {
                             throw new Exception("Deposito anda sudah cair.");
                         }
+                    }
+                    else if(e.ColumnIndex == dgvListDeposito.Columns["btnUpdateGrid"].Index)
+                    {
+                        dep.UbahStatusAro(aro);
+                        FormDaftarDeposito_Load(sender, e);
                     }
                 }
             }

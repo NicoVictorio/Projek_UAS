@@ -15,6 +15,7 @@ namespace _160421029_Nico_Victorio
     {
         FormMenu formMenu;
         Employee emp;
+
         public FormVerifikasiCair()
         {
             InitializeComponent();
@@ -51,12 +52,13 @@ namespace _160421029_Nico_Victorio
             Tabungan noRek = (Tabungan)dataGridViewListVerifikasiDeposito.CurrentRow.Cells["tabungan"].Value;
             double nominal = (double)dataGridViewListVerifikasiDeposito.CurrentRow.Cells["nominal"].Value;
             string status = dataGridViewListVerifikasiDeposito.CurrentRow.Cells["status"].Value.ToString();
-            DateTime tglBuat = DateTime.Parse(dataGridViewListVerifikasiDeposito.CurrentRow.Cells["tglbuat"].Value.ToString());
-            DateTime tglPerubahan = DateTime.Parse(dataGridViewListVerifikasiDeposito.CurrentRow.Cells["tglperubahan"].Value.ToString());
-            Employee verivikatorBuka = (Employee)dataGridViewListVerifikasiDeposito.CurrentRow.Cells["verivikatorbuka"].Value;
-            Employee verivikatorCair = (Employee)dataGridViewListVerifikasiDeposito.CurrentRow.Cells["verivikatorcair"].Value;
+            DateTime tglAwal = DateTime.Parse(dataGridViewListVerifikasiDeposito.CurrentRow.Cells["tglawal"].Value.ToString());
+            DateTime tglCair = DateTime.Parse(dataGridViewListVerifikasiDeposito.CurrentRow.Cells["tglcair"].Value.ToString());
+            Employee verifikatorBuka = (Employee)dataGridViewListVerifikasiDeposito.CurrentRow.Cells["verifikatorbuka"].Value;
+            Employee verifikatorCair = (Employee)dataGridViewListVerifikasiDeposito.CurrentRow.Cells["verifikatorcair"].Value;
             Bunga idBunga = (Bunga)dataGridViewListVerifikasiDeposito.CurrentRow.Cells["bunga"].Value;
             Boolean aro = (Boolean)dataGridViewListVerifikasiDeposito.CurrentRow.Cells["aro"].Value;
+            string keterangan = dataGridViewListVerifikasiDeposito.CurrentRow.Cells["keterangan"].Value.ToString();
 
             if (e.ColumnIndex == dataGridViewListVerifikasiDeposito.Columns["btnConfirm"].Index && e.RowIndex >= 0)
             {
@@ -64,11 +66,10 @@ namespace _160421029_Nico_Victorio
                 {
                     try
                     {
-                        Deposito dep = new Deposito(idDeposito, noRek, nominal, status, tglBuat, tglPerubahan, verivikatorBuka, verivikatorCair, idBunga, aro);
-                        int bulan = HitungBulan(dep.Bunga.JatuhTempo);
+                        Deposito dep = new Deposito(idDeposito, noRek, nominal, status, tglAwal, tglCair, verifikatorBuka, verifikatorCair, idBunga, aro, keterangan);
                         double denda = 0;
                         double bunga = 0;
-                        if (DateTime.Now.ToShortDateString() == dep.TglBuat.AddMonths(bulan).ToShortDateString())
+                        if (DateTime.Now.ToShortDateString() == dep.TglCair.ToShortDateString())
                         {
                             bunga = nominal * idBunga.PersenBunga / 100;
                         }
@@ -88,36 +89,6 @@ namespace _160421029_Nico_Victorio
                     }
                 }
             }
-        }
-
-        private int HitungBulan(string jatuhTempo)
-        {
-            int bulan = 0;
-            if (jatuhTempo == "1 bulan")
-            {
-                bulan = 1;
-            }
-            else if (jatuhTempo == "3 bulan")
-            {
-                bulan = 3;
-            }
-            else if (jatuhTempo == "6 bulan")
-            {
-                bulan = 6;
-            }
-            else if (jatuhTempo == "1 tahun")
-            {
-                bulan = 12;
-            }
-            else if (jatuhTempo == "2 tahun")
-            {
-                bulan = 24;
-            }
-            else if (jatuhTempo == "3 tahun")
-            {
-                bulan = 36;
-            }
-            return bulan;
         }
 
         private void buttonExit_Click(object sender, EventArgs e)

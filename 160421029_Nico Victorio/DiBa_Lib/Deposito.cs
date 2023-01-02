@@ -15,27 +15,29 @@ namespace DiBa_Lib
         Tabungan tabungan;
         double nominal;
         string status;
-        DateTime tglBuat;
-        DateTime tglPerubahan;
+        DateTime tglAwal;
+        DateTime tglCair;
         Employee verifikatorBuka;
         Employee verifikatorCair;
         Bunga bunga;
         Boolean aro;
+        string keterangan;
         #endregion
 
         #region constructors
-        public Deposito(string idDeposito, Tabungan tabungan, double nominal, string status, DateTime tglBuat, DateTime tglPerubahan, Employee verifikatorBuka, Employee verifikatorCair, Bunga bunga, Boolean aro)
+        public Deposito(string idDeposito, Tabungan tabungan, double nominal, string status, DateTime tglAwal, DateTime tglCair, Employee verifikatorBuka, Employee verifikatorCair, Bunga bunga, Boolean aro, string keterangan)
         {
             IdDeposito = idDeposito;
             Tabungan = tabungan;
             Nominal = nominal;
             Status = status;
-            TglBuat = tglBuat;
-            TglPerubahan = tglPerubahan;
+            TglAwal = tglAwal;
+            TglCair = tglCair;
             VerifikatorBuka = verifikatorBuka;
             VerifikatorCair = verifikatorCair;
             Bunga = bunga;
             Aro = aro;
+            Keterangan = keterangan;
         }
 
         public Deposito()
@@ -44,12 +46,13 @@ namespace DiBa_Lib
             this.Tabungan = null;
             this.Nominal = 0.0;
             this.Status = "";
-            this.TglBuat = DateTime.Now;
-            this.TglPerubahan = DateTime.Now;
+            this.TglAwal = DateTime.Now;
+            this.TglCair = DateTime.Now;
             this.VerifikatorBuka = null;
             this.VerifikatorCair = null;
             this.Bunga = null;
             this.Aro = false;
+            this.Keterangan = "";
         }
         #endregion
 
@@ -58,19 +61,20 @@ namespace DiBa_Lib
         public Tabungan Tabungan { get => tabungan; set => tabungan = value; }
         public double Nominal { get => nominal; set => nominal = value; }
         public string Status { get => status; set => status = value; }
-        public DateTime TglBuat { get => tglBuat; set => tglBuat = value; }
-        public DateTime TglPerubahan { get => tglPerubahan; set => tglPerubahan = value; }
+        public DateTime TglAwal { get => tglAwal; set => tglAwal = value; }
+        public DateTime TglCair { get => tglCair; set => tglCair = value; }
         public Employee VerifikatorBuka { get => verifikatorBuka; set => verifikatorBuka = value; }
         public Employee VerifikatorCair { get => verifikatorCair; set => verifikatorCair = value; }
         public Bunga Bunga { get => bunga; set => bunga = value; }
         public Boolean Aro { get => aro; set => aro = value; }
+        public string Keterangan { get => keterangan; set => keterangan = value; }
         #endregion
 
         #region methods
         public static string AmbilNoRek(string emailPengguna)
         {
             string sql = "SELECT RIGHT(no_rekening,4) as NoRek FROM tabungan WHERE " +
-                          "pengguna_email = " + emailPengguna;
+                          "pengguna_email = '" + emailPengguna + "';";
             MySqlDataReader hasilNoRek = Koneksi.ambilData(sql);
             string noRek = "";
             if (hasilNoRek.Read())
@@ -83,7 +87,7 @@ namespace DiBa_Lib
         public static string GenerateNoDeposito(string emailPengguna)
         {
             string sql = "SELECT RIGHT(id_deposito,4) as NoDep FROM deposito WHERE " +
-                    " Date(tgl_buat) = Date(CURRENT_DATE) order by tgl_buat DESC limit 1";
+                    " Date(tgl_awal) = Date(CURRENT_DATE) order by tgl_awal DESC limit 1";
             MySqlDataReader hasil = Koneksi.ambilData(sql);
             string hasilNoDep = "";
             string noRek = AmbilNoRek(emailPengguna);
@@ -113,10 +117,10 @@ namespace DiBa_Lib
         public static List<Deposito> BacaData(string kriteria, string nilaiKriteria)
         {
             string sql = "SELECT id_deposito, no_rekening, nominal, " +
-                         "status, tgl_buat, tgl_perubahan, " +
+                         "status, tgl_awal, tgl_cair, " +
                          "IFNULL(verifikator_buka, 0) as verifikator_buka, " +
                          "IFNULL(verifikator_cair, 0) as verifikator_cair, " + 
-                         "idBunga, aro FROM deposito ";
+                         "idBunga, aro, keterangan FROM deposito ";
 
             if (kriteria == "")
             {
@@ -138,8 +142,8 @@ namespace DiBa_Lib
                 dep.IdDeposito = hasil.GetString(0);
                 dep.Nominal = hasil.GetDouble(2);
                 dep.Status = hasil.GetString(3);
-                dep.TglBuat = hasil.GetDateTime(4);
-                dep.TglPerubahan = hasil.GetDateTime(5);
+                dep.TglAwal = hasil.GetDateTime(4);
+                dep.TglCair = hasil.GetDateTime(5);
 
                 Tabungan tab = new Tabungan();
                 tab.NoRekening = hasil.GetString(1);
@@ -158,6 +162,54 @@ namespace DiBa_Lib
                 dep.Bunga = bunga;
 
                 dep.Aro = hasil.GetBoolean(9);
+                dep.Keterangan = hasil.GetString(10);
+                listDeposito.Add(dep);
+            }
+            return listDeposito;
+        }
+
+        public static List<Deposito> DepositoByCode(string kriteria1, string nilaiKriteria1, string kriteria2, string nilaiKriteria2)
+        {
+            string sql = "SELECT id_deposito, no_rekening, nominal, " +
+                         "status, tgl_awal, tgl_cair, " +
+                         "IFNULL(verifikator_buka, 0) as verifikator_buka, " +
+                         "IFNULL(verifikator_cair, 0) as verifikator_cair, " +
+                         "idBunga, aro, keterangan FROM deposito " +
+                         " WHERE " + kriteria1 + " LIKE '%" + nilaiKriteria1 + "%' && " +
+                                     kriteria2 + " LIKE '%" + nilaiKriteria2 + "%';";
+
+            MySqlDataReader hasil = Koneksi.ambilData(sql);
+
+            //buat list untk menampung data 
+            List<Deposito> listDeposito = new List<Deposito>();
+
+            while (hasil.Read() == true)
+            {
+                Deposito dep = new Deposito();
+                dep.IdDeposito = hasil.GetString(0);
+                dep.Nominal = hasil.GetDouble(2);
+                dep.Status = hasil.GetString(3);
+                dep.TglAwal = hasil.GetDateTime(4);
+                dep.TglCair = hasil.GetDateTime(5);
+
+                Tabungan tab = new Tabungan();
+                tab.NoRekening = hasil.GetString(1);
+                dep.Tabungan = tab;
+
+                Employee emp1 = new Employee();
+                emp1.Email = hasil.GetString(6);
+                dep.VerifikatorBuka = emp1;
+
+                Employee emp2 = new Employee();
+                emp2.Email = hasil.GetString(7);
+                dep.VerifikatorCair = emp2;
+
+                Bunga bunga = new Bunga();
+                bunga.IdBunga = hasil.GetInt32(8);
+                dep.Bunga = bunga;
+
+                dep.Aro = hasil.GetBoolean(9);
+                dep.Keterangan = hasil.GetString(10);
                 listDeposito.Add(dep);
             }
             return listDeposito;
@@ -171,15 +223,16 @@ namespace DiBa_Lib
                 {
                     Koneksi k = new Koneksi();
                     string sql = "INSERT INTO deposito(id_deposito, no_rekening, " +
-                                                       "nominal, status, tgl_buat, tgl_perubahan, " +
-                                                       "idbunga, aro) " +
+                                                       "nominal, status, tgl_awal, tgl_cair, " +
+                                                       "idbunga, aro, keterangan) " +
                                  "VALUES ('" + this.IdDeposito + "', '" +
                                                this.Tabungan.NoRekening + "', " +
                                                this.Nominal + ", '" +
                                                this.Status + "', '" +
-                                               this.TglBuat.ToString("yyyy-MM-dd HH-mm-ss") + "', '" +
-                                               this.TglPerubahan.ToString("yyyy-MM-dd HH-mm-ss") + "', " + 
-                                               this.Bunga.IdBunga + ", " + this.Aro + ");";
+                                               this.TglAwal.ToString("yyyy-MM-dd HH-mm-ss") + "', '" +
+                                               this.TglCair.ToString("yyyy-MM-dd HH-mm-ss") + "', " + 
+                                               this.Bunga.IdBunga + ", " + this.Aro + ", '" + 
+                                               this.Keterangan + "');";
                     Tabungan.UpdateSaldoTransaksi("pengeluaran", this.Tabungan.NoRekening, this.Nominal, k);
                     bool result = Koneksi.executeDML(sql, k);
                     transcope.Complete();
@@ -193,26 +246,10 @@ namespace DiBa_Lib
             }
         }
 
-        public bool UbahData()
-        {
-            string sql = "UPDATE deposito SET verifikator_buka = " + this.VerifikatorBuka.Email +
-                         ", verifikator_cair = '" + this.VerifikatorCair.Email + ", tgl_perubahan = " + DateTime.Now +
-                         "'\nWHERE id_deposito = '" + this.idDeposito + "';";
-            bool result = Koneksi.executeDML(sql);
-            return result;
-        }
-
-        public bool HapusData()
-        {
-            string sql = "DELETE from deposito where id_deposito = '" + this.idDeposito + "';";
-            bool result = Koneksi.executeDML(sql);
-            return result;
-        }
-
         public bool UbahStatusAktif(string emailEmployee)
         {
-            string sql = "UPDATE deposito SET status = 'Aktif', verifikator_buka = " + emailEmployee +
-                         " where id_deposito ='" + this.IdDeposito + "';";
+            string sql = "UPDATE deposito SET status = 'Aktif', verifikator_buka = '" + emailEmployee +
+                         "' where id_deposito = '" + this.IdDeposito + "';";
             this.VerifikatorBuka = Employee.employeeByCode(emailEmployee);
             bool result = Koneksi.executeDML(sql);
             return result;
@@ -221,7 +258,7 @@ namespace DiBa_Lib
         public bool UbahStatusWaiting()
         {
             string sql = "UPDATE deposito SET status = 'Waiting'" +
-                         " where id_deposito ='" + this.IdDeposito + "';";
+                         " where id_deposito = '" + this.IdDeposito + "';";
             
             bool result = Koneksi.executeDML(sql);
             return result;
@@ -255,6 +292,23 @@ namespace DiBa_Lib
                     throw new Exception(x.Message);
                 }
             }
+        }
+
+        public bool UbahStatusAro(bool aro)
+        {
+            string sql = "";
+            if (aro == true)
+            {
+                sql = "UPDATE deposito SET aro = " + false + 
+                      " where id_deposito = '" + this.IdDeposito + "';";
+            }
+            else if(aro == false)
+            {
+                sql = "UPDATE deposito SET aro = " + true +
+                      " where id_deposito = '" + this.IdDeposito + "';";
+            }
+            bool result = Koneksi.executeDML(sql);
+            return result;
         }
 
         public override string ToString()

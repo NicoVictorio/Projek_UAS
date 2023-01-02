@@ -58,8 +58,10 @@ namespace _160421029_Nico_Victorio
                 Bunga bunga = new Bunga();
                 List<Bunga> tmpListBunga = new List<Bunga>();
 
+                int bulan = 0;
                 if (jatuhTempo == "1 bulan")
                 {
+                    bulan = 1;
                     if (nominal >= 10000000 && nominal < 50000000)
                     {
                         tmpListBunga = Bunga.BacaBunga("jatuhtempo", jatuhTempo, "nominal", "10 juta s/d < 50 juta");
@@ -79,6 +81,7 @@ namespace _160421029_Nico_Victorio
                 }
                 else if (jatuhTempo == "3 bulan")
                 {
+                    bulan = 3;
                     if (nominal >= 10000000 && nominal < 50000000)
                     {
                         tmpListBunga = Bunga.BacaBunga("jatuhtempo", jatuhTempo, "nominal", "10 juta s/d < 50 juta");
@@ -98,6 +101,7 @@ namespace _160421029_Nico_Victorio
                 }
                 else if (jatuhTempo == "6 bulan")
                 {
+                    bulan = 6;
                     if (nominal >= 10000000 && nominal < 50000000)
                     {
                         tmpListBunga = Bunga.BacaBunga("jatuhtempo", jatuhTempo, "nominal", "10 juta s/d < 50 juta");
@@ -117,6 +121,7 @@ namespace _160421029_Nico_Victorio
                 }
                 else if (jatuhTempo == "12 bulan")
                 {
+                    bulan = 12;
                     if (nominal >= 10000000 && nominal < 50000000)
                     {
                         tmpListBunga = Bunga.BacaBunga("jatuhtempo", jatuhTempo, "nominal", "10 juta s/d < 50 juta");
@@ -136,6 +141,7 @@ namespace _160421029_Nico_Victorio
                 }
                 else if (jatuhTempo == "24 bulan")
                 {
+                    bulan = 24;
                     if (nominal >= 10000000 && nominal < 50000000)
                     {
                         tmpListBunga = Bunga.BacaBunga("jatuhtempo", jatuhTempo, "nominal", "10 juta s/d < 50 juta");
@@ -155,6 +161,7 @@ namespace _160421029_Nico_Victorio
                 }
                 else if (jatuhTempo == "36 bulan")
                 {
+                    bulan = 36;
                     if (nominal >= 10000000 && nominal < 50000000)
                     {
                         tmpListBunga = Bunga.BacaBunga("jatuhtempo", jatuhTempo, "nominal", "10 juta s/d < 50 juta");
@@ -174,14 +181,23 @@ namespace _160421029_Nico_Victorio
                 }
                 bunga = tmpListBunga[0];
                 bool aro = false;
+                string keterangan = "";
                 if (checkBoxARO.Checked)
                 {
                     aro = true;
+                    if (radioButtonDeposito.Checked)
+                    {
+                        keterangan = "Bunga masuk ke pokok deposito.";
+                    }
+                    else if (radioButtonTabungan.Checked)
+                    {
+                        keterangan = "Bunga masuk ke rekening tabungan.";
+                    }
                 }
                 string status = "Unverified";
                 if (nominal <= tabPengguna.Saldo)
                 {
-                    Deposito dep = new Deposito(idDeposito, rekeningSumber, nominal, status, DateTime.Now, DateTime.Now, null, null, bunga, aro);
+                    Deposito dep = new Deposito(idDeposito, rekeningSumber, nominal, status, DateTime.Now, DateTime.Now.AddMonths(bulan), null, null, bunga, aro, keterangan);
                     if (dep.TambahData())
                     {
                         MessageBox.Show("Pengajuan deposito telah berhasil.", "Info");
