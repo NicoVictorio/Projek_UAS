@@ -97,11 +97,11 @@ namespace _160421029_Nico_Victorio
             this.cb_Kriteria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_Kriteria.FormattingEnabled = true;
             this.cb_Kriteria.Items.AddRange(new object[] {
+            "Email",
             "NIK",
             "Nama Depan",
             "Nama Keluarga",
             "Alamat",
-            "Email",
             "No Telepon",
             "Password",
             "Pin",
@@ -135,7 +135,7 @@ namespace _160421029_Nico_Victorio
             this.Controls.Add(this.tb_Kriteria);
             this.Controls.Add(this.cb_Kriteria);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormMasterPengguna";
             this.Text = "FormMasterPengguna";
             this.Load += new System.EventHandler(this.FormMasterPengguna_Load);

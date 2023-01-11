@@ -165,6 +165,13 @@ namespace DiBa_Lib
             bool result = Koneksi.executeDML(sql);
         }
 
+        public static void KurangSaldo(string nomorRekening, int nominal)
+        {
+            string sql = "UPDATE tabungan SET saldo = saldo - " + nominal +
+                         " WHERE no_rekening = '" + nomorRekening + "';";
+            bool result = Koneksi.executeDML(sql);
+        }
+
         public static void UpdateSaldoTransaksi(string jenisTransaksi, string nomorRekening, double nominal, Koneksi k)
         {
             using (TransactionScope transcope = new TransactionScope())
@@ -255,6 +262,13 @@ namespace DiBa_Lib
                          " where no_rekening = '" + this.NoRekening + "';";
             bool result = Koneksi.executeDML(sql);
             return result;
+        }
+
+        public static void UpdateTanggal(string noRekening, DateTime tanggalPerubahan)
+        {
+            string sql = "UPDATE tabungan SET tgl_perubahan = '" + tanggalPerubahan.ToString("yyyy-MM-dd HH-mm-ss") +
+                         "' where no_rekening = '" + noRekening + "';";
+            Koneksi.executeDML(sql);
         }
 
         public override string ToString()

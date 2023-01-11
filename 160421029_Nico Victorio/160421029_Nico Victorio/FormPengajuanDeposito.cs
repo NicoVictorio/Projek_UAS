@@ -53,7 +53,7 @@ namespace _160421029_Nico_Victorio
                 Tabungan rekeningSumber = tabPengguna;
 
                 string jatuhTempo = comboBoxJatuhTempo.Text;
-                double nominal = double.Parse(textBoxNominal.Text);
+                long nominal = long.Parse(textBoxNominal.Text);
                 
                 Bunga bunga = new Bunga();
                 List<Bunga> tmpListBunga = new List<Bunga>();

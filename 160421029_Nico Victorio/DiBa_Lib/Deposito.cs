@@ -13,7 +13,7 @@ namespace DiBa_Lib
         #region data members
         string idDeposito;
         Tabungan tabungan;
-        double nominal;
+        long nominal;
         string status;
         DateTime tglAwal;
         DateTime tglCair;
@@ -25,7 +25,7 @@ namespace DiBa_Lib
         #endregion
 
         #region constructors
-        public Deposito(string idDeposito, Tabungan tabungan, double nominal, string status, DateTime tglAwal, DateTime tglCair, Employee verifikatorBuka, Employee verifikatorCair, Bunga bunga, Boolean aro, string keterangan)
+        public Deposito(string idDeposito, Tabungan tabungan, long nominal, string status, DateTime tglAwal, DateTime tglCair, Employee verifikatorBuka, Employee verifikatorCair, Bunga bunga, Boolean aro, string keterangan)
         {
             IdDeposito = idDeposito;
             Tabungan = tabungan;
@@ -44,7 +44,7 @@ namespace DiBa_Lib
         {
             this.IdDeposito = "";
             this.Tabungan = null;
-            this.Nominal = 0.0;
+            this.Nominal = 0;
             this.Status = "";
             this.TglAwal = DateTime.Now;
             this.TglCair = DateTime.Now;
@@ -59,7 +59,7 @@ namespace DiBa_Lib
         #region properties
         public string IdDeposito { get => idDeposito; set => idDeposito = value; }
         public Tabungan Tabungan { get => tabungan; set => tabungan = value; }
-        public double Nominal { get => nominal; set => nominal = value; }
+        public long Nominal { get => nominal; set => nominal = value; }
         public string Status { get => status; set => status = value; }
         public DateTime TglAwal { get => tglAwal; set => tglAwal = value; }
         public DateTime TglCair { get => tglCair; set => tglCair = value; }
@@ -140,7 +140,7 @@ namespace DiBa_Lib
             {
                 Deposito dep = new Deposito();
                 dep.IdDeposito = hasil.GetString(0);
-                dep.Nominal = hasil.GetDouble(2);
+                dep.Nominal = hasil.GetInt64(2);
                 dep.Status = hasil.GetString(3);
                 dep.TglAwal = hasil.GetDateTime(4);
                 dep.TglCair = hasil.GetDateTime(5);
@@ -158,7 +158,7 @@ namespace DiBa_Lib
                 dep.VerifikatorCair = emp2;
 
                 Bunga bunga = new Bunga();
-                bunga.IdBunga = hasil.GetInt32(8);
+                bunga = Bunga.bungaByCode(hasil.GetInt32(8));
                 dep.Bunga = bunga;
 
                 dep.Aro = hasil.GetBoolean(9);
@@ -168,14 +168,14 @@ namespace DiBa_Lib
             return listDeposito;
         }
 
-        public static List<Deposito> DepositoByCode(string kriteria1, string nilaiKriteria1, string kriteria2, string nilaiKriteria2)
+        public static List<Deposito> DepositoByCode(string kriteria1, bool nilaiKriteria1, string kriteria2, string nilaiKriteria2)
         {
             string sql = "SELECT id_deposito, no_rekening, nominal, " +
                          "status, tgl_awal, tgl_cair, " +
                          "IFNULL(verifikator_buka, 0) as verifikator_buka, " +
                          "IFNULL(verifikator_cair, 0) as verifikator_cair, " +
                          "idBunga, aro, keterangan FROM deposito " +
-                         " WHERE " + kriteria1 + " LIKE '%" + nilaiKriteria1 + "%' && " +
+                         " WHERE " + kriteria1 + " = " + nilaiKriteria1 + " && " +
                                      kriteria2 + " LIKE '%" + nilaiKriteria2 + "%';";
 
             MySqlDataReader hasil = Koneksi.ambilData(sql);
@@ -187,7 +187,7 @@ namespace DiBa_Lib
             {
                 Deposito dep = new Deposito();
                 dep.IdDeposito = hasil.GetString(0);
-                dep.Nominal = hasil.GetDouble(2);
+                dep.Nominal = hasil.GetInt64(2);
                 dep.Status = hasil.GetString(3);
                 dep.TglAwal = hasil.GetDateTime(4);
                 dep.TglCair = hasil.GetDateTime(5);
@@ -205,7 +205,7 @@ namespace DiBa_Lib
                 dep.VerifikatorCair = emp2;
 
                 Bunga bunga = new Bunga();
-                bunga.IdBunga = hasil.GetInt32(8);
+                bunga = Bunga.bungaByCode(hasil.GetInt32(8));
                 dep.Bunga = bunga;
 
                 dep.Aro = hasil.GetBoolean(9);
@@ -271,8 +271,8 @@ namespace DiBa_Lib
                 try
                 {
                     Koneksi k = new Koneksi();
-                    string sql = "UPDATE deposito SET status = 'Completed', verifikator_cair = " + emailEmployee +
-                     " where id_deposito = '" + this.IdDeposito + "';";
+                    string sql = "UPDATE deposito SET status = 'Completed', verifikator_cair = '" + emailEmployee +
+                     "' where id_deposito = '" + this.IdDeposito + "';";
                     bool result = Koneksi.executeDML(sql, k);
                     if (bunga != 0)
                     {
@@ -309,6 +309,30 @@ namespace DiBa_Lib
             }
             bool result = Koneksi.executeDML(sql);
             return result;
+        }
+
+        public static void TambahBunga(string kriteria, int bunga, string noRekening, string idDeposito)
+        {
+            string sql = "";
+            if (kriteria == "Bunga masuk ke pokok deposito.")
+            {
+                sql = "UPDATE deposito SET nominal = nominal + " + bunga +
+                      " where id_deposito = '" + idDeposito + "';";
+            }
+            else if (kriteria == "Bunga masuk ke rekening tabungan.")
+            {
+                sql = "UPDATE tabungan SET saldo = saldo + " + bunga +
+                      " where no_rekening = '" + noRekening + "';";
+            }
+            Koneksi.executeDML(sql);
+        }
+
+        public static void UpdateTanggal(string idDeposito, DateTime tanggalAwal, DateTime tanggalCair)
+        {
+            string sql = "UPDATE deposito SET tgl_awal = '" + tanggalAwal.ToString("yyyy-MM-dd HH-mm-ss") + 
+                                          "', tgl_cair = '" + tanggalCair.ToString("yyyy-MM-dd HH-mm-ss") +
+                         "' where id_deposito = '" + idDeposito + "';";
+            Koneksi.executeDML(sql);
         }
 
         public override string ToString()

@@ -128,7 +128,7 @@ namespace DiBa_Lib
                                          + this.Password + "', '"
                                          + this.Pin + "', '"
                                          + this.TglBuat.ToString("yyyy-MM-dd HH-mm-ss") + "', '"
-                                         + this.TglPerubahan.ToString("yyyy-MM-dd HH-mm-ss") + "', '"
+                                         + this.TglPerubahan.AddMonths(1).ToString("yyyy-MM-dd HH-mm-ss") + "', '"
                                          + this.Pangkat.KodePangkat + "');";
                     bool result = Koneksi.executeDML(sql,k);
                     

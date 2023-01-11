@@ -42,7 +42,7 @@ namespace _160421029_Nico_Victorio
             this.buttonSignUp.Location = new System.Drawing.Point(165, 148);
             this.buttonSignUp.Name = "buttonSignUp";
             this.buttonSignUp.Size = new System.Drawing.Size(87, 37);
-            this.buttonSignUp.TabIndex = 75;
+            this.buttonSignUp.TabIndex = 81;
             this.buttonSignUp.Text = "Sign Up";
             this.buttonSignUp.UseVisualStyleBackColor = true;
             this.buttonSignUp.Click += new System.EventHandler(this.buttonSignUp_Click);

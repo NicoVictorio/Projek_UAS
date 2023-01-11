@@ -14,7 +14,7 @@ namespace _160421029_Nico_Victorio
     public partial class FormVerifikasiTabungan : Form
     {
         FormMenu formMenu;
-        Employee emp;
+        public Employee emp;
         public FormVerifikasiTabungan()
         {
             InitializeComponent();
@@ -26,6 +26,8 @@ namespace _160421029_Nico_Victorio
             emp = formMenu.tmpEmp;
             List<Tabungan> listTabungan = new List<Tabungan>();
             List<Tabungan> listSemuaTabungan = Tabungan.BacaData("", "");
+            
+            //baca semua tabungan unverified dan suspend
             for (int i = 0; i < listSemuaTabungan.Count; i++)
             {
                 if (listSemuaTabungan[i].Status == "Unverified")
@@ -37,6 +39,7 @@ namespace _160421029_Nico_Victorio
                     listTabungan.Add(listSemuaTabungan[i]);
                 }
             }
+
             if (listTabungan.Count > 0 )
             {
                 dataGridViewListVerifikasiTabungan.DataSource = listTabungan;
@@ -71,7 +74,7 @@ namespace _160421029_Nico_Victorio
 
             if (e.ColumnIndex == dataGridViewListVerifikasiTabungan.Columns["btnConfirm"].Index && e.RowIndex >= 0)
             {
-                if (MessageBox.Show("Apakah anda yakin mengverifikasi tabungan?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("Apakah anda yakin mengverifikasi tabungan " + pengguna.Email + "?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     try
                     {

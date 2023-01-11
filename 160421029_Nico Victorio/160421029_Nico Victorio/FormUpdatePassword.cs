@@ -52,7 +52,6 @@ namespace _160421029_Nico_Victorio
                 {
                     throw new Exception("Tidak dapat mengubah data dalam database");
                 }
-
             }
             catch (Exception x)
             {

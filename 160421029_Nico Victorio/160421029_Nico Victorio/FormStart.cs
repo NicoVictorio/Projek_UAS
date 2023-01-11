@@ -25,9 +25,9 @@ namespace _160421029_Nico_Victorio
         {
             FormLogin form = new FormLogin();
             form.Owner = this;
-            if (form.ShowDialog() == DialogResult.OK)
+            if (form.ShowDialog() == DialogResult.OK) // dialogresult formlogin ke formstart
             {
-                this.DialogResult = DialogResult.OK;
+                this.DialogResult = DialogResult.OK; // dialogresult formstart ke formmenu
                 FormMenu formMenu = (FormMenu)this.Owner;
                 if (tmpEmployee != null)
                 {

@@ -30,7 +30,7 @@ namespace _160421029_Nico_Victorio
             {
                 dataGridViewListVerifikasiDeposito.DataSource = listDeposito;
 
-                if (dataGridViewListVerifikasiDeposito.ColumnCount < 11)
+                if (dataGridViewListVerifikasiDeposito.ColumnCount < 12)
                 {
                     DataGridViewButtonColumn confirmButton = new DataGridViewButtonColumn();
                     confirmButton.HeaderText = "Aksi";
@@ -50,7 +50,7 @@ namespace _160421029_Nico_Victorio
         {
             string idDeposito = dataGridViewListVerifikasiDeposito.CurrentRow.Cells["iddeposito"].Value.ToString();
             Tabungan noRek = (Tabungan)dataGridViewListVerifikasiDeposito.CurrentRow.Cells["tabungan"].Value;
-            double nominal = (double)dataGridViewListVerifikasiDeposito.CurrentRow.Cells["nominal"].Value;
+            long nominal = (long)dataGridViewListVerifikasiDeposito.CurrentRow.Cells["nominal"].Value;
             string status = dataGridViewListVerifikasiDeposito.CurrentRow.Cells["status"].Value.ToString();
             DateTime tglAwal = DateTime.Parse(dataGridViewListVerifikasiDeposito.CurrentRow.Cells["tglawal"].Value.ToString());
             DateTime tglCair = DateTime.Parse(dataGridViewListVerifikasiDeposito.CurrentRow.Cells["tglcair"].Value.ToString());

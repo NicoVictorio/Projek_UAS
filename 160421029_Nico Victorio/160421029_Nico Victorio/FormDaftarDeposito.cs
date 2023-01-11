@@ -14,8 +14,8 @@ namespace _160421029_Nico_Victorio
     public partial class FormDaftarDeposito : Form
     {
         public List<Deposito> listDeposito = new List<Deposito>();
-        FormMenu formMenu;
         public Pengguna penggunaAsal;
+        FormMenu formMenu;
         Tabungan tabPengguna;
 
         public FormDaftarDeposito()
@@ -31,7 +31,7 @@ namespace _160421029_Nico_Victorio
             List<Tabungan> tmpListTabungan = Tabungan.BacaData("pengguna_email", penggunaAsal.Email);
             tabPengguna = tmpListTabungan[0];
 
-            listDeposito = Deposito.BacaData("", "");
+            listDeposito = Deposito.BacaData("no_rekening", tabPengguna.NoRekening);
             if (listDeposito.Count > 0)
             {
                 dgvListDeposito.DataSource = listDeposito;
@@ -134,7 +134,7 @@ namespace _160421029_Nico_Victorio
                 string idDeposito = dgvListDeposito.CurrentRow.Cells["idDeposito"].Value.ToString();
                 Tabungan noRekening = (Tabungan)dgvListDeposito.CurrentRow.Cells["tabungan"].Value;
 
-                double nominal = (double)dgvListDeposito.CurrentRow.Cells["nominal"].Value;
+                long nominal = (long)dgvListDeposito.CurrentRow.Cells["nominal"].Value;
                 string status = dgvListDeposito.CurrentRow.Cells["status"].Value.ToString();
 
                 DateTime tglAwal = (DateTime)dgvListDeposito.CurrentRow.Cells["tglAwal"].Value;
