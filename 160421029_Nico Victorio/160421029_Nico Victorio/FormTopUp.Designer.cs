@@ -50,6 +50,7 @@ namespace _160421029_Nico_Victorio
             this.textBoxNominal.Name = "textBoxNominal";
             this.textBoxNominal.Size = new System.Drawing.Size(131, 22);
             this.textBoxNominal.TabIndex = 1;
+            this.textBoxNominal.Leave += new System.EventHandler(this.textBoxNominal_Leave);
             // 
             // buttonTopUp
             // 

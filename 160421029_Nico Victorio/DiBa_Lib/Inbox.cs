@@ -125,8 +125,8 @@ namespace DiBa_Lib
         {
             string sql = "INSERT INTO inbox(pengguna_email, pesan, tanggal_kirim, status, tgl_perubahan)" +
                 " VALUES ('"+ this.Pengguna.Email + "', '"+ this.Pesan + "', '" +
-                this.TglKirim.ToString("yyyy-MM-dd") + "', '" + this.Status + "', '"+ 
-                this.TglPerubahan.ToString("yyyy-MM-dd")+ "');";
+                this.TglKirim.ToString("yyyy-MM-dd HH-mm-ss") + "', '" + this.Status + "', '"+ 
+                this.TglPerubahan.ToString("yyyy-MM-dd HH-mm-ss") + "');";
             bool result = Koneksi.executeDML(sql);
             return result;
         }
@@ -135,8 +135,8 @@ namespace DiBa_Lib
         {
             string sql = "INSERT INTO inbox(pengguna_email, pesan, tanggal_kirim, status, tgl_perubahan)" +
                 " VALUES ('" + this.Pengguna.Email + "', '" + this.Pesan + "', '" +
-                this.TglKirim.ToString("yyyy-MM-dd") + "', '" + this.Status + "', '" +
-                this.TglPerubahan.ToString("yyyy-MM-dd") + "');";
+                this.TglKirim.ToString("yyyy-MM-dd HH-mm-ss") + "', '" + this.Status + "', '" +
+                this.TglPerubahan.ToString("yyyy-MM-dd HH-mm-ss") + "');";
             bool result = Koneksi.executeDML(sql, k);
             return result;
         }

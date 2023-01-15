@@ -129,7 +129,7 @@ namespace DiBa_Lib
             return listTransaksi;
         }
 
-        public bool TambahData(string jenis)
+        public bool TambahDataDebit()
         {
             using (TransactionScope transcope = new TransactionScope())
             {
@@ -147,27 +147,47 @@ namespace DiBa_Lib
                                            this.Keterangan + "');";
                     bool result = Koneksi.executeDML(sql, k);
 
-                    if (jenis == "DBT")
-                    {
-                        Tabungan.KurangSaldo(noRekeningSumber.NoRekening, (int)this.Nominal, k);
-                        Tabungan.TambahSaldo(noRekeningTujuan.NoRekening, (int)this.Nominal);
+                    Tabungan.KurangSaldo(noRekeningSumber.NoRekening, (int)this.Nominal, k);
+                    Inbox inbox = new Inbox(0, NoRekeningSumber.Pengguna, "Pengeluaran sebesar" + nominal.ToString("C2"), DateTime.Now, "", DateTime.Now);
+                    inbox.TambahData(k);
 
-                        Inbox inbox = new Inbox(0, NoRekeningSumber.Pengguna, "Pengeluaran sebesar" + nominal.ToString("C2"), DateTime.Now, "", DateTime.Now);
-                        inbox.TambahData(k);
+                    Tabungan.UpdatePoin(noRekeningSumber.NoRekening, nominal, k);
+                    Inbox inboxUpdatePoin = new Inbox(0, noRekeningSumber.Pengguna, "Poin bertambah sebesar " + (nominal * 10 / 100).ToString("C2"), DateTime.Now, "", DateTime.Now);
+                    inboxUpdatePoin.TambahData(k);
 
-                        Inbox inboxTujuan = new Inbox(0, NoRekeningTujuan.Pengguna, "Pemasukan sebesar" + nominal.ToString("C2"), DateTime.Now, "", DateTime.Now);
-                        inboxTujuan.TambahData(k);
-                    }
-                    else if (jenis == "CRD")
-                    {
-                        Tabungan.TambahSaldo(noRekeningSumber.NoRekening, (int)this.Nominal);
-                        Tabungan.KurangSaldo(noRekeningTujuan.NoRekening, (int)this.Nominal, k);
-                        Inbox inbox = new Inbox(0, NoRekeningSumber.Pengguna, "Pemasukan sebesar" + nominal.ToString("C2"), DateTime.Now, "", DateTime.Now);
-                        inbox.TambahData(k);
+                    transcope.Complete();
+                    return result;
+                }
+                catch (Exception x)
+                {
+                    transcope.Dispose();
+                    throw new Exception(x.Message);
+                }
+            }
+        }
 
-                        Inbox inboxTujuan = new Inbox(0, NoRekeningTujuan.Pengguna, "Pengeluaran sebesar" + nominal.ToString("C2"), DateTime.Now, "", DateTime.Now);
-                        inboxTujuan.TambahData(k);
-                    }
+        public bool TambahDataCredit()
+        {
+            using (TransactionScope transcope = new TransactionScope())
+            {
+                try
+                {
+                    Koneksi k = new Koneksi();
+                    string sql = "INSERT INTO transaksi (rekening_sumber,idtransaksi, tgl_transaksi, " +
+                             "id_jenisTransaksi, rekening_tujuan, nominal, keterangan) " +
+                             "VALUES ('" + this.NoRekeningSumber.NoRekening + "', '" +
+                                           this.IdTransaksi + "', '" +
+                                           this.TglTransaksi.ToString("yyyy-MM-dd HH-mm-ss") + "', " +
+                                           this.IdJenisTransaksi.IdJenisTransaksi + ", '" +
+                                           this.NoRekeningTujuan.NoRekening + "', " +
+                                           this.Nominal + ", '" +
+                                           this.Keterangan + "');";
+                    bool result = Koneksi.executeDML(sql, k);
+
+                    Tabungan.TambahSaldo(noRekeningTujuan.NoRekening, (int)this.Nominal, k);
+                    Inbox inboxTujuan = new Inbox(0, NoRekeningTujuan.Pengguna, "Pemasukan sebesar" + nominal.ToString("C2"), DateTime.Now, "", DateTime.Now);
+                    inboxTujuan.TambahData(k);
+
                     transcope.Complete();
                     return result;
                 }

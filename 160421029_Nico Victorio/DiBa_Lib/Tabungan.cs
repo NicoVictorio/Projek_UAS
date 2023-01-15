@@ -66,7 +66,8 @@ namespace DiBa_Lib
         public static string GenerateNoRek()
         {
             string sql = "SELECT RIGHT(no_rekening,2) as NoRek FROM tabungan WHERE " +
-                " Date(tgl_perubahan) = Date(CURRENT_DATE) order by tgl_perubahan DESC limit 1";
+                         " Date(tgl_perubahan) = Date(CURRENT_DATE) " +
+                         " order by tgl_perubahan DESC limit 1";
             MySqlDataReader hasil = Koneksi.ambilData(sql);
             string hasilNoRek = "";
             if (hasil.Read())
@@ -75,17 +76,17 @@ namespace DiBa_Lib
                 {
                     int noRek = hasil.GetInt32(0) + 1;
                     hasilNoRek = DateTime.Now.Year.ToString() +
-                        DateTime.Now.Month.ToString().PadLeft(2, '0') +
-                        DateTime.Now.Day.ToString().PadLeft(2, '0') +
-                        noRek.ToString().PadLeft(2, '0');
+                                 DateTime.Now.Month.ToString().PadLeft(2, '0') +
+                                 DateTime.Now.Day.ToString().PadLeft(2, '0') +
+                                 noRek.ToString().PadLeft(2, '0');
                 }
             }
             else
             {
                 hasilNoRek = DateTime.Now.Year.ToString() +
-                    DateTime.Now.Month.ToString().PadLeft(2, '0') +
-                    DateTime.Now.Day.ToString().PadLeft(2, '0') +
-                    "01";
+                             DateTime.Now.Month.ToString().PadLeft(2, '0') +
+                             DateTime.Now.Day.ToString().PadLeft(2, '0') +
+                             "01";
             }
             return hasilNoRek;
         }
@@ -163,6 +164,13 @@ namespace DiBa_Lib
             string sql = "UPDATE tabungan SET saldo = saldo + " + nominal +
                          " WHERE no_rekening = '" + nomorRekening + "';";
             bool result = Koneksi.executeDML(sql);
+        }
+
+        public static void TambahSaldo(string nomorRekening, int nominal, Koneksi k)
+        {
+            string sql = "UPDATE tabungan SET saldo = saldo + " + nominal +
+                         " WHERE no_rekening = '" + nomorRekening + "';";
+            bool result = Koneksi.executeDML(sql, k);
         }
 
         public static void KurangSaldo(string nomorRekening, int nominal)

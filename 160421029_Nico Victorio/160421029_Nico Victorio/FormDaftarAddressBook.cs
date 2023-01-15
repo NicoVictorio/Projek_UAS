@@ -127,6 +127,28 @@ namespace _160421029_Nico_Victorio
             }
         }
 
+        //private void FormatDataGrid()
+        //{
+        //    dgvListAddressBook.Columns.Clear();
+
+        //    dgvListAddressBook.Columns.Add("nonota", "No Nota Jual");
+        //    dgvListAddressBook.Columns.Add("tanggal", "Tanggal");
+        //    dgvListAddressBook.Columns.Add("pelanggan", "Customer");
+        //    dgvListAddressBook.Columns.Add("pegawai", "Pegawai");
+
+        //    dgvListAddressBook.Columns["nonota"].AutoSizeMode =
+        //        DataGridViewAutoSizeColumnMode.AllCells;
+        //    dataGridViewNotaJual.Columns["tanggal"].AutoSizeMode =
+        //        DataGridViewAutoSizeColumnMode.AllCells;
+        //    dataGridViewNotaJual.Columns["pelanggan"].AutoSizeMode =
+        //        DataGridViewAutoSizeColumnMode.AllCells;
+        //    dataGridViewNotaJual.Columns["pegawai"].AutoSizeMode =
+        //        DataGridViewAutoSizeColumnMode.AllCells;
+
+        //    dataGridViewNotaJual.AllowUserToAddRows = false;
+        //    dataGridViewNotaJual.ReadOnly = true;
+        //}
+
         private void btn_Exit_Click(object sender, EventArgs e)
         {
             this.Close();

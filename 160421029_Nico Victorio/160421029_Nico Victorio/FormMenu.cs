@@ -74,10 +74,10 @@ namespace _160421029_Nico_Victorio
                                 tmpPengguna = tmpListPengguna[0];
                             }
                         }
-                        
+
                         //bunga rekening pertahun + biaya admin
                         //cek apakah tanggal perubahan sama dengan tanggal hari ini DAN status tabungan aktif
-                        if (tabPengguna.Tgl_perubahan.ToShortDateString() == DateTime.Now.ToShortDateString() && tabPengguna.Tgl_perubahan!=tabPengguna.Tgl_buat)
+                        if (tabPengguna.Tgl_perubahan.ToShortDateString() == DateTime.Now.ToShortDateString() && tabPengguna.Tgl_perubahan != tabPengguna.Tgl_buat)
                         {
                             int bedaBulan = ((tabPengguna.Tgl_perubahan.Year  - tabPengguna.Tgl_buat.Year) * 12) + 
                                               tabPengguna.Tgl_perubahan.Month - tabPengguna.Tgl_buat.Month;
@@ -103,6 +103,14 @@ namespace _160421029_Nico_Victorio
                             Inbox inboxBiayaAdmin = new Inbox(0, tmpPengguna, "Biaya Administrasi sebesar " + biaya, DateTime.Now, "", DateTime.Now);
                             inboxBiayaAdmin.TambahData();
 
+                            JenisTransaksi jenisTransaksiTax = JenisTransaksi.jenisTransaksiByCode(3);
+                            string idTransaksiTax = Transaksi.GenerateNoTransaksi(jenisTransaksiTax.KodeTransaksi);
+                            Transaksi transTax = new Transaksi(tabPengguna, idTransaksiTax, DateTime.Now,
+                                                               jenisTransaksiTax, tabPengguna, biaya, 
+                                                               "Biaya Administrasi sebesar " + biaya.ToString("C2"));
+                            transTax.TambahDataDebit();
+
+
                             if (bedaBulan % 12 == 0)
                             {
                                 //dapatkan bunga 3.6%
@@ -120,14 +128,27 @@ namespace _160421029_Nico_Victorio
                                 Inbox inboxBunga = new Inbox(0, tmpPengguna, "Anda mendapatkan bunga rekening sebesar " + nominal, DateTime.Now, "", DateTime.Now);
                                 inboxBunga.TambahData();
 
+                                JenisTransaksi jenisTransaksiInterest = JenisTransaksi.jenisTransaksiByCode(4);
+                                string idTransaksiInterest = Transaksi.GenerateNoTransaksi(jenisTransaksiInterest.KodeTransaksi);
+                                Transaksi transInterest = new Transaksi(tabPengguna, idTransaksiInterest, DateTime.Now,
+                                                                        jenisTransaksiInterest, tabPengguna, nominal, 
+                                                                        "Bunga tabungan sebesar " + nominal.ToString("C2"));
+                                transInterest.TambahDataCredit();
+
                                 //kalau ada pajak, maka mengurangi saldo dari pajak
                                 if (pajak != 0)
                                 {
                                     Tabungan.KurangSaldo(tabPengguna.NoRekening, pajak);
                                     Inbox inboxPajak = new Inbox(0, tmpPengguna, "Anda dikenakan pajak sebesar " + pajak, DateTime.Now, "", DateTime.Now);
                                     inboxPajak.TambahData();
-                                }
 
+                                    JenisTransaksi jenisTransaksiPajak = JenisTransaksi.jenisTransaksiByCode(3);
+                                    string idTransaksiPajak = Transaksi.GenerateNoTransaksi(jenisTransaksiPajak.KodeTransaksi);
+                                    Transaksi transPajak = new Transaksi(tabPengguna, idTransaksiPajak, DateTime.Now,
+                                                                         jenisTransaksiPajak, tabPengguna, pajak,
+                                                                         "Pajak tabungan sebesar " + pajak.ToString("C2"));
+                                    transPajak.TambahDataDebit();
+                                }
                                 MessageBox.Show("Anda mendapatkan bunga rekening sebesar " + nominal.ToString("C2") +
                                                 " dengan pajak " + pajak.ToString("C2"));
                             }
@@ -170,6 +191,13 @@ namespace _160421029_Nico_Victorio
                                 {
                                     Inbox inboxBunga = new Inbox(0, tmpPengguna, "Anda mendapatkan bunga deposito sebesar " + bunga, DateTime.Now, "", DateTime.Now);
                                     inboxBunga.TambahData();
+
+                                    JenisTransaksi jenisTransaksiBunga = JenisTransaksi.jenisTransaksiByCode(4);
+                                    string idTransaksiBunga = Transaksi.GenerateNoTransaksi(jenisTransaksiBunga.KodeTransaksi);
+                                    Transaksi transBunga = new Transaksi(tabPengguna, idTransaksiBunga, DateTime.Now,
+                                                                         jenisTransaksiBunga, tabPengguna, bunga,
+                                                                         "Bunga deposito sebesar " + bunga.ToString("C2"));
+                                    transBunga.TambahDataCredit();
                                 }
 
                                 //mendeclare tanggal awal dan tanggal cair untuk deposito selanjutnya secara otomatis
@@ -336,7 +364,6 @@ namespace _160421029_Nico_Victorio
                 if(tmpEmp.Position.IdPosition == 1)
                 {
                     masterToolStripMenuItem.Visible = true;
-                    laporanToolStripMenuItem.Visible = true;
 
                     akunToolStripMenuItem.Visible = true;
                     topUpToolStripMenuItem.Visible = false;
@@ -352,7 +379,6 @@ namespace _160421029_Nico_Victorio
                 else
                 {
                     masterToolStripMenuItem.Visible = false;
-                    laporanToolStripMenuItem.Visible = false;
 
                     akunToolStripMenuItem.Visible = true;
                     topUpToolStripMenuItem.Visible = false;
@@ -369,7 +395,6 @@ namespace _160421029_Nico_Victorio
             else
             {
                 masterToolStripMenuItem.Visible = false;
-                laporanToolStripMenuItem.Visible = false;
 
                 akunToolStripMenuItem.Visible = true;
                 topUpToolStripMenuItem.Visible = true;
@@ -387,7 +412,6 @@ namespace _160421029_Nico_Victorio
         public void HideAllMenu()
         {
             masterToolStripMenuItem.Visible = false;
-            laporanToolStripMenuItem.Visible = false;
             fiturToolStripMenuItem.Visible = false;
             verifyToolStripMenuItem.Visible = false;
 
@@ -425,38 +449,6 @@ namespace _160421029_Nico_Victorio
                 FormDaftarTabungan formDaftarTabungan = new FormDaftarTabungan();
                 formDaftarTabungan.MdiParent = this;
                 formDaftarTabungan.Show();
-            }
-            else
-            {
-                form.Show();
-                form.BringToFront();
-            }
-        }
-
-        private void laporanDepositoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            System.Windows.Forms.Form form = Application.OpenForms["FormDaftarDeposito"];
-            if (form == null)
-            {
-                FormDaftarDeposito formDaftarDeposito = new FormDaftarDeposito();
-                formDaftarDeposito.MdiParent = this;
-                formDaftarDeposito.Show();
-            }
-            else
-            {
-                form.Show();
-                form.BringToFront();
-            }
-        }
-
-        private void laporanTransaksiToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            System.Windows.Forms.Form form = Application.OpenForms["FormDaftarTransaksi"];
-            if (form == null)
-            {
-                FormDaftarTransaksi formDaftarTransaksi = new FormDaftarTransaksi();
-                formDaftarTransaksi.MdiParent = this;
-                formDaftarTransaksi.Show();
             }
             else
             {
@@ -562,14 +554,6 @@ namespace _160421029_Nico_Victorio
             }
         }
 
-        private void signOutToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            tmpDeposito = null;
-            tmpEmp = null;
-            tmpPengguna = null;
-            FormMenu_Load(sender, e);
-        }
-
         private void verifikasiCairToolStripMenuItem_Click(object sender, EventArgs e)
         {
             System.Windows.Forms.Form form = Application.OpenForms["FormVerifikasiCair"];
@@ -646,6 +630,46 @@ namespace _160421029_Nico_Victorio
                 formMutasiRekening.penggunaAsal = tmpPengguna;
                 formMutasiRekening.tabunganAsal = tabPengguna;
                 formMutasiRekening.Show();
+            }
+            else
+            {
+                form.Show();
+                form.BringToFront();
+            }
+        }
+
+        private void signOutToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            tmpDeposito = null;
+            tmpEmp = null;
+            tmpPengguna = null;
+            FormMenu_Load(sender, e);
+        }
+
+        private void transaksiToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.Form form = Application.OpenForms["FormDaftarTransaksi"];
+            if (form == null)
+            {
+                FormDaftarTransaksi formDaftarTransaksi = new FormDaftarTransaksi();
+                formDaftarTransaksi.MdiParent = this;
+                formDaftarTransaksi.Show();
+            }
+            else
+            {
+                form.Show();
+                form.BringToFront();
+            }
+        }
+
+        private void depositoToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.Form form = Application.OpenForms["FormMasterDeposito"];
+            if (form == null)
+            {
+                FormMasterDeposito formMasterDeposito = new FormMasterDeposito();
+                formMasterDeposito.MdiParent = this;
+                formMasterDeposito.Show();
             }
             else
             {

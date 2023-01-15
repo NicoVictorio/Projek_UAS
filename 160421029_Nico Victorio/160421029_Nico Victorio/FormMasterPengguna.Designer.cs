@@ -32,7 +32,6 @@ namespace _160421029_Nico_Victorio
             this.btn_Exit = new System.Windows.Forms.Button();
             this.btn_Add = new System.Windows.Forms.Button();
             this.dgvListPengguna = new System.Windows.Forms.DataGridView();
-            this.btn_Search = new System.Windows.Forms.Button();
             this.tb_Kriteria = new System.Windows.Forms.TextBox();
             this.cb_Kriteria = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -41,7 +40,7 @@ namespace _160421029_Nico_Victorio
             // 
             // btn_Exit
             // 
-            this.btn_Exit.Location = new System.Drawing.Point(684, 401);
+            this.btn_Exit.Location = new System.Drawing.Point(563, 401);
             this.btn_Exit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_Exit.Name = "btn_Exit";
             this.btn_Exit.Size = new System.Drawing.Size(93, 39);
@@ -69,19 +68,9 @@ namespace _160421029_Nico_Victorio
             this.dgvListPengguna.Name = "dgvListPengguna";
             this.dgvListPengguna.RowHeadersWidth = 51;
             this.dgvListPengguna.RowTemplate.Height = 24;
-            this.dgvListPengguna.Size = new System.Drawing.Size(715, 265);
+            this.dgvListPengguna.Size = new System.Drawing.Size(593, 265);
             this.dgvListPengguna.TabIndex = 36;
             this.dgvListPengguna.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListPengguna_CellContentClick);
-            // 
-            // btn_Search
-            // 
-            this.btn_Search.Location = new System.Drawing.Point(673, 37);
-            this.btn_Search.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_Search.Name = "btn_Search";
-            this.btn_Search.Size = new System.Drawing.Size(103, 42);
-            this.btn_Search.TabIndex = 35;
-            this.btn_Search.Text = "Search";
-            this.btn_Search.UseVisualStyleBackColor = true;
             // 
             // tb_Kriteria
             // 
@@ -127,11 +116,10 @@ namespace _160421029_Nico_Victorio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(844, 486);
+            this.ClientSize = new System.Drawing.Size(713, 486);
             this.Controls.Add(this.btn_Exit);
             this.Controls.Add(this.btn_Add);
             this.Controls.Add(this.dgvListPengguna);
-            this.Controls.Add(this.btn_Search);
             this.Controls.Add(this.tb_Kriteria);
             this.Controls.Add(this.cb_Kriteria);
             this.Controls.Add(this.label1);
@@ -149,7 +137,6 @@ namespace _160421029_Nico_Victorio
         private System.Windows.Forms.Button btn_Exit;
         private System.Windows.Forms.Button btn_Add;
         private System.Windows.Forms.DataGridView dgvListPengguna;
-        private System.Windows.Forms.Button btn_Search;
         private System.Windows.Forms.TextBox tb_Kriteria;
         private System.Windows.Forms.ComboBox cb_Kriteria;
         private System.Windows.Forms.Label label1;

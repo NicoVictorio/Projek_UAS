@@ -62,14 +62,21 @@ namespace _160421029_Nico_Victorio
             try
             {
                 Tabungan noRekeningSumber = Tabungan.tabunganByCode(textBoxRekeningAsal.Text);
-                JenisTransaksi jenisTransaksi = JenisTransaksi.jenisTransaksiByCode(1);
+                JenisTransaksi jenisTransaksiDebit = JenisTransaksi.jenisTransaksiByCode(1);
+                JenisTransaksi jenisTransaksiCredit = JenisTransaksi.jenisTransaksiByCode(2);
                 double nominal = double.Parse(textBoxNominal.Text);
                 string keterangan = textBoxKeterangan.Text;
-                string idTransaksi = Transaksi.GenerateNoTransaksi(jenisTransaksi.KodeTransaksi);
+
+                string idTransaksiDebit = Transaksi.GenerateNoTransaksi(jenisTransaksiDebit.KodeTransaksi);
+                string idTransaksiCredit = Transaksi.GenerateNoTransaksi(jenisTransaksiCredit.KodeTransaksi);
+
                 rekeningTujuan = Tabungan.tabunganByCode(textBoxRekeningTujuan.Text);
-                Transaksi trans = new Transaksi(noRekeningSumber, idTransaksi, DateTime.Now,
-                                                jenisTransaksi, rekeningTujuan, 
-                                                nominal, keterangan);
+                Transaksi transDebit = new Transaksi(noRekeningSumber, idTransaksiDebit, DateTime.Now,
+                                                     jenisTransaksiDebit, rekeningTujuan, 
+                                                     nominal, keterangan);
+                Transaksi transCredit = new Transaksi(noRekeningSumber, idTransaksiCredit, DateTime.Now,
+                                                      jenisTransaksiCredit, rekeningTujuan,
+                                                      nominal, keterangan);
 
                 FormPin formPin = new FormPin();
                 formPin.Owner = this;
@@ -78,7 +85,7 @@ namespace _160421029_Nico_Victorio
                 {
                     if(noRekeningSumber.Saldo - nominal >= 0)
                     {
-                        if (trans.TambahData(jenisTransaksi.KodeTransaksi))
+                        if (transDebit.TambahDataDebit() && transCredit.TambahDataCredit())
                         {
                             MessageBox.Show("Data Transaksi telah tersimpan", "Info");
                             List<AddressBook> listAddressbook = AddressBook.BacaDataPengguna("no_rekening", rekeningTujuan.NoRekening, penggunaAsal.Email);

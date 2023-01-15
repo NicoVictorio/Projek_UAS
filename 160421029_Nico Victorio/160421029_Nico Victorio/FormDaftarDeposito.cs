@@ -71,8 +71,7 @@ namespace _160421029_Nico_Victorio
             {
                 string kriteria = "";
                 string nilai = "";
-
-                if (cb_Kriteria.Text == "ID Deposito")
+                if (cb_Kriteria.Text == "Id Deposito")
                 {
                     kriteria = "id_deposito";
                 }
@@ -80,23 +79,19 @@ namespace _160421029_Nico_Victorio
                 {
                     kriteria = "no_rekening";
                 }
-                else if (cb_Kriteria.Text == "Jatuh Tempo")
+                else if (cb_Kriteria.Text == "Nominal")
                 {
                     kriteria = "nominal";
-                }
-                else if (cb_Kriteria.Text == "Bunga")
-                {
-                    kriteria = "bunga";
                 }
                 else if (cb_Kriteria.Text == "Status")
                 {
                     kriteria = "status";
                 }
-                else if (cb_Kriteria.Text == "Tanggal Buat")
+                else if (cb_Kriteria.Text == "Tanggal Awal")
                 {
                     kriteria = "tgl_buat";
                 }
-                else if (cb_Kriteria.Text == "Tanggal Perubahan")
+                else if (cb_Kriteria.Text == "Tanggal Cair")
                 {
                     kriteria = "tgl_perubahan";
                 }
@@ -107,6 +102,18 @@ namespace _160421029_Nico_Victorio
                 else if (cb_Kriteria.Text == "Verifikator Cair")
                 {
                     kriteria = "verifikator_cair";
+                }
+                else if (cb_Kriteria.Text == "Id Bunga")
+                {
+                    kriteria = "idBunga";
+                }
+                else if (cb_Kriteria.Text == "Aro")
+                {
+                    kriteria = "aro";
+                }
+                else if (cb_Kriteria.Text == "Keterangan")
+                {
+                    kriteria = "keterangan";
                 }
 
                 nilai = tb_Kriteria.Text;
@@ -151,7 +158,7 @@ namespace _160421029_Nico_Victorio
                                             verifikatorCair, idBunga, aro, keterangan);
                 if (dep != null)
                 {
-                    if (e.ColumnIndex == dgvListDeposito.Columns["btnCairGrid"].Index)
+                    if (e.ColumnIndex == dgvListDeposito.Columns["btnCairGrid"].Index && dep.Aro != true)
                     {
                         if (dep.Status == "Aktif")
                         {
@@ -178,10 +185,18 @@ namespace _160421029_Nico_Victorio
                             throw new Exception("Deposito anda sudah cair.");
                         }
                     }
-                    else if(e.ColumnIndex == dgvListDeposito.Columns["btnUpdateGrid"].Index)
+                    else if(e.ColumnIndex == dgvListDeposito.Columns["btnUpdateGrid"].Index && dep.Aro == true)
                     {
                         dep.UbahStatusAro(aro);
                         FormDaftarDeposito_Load(sender, e);
+                    }
+                    else if (e.ColumnIndex == dgvListDeposito.Columns["btnCairGrid"].Index && dep.Aro == true)
+                    {
+                        throw new Exception("Anda tidak bisa mencairkan deposito bertipe aro.");
+                    }
+                    else if (e.ColumnIndex == dgvListDeposito.Columns["btnUpdateGrid"].Index && dep.Aro != true)
+                    {
+                        throw new Exception("Anda tidak bisa mengubah deposito menjadi aro.");
                     }
                 }
             }

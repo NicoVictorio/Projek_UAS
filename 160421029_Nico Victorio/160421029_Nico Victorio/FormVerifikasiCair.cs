@@ -84,14 +84,25 @@ namespace _160421029_Nico_Victorio
                             {
                                 Inbox inboxBunga = new Inbox(0, tabPengguna.Pengguna, "Bunga deposito sebesar " + bunga.ToString("C2"), DateTime.Now, "", DateTime.Now);
                                 inboxBunga.TambahData();
+
+                                JenisTransaksi jenisTransaksiBunga = JenisTransaksi.jenisTransaksiByCode(4);
+                                string idTransaksiBunga = Transaksi.GenerateNoTransaksi(jenisTransaksiBunga.KodeTransaksi);
+                                Transaksi transBunga = new Transaksi(tabPengguna, idTransaksiBunga, DateTime.Now,
+                                                                     jenisTransaksiBunga, tabPengguna, bunga,
+                                                                     "Bunga deposito sebesar " + bunga.ToString("C2"));
+                                transBunga.TambahDataCredit();
                             }
                             else
                             {
-                                Inbox inboxBunga = new Inbox(0, tabPengguna.Pengguna, "Bunga deposito sebesar " + bunga.ToString("C2"), DateTime.Now, "", DateTime.Now);
-                                inboxBunga.TambahData();
-
                                 Inbox inboxDenda = new Inbox(0, tabPengguna.Pengguna, "Denda deposito sebesar " + denda.ToString("C2"), DateTime.Now, "", DateTime.Now);
                                 inboxDenda.TambahData();
+
+                                JenisTransaksi jenisTransaksiDenda = JenisTransaksi.jenisTransaksiByCode(3);
+                                string idTransaksiDenda = Transaksi.GenerateNoTransaksi(jenisTransaksiDenda.KodeTransaksi);
+                                Transaksi transDenda = new Transaksi(tabPengguna, idTransaksiDenda, DateTime.Now,
+                                                                     jenisTransaksiDenda, tabPengguna, denda,
+                                                                     "Denda deposito sebesar " + denda.ToString("C2"));
+                                transDenda.TambahDataDebit();
                             }
                             MessageBox.Show("Deposito telah dicairkan.");
                             FormVerifikasiCair_Load(sender, e);

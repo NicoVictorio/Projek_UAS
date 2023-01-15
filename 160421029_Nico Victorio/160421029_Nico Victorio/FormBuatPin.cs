@@ -30,11 +30,20 @@ namespace _160421029_Nico_Victorio
 
         private void buttonOk_Click(object sender, EventArgs e)
         {
-            if (textBoxPin.Text != textBoxUlangiPin.Text)
+            bool pin = int.TryParse(textBoxPin.Text, out _);
+            if (textBoxPin.Text.Length != 6)
+            {
+                MessageBox.Show("Pin harus 6 digit");
+            }
+            else if (textBoxPin.Text != textBoxUlangiPin.Text)
             {
                 MessageBox.Show("Cek kembali pin anda");
             }
-            else
+            else if (pin != true)
+            {
+                MessageBox.Show("Pin hanya boleh angka");
+            }
+            else if(pin == true)
             {
                 if (pengguna.TambahPin(textBoxPin.Text))
                 {

@@ -34,8 +34,19 @@ namespace _160421029_Nico_Victorio
         {
             try
             {
+                if (int.Parse(textBoxNominal.Text) < 10000)
+                {
+                    throw new Exception("Top Up minimal 10.000");
+                }
                 int nominal = int.Parse(textBoxNominal.Text);
-                Tabungan.TambahSaldo(tabungan.NoRekening, nominal);
+
+                JenisTransaksi jenisTransaksiCredit = JenisTransaksi.jenisTransaksiByCode(2);
+                string idTransaksiCredit = Transaksi.GenerateNoTransaksi(jenisTransaksiCredit.KodeTransaksi);
+                Transaksi transCredit = new Transaksi(tabungan, idTransaksiCredit, DateTime.Now,
+                                                      jenisTransaksiCredit, tabungan, nominal, 
+                                                      "Top Up sebesar " + nominal.ToString("C2"));
+                transCredit.TambahDataCredit();
+
                 MessageBox.Show("Saldo telah berhasil ditambahkan");
                 formMenu.tabPengguna = tabungan;
                 this.Close();
@@ -49,6 +60,15 @@ namespace _160421029_Nico_Victorio
         private void buttonCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void textBoxNominal_Leave(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(textBoxNominal.Text) ||
+                !string.IsNullOrWhiteSpace(textBoxNominal.Text))
+            {
+                textBoxNominal.Text = string.Format("{0:C}", decimal.Parse(textBoxNominal.Text));
+            }
         }
     }
 }

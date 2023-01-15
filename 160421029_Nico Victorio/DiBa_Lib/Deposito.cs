@@ -217,6 +217,7 @@ namespace DiBa_Lib
 
         public bool TambahData()
         {
+            Tabungan tabPengguna = Tabungan.tabunganByCode(this.Tabungan.NoRekening);
             using (TransactionScope transcope = new TransactionScope())
             {
                 try
@@ -235,12 +236,12 @@ namespace DiBa_Lib
                                                this.Keterangan + "');";
 
                     Tabungan.KurangSaldo(this.Tabungan.NoRekening, (int)this.Nominal, k);
+                    Inbox inboxKurangSaldo = new Inbox(0, tabPengguna.Pengguna, "Saldo berkurang sebesar " + nominal.ToString("C2"), DateTime.Now, "", DateTime.Now);
+                    inboxKurangSaldo.TambahData(k);
 
-                    Tabungan tabPengguna = Tabungan.tabunganByCode(this.Tabungan.NoRekening, k);
                     Tabungan.UpdatePoin(this.Tabungan.NoRekening, nominal, k);
-
-                    Inbox inbox = new Inbox(0, tabPengguna.Pengguna, "Poin bertambah sebesar " + (nominal * 10 / 100).ToString("C2"), DateTime.Now, "", DateTime.Now);
-                    inbox.TambahData(k);
+                    Inbox inboxUpdatePoin = new Inbox(0, tabPengguna.Pengguna, "Poin bertambah sebesar " + (nominal * 10 / 100).ToString("C2"), DateTime.Now, "", DateTime.Now);
+                    inboxUpdatePoin.TambahData(k);
 
                     bool result = Koneksi.executeDML(sql, k);
                     transcope.Complete();
@@ -274,6 +275,10 @@ namespace DiBa_Lib
 
         public bool UbahStatusCompleted(string emailEmployee, double denda, double bunga)
         {
+            Tabungan tabPengguna = Tabungan.tabunganByCode(this.Tabungan.NoRekening);
+            JenisTransaksi jenisTransaksiPengembalian = JenisTransaksi.jenisTransaksiByCode(2);
+            string idTransaksiPengembalian = Transaksi.GenerateNoTransaksi(jenisTransaksiPengembalian.KodeTransaksi);
+
             using (TransactionScope transcope = new TransactionScope())
             {
                 try
@@ -282,7 +287,6 @@ namespace DiBa_Lib
                     string sql = "UPDATE deposito SET status = 'Completed', verifikator_cair = '" + emailEmployee +
                      "' where id_deposito = '" + this.IdDeposito + "';";
                     bool result = Koneksi.executeDML(sql, k);
-                    Tabungan tabPengguna = Tabungan.tabunganByCode(this.Tabungan.NoRekening,k);
                     if (bunga != 0)
                     {
                         Tabungan.TambahSaldo(tabPengguna.NoRekening, (int)(this.Nominal + bunga));
@@ -294,6 +298,12 @@ namespace DiBa_Lib
                     }
                     Inbox inboxPengembalian = new Inbox(0, tabPengguna.Pengguna, "Nominal deposito awal sebesar " + nominal.ToString("C2"), DateTime.Now, "", DateTime.Now);
                     inboxPengembalian.TambahData(k);
+
+                    Transaksi transPengembalian = new Transaksi(tabPengguna, idTransaksiPengembalian, DateTime.Now,
+                                                                jenisTransaksiPengembalian, tabPengguna, this.Nominal,
+                                                                "Pengembalian dana sebesar " + this.Nominal.ToString("C2"));
+                    transPengembalian.TambahDataCredit();
+
                     transcope.Complete();
                     return result;
                 }
@@ -307,17 +317,8 @@ namespace DiBa_Lib
 
         public bool UbahStatusAro(bool aro)
         {
-            string sql = "";
-            if (aro == true)
-            {
-                sql = "UPDATE deposito SET aro = " + false + 
-                      " where id_deposito = '" + this.IdDeposito + "';";
-            }
-            else if(aro == false)
-            {
-                sql = "UPDATE deposito SET aro = " + true +
-                      " where id_deposito = '" + this.IdDeposito + "';";
-            }
+            string sql = "UPDATE deposito SET aro = " + false + ", keterangan = '' " + 
+                         " where id_deposito = '" + this.IdDeposito + "';";
             bool result = Koneksi.executeDML(sql);
             return result;
         }
