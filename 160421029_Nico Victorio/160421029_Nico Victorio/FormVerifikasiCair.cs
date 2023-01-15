@@ -79,6 +79,20 @@ namespace _160421029_Nico_Victorio
                         }
                         if (dep.UbahStatusCompleted(emp.Email, denda, bunga))
                         {
+                            Tabungan tabPengguna = Tabungan.tabunganByCode(noRek.NoRekening);
+                            if (denda == 0)
+                            {
+                                Inbox inboxBunga = new Inbox(0, tabPengguna.Pengguna, "Bunga deposito sebesar " + bunga.ToString("C2"), DateTime.Now, "", DateTime.Now);
+                                inboxBunga.TambahData();
+                            }
+                            else
+                            {
+                                Inbox inboxBunga = new Inbox(0, tabPengguna.Pengguna, "Bunga deposito sebesar " + bunga.ToString("C2"), DateTime.Now, "", DateTime.Now);
+                                inboxBunga.TambahData();
+
+                                Inbox inboxDenda = new Inbox(0, tabPengguna.Pengguna, "Denda deposito sebesar " + denda.ToString("C2"), DateTime.Now, "", DateTime.Now);
+                                inboxDenda.TambahData();
+                            }
                             MessageBox.Show("Deposito telah dicairkan.");
                             FormVerifikasiCair_Load(sender, e);
                         }

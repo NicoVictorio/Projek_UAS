@@ -169,36 +169,14 @@ namespace DiBa_Lib
         {
             string sql = "UPDATE tabungan SET saldo = saldo - " + nominal +
                          " WHERE no_rekening = '" + nomorRekening + "';";
-            bool result = Koneksi.executeDML(sql);
+            Koneksi.executeDML(sql);
         }
 
-        public static void UpdateSaldoTransaksi(string jenisTransaksi, string nomorRekening, double nominal, Koneksi k)
+        public static void KurangSaldo(string nomorRekening, int nominal, Koneksi k)
         {
-            using (TransactionScope transcope = new TransactionScope())
-            {
-                try
-                {
-                    string sql = "";
-                    if (jenisTransaksi == "pengeluaran")
-                    {
-                        sql = "UPDATE tabungan SET saldo = saldo - " + nominal +
-                                     " WHERE no_rekening = '" + nomorRekening + "';";
-                        UpdatePoin(nomorRekening, nominal, k);
-                    }
-                    else
-                    {
-                        sql = "UPDATE tabungan SET saldo = saldo + " + nominal +
-                                     " WHERE no_rekening = '" + nomorRekening + "';";
-                    }
-                    Koneksi.executeDML(sql, k);
-                    transcope.Complete();
-                }
-                catch (Exception ex)
-                {
-                    transcope.Dispose();
-                    throw new Exception(ex.Message);
-                }
-            }
+            string sql = "UPDATE tabungan SET saldo = saldo - " + nominal +
+                         " WHERE no_rekening = '" + nomorRekening + "';";
+            Koneksi.executeDML(sql, k);
         }
 
         public static void UpdatePoin(string nomorRekening, double nominal, Koneksi k)
@@ -221,6 +199,38 @@ namespace DiBa_Lib
                          "IFNULL(keterangan,'') as keterangan, tgl_buat, tgl_perubahan, " +
                          "verifikator FROM tabungan WHERE no_rekening = '" + noRek + "'";
             MySqlDataReader hasil = Koneksi.ambilData(sql);
+            if (hasil.Read() == true)
+            {
+                Tabungan tab = new Tabungan();
+                tab.NoRekening = hasil.GetString(0);
+                tab.Saldo = hasil.GetDouble(2);
+                tab.Poin = hasil.GetDouble(3);
+                tab.Status = hasil.GetString(4);
+                tab.Keterangan = hasil.GetString(5);
+                tab.Tgl_buat = DateTime.Parse(hasil.GetString(6));
+                tab.Tgl_perubahan = DateTime.Parse(hasil.GetString(7));
+
+                Pengguna tmpPengguna = new Pengguna();
+                tmpPengguna.Email = hasil.GetString(1);
+                tab.Pengguna = tmpPengguna;
+
+                Employee tmpEmployee = new Employee();
+                tmpEmployee.Email = hasil.GetString(8);
+                tab.Employee = tmpEmployee;
+                return tab;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public static Tabungan tabunganByCode(string noRek, Koneksi k)
+        {
+            string sql = "SELECT no_rekening, pengguna_email, saldo, poin, status, " +
+                         "IFNULL(keterangan,'') as keterangan, tgl_buat, tgl_perubahan, " +
+                         "verifikator FROM tabungan WHERE no_rekening = '" + noRek + "'";
+            MySqlDataReader hasil = Koneksi.ambilData(sql, k);
             if (hasil.Read() == true)
             {
                 Tabungan tab = new Tabungan();

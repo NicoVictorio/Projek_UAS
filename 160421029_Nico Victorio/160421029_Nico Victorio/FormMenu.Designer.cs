@@ -43,6 +43,8 @@ namespace _160421029_Nico_Victorio
             this.akunToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.profileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.topUpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tabunganToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mutasiRekeningToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.inboxToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ubahPasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,7 +57,6 @@ namespace _160421029_Nico_Victorio
             this.verifikasiTabunganToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.verifikasiDepositoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.verifikasiCairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tabunganToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -90,35 +91,35 @@ namespace _160421029_Nico_Victorio
             // penggunaToolStripMenuItem
             // 
             this.penggunaToolStripMenuItem.Name = "penggunaToolStripMenuItem";
-            this.penggunaToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.penggunaToolStripMenuItem.Size = new System.Drawing.Size(186, 26);
             this.penggunaToolStripMenuItem.Text = "Pengguna";
             this.penggunaToolStripMenuItem.Click += new System.EventHandler(this.penggunaToolStripMenuItem_Click);
             // 
             // employeeToolStripMenuItem
             // 
             this.employeeToolStripMenuItem.Name = "employeeToolStripMenuItem";
-            this.employeeToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.employeeToolStripMenuItem.Size = new System.Drawing.Size(186, 26);
             this.employeeToolStripMenuItem.Text = "Employee";
             this.employeeToolStripMenuItem.Click += new System.EventHandler(this.employeeToolStripMenuItem_Click);
             // 
             // positionToolStripMenuItem
             // 
             this.positionToolStripMenuItem.Name = "positionToolStripMenuItem";
-            this.positionToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.positionToolStripMenuItem.Size = new System.Drawing.Size(186, 26);
             this.positionToolStripMenuItem.Text = "Position";
             this.positionToolStripMenuItem.Click += new System.EventHandler(this.positionToolStripMenuItem_Click);
             // 
             // jenisTransaksiToolStripMenuItem
             // 
             this.jenisTransaksiToolStripMenuItem.Name = "jenisTransaksiToolStripMenuItem";
-            this.jenisTransaksiToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.jenisTransaksiToolStripMenuItem.Size = new System.Drawing.Size(186, 26);
             this.jenisTransaksiToolStripMenuItem.Text = "Jenis Transaksi";
             this.jenisTransaksiToolStripMenuItem.Click += new System.EventHandler(this.jenisTransaksiToolStripMenuItem_Click);
             // 
             // tabunganToolStripMenuItem1
             // 
             this.tabunganToolStripMenuItem1.Name = "tabunganToolStripMenuItem1";
-            this.tabunganToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
+            this.tabunganToolStripMenuItem1.Size = new System.Drawing.Size(186, 26);
             this.tabunganToolStripMenuItem1.Text = "Tabungan";
             this.tabunganToolStripMenuItem1.Click += new System.EventHandler(this.tabunganToolStripMenuItem1_Click);
             // 
@@ -159,6 +160,7 @@ namespace _160421029_Nico_Victorio
             this.profileToolStripMenuItem,
             this.topUpToolStripMenuItem,
             this.tabunganToolStripMenuItem,
+            this.mutasiRekeningToolStripMenuItem,
             this.inboxToolStripMenuItem,
             this.settingToolStripMenuItem,
             this.signOutToolStripMenuItem1});
@@ -179,6 +181,20 @@ namespace _160421029_Nico_Victorio
             this.topUpToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.topUpToolStripMenuItem.Text = "Top Up";
             this.topUpToolStripMenuItem.Click += new System.EventHandler(this.topUpToolStripMenuItem_Click);
+            // 
+            // tabunganToolStripMenuItem
+            // 
+            this.tabunganToolStripMenuItem.Name = "tabunganToolStripMenuItem";
+            this.tabunganToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.tabunganToolStripMenuItem.Text = "Tabungan";
+            this.tabunganToolStripMenuItem.Click += new System.EventHandler(this.tabunganToolStripMenuItem_Click);
+            // 
+            // mutasiRekeningToolStripMenuItem
+            // 
+            this.mutasiRekeningToolStripMenuItem.Name = "mutasiRekeningToolStripMenuItem";
+            this.mutasiRekeningToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.mutasiRekeningToolStripMenuItem.Text = "Mutasi Rekening";
+            this.mutasiRekeningToolStripMenuItem.Click += new System.EventHandler(this.mutasiRekeningToolStripMenuItem_Click);
             // 
             // inboxToolStripMenuItem
             // 
@@ -271,13 +287,6 @@ namespace _160421029_Nico_Victorio
             this.verifikasiCairToolStripMenuItem.Text = "Verifikasi Cair";
             this.verifikasiCairToolStripMenuItem.Click += new System.EventHandler(this.verifikasiCairToolStripMenuItem_Click);
             // 
-            // tabunganToolStripMenuItem
-            // 
-            this.tabunganToolStripMenuItem.Name = "tabunganToolStripMenuItem";
-            this.tabunganToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.tabunganToolStripMenuItem.Text = "Tabungan";
-            this.tabunganToolStripMenuItem.Click += new System.EventHandler(this.tabunganToolStripMenuItem_Click);
-            // 
             // FormMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -325,6 +334,7 @@ namespace _160421029_Nico_Victorio
         private System.Windows.Forms.ToolStripMenuItem verifikasiCairToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem profileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tabunganToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mutasiRekeningToolStripMenuItem;
     }
 }
 

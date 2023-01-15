@@ -136,38 +136,38 @@ namespace DiBa_Lib
                 try
                 {
                     Koneksi k = new Koneksi();
-                    string statusTransaksiAsal = "";
-                    string statusTransaksiTujuan = "";
-                    if (jenis == "DBT")
-                    {
-                        statusTransaksiAsal = "pengeluaran";
-                        statusTransaksiTujuan = "pemasukan";
-                    }
-                    else if (jenis == "CRD")
-                    {
-                        statusTransaksiAsal = "pemasukan";
-                        statusTransaksiTujuan = "pengeluaran";
-                    }
-
                     string sql = "INSERT INTO transaksi (rekening_sumber,idtransaksi, tgl_transaksi, " +
                              "id_jenisTransaksi, rekening_tujuan, nominal, keterangan) " +
-                             "VALUES ('" + this.NoRekeningSumber.NoRekening + "', '" + 
+                             "VALUES ('" + this.NoRekeningSumber.NoRekening + "', '" +
                                            this.IdTransaksi + "', '" +
                                            this.TglTransaksi.ToString("yyyy-MM-dd HH-mm-ss") + "', " +
                                            this.IdJenisTransaksi.IdJenisTransaksi + ", '" +
                                            this.NoRekeningTujuan.NoRekening + "', " +
                                            this.Nominal + ", '" +
                                            this.Keterangan + "');";
-                    bool result = Koneksi.executeDML(sql,k);
-                    Tabungan.UpdateSaldoTransaksi(statusTransaksiAsal, noRekeningSumber.NoRekening, this.Nominal,k);
-                    Tabungan.UpdateSaldoTransaksi(statusTransaksiTujuan, noRekeningTujuan.NoRekening, this.Nominal,k);
+                    bool result = Koneksi.executeDML(sql, k);
 
-                    Inbox inbox = new Inbox(0, NoRekeningSumber.Pengguna, statusTransaksiAsal, DateTime.Now, "", DateTime.Now);
-                    inbox.TambahData(k);
+                    if (jenis == "DBT")
+                    {
+                        Tabungan.KurangSaldo(noRekeningSumber.NoRekening, (int)this.Nominal, k);
+                        Tabungan.TambahSaldo(noRekeningTujuan.NoRekening, (int)this.Nominal);
 
-                    Inbox inboxTujuan = new Inbox(0, NoRekeningTujuan.Pengguna, statusTransaksiTujuan, DateTime.Now, "", DateTime.Now);
-                    inboxTujuan.TambahData(k);
+                        Inbox inbox = new Inbox(0, NoRekeningSumber.Pengguna, "Pengeluaran sebesar" + nominal.ToString("C2"), DateTime.Now, "", DateTime.Now);
+                        inbox.TambahData(k);
 
+                        Inbox inboxTujuan = new Inbox(0, NoRekeningTujuan.Pengguna, "Pemasukan sebesar" + nominal.ToString("C2"), DateTime.Now, "", DateTime.Now);
+                        inboxTujuan.TambahData(k);
+                    }
+                    else if (jenis == "CRD")
+                    {
+                        Tabungan.TambahSaldo(noRekeningSumber.NoRekening, (int)this.Nominal);
+                        Tabungan.KurangSaldo(noRekeningTujuan.NoRekening, (int)this.Nominal, k);
+                        Inbox inbox = new Inbox(0, NoRekeningSumber.Pengguna, "Pemasukan sebesar" + nominal.ToString("C2"), DateTime.Now, "", DateTime.Now);
+                        inbox.TambahData(k);
+
+                        Inbox inboxTujuan = new Inbox(0, NoRekeningTujuan.Pengguna, "Pengeluaran sebesar" + nominal.ToString("C2"), DateTime.Now, "", DateTime.Now);
+                        inboxTujuan.TambahData(k);
+                    }
                     transcope.Complete();
                     return result;
                 }

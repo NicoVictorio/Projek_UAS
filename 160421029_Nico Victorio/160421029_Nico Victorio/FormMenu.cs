@@ -100,6 +100,9 @@ namespace _160421029_Nico_Victorio
                             }
                             Tabungan.KurangSaldo(tabPengguna.NoRekening, biaya);
 
+                            Inbox inboxBiayaAdmin = new Inbox(0, tmpPengguna, "Biaya Administrasi sebesar " + biaya, DateTime.Now, "", DateTime.Now);
+                            inboxBiayaAdmin.TambahData();
+
                             if (bedaBulan % 12 == 0)
                             {
                                 //dapatkan bunga 3.6%
@@ -114,11 +117,15 @@ namespace _160421029_Nico_Victorio
 
                                 //menambahkan saldo dari bunga
                                 Tabungan.TambahSaldo(tabPengguna.NoRekening, nominal);
+                                Inbox inboxBunga = new Inbox(0, tmpPengguna, "Anda mendapatkan bunga rekening sebesar " + nominal, DateTime.Now, "", DateTime.Now);
+                                inboxBunga.TambahData();
 
                                 //kalau ada pajak, maka mengurangi saldo dari pajak
                                 if (pajak != 0)
                                 {
                                     Tabungan.KurangSaldo(tabPengguna.NoRekening, pajak);
+                                    Inbox inboxPajak = new Inbox(0, tmpPengguna, "Anda dikenakan pajak sebesar " + pajak, DateTime.Now, "", DateTime.Now);
+                                    inboxPajak.TambahData();
                                 }
 
                                 MessageBox.Show("Anda mendapatkan bunga rekening sebesar " + nominal.ToString("C2") +
@@ -159,6 +166,11 @@ namespace _160421029_Nico_Victorio
 
                                 //memanggil method TambahBunga
                                 Deposito.TambahBunga(tmpListDeposito[i].Keterangan, bunga, tabPengguna.NoRekening, tmpListDeposito[i].IdDeposito);
+                                if (tmpListDeposito[i].Keterangan == "Bunga masuk ke rekening tabungan.")
+                                {
+                                    Inbox inboxBunga = new Inbox(0, tmpPengguna, "Anda mendapatkan bunga deposito sebesar " + bunga, DateTime.Now, "", DateTime.Now);
+                                    inboxBunga.TambahData();
+                                }
 
                                 //mendeclare tanggal awal dan tanggal cair untuk deposito selanjutnya secara otomatis
                                 DateTime tanggalAwal = tmpListDeposito[i].TglCair;
@@ -332,6 +344,7 @@ namespace _160421029_Nico_Victorio
                     settingToolStripMenuItem.Visible = false;
                     profileToolStripMenuItem.Visible = false;
                     inboxToolStripMenuItem.Visible = false;
+                    mutasiRekeningToolStripMenuItem.Visible = false;
 
                     fiturToolStripMenuItem.Visible = false;
                     verifyToolStripMenuItem.Visible = true;
@@ -347,6 +360,7 @@ namespace _160421029_Nico_Victorio
                     settingToolStripMenuItem.Visible = false;
                     profileToolStripMenuItem.Visible = false;
                     inboxToolStripMenuItem.Visible = false;
+                    mutasiRekeningToolStripMenuItem.Visible = false;
 
                     fiturToolStripMenuItem.Visible = false;
                     verifyToolStripMenuItem.Visible = true;
@@ -363,6 +377,7 @@ namespace _160421029_Nico_Victorio
                 settingToolStripMenuItem.Visible = true;
                 profileToolStripMenuItem.Visible = true;
                 inboxToolStripMenuItem.Visible = true;
+                mutasiRekeningToolStripMenuItem.Visible = true;
 
                 fiturToolStripMenuItem.Visible = true;
                 verifyToolStripMenuItem.Visible = false;
@@ -382,6 +397,7 @@ namespace _160421029_Nico_Victorio
             tabunganToolStripMenuItem.Visible = false;
             settingToolStripMenuItem.Visible = false;
             inboxToolStripMenuItem.Visible = false;
+            mutasiRekeningToolStripMenuItem.Visible = false;
         }
 
         private void ubahPasswordToolStripMenuItem_Click(object sender, EventArgs e)
@@ -612,6 +628,24 @@ namespace _160421029_Nico_Victorio
                 formTabunganPengguna.MdiParent = this;
                 formTabunganPengguna.penggunaAsal = tmpPengguna;
                 formTabunganPengguna.Show();
+            }
+            else
+            {
+                form.Show();
+                form.BringToFront();
+            }
+        }
+
+        private void mutasiRekeningToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.Form form = Application.OpenForms["FormMutasiRekening"];
+            if (form == null)
+            {
+                FormMutasiRekening formMutasiRekening = new FormMutasiRekening();
+                formMutasiRekening.MdiParent = this;
+                formMutasiRekening.penggunaAsal = tmpPengguna;
+                formMutasiRekening.tabunganAsal = tabPengguna;
+                formMutasiRekening.Show();
             }
             else
             {

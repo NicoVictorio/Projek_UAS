@@ -123,7 +123,7 @@ namespace DiBa_Lib
 
         public bool TambahData()
         {
-            string sql = "INSERT INTO inbox(pengguna_email, pesan, tanggal_kirim,status, tgl_perubahan)" +
+            string sql = "INSERT INTO inbox(pengguna_email, pesan, tanggal_kirim, status, tgl_perubahan)" +
                 " VALUES ('"+ this.Pengguna.Email + "', '"+ this.Pesan + "', '" +
                 this.TglKirim.ToString("yyyy-MM-dd") + "', '" + this.Status + "', '"+ 
                 this.TglPerubahan.ToString("yyyy-MM-dd")+ "');";
@@ -133,11 +133,11 @@ namespace DiBa_Lib
 
         public bool TambahData(Koneksi k)
         {
-            string sql = "INSERT INTO inbox(pengguna_email, pesan, tanggal_kirim,status, tgl_perubahan)" +
+            string sql = "INSERT INTO inbox(pengguna_email, pesan, tanggal_kirim, status, tgl_perubahan)" +
                 " VALUES ('" + this.Pengguna.Email + "', '" + this.Pesan + "', '" +
                 this.TglKirim.ToString("yyyy-MM-dd") + "', '" + this.Status + "', '" +
                 this.TglPerubahan.ToString("yyyy-MM-dd") + "');";
-            bool result = Koneksi.executeDML(sql,k);
+            bool result = Koneksi.executeDML(sql, k);
             return result;
         }
 

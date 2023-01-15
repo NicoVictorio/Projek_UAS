@@ -233,7 +233,15 @@ namespace DiBa_Lib
                                                this.TglCair.ToString("yyyy-MM-dd HH-mm-ss") + "', " + 
                                                this.Bunga.IdBunga + ", " + this.Aro + ", '" + 
                                                this.Keterangan + "');";
-                    Tabungan.UpdateSaldoTransaksi("pengeluaran", this.Tabungan.NoRekening, this.Nominal, k);
+
+                    Tabungan.KurangSaldo(this.Tabungan.NoRekening, (int)this.Nominal, k);
+
+                    Tabungan tabPengguna = Tabungan.tabunganByCode(this.Tabungan.NoRekening, k);
+                    Tabungan.UpdatePoin(this.Tabungan.NoRekening, nominal, k);
+
+                    Inbox inbox = new Inbox(0, tabPengguna.Pengguna, "Poin bertambah sebesar " + (nominal * 10 / 100).ToString("C2"), DateTime.Now, "", DateTime.Now);
+                    inbox.TambahData(k);
+
                     bool result = Koneksi.executeDML(sql, k);
                     transcope.Complete();
                     return result;
@@ -274,15 +282,18 @@ namespace DiBa_Lib
                     string sql = "UPDATE deposito SET status = 'Completed', verifikator_cair = '" + emailEmployee +
                      "' where id_deposito = '" + this.IdDeposito + "';";
                     bool result = Koneksi.executeDML(sql, k);
+                    Tabungan tabPengguna = Tabungan.tabunganByCode(this.Tabungan.NoRekening,k);
                     if (bunga != 0)
                     {
-                        Tabungan.UpdateSaldoTransaksi("pemasukan", this.Tabungan.NoRekening, this.Nominal + bunga, k);
+                        Tabungan.TambahSaldo(tabPengguna.NoRekening, (int)(this.Nominal + bunga));
                     }
                     else if (denda != 0)
                     {
-                        Tabungan.UpdateSaldoTransaksi("pemasukan", this.Tabungan.NoRekening, this.Nominal, k);
-                        Tabungan.UpdateSaldoTransaksi("pengeluaran", this.Tabungan.NoRekening, denda, k);
+                        Tabungan.TambahSaldo(tabPengguna.NoRekening, (int)this.Nominal);
+                        Tabungan.KurangSaldo(tabPengguna.NoRekening, (int)denda, k);
                     }
+                    Inbox inboxPengembalian = new Inbox(0, tabPengguna.Pengguna, "Nominal deposito awal sebesar " + nominal.ToString("C2"), DateTime.Now, "", DateTime.Now);
+                    inboxPengembalian.TambahData(k);
                     transcope.Complete();
                     return result;
                 }

@@ -72,6 +72,12 @@
     <Compile Include="FormDaftarDeposito.Designer.cs">
       <DependentUpon>FormDaftarDeposito.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormDaftarMutasi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDaftarMutasi.Designer.cs">
+      <DependentUpon>FormDaftarMutasi.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormDaftarRekeningTujuan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,6 +107,12 @@
     </Compile>
     <Compile Include="FormMasterBunga.Designer.cs">
       <DependentUpon>FormMasterBunga.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMutasiRekening.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMutasiRekening.Designer.cs">
+      <DependentUpon>FormMutasiRekening.cs</DependentUpon>
     </Compile>
     <Compile Include="FormPengajuanDeposito.cs">
       <SubType>Form</SubType>
@@ -293,6 +305,9 @@
     <EmbeddedResource Include="FormDaftarDeposito.resx">
       <DependentUpon>FormDaftarDeposito.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormDaftarMutasi.resx">
+      <DependentUpon>FormDaftarMutasi.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormDaftarRekeningTujuan.resx">
       <DependentUpon>FormDaftarRekeningTujuan.cs</DependentUpon>
     </EmbeddedResource>
@@ -307,6 +322,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormMasterBunga.resx">
       <DependentUpon>FormMasterBunga.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMutasiRekening.resx">
+      <DependentUpon>FormMutasiRekening.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormPengajuanDeposito.resx">
       <DependentUpon>FormPengajuanDeposito.cs</DependentUpon>

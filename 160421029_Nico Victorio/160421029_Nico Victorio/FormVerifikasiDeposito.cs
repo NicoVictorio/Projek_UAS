@@ -68,6 +68,10 @@ namespace _160421029_Nico_Victorio
                         Deposito dep = new Deposito(idDeposito, noRek, nominal, status, tglAwal, tglCair, verifikatorBuka, verifikatorCair, idBunga, aro, keterangan);
                         if (dep.UbahStatusAktif(emp.Email))
                         {
+                            Tabungan tabPengguna = Tabungan.tabunganByCode(noRek.NoRekening);
+                            Inbox inboxPengeluaran = new Inbox(0, tabPengguna.Pengguna, "Pengajuan deposito sebesar " + nominal.ToString("C2") + " selama " + idBunga.JatuhTempo, DateTime.Now, "", DateTime.Now);
+                            inboxPengeluaran.TambahData();
+
                             MessageBox.Show("Deposito telah terverifikasi.");
                             FormVerifikasiDeposito_Load(sender, e);
                         }

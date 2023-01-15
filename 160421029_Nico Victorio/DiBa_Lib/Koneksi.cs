@@ -74,6 +74,14 @@ namespace DiBa_Lib
             return result1;
         }
 
+        public static MySqlDataReader ambilData(string sql, Koneksi k)
+        {
+            MySqlDataReader result1 = null;
+            MySqlCommand comm = new MySqlCommand(sql, k.connection);
+            result1 = comm.ExecuteReader();
+            return result1;
+        }
+
         public static bool executeDML(string sql)
         {
             Koneksi conn = new Koneksi();
