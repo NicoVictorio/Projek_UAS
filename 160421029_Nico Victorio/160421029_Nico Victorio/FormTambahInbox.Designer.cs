@@ -29,7 +29,6 @@ namespace _160421029_Nico_Victorio
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormTambahInbox));
             this.label1 = new System.Windows.Forms.Label();
             this.comboBoxIdPengguna = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -49,7 +48,7 @@ namespace _160421029_Nico_Victorio
             // 
             // comboBoxIdPengguna
             // 
-            this.comboBoxIdPengguna.BackColor = System.Drawing.Color.Bisque;
+            this.comboBoxIdPengguna.BackColor = System.Drawing.SystemColors.Window;
             this.comboBoxIdPengguna.FormattingEnabled = true;
             this.comboBoxIdPengguna.Location = new System.Drawing.Point(133, 27);
             this.comboBoxIdPengguna.Name = "comboBoxIdPengguna";
@@ -67,7 +66,7 @@ namespace _160421029_Nico_Victorio
             // 
             // textBoxPesan
             // 
-            this.textBoxPesan.BackColor = System.Drawing.Color.Bisque;
+            this.textBoxPesan.BackColor = System.Drawing.SystemColors.Window;
             this.textBoxPesan.Location = new System.Drawing.Point(133, 61);
             this.textBoxPesan.Multiline = true;
             this.textBoxPesan.Name = "textBoxPesan";
@@ -77,7 +76,7 @@ namespace _160421029_Nico_Victorio
             // 
             // btn_Exit
             // 
-            this.btn_Exit.BackColor = System.Drawing.Color.Bisque;
+            this.btn_Exit.BackColor = System.Drawing.SystemColors.Control;
             this.btn_Exit.Location = new System.Drawing.Point(357, 173);
             this.btn_Exit.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Exit.Name = "btn_Exit";
@@ -89,7 +88,7 @@ namespace _160421029_Nico_Victorio
             // 
             // btn_Add
             // 
-            this.btn_Add.BackColor = System.Drawing.Color.Bisque;
+            this.btn_Add.BackColor = System.Drawing.SystemColors.Control;
             this.btn_Add.Location = new System.Drawing.Point(133, 169);
             this.btn_Add.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Add.Name = "btn_Add";
@@ -103,8 +102,7 @@ namespace _160421029_Nico_Victorio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Bisque;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(465, 235);
             this.Controls.Add(this.btn_Exit);
             this.Controls.Add(this.btn_Add);

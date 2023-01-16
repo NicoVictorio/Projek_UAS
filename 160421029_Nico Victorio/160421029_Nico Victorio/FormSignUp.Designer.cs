@@ -29,7 +29,6 @@ namespace _160421029_Nico_Victorio
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSignUp));
             this.buttonSignUp = new System.Windows.Forms.Button();
             this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -40,9 +39,9 @@ namespace _160421029_Nico_Victorio
             // 
             // buttonSignUp
             // 
-            this.buttonSignUp.BackColor = System.Drawing.Color.Bisque;
+            this.buttonSignUp.BackColor = System.Drawing.SystemColors.Control;
             this.buttonSignUp.Location = new System.Drawing.Point(124, 120);
-            this.buttonSignUp.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonSignUp.Margin = new System.Windows.Forms.Padding(2);
             this.buttonSignUp.Name = "buttonSignUp";
             this.buttonSignUp.Size = new System.Drawing.Size(65, 30);
             this.buttonSignUp.TabIndex = 81;
@@ -52,7 +51,7 @@ namespace _160421029_Nico_Victorio
             // 
             // textBoxPassword
             // 
-            this.textBoxPassword.BackColor = System.Drawing.Color.Bisque;
+            this.textBoxPassword.BackColor = System.Drawing.SystemColors.Window;
             this.textBoxPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxPassword.Location = new System.Drawing.Point(80, 68);
             this.textBoxPassword.Name = "textBoxPassword";
@@ -72,7 +71,7 @@ namespace _160421029_Nico_Victorio
             // 
             // textBoxEmail
             // 
-            this.textBoxEmail.BackColor = System.Drawing.Color.Bisque;
+            this.textBoxEmail.BackColor = System.Drawing.SystemColors.Window;
             this.textBoxEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxEmail.Location = new System.Drawing.Point(80, 27);
             this.textBoxEmail.Name = "textBoxEmail";
@@ -91,7 +90,7 @@ namespace _160421029_Nico_Victorio
             // 
             // buttonExit
             // 
-            this.buttonExit.BackColor = System.Drawing.Color.Bisque;
+            this.buttonExit.BackColor = System.Drawing.SystemColors.Control;
             this.buttonExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonExit.Location = new System.Drawing.Point(202, 119);
             this.buttonExit.Name = "buttonExit";
@@ -105,8 +104,7 @@ namespace _160421029_Nico_Victorio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Bisque;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(293, 169);
             this.Controls.Add(this.buttonExit);
             this.Controls.Add(this.textBoxPassword);
@@ -114,7 +112,7 @@ namespace _160421029_Nico_Victorio
             this.Controls.Add(this.textBoxEmail);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.buttonSignUp);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormSignUp";
             this.Text = "Sign Up";
             this.Load += new System.EventHandler(this.FormSignUp_Load);

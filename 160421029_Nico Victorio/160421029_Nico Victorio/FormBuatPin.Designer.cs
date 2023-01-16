@@ -29,7 +29,6 @@ namespace _160421029_Nico_Victorio
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormBuatPin));
             this.textBoxPin = new System.Windows.Forms.TextBox();
             this.textBoxUlangiPin = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -56,7 +55,7 @@ namespace _160421029_Nico_Victorio
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Bisque;
+            this.label1.BackColor = System.Drawing.SystemColors.Control;
             this.label1.Location = new System.Drawing.Point(52, 32);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(25, 13);
@@ -66,7 +65,7 @@ namespace _160421029_Nico_Victorio
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Bisque;
+            this.label2.BackColor = System.Drawing.SystemColors.Control;
             this.label2.Location = new System.Drawing.Point(20, 71);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(58, 13);
@@ -75,7 +74,7 @@ namespace _160421029_Nico_Victorio
             // 
             // buttonOk
             // 
-            this.buttonOk.BackColor = System.Drawing.Color.Bisque;
+            this.buttonOk.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.buttonOk.Location = new System.Drawing.Point(95, 115);
             this.buttonOk.Name = "buttonOk";
             this.buttonOk.Size = new System.Drawing.Size(75, 23);
@@ -88,8 +87,7 @@ namespace _160421029_Nico_Victorio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Bisque;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(226, 165);
             this.Controls.Add(this.buttonOk);
             this.Controls.Add(this.label2);

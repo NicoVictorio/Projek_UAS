@@ -29,7 +29,6 @@ namespace _160421029_Nico_Victorio
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormUpdatePengguna));
             this.textBoxPin = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.buttonUpdateData = new System.Windows.Forms.Button();
@@ -51,7 +50,7 @@ namespace _160421029_Nico_Victorio
             // 
             // textBoxPin
             // 
-            this.textBoxPin.BackColor = System.Drawing.Color.Bisque;
+            this.textBoxPin.BackColor = System.Drawing.SystemColors.Window;
             this.textBoxPin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxPin.Location = new System.Drawing.Point(132, 260);
             this.textBoxPin.Name = "textBoxPin";
@@ -71,7 +70,7 @@ namespace _160421029_Nico_Victorio
             // 
             // buttonUpdateData
             // 
-            this.buttonUpdateData.BackColor = System.Drawing.Color.Bisque;
+            this.buttonUpdateData.BackColor = System.Drawing.SystemColors.Control;
             this.buttonUpdateData.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonUpdateData.Location = new System.Drawing.Point(240, 310);
             this.buttonUpdateData.Name = "buttonUpdateData";
@@ -83,7 +82,7 @@ namespace _160421029_Nico_Victorio
             // 
             // textBoxPassword
             // 
-            this.textBoxPassword.BackColor = System.Drawing.Color.Bisque;
+            this.textBoxPassword.BackColor = System.Drawing.SystemColors.Window;
             this.textBoxPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxPassword.Location = new System.Drawing.Point(132, 231);
             this.textBoxPassword.Name = "textBoxPassword";
@@ -93,7 +92,7 @@ namespace _160421029_Nico_Victorio
             // 
             // textBoxNomorTelepon
             // 
-            this.textBoxNomorTelepon.BackColor = System.Drawing.Color.Bisque;
+            this.textBoxNomorTelepon.BackColor = System.Drawing.SystemColors.Window;
             this.textBoxNomorTelepon.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxNomorTelepon.Location = new System.Drawing.Point(132, 198);
             this.textBoxNomorTelepon.Name = "textBoxNomorTelepon";
@@ -102,7 +101,7 @@ namespace _160421029_Nico_Victorio
             // 
             // textBoxEmail
             // 
-            this.textBoxEmail.BackColor = System.Drawing.Color.Bisque;
+            this.textBoxEmail.BackColor = System.Drawing.SystemColors.Window;
             this.textBoxEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxEmail.Location = new System.Drawing.Point(132, 164);
             this.textBoxEmail.Name = "textBoxEmail";
@@ -111,7 +110,7 @@ namespace _160421029_Nico_Victorio
             // 
             // textBoxAlamat
             // 
-            this.textBoxAlamat.BackColor = System.Drawing.Color.Bisque;
+            this.textBoxAlamat.BackColor = System.Drawing.SystemColors.Window;
             this.textBoxAlamat.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxAlamat.Location = new System.Drawing.Point(132, 103);
             this.textBoxAlamat.Multiline = true;
@@ -122,7 +121,7 @@ namespace _160421029_Nico_Victorio
             // 
             // textBoxNamaBelakang
             // 
-            this.textBoxNamaBelakang.BackColor = System.Drawing.Color.Bisque;
+            this.textBoxNamaBelakang.BackColor = System.Drawing.SystemColors.Window;
             this.textBoxNamaBelakang.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxNamaBelakang.Location = new System.Drawing.Point(362, 65);
             this.textBoxNamaBelakang.Name = "textBoxNamaBelakang";
@@ -131,7 +130,7 @@ namespace _160421029_Nico_Victorio
             // 
             // textBoxNamaDepan
             // 
-            this.textBoxNamaDepan.BackColor = System.Drawing.Color.Bisque;
+            this.textBoxNamaDepan.BackColor = System.Drawing.SystemColors.Window;
             this.textBoxNamaDepan.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxNamaDepan.Location = new System.Drawing.Point(132, 65);
             this.textBoxNamaDepan.Name = "textBoxNamaDepan";
@@ -140,7 +139,7 @@ namespace _160421029_Nico_Victorio
             // 
             // textBoxNIK
             // 
-            this.textBoxNIK.BackColor = System.Drawing.Color.Bisque;
+            this.textBoxNIK.BackColor = System.Drawing.SystemColors.Window;
             this.textBoxNIK.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxNIK.Location = new System.Drawing.Point(132, 27);
             this.textBoxNIK.Name = "textBoxNIK";
@@ -221,8 +220,7 @@ namespace _160421029_Nico_Victorio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Bisque;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(540, 358);
             this.Controls.Add(this.textBoxPin);
             this.Controls.Add(this.label9);

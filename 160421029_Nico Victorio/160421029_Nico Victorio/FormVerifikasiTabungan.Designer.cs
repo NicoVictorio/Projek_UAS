@@ -29,7 +29,6 @@ namespace _160421029_Nico_Victorio
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormVerifikasiTabungan));
             this.buttonExit = new System.Windows.Forms.Button();
             this.dataGridViewListVerifikasiTabungan = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewListVerifikasiTabungan)).BeginInit();
@@ -37,9 +36,9 @@ namespace _160421029_Nico_Victorio
             // 
             // buttonExit
             // 
-            this.buttonExit.BackColor = System.Drawing.Color.Bisque;
+            this.buttonExit.BackColor = System.Drawing.SystemColors.Control;
             this.buttonExit.Location = new System.Drawing.Point(323, 389);
-            this.buttonExit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonExit.Margin = new System.Windows.Forms.Padding(2);
             this.buttonExit.Name = "buttonExit";
             this.buttonExit.Size = new System.Drawing.Size(68, 39);
             this.buttonExit.TabIndex = 5;
@@ -51,7 +50,7 @@ namespace _160421029_Nico_Victorio
             // 
             this.dataGridViewListVerifikasiTabungan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewListVerifikasiTabungan.Location = new System.Drawing.Point(19, 18);
-            this.dataGridViewListVerifikasiTabungan.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridViewListVerifikasiTabungan.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridViewListVerifikasiTabungan.Name = "dataGridViewListVerifikasiTabungan";
             this.dataGridViewListVerifikasiTabungan.RowHeadersWidth = 51;
             this.dataGridViewListVerifikasiTabungan.RowTemplate.Height = 24;
@@ -64,11 +63,10 @@ namespace _160421029_Nico_Victorio
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(715, 434);
             this.Controls.Add(this.buttonExit);
             this.Controls.Add(this.dataGridViewListVerifikasiTabungan);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormVerifikasiTabungan";
             this.Text = "Verifikasi Pembukaan Tabungan";
             this.Load += new System.EventHandler(this.FormVerifikasiTabungan_Load);

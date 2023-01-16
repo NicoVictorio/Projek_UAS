@@ -29,7 +29,6 @@ namespace _160421029_Nico_Victorio
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormLogin));
             this.buttonExit = new System.Windows.Forms.Button();
             this.buttonLogin = new System.Windows.Forms.Button();
             this.textBoxPassword = new System.Windows.Forms.TextBox();
@@ -42,7 +41,7 @@ namespace _160421029_Nico_Victorio
             // 
             // buttonExit
             // 
-            this.buttonExit.BackColor = System.Drawing.Color.Bisque;
+            this.buttonExit.BackColor = System.Drawing.SystemColors.Control;
             this.buttonExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonExit.Location = new System.Drawing.Point(202, 153);
             this.buttonExit.Name = "buttonExit";
@@ -54,7 +53,7 @@ namespace _160421029_Nico_Victorio
             // 
             // buttonLogin
             // 
-            this.buttonLogin.BackColor = System.Drawing.Color.Bisque;
+            this.buttonLogin.BackColor = System.Drawing.SystemColors.Control;
             this.buttonLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonLogin.Location = new System.Drawing.Point(122, 153);
             this.buttonLogin.Name = "buttonLogin";
@@ -66,7 +65,7 @@ namespace _160421029_Nico_Victorio
             // 
             // textBoxPassword
             // 
-            this.textBoxPassword.BackColor = System.Drawing.Color.Bisque;
+            this.textBoxPassword.BackColor = System.Drawing.SystemColors.Window;
             this.textBoxPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxPassword.Location = new System.Drawing.Point(80, 111);
             this.textBoxPassword.Name = "textBoxPassword";
@@ -86,7 +85,7 @@ namespace _160421029_Nico_Victorio
             // 
             // textBoxEmail
             // 
-            this.textBoxEmail.BackColor = System.Drawing.Color.Bisque;
+            this.textBoxEmail.BackColor = System.Drawing.SystemColors.Window;
             this.textBoxEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxEmail.Location = new System.Drawing.Point(80, 70);
             this.textBoxEmail.Name = "textBoxEmail";
@@ -107,7 +106,7 @@ namespace _160421029_Nico_Victorio
             // 
             this.radioButtonEmployee.AutoSize = true;
             this.radioButtonEmployee.Location = new System.Drawing.Point(160, 25);
-            this.radioButtonEmployee.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioButtonEmployee.Margin = new System.Windows.Forms.Padding(2);
             this.radioButtonEmployee.Name = "radioButtonEmployee";
             this.radioButtonEmployee.Size = new System.Drawing.Size(71, 17);
             this.radioButtonEmployee.TabIndex = 76;
@@ -119,7 +118,7 @@ namespace _160421029_Nico_Victorio
             this.radioButtonPengguna.AutoSize = true;
             this.radioButtonPengguna.Checked = true;
             this.radioButtonPengguna.Location = new System.Drawing.Point(69, 25);
-            this.radioButtonPengguna.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioButtonPengguna.Margin = new System.Windows.Forms.Padding(2);
             this.radioButtonPengguna.Name = "radioButtonPengguna";
             this.radioButtonPengguna.Size = new System.Drawing.Size(74, 17);
             this.radioButtonPengguna.TabIndex = 75;
@@ -131,8 +130,7 @@ namespace _160421029_Nico_Victorio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Bisque;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(295, 202);
             this.Controls.Add(this.radioButtonEmployee);
             this.Controls.Add(this.radioButtonPengguna);
@@ -142,7 +140,7 @@ namespace _160421029_Nico_Victorio
             this.Controls.Add(this.label6);
             this.Controls.Add(this.textBoxEmail);
             this.Controls.Add(this.label4);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormLogin";
             this.Text = "Login";
             this.Load += new System.EventHandler(this.FormLogin_Load);

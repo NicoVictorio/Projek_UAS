@@ -29,7 +29,6 @@ namespace _160421029_Nico_Victorio
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormUpdateJenisTransaksi));
             this.btn_Exit = new System.Windows.Forms.Button();
             this.btn_Update = new System.Windows.Forms.Button();
             this.tb_KodeJenisTransaksi = new System.Windows.Forms.TextBox();
@@ -40,7 +39,7 @@ namespace _160421029_Nico_Victorio
             // 
             // btn_Exit
             // 
-            this.btn_Exit.BackColor = System.Drawing.Color.Bisque;
+            this.btn_Exit.BackColor = System.Drawing.SystemColors.Control;
             this.btn_Exit.Location = new System.Drawing.Point(229, 119);
             this.btn_Exit.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Exit.Name = "btn_Exit";
@@ -51,7 +50,7 @@ namespace _160421029_Nico_Victorio
             // 
             // btn_Update
             // 
-            this.btn_Update.BackColor = System.Drawing.Color.Bisque;
+            this.btn_Update.BackColor = System.Drawing.SystemColors.Control;
             this.btn_Update.Location = new System.Drawing.Point(48, 119);
             this.btn_Update.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Update.Name = "btn_Update";
@@ -63,7 +62,7 @@ namespace _160421029_Nico_Victorio
             // 
             // tb_KodeJenisTransaksi
             // 
-            this.tb_KodeJenisTransaksi.BackColor = System.Drawing.Color.Bisque;
+            this.tb_KodeJenisTransaksi.BackColor = System.Drawing.SystemColors.Window;
             this.tb_KodeJenisTransaksi.Location = new System.Drawing.Point(157, 34);
             this.tb_KodeJenisTransaksi.Margin = new System.Windows.Forms.Padding(2);
             this.tb_KodeJenisTransaksi.Name = "tb_KodeJenisTransaksi";
@@ -72,7 +71,7 @@ namespace _160421029_Nico_Victorio
             // 
             // tb_NamaJenisTransaksi
             // 
-            this.tb_NamaJenisTransaksi.BackColor = System.Drawing.Color.Bisque;
+            this.tb_NamaJenisTransaksi.BackColor = System.Drawing.SystemColors.Window;
             this.tb_NamaJenisTransaksi.Location = new System.Drawing.Point(157, 72);
             this.tb_NamaJenisTransaksi.Margin = new System.Windows.Forms.Padding(2);
             this.tb_NamaJenisTransaksi.Name = "tb_NamaJenisTransaksi";
@@ -103,8 +102,7 @@ namespace _160421029_Nico_Victorio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Bisque;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(350, 187);
             this.Controls.Add(this.btn_Exit);
             this.Controls.Add(this.btn_Update);

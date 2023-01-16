@@ -29,7 +29,6 @@ namespace _160421029_Nico_Victorio
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormInbox));
             this.btn_Exit = new System.Windows.Forms.Button();
             this.btn_Add = new System.Windows.Forms.Button();
             this.dgvListInbox = new System.Windows.Forms.DataGridView();
@@ -42,9 +41,9 @@ namespace _160421029_Nico_Victorio
             // 
             // btn_Exit
             // 
-            this.btn_Exit.BackColor = System.Drawing.Color.Bisque;
+            this.btn_Exit.BackColor = System.Drawing.SystemColors.Control;
             this.btn_Exit.Location = new System.Drawing.Point(500, 321);
-            this.btn_Exit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_Exit.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Exit.Name = "btn_Exit";
             this.btn_Exit.Size = new System.Drawing.Size(70, 32);
             this.btn_Exit.TabIndex = 45;
@@ -54,9 +53,9 @@ namespace _160421029_Nico_Victorio
             // 
             // btn_Add
             // 
-            this.btn_Add.BackColor = System.Drawing.Color.Bisque;
+            this.btn_Add.BackColor = System.Drawing.SystemColors.Control;
             this.btn_Add.Location = new System.Drawing.Point(34, 321);
-            this.btn_Add.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_Add.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Add.Name = "btn_Add";
             this.btn_Add.Size = new System.Drawing.Size(71, 32);
             this.btn_Add.TabIndex = 44;
@@ -68,7 +67,7 @@ namespace _160421029_Nico_Victorio
             // 
             this.dgvListInbox.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvListInbox.Location = new System.Drawing.Point(34, 78);
-            this.dgvListInbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvListInbox.Margin = new System.Windows.Forms.Padding(2);
             this.dgvListInbox.Name = "dgvListInbox";
             this.dgvListInbox.RowHeadersWidth = 51;
             this.dgvListInbox.RowTemplate.Height = 24;
@@ -78,9 +77,9 @@ namespace _160421029_Nico_Victorio
             // 
             // btn_Search
             // 
-            this.btn_Search.BackColor = System.Drawing.Color.Bisque;
+            this.btn_Search.BackColor = System.Drawing.SystemColors.Control;
             this.btn_Search.Location = new System.Drawing.Point(492, 25);
-            this.btn_Search.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_Search.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Search.Name = "btn_Search";
             this.btn_Search.Size = new System.Drawing.Size(77, 34);
             this.btn_Search.TabIndex = 42;
@@ -89,9 +88,9 @@ namespace _160421029_Nico_Victorio
             // 
             // tb_Kriteria
             // 
-            this.tb_Kriteria.BackColor = System.Drawing.Color.Bisque;
+            this.tb_Kriteria.BackColor = System.Drawing.SystemColors.Window;
             this.tb_Kriteria.Location = new System.Drawing.Point(295, 39);
-            this.tb_Kriteria.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tb_Kriteria.Margin = new System.Windows.Forms.Padding(2);
             this.tb_Kriteria.Name = "tb_Kriteria";
             this.tb_Kriteria.Size = new System.Drawing.Size(185, 20);
             this.tb_Kriteria.TabIndex = 41;
@@ -106,7 +105,7 @@ namespace _160421029_Nico_Victorio
             "Tanggal Kirim",
             "Status"});
             this.cb_Kriteria.Location = new System.Drawing.Point(136, 39);
-            this.cb_Kriteria.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cb_Kriteria.Margin = new System.Windows.Forms.Padding(2);
             this.cb_Kriteria.Name = "cb_Kriteria";
             this.cb_Kriteria.Size = new System.Drawing.Size(146, 21);
             this.cb_Kriteria.TabIndex = 40;
@@ -125,8 +124,7 @@ namespace _160421029_Nico_Victorio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Bisque;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(610, 377);
             this.Controls.Add(this.btn_Exit);
             this.Controls.Add(this.btn_Add);

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormTambahTransaksi));
             this.btn_Exit = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.textBoxRekeningAsal = new System.Windows.Forms.TextBox();
@@ -46,9 +45,9 @@
             // 
             // btn_Exit
             // 
-            this.btn_Exit.BackColor = System.Drawing.Color.Bisque;
+            this.btn_Exit.BackColor = System.Drawing.SystemColors.Control;
             this.btn_Exit.Location = new System.Drawing.Point(248, 248);
-            this.btn_Exit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_Exit.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Exit.Name = "btn_Exit";
             this.btn_Exit.Size = new System.Drawing.Size(70, 32);
             this.btn_Exit.TabIndex = 62;
@@ -58,8 +57,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.Bisque;
-            this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
+            this.panel1.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.panel1.Controls.Add(this.textBoxRekeningAsal);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.buttonCariRekening);
@@ -70,16 +68,16 @@
             this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Location = new System.Drawing.Point(9, 10);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(310, 226);
             this.panel1.TabIndex = 61;
             // 
             // textBoxRekeningAsal
             // 
-            this.textBoxRekeningAsal.BackColor = System.Drawing.Color.Bisque;
+            this.textBoxRekeningAsal.BackColor = System.Drawing.SystemColors.Window;
             this.textBoxRekeningAsal.Location = new System.Drawing.Point(134, 18);
-            this.textBoxRekeningAsal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxRekeningAsal.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxRekeningAsal.Name = "textBoxRekeningAsal";
             this.textBoxRekeningAsal.Size = new System.Drawing.Size(160, 20);
             this.textBoxRekeningAsal.TabIndex = 28;
@@ -96,9 +94,9 @@
             // 
             // buttonCariRekening
             // 
-            this.buttonCariRekening.BackColor = System.Drawing.Color.Bisque;
+            this.buttonCariRekening.BackColor = System.Drawing.SystemColors.Control;
             this.buttonCariRekening.Location = new System.Drawing.Point(134, 88);
-            this.buttonCariRekening.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonCariRekening.Margin = new System.Windows.Forms.Padding(2);
             this.buttonCariRekening.Name = "buttonCariRekening";
             this.buttonCariRekening.Size = new System.Drawing.Size(159, 28);
             this.buttonCariRekening.TabIndex = 26;
@@ -108,18 +106,18 @@
             // 
             // textBoxRekeningTujuan
             // 
-            this.textBoxRekeningTujuan.BackColor = System.Drawing.Color.Bisque;
+            this.textBoxRekeningTujuan.BackColor = System.Drawing.SystemColors.Window;
             this.textBoxRekeningTujuan.Location = new System.Drawing.Point(134, 55);
-            this.textBoxRekeningTujuan.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxRekeningTujuan.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxRekeningTujuan.Name = "textBoxRekeningTujuan";
             this.textBoxRekeningTujuan.Size = new System.Drawing.Size(160, 20);
             this.textBoxRekeningTujuan.TabIndex = 25;
             // 
             // textBoxKeterangan
             // 
-            this.textBoxKeterangan.BackColor = System.Drawing.Color.Bisque;
+            this.textBoxKeterangan.BackColor = System.Drawing.SystemColors.Window;
             this.textBoxKeterangan.Location = new System.Drawing.Point(134, 161);
-            this.textBoxKeterangan.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxKeterangan.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxKeterangan.Multiline = true;
             this.textBoxKeterangan.Name = "textBoxKeterangan";
             this.textBoxKeterangan.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -138,9 +136,9 @@
             // 
             // textBoxNominal
             // 
-            this.textBoxNominal.BackColor = System.Drawing.Color.Bisque;
+            this.textBoxNominal.BackColor = System.Drawing.SystemColors.Window;
             this.textBoxNominal.Location = new System.Drawing.Point(134, 129);
-            this.textBoxNominal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxNominal.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxNominal.Name = "textBoxNominal";
             this.textBoxNominal.Size = new System.Drawing.Size(160, 20);
             this.textBoxNominal.TabIndex = 22;
@@ -167,9 +165,9 @@
             // 
             // buttonSubmit
             // 
-            this.buttonSubmit.BackColor = System.Drawing.Color.Bisque;
+            this.buttonSubmit.BackColor = System.Drawing.SystemColors.Control;
             this.buttonSubmit.Location = new System.Drawing.Point(9, 248);
-            this.buttonSubmit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonSubmit.Margin = new System.Windows.Forms.Padding(2);
             this.buttonSubmit.Name = "buttonSubmit";
             this.buttonSubmit.Size = new System.Drawing.Size(68, 32);
             this.buttonSubmit.TabIndex = 63;
@@ -181,12 +179,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Linen;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(327, 292);
             this.Controls.Add(this.buttonSubmit);
             this.Controls.Add(this.btn_Exit);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormTambahTransaksi";
             this.Text = "Transaksi";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormTambahTransaksi_FormClosing);

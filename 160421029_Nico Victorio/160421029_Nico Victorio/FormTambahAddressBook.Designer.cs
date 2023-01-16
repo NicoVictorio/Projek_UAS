@@ -29,7 +29,6 @@ namespace _160421029_Nico_Victorio
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormTambahAddressBook));
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxNomorRekening = new System.Windows.Forms.TextBox();
             this.buttonAdd = new System.Windows.Forms.Button();
@@ -50,18 +49,18 @@ namespace _160421029_Nico_Victorio
             // 
             // textBoxNomorRekening
             // 
-            this.textBoxNomorRekening.BackColor = System.Drawing.Color.Bisque;
+            this.textBoxNomorRekening.BackColor = System.Drawing.SystemColors.Window;
             this.textBoxNomorRekening.Location = new System.Drawing.Point(148, 34);
-            this.textBoxNomorRekening.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxNomorRekening.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxNomorRekening.Name = "textBoxNomorRekening";
             this.textBoxNomorRekening.Size = new System.Drawing.Size(121, 20);
             this.textBoxNomorRekening.TabIndex = 1;
             // 
             // buttonAdd
             // 
-            this.buttonAdd.BackColor = System.Drawing.Color.Bisque;
+            this.buttonAdd.BackColor = System.Drawing.SystemColors.Control;
             this.buttonAdd.Location = new System.Drawing.Point(28, 133);
-            this.buttonAdd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonAdd.Margin = new System.Windows.Forms.Padding(2);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(70, 33);
             this.buttonAdd.TabIndex = 2;
@@ -71,9 +70,9 @@ namespace _160421029_Nico_Victorio
             // 
             // buttonCancel
             // 
-            this.buttonCancel.BackColor = System.Drawing.Color.Bisque;
+            this.buttonCancel.BackColor = System.Drawing.SystemColors.Control;
             this.buttonCancel.Location = new System.Drawing.Point(198, 133);
-            this.buttonCancel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonCancel.Margin = new System.Windows.Forms.Padding(2);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(70, 33);
             this.buttonCancel.TabIndex = 3;
@@ -83,9 +82,9 @@ namespace _160421029_Nico_Victorio
             // 
             // textBoxKeterangan
             // 
-            this.textBoxKeterangan.BackColor = System.Drawing.Color.Bisque;
+            this.textBoxKeterangan.BackColor = System.Drawing.SystemColors.Window;
             this.textBoxKeterangan.Location = new System.Drawing.Point(148, 76);
-            this.textBoxKeterangan.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxKeterangan.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxKeterangan.Name = "textBoxKeterangan";
             this.textBoxKeterangan.Size = new System.Drawing.Size(121, 20);
             this.textBoxKeterangan.TabIndex = 5;
@@ -104,8 +103,7 @@ namespace _160421029_Nico_Victorio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Bisque;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(292, 191);
             this.Controls.Add(this.textBoxKeterangan);
             this.Controls.Add(this.label2);
@@ -113,7 +111,7 @@ namespace _160421029_Nico_Victorio
             this.Controls.Add(this.buttonAdd);
             this.Controls.Add(this.textBoxNomorRekening);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormTambahAddressBook";
             this.Text = "Tambah Address Book";
             this.Load += new System.EventHandler(this.FormTambahAddressBook_Load);

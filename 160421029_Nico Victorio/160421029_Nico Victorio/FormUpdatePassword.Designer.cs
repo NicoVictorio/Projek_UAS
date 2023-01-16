@@ -29,7 +29,6 @@ namespace _160421029_Nico_Victorio
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormUpdatePassword));
             this.textBoxPasswordLama = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.textBoxUlangiPasswordBaru = new System.Windows.Forms.TextBox();
@@ -42,7 +41,7 @@ namespace _160421029_Nico_Victorio
             // 
             // textBoxPasswordLama
             // 
-            this.textBoxPasswordLama.BackColor = System.Drawing.Color.Bisque;
+            this.textBoxPasswordLama.BackColor = System.Drawing.SystemColors.Window;
             this.textBoxPasswordLama.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxPasswordLama.Location = new System.Drawing.Point(156, 18);
             this.textBoxPasswordLama.Name = "textBoxPasswordLama";
@@ -62,7 +61,7 @@ namespace _160421029_Nico_Victorio
             // 
             // textBoxUlangiPasswordBaru
             // 
-            this.textBoxUlangiPasswordBaru.BackColor = System.Drawing.Color.Bisque;
+            this.textBoxUlangiPasswordBaru.BackColor = System.Drawing.SystemColors.Window;
             this.textBoxUlangiPasswordBaru.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxUlangiPasswordBaru.Location = new System.Drawing.Point(156, 76);
             this.textBoxUlangiPasswordBaru.Name = "textBoxUlangiPasswordBaru";
@@ -72,7 +71,7 @@ namespace _160421029_Nico_Victorio
             // 
             // textBoxPasswordBaru
             // 
-            this.textBoxPasswordBaru.BackColor = System.Drawing.Color.Bisque;
+            this.textBoxPasswordBaru.BackColor = System.Drawing.SystemColors.Window;
             this.textBoxPasswordBaru.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxPasswordBaru.Location = new System.Drawing.Point(156, 47);
             this.textBoxPasswordBaru.Name = "textBoxPasswordBaru";
@@ -102,7 +101,7 @@ namespace _160421029_Nico_Victorio
             // 
             // buttonExit
             // 
-            this.buttonExit.BackColor = System.Drawing.Color.Bisque;
+            this.buttonExit.BackColor = System.Drawing.SystemColors.Control;
             this.buttonExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonExit.Location = new System.Drawing.Point(274, 124);
             this.buttonExit.Name = "buttonExit";
@@ -114,7 +113,7 @@ namespace _160421029_Nico_Victorio
             // 
             // buttonUpdate
             // 
-            this.buttonUpdate.BackColor = System.Drawing.Color.Bisque;
+            this.buttonUpdate.BackColor = System.Drawing.SystemColors.Control;
             this.buttonUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonUpdate.Location = new System.Drawing.Point(181, 124);
             this.buttonUpdate.Name = "buttonUpdate";
@@ -128,8 +127,7 @@ namespace _160421029_Nico_Victorio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Bisque;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(362, 169);
             this.Controls.Add(this.buttonExit);
             this.Controls.Add(this.buttonUpdate);

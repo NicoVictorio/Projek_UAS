@@ -29,7 +29,6 @@ namespace _160421029_Nico_Victorio
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormUpdateInbox));
             this.btn_Exit = new System.Windows.Forms.Button();
             this.textBoxPesan = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -40,7 +39,7 @@ namespace _160421029_Nico_Victorio
             // 
             // btn_Exit
             // 
-            this.btn_Exit.BackColor = System.Drawing.Color.Bisque;
+            this.btn_Exit.BackColor = System.Drawing.SystemColors.Control;
             this.btn_Exit.Location = new System.Drawing.Point(361, 178);
             this.btn_Exit.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Exit.Name = "btn_Exit";
@@ -51,7 +50,7 @@ namespace _160421029_Nico_Victorio
             // 
             // textBoxPesan
             // 
-            this.textBoxPesan.BackColor = System.Drawing.Color.Bisque;
+            this.textBoxPesan.BackColor = System.Drawing.SystemColors.Window;
             this.textBoxPesan.Location = new System.Drawing.Point(137, 66);
             this.textBoxPesan.Multiline = true;
             this.textBoxPesan.Name = "textBoxPesan";
@@ -79,7 +78,7 @@ namespace _160421029_Nico_Victorio
             // 
             // buttonUpdate
             // 
-            this.buttonUpdate.BackColor = System.Drawing.Color.Bisque;
+            this.buttonUpdate.BackColor = System.Drawing.SystemColors.Control;
             this.buttonUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonUpdate.Location = new System.Drawing.Point(137, 180);
             this.buttonUpdate.Name = "buttonUpdate";
@@ -91,7 +90,7 @@ namespace _160421029_Nico_Victorio
             // 
             // comboBoxIdPengguna
             // 
-            this.comboBoxIdPengguna.BackColor = System.Drawing.Color.Bisque;
+            this.comboBoxIdPengguna.BackColor = System.Drawing.SystemColors.Window;
             this.comboBoxIdPengguna.FormattingEnabled = true;
             this.comboBoxIdPengguna.Location = new System.Drawing.Point(137, 32);
             this.comboBoxIdPengguna.Name = "comboBoxIdPengguna";
@@ -102,8 +101,7 @@ namespace _160421029_Nico_Victorio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Bisque;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(489, 244);
             this.Controls.Add(this.comboBoxIdPengguna);
             this.Controls.Add(this.buttonUpdate);

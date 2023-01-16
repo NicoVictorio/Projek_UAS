@@ -79,7 +79,7 @@ namespace _160421029_Nico_Victorio
                         //cek apakah tanggal perubahan sama dengan tanggal hari ini DAN status tabungan aktif
                         if (tabPengguna.Tgl_perubahan.ToShortDateString() == DateTime.Now.ToShortDateString() && tabPengguna.Tgl_perubahan != tabPengguna.Tgl_buat)
                         {
-                            int bedaBulan = ((tabPengguna.Tgl_perubahan.Year  - tabPengguna.Tgl_buat.Year) * 12) + 
+                            int bedaBulan = ((tabPengguna.Tgl_perubahan.Year      - tabPengguna.Tgl_buat.Year) * 12) + 
                                               tabPengguna.Tgl_perubahan.Month - tabPengguna.Tgl_buat.Month;
                             int biaya = 0;
                             if (tmpPengguna.Pangkat.ToString() == "BRZ")

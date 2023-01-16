@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDaftarAddressBook));
             this.btn_Exit = new System.Windows.Forms.Button();
             this.dgvListAddressBook = new System.Windows.Forms.DataGridView();
             this.tb_Kriteria = new System.Windows.Forms.TextBox();
@@ -40,9 +39,9 @@
             // 
             // btn_Exit
             // 
-            this.btn_Exit.BackColor = System.Drawing.Color.Bisque;
+            this.btn_Exit.BackColor = System.Drawing.SystemColors.Control;
             this.btn_Exit.Location = new System.Drawing.Point(401, 308);
-            this.btn_Exit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_Exit.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Exit.Name = "btn_Exit";
             this.btn_Exit.Size = new System.Drawing.Size(70, 32);
             this.btn_Exit.TabIndex = 52;
@@ -54,7 +53,7 @@
             // 
             this.dgvListAddressBook.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvListAddressBook.Location = new System.Drawing.Point(26, 65);
-            this.dgvListAddressBook.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvListAddressBook.Margin = new System.Windows.Forms.Padding(2);
             this.dgvListAddressBook.Name = "dgvListAddressBook";
             this.dgvListAddressBook.RowHeadersWidth = 51;
             this.dgvListAddressBook.RowTemplate.Height = 24;
@@ -64,9 +63,9 @@
             // 
             // tb_Kriteria
             // 
-            this.tb_Kriteria.BackColor = System.Drawing.Color.Bisque;
+            this.tb_Kriteria.BackColor = System.Drawing.SystemColors.Window;
             this.tb_Kriteria.Location = new System.Drawing.Point(287, 26);
-            this.tb_Kriteria.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tb_Kriteria.Margin = new System.Windows.Forms.Padding(2);
             this.tb_Kriteria.Name = "tb_Kriteria";
             this.tb_Kriteria.Size = new System.Drawing.Size(185, 20);
             this.tb_Kriteria.TabIndex = 48;
@@ -82,7 +81,7 @@
             "Nomor Rekening",
             "Pengguna"});
             this.cb_Kriteria.Location = new System.Drawing.Point(128, 26);
-            this.cb_Kriteria.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cb_Kriteria.Margin = new System.Windows.Forms.Padding(2);
             this.cb_Kriteria.Name = "cb_Kriteria";
             this.cb_Kriteria.Size = new System.Drawing.Size(146, 21);
             this.cb_Kriteria.TabIndex = 47;
@@ -99,9 +98,9 @@
             // 
             // btn_Add
             // 
-            this.btn_Add.BackColor = System.Drawing.Color.Bisque;
+            this.btn_Add.BackColor = System.Drawing.SystemColors.Control;
             this.btn_Add.Location = new System.Drawing.Point(26, 308);
-            this.btn_Add.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_Add.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Add.Name = "btn_Add";
             this.btn_Add.Size = new System.Drawing.Size(71, 32);
             this.btn_Add.TabIndex = 60;
@@ -113,8 +112,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Bisque;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(500, 366);
             this.Controls.Add(this.btn_Add);
             this.Controls.Add(this.btn_Exit);
@@ -122,7 +120,7 @@
             this.Controls.Add(this.tb_Kriteria);
             this.Controls.Add(this.cb_Kriteria);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormDaftarAddressBook";
             this.Text = "Daftar Address Book";
             this.Load += new System.EventHandler(this.FormDaftarAddressBook_Load);

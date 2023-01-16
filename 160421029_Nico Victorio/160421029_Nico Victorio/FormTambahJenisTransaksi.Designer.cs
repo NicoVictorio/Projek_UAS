@@ -29,7 +29,6 @@ namespace _160421029_Nico_Victorio
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormTambahJenisTransaksi));
             this.tb_KodeJenisTransaksi = new System.Windows.Forms.TextBox();
             this.tb_NamaJenisTransaksi = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -40,18 +39,18 @@ namespace _160421029_Nico_Victorio
             // 
             // tb_KodeJenisTransaksi
             // 
-            this.tb_KodeJenisTransaksi.BackColor = System.Drawing.Color.Bisque;
+            this.tb_KodeJenisTransaksi.BackColor = System.Drawing.SystemColors.Window;
             this.tb_KodeJenisTransaksi.Location = new System.Drawing.Point(131, 28);
-            this.tb_KodeJenisTransaksi.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tb_KodeJenisTransaksi.Margin = new System.Windows.Forms.Padding(2);
             this.tb_KodeJenisTransaksi.Name = "tb_KodeJenisTransaksi";
             this.tb_KodeJenisTransaksi.Size = new System.Drawing.Size(146, 20);
             this.tb_KodeJenisTransaksi.TabIndex = 51;
             // 
             // tb_NamaJenisTransaksi
             // 
-            this.tb_NamaJenisTransaksi.BackColor = System.Drawing.Color.Bisque;
+            this.tb_NamaJenisTransaksi.BackColor = System.Drawing.SystemColors.Window;
             this.tb_NamaJenisTransaksi.Location = new System.Drawing.Point(131, 67);
-            this.tb_NamaJenisTransaksi.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tb_NamaJenisTransaksi.Margin = new System.Windows.Forms.Padding(2);
             this.tb_NamaJenisTransaksi.Name = "tb_NamaJenisTransaksi";
             this.tb_NamaJenisTransaksi.Size = new System.Drawing.Size(146, 20);
             this.tb_NamaJenisTransaksi.TabIndex = 52;
@@ -78,9 +77,9 @@ namespace _160421029_Nico_Victorio
             // 
             // btn_Exit
             // 
-            this.btn_Exit.BackColor = System.Drawing.Color.Bisque;
+            this.btn_Exit.BackColor = System.Drawing.SystemColors.Control;
             this.btn_Exit.Location = new System.Drawing.Point(203, 114);
-            this.btn_Exit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_Exit.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Exit.Name = "btn_Exit";
             this.btn_Exit.Size = new System.Drawing.Size(66, 28);
             this.btn_Exit.TabIndex = 54;
@@ -90,9 +89,9 @@ namespace _160421029_Nico_Victorio
             // 
             // btn_Add
             // 
-            this.btn_Add.BackColor = System.Drawing.Color.Bisque;
+            this.btn_Add.BackColor = System.Drawing.SystemColors.Control;
             this.btn_Add.Location = new System.Drawing.Point(22, 114);
-            this.btn_Add.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_Add.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Add.Name = "btn_Add";
             this.btn_Add.Size = new System.Drawing.Size(71, 32);
             this.btn_Add.TabIndex = 53;
@@ -104,8 +103,7 @@ namespace _160421029_Nico_Victorio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Bisque;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(295, 161);
             this.Controls.Add(this.btn_Exit);
             this.Controls.Add(this.btn_Add);

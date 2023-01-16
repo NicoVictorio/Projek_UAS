@@ -29,7 +29,6 @@ namespace _160421029_Nico_Victorio
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMasterPengguna));
             this.btn_Exit = new System.Windows.Forms.Button();
             this.btn_Add = new System.Windows.Forms.Button();
             this.dgvListPengguna = new System.Windows.Forms.DataGridView();
@@ -41,9 +40,9 @@ namespace _160421029_Nico_Victorio
             // 
             // btn_Exit
             // 
-            this.btn_Exit.BackColor = System.Drawing.Color.Bisque;
+            this.btn_Exit.BackColor = System.Drawing.SystemColors.Control;
             this.btn_Exit.Location = new System.Drawing.Point(422, 326);
-            this.btn_Exit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_Exit.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Exit.Name = "btn_Exit";
             this.btn_Exit.Size = new System.Drawing.Size(70, 32);
             this.btn_Exit.TabIndex = 38;
@@ -53,9 +52,9 @@ namespace _160421029_Nico_Victorio
             // 
             // btn_Add
             // 
-            this.btn_Add.BackColor = System.Drawing.Color.Bisque;
+            this.btn_Add.BackColor = System.Drawing.SystemColors.Control;
             this.btn_Add.Location = new System.Drawing.Point(47, 326);
-            this.btn_Add.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_Add.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Add.Name = "btn_Add";
             this.btn_Add.Size = new System.Drawing.Size(71, 32);
             this.btn_Add.TabIndex = 37;
@@ -67,7 +66,7 @@ namespace _160421029_Nico_Victorio
             // 
             this.dgvListPengguna.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvListPengguna.Location = new System.Drawing.Point(47, 83);
-            this.dgvListPengguna.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvListPengguna.Margin = new System.Windows.Forms.Padding(2);
             this.dgvListPengguna.Name = "dgvListPengguna";
             this.dgvListPengguna.RowHeadersWidth = 51;
             this.dgvListPengguna.RowTemplate.Height = 24;
@@ -77,9 +76,9 @@ namespace _160421029_Nico_Victorio
             // 
             // tb_Kriteria
             // 
-            this.tb_Kriteria.BackColor = System.Drawing.Color.Bisque;
+            this.tb_Kriteria.BackColor = System.Drawing.SystemColors.Window;
             this.tb_Kriteria.Location = new System.Drawing.Point(308, 44);
-            this.tb_Kriteria.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tb_Kriteria.Margin = new System.Windows.Forms.Padding(2);
             this.tb_Kriteria.Name = "tb_Kriteria";
             this.tb_Kriteria.Size = new System.Drawing.Size(185, 20);
             this.tb_Kriteria.TabIndex = 34;
@@ -102,7 +101,7 @@ namespace _160421029_Nico_Victorio
             "Tanggal Perubahan",
             "Kode Pangkat"});
             this.cb_Kriteria.Location = new System.Drawing.Point(149, 44);
-            this.cb_Kriteria.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cb_Kriteria.Margin = new System.Windows.Forms.Padding(2);
             this.cb_Kriteria.Name = "cb_Kriteria";
             this.cb_Kriteria.Size = new System.Drawing.Size(146, 21);
             this.cb_Kriteria.TabIndex = 33;
@@ -110,7 +109,7 @@ namespace _160421029_Nico_Victorio
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Bisque;
+            this.label1.BackColor = System.Drawing.SystemColors.Control;
             this.label1.Location = new System.Drawing.Point(45, 44);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
@@ -122,7 +121,6 @@ namespace _160421029_Nico_Victorio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(535, 395);
             this.Controls.Add(this.btn_Exit);
             this.Controls.Add(this.btn_Add);

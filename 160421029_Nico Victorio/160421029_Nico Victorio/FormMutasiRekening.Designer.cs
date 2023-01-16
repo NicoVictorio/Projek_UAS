@@ -29,7 +29,6 @@ namespace _160421029_Nico_Victorio
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMutasiRekening));
             this.btn_Exit = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dateTimePickerTanggalAkhir = new System.Windows.Forms.DateTimePicker();
@@ -46,9 +45,9 @@ namespace _160421029_Nico_Victorio
             // 
             // btn_Exit
             // 
-            this.btn_Exit.BackColor = System.Drawing.Color.Bisque;
+            this.btn_Exit.BackColor = System.Drawing.SystemColors.Control;
             this.btn_Exit.Location = new System.Drawing.Point(268, 224);
-            this.btn_Exit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_Exit.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Exit.Name = "btn_Exit";
             this.btn_Exit.Size = new System.Drawing.Size(70, 32);
             this.btn_Exit.TabIndex = 65;
@@ -58,8 +57,7 @@ namespace _160421029_Nico_Victorio
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.Bisque;
-            this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
+            this.panel1.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.panel1.Controls.Add(this.dateTimePickerTanggalAkhir);
             this.panel1.Controls.Add(this.dateTimePickerTanggalAwal);
             this.panel1.Controls.Add(this.label3);
@@ -69,7 +67,7 @@ namespace _160421029_Nico_Victorio
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Location = new System.Drawing.Point(28, 24);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(310, 174);
             this.panel1.TabIndex = 64;
@@ -78,7 +76,7 @@ namespace _160421029_Nico_Victorio
             // 
             this.dateTimePickerTanggalAkhir.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePickerTanggalAkhir.Location = new System.Drawing.Point(134, 131);
-            this.dateTimePickerTanggalAkhir.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dateTimePickerTanggalAkhir.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePickerTanggalAkhir.Name = "dateTimePickerTanggalAkhir";
             this.dateTimePickerTanggalAkhir.Size = new System.Drawing.Size(160, 20);
             this.dateTimePickerTanggalAkhir.TabIndex = 33;
@@ -87,7 +85,7 @@ namespace _160421029_Nico_Victorio
             // 
             this.dateTimePickerTanggalAwal.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePickerTanggalAwal.Location = new System.Drawing.Point(134, 95);
-            this.dateTimePickerTanggalAwal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dateTimePickerTanggalAwal.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePickerTanggalAwal.Name = "dateTimePickerTanggalAwal";
             this.dateTimePickerTanggalAwal.Size = new System.Drawing.Size(160, 20);
             this.dateTimePickerTanggalAwal.TabIndex = 32;
@@ -121,7 +119,7 @@ namespace _160421029_Nico_Victorio
             "Pemasukan",
             "Pengeluaran"});
             this.comboBoxJenisTransaksi.Location = new System.Drawing.Point(134, 53);
-            this.comboBoxJenisTransaksi.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBoxJenisTransaksi.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxJenisTransaksi.Name = "comboBoxJenisTransaksi";
             this.comboBoxJenisTransaksi.Size = new System.Drawing.Size(160, 21);
             this.comboBoxJenisTransaksi.TabIndex = 29;
@@ -130,7 +128,7 @@ namespace _160421029_Nico_Victorio
             // 
             this.textBoxNomorRekening.Enabled = false;
             this.textBoxNomorRekening.Location = new System.Drawing.Point(134, 18);
-            this.textBoxNomorRekening.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxNomorRekening.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxNomorRekening.Name = "textBoxNomorRekening";
             this.textBoxNomorRekening.Size = new System.Drawing.Size(160, 20);
             this.textBoxNomorRekening.TabIndex = 28;
@@ -157,9 +155,9 @@ namespace _160421029_Nico_Victorio
             // 
             // buttonSend
             // 
-            this.buttonSend.BackColor = System.Drawing.Color.Bisque;
+            this.buttonSend.BackColor = System.Drawing.SystemColors.Control;
             this.buttonSend.Location = new System.Drawing.Point(28, 224);
-            this.buttonSend.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonSend.Margin = new System.Windows.Forms.Padding(2);
             this.buttonSend.Name = "buttonSend";
             this.buttonSend.Size = new System.Drawing.Size(68, 32);
             this.buttonSend.TabIndex = 66;
@@ -171,12 +169,12 @@ namespace _160421029_Nico_Victorio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Linen;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(364, 275);
             this.Controls.Add(this.btn_Exit);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.buttonSend);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormMutasiRekening";
             this.Text = "Cek Mutasi Rekening";
             this.Load += new System.EventHandler(this.FormMutasiRekening_Load);

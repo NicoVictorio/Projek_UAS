@@ -29,7 +29,6 @@ namespace _160421029_Nico_Victorio
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormUpdateEmployee));
             this.textBoxNIK = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -50,7 +49,7 @@ namespace _160421029_Nico_Victorio
             // 
             // textBoxNIK
             // 
-            this.textBoxNIK.BackColor = System.Drawing.Color.Bisque;
+            this.textBoxNIK.BackColor = System.Drawing.SystemColors.Window;
             this.textBoxNIK.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxNIK.Location = new System.Drawing.Point(128, 116);
             this.textBoxNIK.Name = "textBoxNIK";
@@ -88,7 +87,7 @@ namespace _160421029_Nico_Victorio
             // 
             // buttonUpdate
             // 
-            this.buttonUpdate.BackColor = System.Drawing.Color.Bisque;
+            this.buttonUpdate.BackColor = System.Drawing.SystemColors.Control;
             this.buttonUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonUpdate.Location = new System.Drawing.Point(236, 274);
             this.buttonUpdate.Name = "buttonUpdate";
@@ -100,7 +99,7 @@ namespace _160421029_Nico_Victorio
             // 
             // textBoxUlangiPassword
             // 
-            this.textBoxUlangiPassword.BackColor = System.Drawing.Color.Bisque;
+            this.textBoxUlangiPassword.BackColor = System.Drawing.SystemColors.Window;
             this.textBoxUlangiPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxUlangiPassword.Location = new System.Drawing.Point(128, 221);
             this.textBoxUlangiPassword.Name = "textBoxUlangiPassword";
@@ -110,7 +109,7 @@ namespace _160421029_Nico_Victorio
             // 
             // textBoxPassword
             // 
-            this.textBoxPassword.BackColor = System.Drawing.Color.Bisque;
+            this.textBoxPassword.BackColor = System.Drawing.SystemColors.Window;
             this.textBoxPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxPassword.Location = new System.Drawing.Point(128, 190);
             this.textBoxPassword.Name = "textBoxPassword";
@@ -120,7 +119,7 @@ namespace _160421029_Nico_Victorio
             // 
             // textBoxEmail
             // 
-            this.textBoxEmail.BackColor = System.Drawing.Color.Bisque;
+            this.textBoxEmail.BackColor = System.Drawing.SystemColors.Window;
             this.textBoxEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxEmail.Location = new System.Drawing.Point(128, 153);
             this.textBoxEmail.Name = "textBoxEmail";
@@ -129,7 +128,7 @@ namespace _160421029_Nico_Victorio
             // 
             // textBoxNamaBelakang
             // 
-            this.textBoxNamaBelakang.BackColor = System.Drawing.Color.Bisque;
+            this.textBoxNamaBelakang.BackColor = System.Drawing.SystemColors.Window;
             this.textBoxNamaBelakang.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxNamaBelakang.Location = new System.Drawing.Point(358, 45);
             this.textBoxNamaBelakang.Name = "textBoxNamaBelakang";
@@ -138,7 +137,7 @@ namespace _160421029_Nico_Victorio
             // 
             // textBoxNamaDepan
             // 
-            this.textBoxNamaDepan.BackColor = System.Drawing.Color.Bisque;
+            this.textBoxNamaDepan.BackColor = System.Drawing.SystemColors.Window;
             this.textBoxNamaDepan.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxNamaDepan.Location = new System.Drawing.Point(128, 45);
             this.textBoxNamaDepan.Name = "textBoxNamaDepan";
@@ -197,7 +196,7 @@ namespace _160421029_Nico_Victorio
             // 
             // buttonExit
             // 
-            this.buttonExit.BackColor = System.Drawing.Color.Bisque;
+            this.buttonExit.BackColor = System.Drawing.SystemColors.Control;
             this.buttonExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonExit.Location = new System.Drawing.Point(382, 274);
             this.buttonExit.Name = "buttonExit";
@@ -211,8 +210,7 @@ namespace _160421029_Nico_Victorio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Bisque;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(524, 342);
             this.Controls.Add(this.buttonExit);
             this.Controls.Add(this.textBoxNIK);
@@ -230,7 +228,7 @@ namespace _160421029_Nico_Victorio
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormUpdateEmployee";
             this.Text = "Update Data Employee";
             this.Load += new System.EventHandler(this.FormUpdateEmployee_Load);

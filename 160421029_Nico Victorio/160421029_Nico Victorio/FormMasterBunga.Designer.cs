@@ -29,7 +29,6 @@ namespace _160421029_Nico_Victorio
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMasterBunga));
             this.btn_Exit = new System.Windows.Forms.Button();
             this.dataGridViewListBunga = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewListBunga)).BeginInit();
@@ -37,9 +36,9 @@ namespace _160421029_Nico_Victorio
             // 
             // btn_Exit
             // 
-            this.btn_Exit.BackColor = System.Drawing.Color.Bisque;
+            this.btn_Exit.BackColor = System.Drawing.SystemColors.Control;
             this.btn_Exit.Location = new System.Drawing.Point(290, 318);
-            this.btn_Exit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_Exit.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Exit.Name = "btn_Exit";
             this.btn_Exit.Size = new System.Drawing.Size(70, 32);
             this.btn_Exit.TabIndex = 31;
@@ -51,7 +50,7 @@ namespace _160421029_Nico_Victorio
             // 
             this.dataGridViewListBunga.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewListBunga.Location = new System.Drawing.Point(30, 28);
-            this.dataGridViewListBunga.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridViewListBunga.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridViewListBunga.Name = "dataGridViewListBunga";
             this.dataGridViewListBunga.RowHeadersWidth = 51;
             this.dataGridViewListBunga.RowTemplate.Height = 24;
@@ -62,12 +61,11 @@ namespace _160421029_Nico_Victorio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Bisque;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(652, 358);
             this.Controls.Add(this.dataGridViewListBunga);
             this.Controls.Add(this.btn_Exit);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormMasterBunga";
             this.Text = "Master List Bunga";
             this.Load += new System.EventHandler(this.FormMasterBunga_Load);
