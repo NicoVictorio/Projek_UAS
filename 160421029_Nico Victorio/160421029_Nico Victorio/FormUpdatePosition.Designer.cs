@@ -29,6 +29,7 @@ namespace _160421029_Nico_Victorio
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormUpdatePosition));
             this.tb_Keterangan = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.tb_IdPosition = new System.Windows.Forms.TextBox();
@@ -41,8 +42,9 @@ namespace _160421029_Nico_Victorio
             // 
             // tb_Keterangan
             // 
+            this.tb_Keterangan.BackColor = System.Drawing.Color.Bisque;
             this.tb_Keterangan.Location = new System.Drawing.Point(129, 108);
-            this.tb_Keterangan.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tb_Keterangan.Margin = new System.Windows.Forms.Padding(2);
             this.tb_Keterangan.Name = "tb_Keterangan";
             this.tb_Keterangan.Size = new System.Drawing.Size(146, 20);
             this.tb_Keterangan.TabIndex = 58;
@@ -59,38 +61,42 @@ namespace _160421029_Nico_Victorio
             // 
             // tb_IdPosition
             // 
+            this.tb_IdPosition.BackColor = System.Drawing.Color.Bisque;
             this.tb_IdPosition.Location = new System.Drawing.Point(129, 25);
-            this.tb_IdPosition.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tb_IdPosition.Margin = new System.Windows.Forms.Padding(2);
             this.tb_IdPosition.Name = "tb_IdPosition";
             this.tb_IdPosition.Size = new System.Drawing.Size(146, 20);
             this.tb_IdPosition.TabIndex = 53;
             // 
             // btn_Exit
             // 
+            this.btn_Exit.BackColor = System.Drawing.Color.Bisque;
             this.btn_Exit.Location = new System.Drawing.Point(208, 151);
-            this.btn_Exit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_Exit.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Exit.Name = "btn_Exit";
             this.btn_Exit.Size = new System.Drawing.Size(66, 28);
             this.btn_Exit.TabIndex = 55;
             this.btn_Exit.Text = "Exit";
-            this.btn_Exit.UseVisualStyleBackColor = true;
+            this.btn_Exit.UseVisualStyleBackColor = false;
             this.btn_Exit.Click += new System.EventHandler(this.btn_Exit_Click);
             // 
             // btn_Add
             // 
+            this.btn_Add.BackColor = System.Drawing.Color.Bisque;
             this.btn_Add.Location = new System.Drawing.Point(27, 151);
-            this.btn_Add.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_Add.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Add.Name = "btn_Add";
             this.btn_Add.Size = new System.Drawing.Size(71, 32);
             this.btn_Add.TabIndex = 54;
             this.btn_Add.Text = "Add";
-            this.btn_Add.UseVisualStyleBackColor = true;
+            this.btn_Add.UseVisualStyleBackColor = false;
             this.btn_Add.Click += new System.EventHandler(this.btn_Add_Click);
             // 
             // tb_NamaPosition
             // 
+            this.tb_NamaPosition.BackColor = System.Drawing.Color.Bisque;
             this.tb_NamaPosition.Location = new System.Drawing.Point(129, 66);
-            this.tb_NamaPosition.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tb_NamaPosition.Margin = new System.Windows.Forms.Padding(2);
             this.tb_NamaPosition.Name = "tb_NamaPosition";
             this.tb_NamaPosition.Size = new System.Drawing.Size(146, 20);
             this.tb_NamaPosition.TabIndex = 56;
@@ -119,6 +125,8 @@ namespace _160421029_Nico_Victorio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Bisque;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(313, 216);
             this.Controls.Add(this.tb_Keterangan);
             this.Controls.Add(this.label3);
@@ -128,9 +136,9 @@ namespace _160421029_Nico_Victorio
             this.Controls.Add(this.tb_NamaPosition);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormUpdatePosition";
-            this.Text = "FormUpdatePosition";
+            this.Text = "Update Position";
             this.Load += new System.EventHandler(this.FormUpdatePosition_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

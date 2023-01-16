@@ -29,6 +29,7 @@ namespace _160421029_Nico_Victorio
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormTambahInbox));
             this.label1 = new System.Windows.Forms.Label();
             this.comboBoxIdPengguna = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -48,6 +49,7 @@ namespace _160421029_Nico_Victorio
             // 
             // comboBoxIdPengguna
             // 
+            this.comboBoxIdPengguna.BackColor = System.Drawing.Color.Bisque;
             this.comboBoxIdPengguna.FormattingEnabled = true;
             this.comboBoxIdPengguna.Location = new System.Drawing.Point(133, 27);
             this.comboBoxIdPengguna.Name = "comboBoxIdPengguna";
@@ -65,6 +67,7 @@ namespace _160421029_Nico_Victorio
             // 
             // textBoxPesan
             // 
+            this.textBoxPesan.BackColor = System.Drawing.Color.Bisque;
             this.textBoxPesan.Location = new System.Drawing.Point(133, 61);
             this.textBoxPesan.Multiline = true;
             this.textBoxPesan.Name = "textBoxPesan";
@@ -74,30 +77,34 @@ namespace _160421029_Nico_Victorio
             // 
             // btn_Exit
             // 
+            this.btn_Exit.BackColor = System.Drawing.Color.Bisque;
             this.btn_Exit.Location = new System.Drawing.Point(357, 173);
             this.btn_Exit.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Exit.Name = "btn_Exit";
             this.btn_Exit.Size = new System.Drawing.Size(66, 28);
             this.btn_Exit.TabIndex = 49;
             this.btn_Exit.Text = "Exit";
-            this.btn_Exit.UseVisualStyleBackColor = true;
+            this.btn_Exit.UseVisualStyleBackColor = false;
             this.btn_Exit.Click += new System.EventHandler(this.btn_Exit_Click);
             // 
             // btn_Add
             // 
+            this.btn_Add.BackColor = System.Drawing.Color.Bisque;
             this.btn_Add.Location = new System.Drawing.Point(133, 169);
             this.btn_Add.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Add.Name = "btn_Add";
             this.btn_Add.Size = new System.Drawing.Size(71, 32);
             this.btn_Add.TabIndex = 48;
             this.btn_Add.Text = "Add";
-            this.btn_Add.UseVisualStyleBackColor = true;
+            this.btn_Add.UseVisualStyleBackColor = false;
             this.btn_Add.Click += new System.EventHandler(this.btn_Add_Click);
             // 
             // FormTambahInbox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Bisque;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(465, 235);
             this.Controls.Add(this.btn_Exit);
             this.Controls.Add(this.btn_Add);
@@ -106,7 +113,7 @@ namespace _160421029_Nico_Victorio
             this.Controls.Add(this.comboBoxIdPengguna);
             this.Controls.Add(this.label1);
             this.Name = "FormTambahInbox";
-            this.Text = "FormTambahInbox";
+            this.Text = "Tambah Inbox";
             this.Load += new System.EventHandler(this.FormTambahInbox_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

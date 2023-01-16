@@ -29,6 +29,7 @@ namespace _160421029_Nico_Victorio
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormVerifikasiDeposito));
             this.buttonExit = new System.Windows.Forms.Button();
             this.dataGridViewListVerifikasiDeposito = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewListVerifikasiDeposito)).BeginInit();
@@ -36,34 +37,40 @@ namespace _160421029_Nico_Victorio
             // 
             // buttonExit
             // 
-            this.buttonExit.Location = new System.Drawing.Point(439, 458);
+            this.buttonExit.BackColor = System.Drawing.Color.Bisque;
+            this.buttonExit.Location = new System.Drawing.Point(329, 372);
+            this.buttonExit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonExit.Name = "buttonExit";
-            this.buttonExit.Size = new System.Drawing.Size(91, 48);
+            this.buttonExit.Size = new System.Drawing.Size(68, 39);
             this.buttonExit.TabIndex = 3;
             this.buttonExit.Text = "Exit";
-            this.buttonExit.UseVisualStyleBackColor = true;
+            this.buttonExit.UseVisualStyleBackColor = false;
             this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);
             // 
             // dataGridViewListVerifikasiDeposito
             // 
             this.dataGridViewListVerifikasiDeposito.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewListVerifikasiDeposito.Location = new System.Drawing.Point(31, 26);
+            this.dataGridViewListVerifikasiDeposito.Location = new System.Drawing.Point(23, 21);
+            this.dataGridViewListVerifikasiDeposito.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridViewListVerifikasiDeposito.Name = "dataGridViewListVerifikasiDeposito";
             this.dataGridViewListVerifikasiDeposito.RowHeadersWidth = 51;
             this.dataGridViewListVerifikasiDeposito.RowTemplate.Height = 24;
-            this.dataGridViewListVerifikasiDeposito.Size = new System.Drawing.Size(898, 426);
+            this.dataGridViewListVerifikasiDeposito.Size = new System.Drawing.Size(674, 346);
             this.dataGridViewListVerifikasiDeposito.TabIndex = 2;
             this.dataGridViewListVerifikasiDeposito.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewListVerifikasiDeposito_CellContentClick);
             // 
             // FormVerifikasiDeposito
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(956, 518);
+            this.BackColor = System.Drawing.Color.Bisque;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.ClientSize = new System.Drawing.Size(717, 421);
             this.Controls.Add(this.buttonExit);
             this.Controls.Add(this.dataGridViewListVerifikasiDeposito);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FormVerifikasiDeposito";
-            this.Text = "FormVerifikasiDeposito";
+            this.Text = "Verifikasi Permintaan Deposito";
             this.Load += new System.EventHandler(this.FormVerifikasiDeposito_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewListVerifikasiDeposito)).EndInit();
             this.ResumeLayout(false);

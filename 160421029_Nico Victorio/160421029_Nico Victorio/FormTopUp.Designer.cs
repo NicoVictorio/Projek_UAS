@@ -29,6 +29,7 @@ namespace _160421029_Nico_Victorio
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormTopUp));
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxNominal = new System.Windows.Forms.TextBox();
             this.buttonTopUp = new System.Windows.Forms.Button();
@@ -38,50 +39,60 @@ namespace _160421029_Nico_Victorio
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(33, 32);
+            this.label1.Location = new System.Drawing.Point(25, 26);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(59, 17);
+            this.label1.Size = new System.Drawing.Size(45, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Nominal";
             // 
             // textBoxNominal
             // 
-            this.textBoxNominal.Location = new System.Drawing.Point(141, 32);
+            this.textBoxNominal.BackColor = System.Drawing.Color.Bisque;
+            this.textBoxNominal.Location = new System.Drawing.Point(106, 26);
+            this.textBoxNominal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxNominal.Name = "textBoxNominal";
-            this.textBoxNominal.Size = new System.Drawing.Size(131, 22);
+            this.textBoxNominal.Size = new System.Drawing.Size(99, 20);
             this.textBoxNominal.TabIndex = 1;
             // 
             // buttonTopUp
             // 
-            this.buttonTopUp.Location = new System.Drawing.Point(36, 83);
+            this.buttonTopUp.BackColor = System.Drawing.Color.Bisque;
+            this.buttonTopUp.Location = new System.Drawing.Point(27, 67);
+            this.buttonTopUp.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonTopUp.Name = "buttonTopUp";
-            this.buttonTopUp.Size = new System.Drawing.Size(86, 35);
+            this.buttonTopUp.Size = new System.Drawing.Size(64, 28);
             this.buttonTopUp.TabIndex = 2;
             this.buttonTopUp.Text = "Top Up";
-            this.buttonTopUp.UseVisualStyleBackColor = true;
+            this.buttonTopUp.UseVisualStyleBackColor = false;
             this.buttonTopUp.Click += new System.EventHandler(this.buttonTopUp_Click);
             // 
             // buttonCancel
             // 
-            this.buttonCancel.Location = new System.Drawing.Point(186, 83);
+            this.buttonCancel.BackColor = System.Drawing.Color.Bisque;
+            this.buttonCancel.Location = new System.Drawing.Point(140, 67);
+            this.buttonCancel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(86, 35);
+            this.buttonCancel.Size = new System.Drawing.Size(64, 28);
             this.buttonCancel.TabIndex = 3;
             this.buttonCancel.Text = "Cancel";
-            this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonCancel.UseVisualStyleBackColor = false;
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // FormTopUp
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(315, 146);
+            this.BackColor = System.Drawing.Color.Bisque;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.ClientSize = new System.Drawing.Size(236, 119);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonTopUp);
             this.Controls.Add(this.textBoxNominal);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FormTopUp";
-            this.Text = "FormTopUp";
+            this.Text = "Top Up";
             this.Load += new System.EventHandler(this.FormTopUp_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

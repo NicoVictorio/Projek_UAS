@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPengajuanDeposito));
             this.btn_Exit = new System.Windows.Forms.Button();
             this.labelNomorRekening = new System.Windows.Forms.Label();
             this.labelEmail = new System.Windows.Forms.Label();
@@ -48,66 +49,73 @@
             // 
             // btn_Exit
             // 
-            this.btn_Exit.Location = new System.Drawing.Point(332, 346);
-            this.btn_Exit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_Exit.BackColor = System.Drawing.Color.Bisque;
+            this.btn_Exit.Location = new System.Drawing.Point(249, 281);
+            this.btn_Exit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_Exit.Name = "btn_Exit";
-            this.btn_Exit.Size = new System.Drawing.Size(93, 39);
+            this.btn_Exit.Size = new System.Drawing.Size(70, 32);
             this.btn_Exit.TabIndex = 60;
             this.btn_Exit.Text = "Exit";
-            this.btn_Exit.UseVisualStyleBackColor = true;
+            this.btn_Exit.UseVisualStyleBackColor = false;
             this.btn_Exit.Click += new System.EventHandler(this.btn_Exit_Click);
             // 
             // labelNomorRekening
             // 
             this.labelNomorRekening.AutoSize = true;
-            this.labelNomorRekening.Location = new System.Drawing.Point(163, 66);
+            this.labelNomorRekening.Location = new System.Drawing.Point(122, 54);
+            this.labelNomorRekening.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelNomorRekening.Name = "labelNomorRekening";
-            this.labelNomorRekening.Size = new System.Drawing.Size(13, 17);
+            this.labelNomorRekening.Size = new System.Drawing.Size(10, 13);
             this.labelNomorRekening.TabIndex = 12;
             this.labelNomorRekening.Text = "-";
             // 
             // labelEmail
             // 
             this.labelEmail.AutoSize = true;
-            this.labelEmail.Location = new System.Drawing.Point(163, 30);
+            this.labelEmail.Location = new System.Drawing.Point(122, 24);
+            this.labelEmail.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelEmail.Name = "labelEmail";
-            this.labelEmail.Size = new System.Drawing.Size(13, 17);
+            this.labelEmail.Size = new System.Drawing.Size(10, 13);
             this.labelEmail.TabIndex = 13;
             this.labelEmail.Text = "-";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(59, 145);
+            this.label4.Location = new System.Drawing.Point(44, 118);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(99, 17);
+            this.label4.Size = new System.Drawing.Size(74, 13);
             this.label4.TabIndex = 3;
             this.label4.Text = "Nominal (Rp.):";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(67, 102);
+            this.label3.Location = new System.Drawing.Point(50, 83);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(95, 17);
+            this.label3.Size = new System.Drawing.Size(72, 13);
             this.label3.TabIndex = 2;
             this.label3.Text = "Jatuh Tempo:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(112, 30);
+            this.label2.Location = new System.Drawing.Point(84, 24);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(46, 17);
+            this.label2.Size = new System.Drawing.Size(35, 13);
             this.label2.TabIndex = 1;
             this.label2.Text = "Email:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(45, 66);
+            this.label1.Location = new System.Drawing.Point(34, 54);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(118, 17);
+            this.label1.Size = new System.Drawing.Size(90, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Nomor Rekening:";
             // 
@@ -122,23 +130,24 @@
             "12 bulan",
             "24 bulan",
             "36 bulan"});
-            this.comboBoxJatuhTempo.Location = new System.Drawing.Point(163, 98);
-            this.comboBoxJatuhTempo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBoxJatuhTempo.Location = new System.Drawing.Point(122, 80);
+            this.comboBoxJatuhTempo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBoxJatuhTempo.Name = "comboBoxJatuhTempo";
-            this.comboBoxJatuhTempo.Size = new System.Drawing.Size(212, 24);
+            this.comboBoxJatuhTempo.Size = new System.Drawing.Size(160, 21);
             this.comboBoxJatuhTempo.TabIndex = 19;
             // 
             // textBoxNominal
             // 
-            this.textBoxNominal.Location = new System.Drawing.Point(163, 142);
-            this.textBoxNominal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxNominal.Location = new System.Drawing.Point(122, 115);
+            this.textBoxNominal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxNominal.Name = "textBoxNominal";
-            this.textBoxNominal.Size = new System.Drawing.Size(212, 22);
+            this.textBoxNominal.Size = new System.Drawing.Size(160, 20);
             this.textBoxNominal.TabIndex = 20;
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.panel1.BackColor = System.Drawing.Color.Bisque;
+            this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
             this.panel1.Controls.Add(this.radioButtonDeposito);
             this.panel1.Controls.Add(this.radioButtonTabungan);
             this.panel1.Controls.Add(this.checkBoxARO);
@@ -150,19 +159,20 @@
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.labelEmail);
             this.panel1.Controls.Add(this.labelNomorRekening);
-            this.panel1.Location = new System.Drawing.Point(12, 12);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel1.Location = new System.Drawing.Point(9, 10);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(413, 320);
+            this.panel1.Size = new System.Drawing.Size(310, 260);
             this.panel1.TabIndex = 20;
             // 
             // radioButtonDeposito
             // 
             this.radioButtonDeposito.AutoSize = true;
             this.radioButtonDeposito.Enabled = false;
-            this.radioButtonDeposito.Location = new System.Drawing.Point(163, 277);
+            this.radioButtonDeposito.Location = new System.Drawing.Point(122, 225);
+            this.radioButtonDeposito.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.radioButtonDeposito.Name = "radioButtonDeposito";
-            this.radioButtonDeposito.Size = new System.Drawing.Size(173, 21);
+            this.radioButtonDeposito.Size = new System.Drawing.Size(133, 17);
             this.radioButtonDeposito.TabIndex = 23;
             this.radioButtonDeposito.Text = "Bunga masuk deposito";
             this.radioButtonDeposito.UseVisualStyleBackColor = true;
@@ -172,9 +182,10 @@
             this.radioButtonTabungan.AutoSize = true;
             this.radioButtonTabungan.Checked = true;
             this.radioButtonTabungan.Enabled = false;
-            this.radioButtonTabungan.Location = new System.Drawing.Point(163, 238);
+            this.radioButtonTabungan.Location = new System.Drawing.Point(122, 193);
+            this.radioButtonTabungan.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.radioButtonTabungan.Name = "radioButtonTabungan";
-            this.radioButtonTabungan.Size = new System.Drawing.Size(179, 21);
+            this.radioButtonTabungan.Size = new System.Drawing.Size(138, 17);
             this.radioButtonTabungan.TabIndex = 22;
             this.radioButtonTabungan.TabStop = true;
             this.radioButtonTabungan.Text = "Bunga masuk tabungan";
@@ -183,9 +194,10 @@
             // checkBoxARO
             // 
             this.checkBoxARO.AutoSize = true;
-            this.checkBoxARO.Location = new System.Drawing.Point(163, 194);
+            this.checkBoxARO.Location = new System.Drawing.Point(122, 158);
+            this.checkBoxARO.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.checkBoxARO.Name = "checkBoxARO";
-            this.checkBoxARO.Size = new System.Drawing.Size(199, 21);
+            this.checkBoxARO.Size = new System.Drawing.Size(152, 17);
             this.checkBoxARO.TabIndex = 21;
             this.checkBoxARO.Text = "ARO (Automatic Roll Over)";
             this.checkBoxARO.UseVisualStyleBackColor = true;
@@ -193,36 +205,39 @@
             // 
             // buttonAdd
             // 
-            this.buttonAdd.Location = new System.Drawing.Point(12, 346);
-            this.buttonAdd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonAdd.BackColor = System.Drawing.Color.Bisque;
+            this.buttonAdd.Location = new System.Drawing.Point(9, 281);
+            this.buttonAdd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonAdd.Name = "buttonAdd";
-            this.buttonAdd.Size = new System.Drawing.Size(93, 39);
+            this.buttonAdd.Size = new System.Drawing.Size(70, 32);
             this.buttonAdd.TabIndex = 61;
             this.buttonAdd.Text = "Add";
-            this.buttonAdd.UseVisualStyleBackColor = true;
+            this.buttonAdd.UseVisualStyleBackColor = false;
             this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
             // buttonDetail
             // 
-            this.buttonDetail.Location = new System.Drawing.Point(175, 346);
-            this.buttonDetail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonDetail.BackColor = System.Drawing.Color.Bisque;
+            this.buttonDetail.Location = new System.Drawing.Point(131, 281);
+            this.buttonDetail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonDetail.Name = "buttonDetail";
-            this.buttonDetail.Size = new System.Drawing.Size(93, 39);
+            this.buttonDetail.Size = new System.Drawing.Size(70, 32);
             this.buttonDetail.TabIndex = 62;
             this.buttonDetail.Text = "Detail";
-            this.buttonDetail.UseVisualStyleBackColor = true;
+            this.buttonDetail.UseVisualStyleBackColor = false;
             this.buttonDetail.Click += new System.EventHandler(this.buttonDetail_Click);
             // 
             // FormPengajuanDeposito
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(444, 396);
+            this.BackColor = System.Drawing.Color.Linen;
+            this.ClientSize = new System.Drawing.Size(333, 322);
             this.Controls.Add(this.buttonDetail);
             this.Controls.Add(this.buttonAdd);
             this.Controls.Add(this.btn_Exit);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FormPengajuanDeposito";
             this.Text = "Pengajuan Deposito";
             this.Load += new System.EventHandler(this.FormPengajuanDeposito_Load);

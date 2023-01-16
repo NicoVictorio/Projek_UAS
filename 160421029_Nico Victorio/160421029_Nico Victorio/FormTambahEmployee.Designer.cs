@@ -29,6 +29,7 @@ namespace _160421029_Nico_Victorio
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormTambahEmployee));
             this.label11 = new System.Windows.Forms.Label();
             this.comboBoxPosition = new System.Windows.Forms.ComboBox();
             this.buttonAdd = new System.Windows.Forms.Button();
@@ -51,10 +52,9 @@ namespace _160421029_Nico_Victorio
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Corbel", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(79, 77);
-            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label11.Location = new System.Drawing.Point(59, 63);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(67, 21);
+            this.label11.Size = new System.Drawing.Size(50, 15);
             this.label11.TabIndex = 66;
             this.label11.Text = "Position";
             // 
@@ -62,79 +62,77 @@ namespace _160421029_Nico_Victorio
             // 
             this.comboBoxPosition.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxPosition.FormattingEnabled = true;
-            this.comboBoxPosition.Location = new System.Drawing.Point(157, 77);
-            this.comboBoxPosition.Margin = new System.Windows.Forms.Padding(4);
+            this.comboBoxPosition.Location = new System.Drawing.Point(118, 63);
             this.comboBoxPosition.Name = "comboBoxPosition";
-            this.comboBoxPosition.Size = new System.Drawing.Size(160, 24);
+            this.comboBoxPosition.Size = new System.Drawing.Size(121, 21);
             this.comboBoxPosition.TabIndex = 65;
             // 
             // buttonAdd
             // 
+            this.buttonAdd.BackColor = System.Drawing.Color.Bisque;
             this.buttonAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonAdd.Location = new System.Drawing.Point(300, 312);
-            this.buttonAdd.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonAdd.Location = new System.Drawing.Point(225, 254);
             this.buttonAdd.Name = "buttonAdd";
-            this.buttonAdd.Size = new System.Drawing.Size(152, 32);
+            this.buttonAdd.Size = new System.Drawing.Size(114, 26);
             this.buttonAdd.TabIndex = 60;
             this.buttonAdd.Text = "Add";
-            this.buttonAdd.UseVisualStyleBackColor = true;
+            this.buttonAdd.UseVisualStyleBackColor = false;
             this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
             // textBoxUlangiPassword
             // 
+            this.textBoxUlangiPassword.BackColor = System.Drawing.Color.Bisque;
             this.textBoxUlangiPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxUlangiPassword.Location = new System.Drawing.Point(157, 249);
-            this.textBoxUlangiPassword.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxUlangiPassword.Location = new System.Drawing.Point(118, 202);
             this.textBoxUlangiPassword.Name = "textBoxUlangiPassword";
             this.textBoxUlangiPassword.PasswordChar = '*';
-            this.textBoxUlangiPassword.Size = new System.Drawing.Size(491, 26);
+            this.textBoxUlangiPassword.Size = new System.Drawing.Size(369, 23);
             this.textBoxUlangiPassword.TabIndex = 59;
             // 
             // textBoxPassword
             // 
+            this.textBoxPassword.BackColor = System.Drawing.Color.Bisque;
             this.textBoxPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxPassword.Location = new System.Drawing.Point(157, 211);
-            this.textBoxPassword.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxPassword.Location = new System.Drawing.Point(118, 171);
             this.textBoxPassword.Name = "textBoxPassword";
             this.textBoxPassword.PasswordChar = '*';
-            this.textBoxPassword.Size = new System.Drawing.Size(491, 26);
+            this.textBoxPassword.Size = new System.Drawing.Size(369, 23);
             this.textBoxPassword.TabIndex = 58;
             // 
             // textBoxEmail
             // 
+            this.textBoxEmail.BackColor = System.Drawing.Color.Bisque;
             this.textBoxEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxEmail.Location = new System.Drawing.Point(157, 165);
-            this.textBoxEmail.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxEmail.Location = new System.Drawing.Point(118, 134);
             this.textBoxEmail.Name = "textBoxEmail";
-            this.textBoxEmail.Size = new System.Drawing.Size(491, 26);
+            this.textBoxEmail.Size = new System.Drawing.Size(369, 23);
             this.textBoxEmail.TabIndex = 56;
             // 
             // textBoxNamaBelakang
             // 
+            this.textBoxNamaBelakang.BackColor = System.Drawing.Color.Bisque;
             this.textBoxNamaBelakang.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxNamaBelakang.Location = new System.Drawing.Point(464, 32);
-            this.textBoxNamaBelakang.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxNamaBelakang.Location = new System.Drawing.Point(348, 26);
             this.textBoxNamaBelakang.Name = "textBoxNamaBelakang";
-            this.textBoxNamaBelakang.Size = new System.Drawing.Size(184, 26);
+            this.textBoxNamaBelakang.Size = new System.Drawing.Size(139, 23);
             this.textBoxNamaBelakang.TabIndex = 54;
             // 
             // textBoxNamaDepan
             // 
+            this.textBoxNamaDepan.BackColor = System.Drawing.Color.Bisque;
             this.textBoxNamaDepan.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxNamaDepan.Location = new System.Drawing.Point(157, 32);
-            this.textBoxNamaDepan.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxNamaDepan.Location = new System.Drawing.Point(118, 26);
             this.textBoxNamaDepan.Name = "textBoxNamaDepan";
-            this.textBoxNamaDepan.Size = new System.Drawing.Size(159, 26);
+            this.textBoxNamaDepan.Size = new System.Drawing.Size(120, 23);
             this.textBoxNamaDepan.TabIndex = 53;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Corbel", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(335, 37);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Location = new System.Drawing.Point(251, 30);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(117, 21);
+            this.label8.Size = new System.Drawing.Size(89, 15);
             this.label8.TabIndex = 51;
             this.label8.Text = "Nama Keluarga";
             // 
@@ -142,10 +140,9 @@ namespace _160421029_Nico_Victorio
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Corbel", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(23, 254);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Location = new System.Drawing.Point(17, 206);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(126, 21);
+            this.label7.Size = new System.Drawing.Size(95, 15);
             this.label7.TabIndex = 50;
             this.label7.Text = "Ulangi Password";
             // 
@@ -153,10 +150,9 @@ namespace _160421029_Nico_Victorio
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Corbel", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(73, 216);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Location = new System.Drawing.Point(55, 176);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(78, 21);
+            this.label6.Size = new System.Drawing.Size(57, 15);
             this.label6.TabIndex = 49;
             this.label6.Text = "Password";
             // 
@@ -164,10 +160,9 @@ namespace _160421029_Nico_Victorio
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Corbel", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(100, 170);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(75, 138);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(49, 21);
+            this.label4.Size = new System.Drawing.Size(37, 15);
             this.label4.TabIndex = 47;
             this.label4.Text = "Email";
             // 
@@ -175,50 +170,50 @@ namespace _160421029_Nico_Victorio
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Corbel", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(47, 37);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(35, 30);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(100, 21);
+            this.label2.Size = new System.Drawing.Size(77, 15);
             this.label2.TabIndex = 45;
             this.label2.Text = "Nama Depan";
             // 
             // textBoxNIK
             // 
+            this.textBoxNIK.BackColor = System.Drawing.Color.Bisque;
             this.textBoxNIK.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxNIK.Location = new System.Drawing.Point(157, 120);
-            this.textBoxNIK.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxNIK.Location = new System.Drawing.Point(118, 98);
             this.textBoxNIK.Name = "textBoxNIK";
-            this.textBoxNIK.Size = new System.Drawing.Size(491, 26);
+            this.textBoxNIK.Size = new System.Drawing.Size(369, 23);
             this.textBoxNIK.TabIndex = 68;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Corbel", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(110, 124);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(82, 101);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(36, 21);
+            this.label3.Size = new System.Drawing.Size(27, 15);
             this.label3.TabIndex = 67;
             this.label3.Text = "NIK";
             // 
             // buttonExit
             // 
+            this.buttonExit.BackColor = System.Drawing.Color.Bisque;
             this.buttonExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonExit.Location = new System.Drawing.Point(496, 312);
-            this.buttonExit.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonExit.Location = new System.Drawing.Point(372, 254);
             this.buttonExit.Name = "buttonExit";
-            this.buttonExit.Size = new System.Drawing.Size(152, 32);
+            this.buttonExit.Size = new System.Drawing.Size(114, 26);
             this.buttonExit.TabIndex = 69;
             this.buttonExit.Text = "Exit";
-            this.buttonExit.UseVisualStyleBackColor = true;
+            this.buttonExit.UseVisualStyleBackColor = false;
             this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);
             // 
             // FormTambahEmployee
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(678, 375);
+            this.BackColor = System.Drawing.Color.Bisque;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.ClientSize = new System.Drawing.Size(508, 305);
             this.Controls.Add(this.buttonExit);
             this.Controls.Add(this.textBoxNIK);
             this.Controls.Add(this.label3);
@@ -235,8 +230,9 @@ namespace _160421029_Nico_Victorio
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FormTambahEmployee";
-            this.Text = "FormTambahEmployee";
+            this.Text = "Tambah Employee";
             this.Load += new System.EventHandler(this.FormTambahEmployee_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

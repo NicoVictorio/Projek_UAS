@@ -29,6 +29,7 @@ namespace _160421029_Nico_Victorio
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormUpdatePassword));
             this.textBoxPasswordLama = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.textBoxUlangiPasswordBaru = new System.Windows.Forms.TextBox();
@@ -41,53 +42,51 @@ namespace _160421029_Nico_Victorio
             // 
             // textBoxPasswordLama
             // 
+            this.textBoxPasswordLama.BackColor = System.Drawing.Color.Bisque;
             this.textBoxPasswordLama.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxPasswordLama.Location = new System.Drawing.Point(208, 22);
-            this.textBoxPasswordLama.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxPasswordLama.Location = new System.Drawing.Point(156, 18);
             this.textBoxPasswordLama.Name = "textBoxPasswordLama";
             this.textBoxPasswordLama.PasswordChar = '*';
-            this.textBoxPasswordLama.Size = new System.Drawing.Size(253, 26);
+            this.textBoxPasswordLama.Size = new System.Drawing.Size(191, 23);
             this.textBoxPasswordLama.TabIndex = 62;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Corbel", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(87, 28);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Location = new System.Drawing.Point(65, 23);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(120, 21);
+            this.label6.Size = new System.Drawing.Size(90, 15);
             this.label6.TabIndex = 60;
             this.label6.Text = "Password Lama";
             // 
             // textBoxUlangiPasswordBaru
             // 
+            this.textBoxUlangiPasswordBaru.BackColor = System.Drawing.Color.Bisque;
             this.textBoxUlangiPasswordBaru.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxUlangiPasswordBaru.Location = new System.Drawing.Point(208, 94);
-            this.textBoxUlangiPasswordBaru.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxUlangiPasswordBaru.Location = new System.Drawing.Point(156, 76);
             this.textBoxUlangiPasswordBaru.Name = "textBoxUlangiPasswordBaru";
             this.textBoxUlangiPasswordBaru.PasswordChar = '*';
-            this.textBoxUlangiPasswordBaru.Size = new System.Drawing.Size(253, 26);
+            this.textBoxUlangiPasswordBaru.Size = new System.Drawing.Size(191, 23);
             this.textBoxUlangiPasswordBaru.TabIndex = 67;
             // 
             // textBoxPasswordBaru
             // 
+            this.textBoxPasswordBaru.BackColor = System.Drawing.Color.Bisque;
             this.textBoxPasswordBaru.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxPasswordBaru.Location = new System.Drawing.Point(208, 58);
-            this.textBoxPasswordBaru.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxPasswordBaru.Location = new System.Drawing.Point(156, 47);
             this.textBoxPasswordBaru.Name = "textBoxPasswordBaru";
             this.textBoxPasswordBaru.PasswordChar = '*';
-            this.textBoxPasswordBaru.Size = new System.Drawing.Size(253, 26);
+            this.textBoxPasswordBaru.Size = new System.Drawing.Size(191, 23);
             this.textBoxPasswordBaru.TabIndex = 66;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Corbel", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(36, 98);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(27, 80);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(162, 21);
+            this.label1.Size = new System.Drawing.Size(123, 15);
             this.label1.TabIndex = 65;
             this.label1.Text = "Ulangi Password Baru";
             // 
@@ -95,42 +94,43 @@ namespace _160421029_Nico_Victorio
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Corbel", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(87, 64);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(65, 52);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(114, 21);
+            this.label2.Size = new System.Drawing.Size(85, 15);
             this.label2.TabIndex = 64;
             this.label2.Text = "Password Baru";
             // 
             // buttonExit
             // 
+            this.buttonExit.BackColor = System.Drawing.Color.Bisque;
             this.buttonExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonExit.Location = new System.Drawing.Point(365, 153);
-            this.buttonExit.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonExit.Location = new System.Drawing.Point(274, 124);
             this.buttonExit.Name = "buttonExit";
-            this.buttonExit.Size = new System.Drawing.Size(96, 32);
+            this.buttonExit.Size = new System.Drawing.Size(72, 26);
             this.buttonExit.TabIndex = 88;
             this.buttonExit.Text = "Exit";
-            this.buttonExit.UseVisualStyleBackColor = true;
+            this.buttonExit.UseVisualStyleBackColor = false;
             this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);
             // 
             // buttonUpdate
             // 
+            this.buttonUpdate.BackColor = System.Drawing.Color.Bisque;
             this.buttonUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonUpdate.Location = new System.Drawing.Point(241, 153);
-            this.buttonUpdate.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonUpdate.Location = new System.Drawing.Point(181, 124);
             this.buttonUpdate.Name = "buttonUpdate";
-            this.buttonUpdate.Size = new System.Drawing.Size(96, 32);
+            this.buttonUpdate.Size = new System.Drawing.Size(72, 26);
             this.buttonUpdate.TabIndex = 87;
             this.buttonUpdate.Text = "Update";
-            this.buttonUpdate.UseVisualStyleBackColor = true;
+            this.buttonUpdate.UseVisualStyleBackColor = false;
             this.buttonUpdate.Click += new System.EventHandler(this.buttonUpdate_Click);
             // 
             // FormUpdatePassword
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(483, 208);
+            this.BackColor = System.Drawing.Color.Bisque;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.ClientSize = new System.Drawing.Size(362, 169);
             this.Controls.Add(this.buttonExit);
             this.Controls.Add(this.buttonUpdate);
             this.Controls.Add(this.textBoxUlangiPasswordBaru);
@@ -139,9 +139,8 @@ namespace _160421029_Nico_Victorio
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBoxPasswordLama);
             this.Controls.Add(this.label6);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormUpdatePassword";
-            this.Text = "FormUpdatePassword";
+            this.Text = "Ganti Password";
             this.Load += new System.EventHandler(this.FormUpdatePassword_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -29,6 +29,7 @@ namespace _160421029_Nico_Victorio
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormTambahPosition));
             this.tb_Keterangan = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.btn_Exit = new System.Windows.Forms.Button();
@@ -39,6 +40,7 @@ namespace _160421029_Nico_Victorio
             // 
             // tb_Keterangan
             // 
+            this.tb_Keterangan.BackColor = System.Drawing.Color.Bisque;
             this.tb_Keterangan.Location = new System.Drawing.Point(136, 73);
             this.tb_Keterangan.Margin = new System.Windows.Forms.Padding(2);
             this.tb_Keterangan.Name = "tb_Keterangan";
@@ -57,28 +59,31 @@ namespace _160421029_Nico_Victorio
             // 
             // btn_Exit
             // 
+            this.btn_Exit.BackColor = System.Drawing.Color.Bisque;
             this.btn_Exit.Location = new System.Drawing.Point(216, 107);
             this.btn_Exit.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Exit.Name = "btn_Exit";
             this.btn_Exit.Size = new System.Drawing.Size(66, 28);
             this.btn_Exit.TabIndex = 47;
             this.btn_Exit.Text = "Exit";
-            this.btn_Exit.UseVisualStyleBackColor = true;
+            this.btn_Exit.UseVisualStyleBackColor = false;
             this.btn_Exit.Click += new System.EventHandler(this.btn_Exit_Click);
             // 
             // btn_Add
             // 
+            this.btn_Add.BackColor = System.Drawing.Color.Bisque;
             this.btn_Add.Location = new System.Drawing.Point(35, 107);
             this.btn_Add.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Add.Name = "btn_Add";
             this.btn_Add.Size = new System.Drawing.Size(71, 32);
             this.btn_Add.TabIndex = 46;
             this.btn_Add.Text = "Add";
-            this.btn_Add.UseVisualStyleBackColor = true;
+            this.btn_Add.UseVisualStyleBackColor = false;
             this.btn_Add.Click += new System.EventHandler(this.btn_Add_Click);
             // 
             // tb_NamaPosition
             // 
+            this.tb_NamaPosition.BackColor = System.Drawing.Color.Bisque;
             this.tb_NamaPosition.Location = new System.Drawing.Point(136, 31);
             this.tb_NamaPosition.Margin = new System.Windows.Forms.Padding(2);
             this.tb_NamaPosition.Name = "tb_NamaPosition";
@@ -99,6 +104,8 @@ namespace _160421029_Nico_Victorio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Bisque;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(310, 166);
             this.Controls.Add(this.tb_Keterangan);
             this.Controls.Add(this.label3);
@@ -108,7 +115,7 @@ namespace _160421029_Nico_Victorio
             this.Controls.Add(this.label2);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormTambahPosition";
-            this.Text = "FormTambahPosition";
+            this.Text = "Tambah Position";
             this.Load += new System.EventHandler(this.FormTambahPosition_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

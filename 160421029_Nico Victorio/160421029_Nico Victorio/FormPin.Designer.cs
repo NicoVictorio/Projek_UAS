@@ -29,6 +29,7 @@ namespace _160421029_Nico_Victorio
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPin));
             this.buttonOk = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxPin = new System.Windows.Forms.TextBox();
@@ -36,12 +37,13 @@ namespace _160421029_Nico_Victorio
             // 
             // buttonOk
             // 
+            this.buttonOk.BackColor = System.Drawing.Color.Bisque;
             this.buttonOk.Location = new System.Drawing.Point(96, 78);
             this.buttonOk.Name = "buttonOk";
             this.buttonOk.Size = new System.Drawing.Size(75, 23);
             this.buttonOk.TabIndex = 7;
             this.buttonOk.Text = "OK";
-            this.buttonOk.UseVisualStyleBackColor = true;
+            this.buttonOk.UseVisualStyleBackColor = false;
             this.buttonOk.Click += new System.EventHandler(this.buttonOk_Click);
             // 
             // label1
@@ -55,6 +57,7 @@ namespace _160421029_Nico_Victorio
             // 
             // textBoxPin
             // 
+            this.textBoxPin.BackColor = System.Drawing.Color.Bisque;
             this.textBoxPin.Location = new System.Drawing.Point(96, 35);
             this.textBoxPin.Name = "textBoxPin";
             this.textBoxPin.PasswordChar = '*';
@@ -65,12 +68,14 @@ namespace _160421029_Nico_Victorio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Bisque;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(255, 128);
             this.Controls.Add(this.buttonOk);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBoxPin);
             this.Name = "FormPin";
-            this.Text = "FormPin";
+            this.Text = "Verifikasi Pin";
             this.Load += new System.EventHandler(this.FormPin_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

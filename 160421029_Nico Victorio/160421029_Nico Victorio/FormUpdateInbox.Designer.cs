@@ -29,6 +29,7 @@ namespace _160421029_Nico_Victorio
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormUpdateInbox));
             this.btn_Exit = new System.Windows.Forms.Button();
             this.textBoxPesan = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -39,16 +40,18 @@ namespace _160421029_Nico_Victorio
             // 
             // btn_Exit
             // 
+            this.btn_Exit.BackColor = System.Drawing.Color.Bisque;
             this.btn_Exit.Location = new System.Drawing.Point(361, 178);
             this.btn_Exit.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Exit.Name = "btn_Exit";
             this.btn_Exit.Size = new System.Drawing.Size(66, 28);
             this.btn_Exit.TabIndex = 55;
             this.btn_Exit.Text = "Exit";
-            this.btn_Exit.UseVisualStyleBackColor = true;
+            this.btn_Exit.UseVisualStyleBackColor = false;
             // 
             // textBoxPesan
             // 
+            this.textBoxPesan.BackColor = System.Drawing.Color.Bisque;
             this.textBoxPesan.Location = new System.Drawing.Point(137, 66);
             this.textBoxPesan.Multiline = true;
             this.textBoxPesan.Name = "textBoxPesan";
@@ -76,17 +79,19 @@ namespace _160421029_Nico_Victorio
             // 
             // buttonUpdate
             // 
+            this.buttonUpdate.BackColor = System.Drawing.Color.Bisque;
             this.buttonUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonUpdate.Location = new System.Drawing.Point(137, 180);
             this.buttonUpdate.Name = "buttonUpdate";
             this.buttonUpdate.Size = new System.Drawing.Size(74, 26);
             this.buttonUpdate.TabIndex = 82;
             this.buttonUpdate.Text = "Update";
-            this.buttonUpdate.UseVisualStyleBackColor = true;
+            this.buttonUpdate.UseVisualStyleBackColor = false;
             this.buttonUpdate.Click += new System.EventHandler(this.buttonUpdate_Click);
             // 
             // comboBoxIdPengguna
             // 
+            this.comboBoxIdPengguna.BackColor = System.Drawing.Color.Bisque;
             this.comboBoxIdPengguna.FormattingEnabled = true;
             this.comboBoxIdPengguna.Location = new System.Drawing.Point(137, 32);
             this.comboBoxIdPengguna.Name = "comboBoxIdPengguna";
@@ -97,6 +102,8 @@ namespace _160421029_Nico_Victorio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Bisque;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(489, 244);
             this.Controls.Add(this.comboBoxIdPengguna);
             this.Controls.Add(this.buttonUpdate);
@@ -105,7 +112,7 @@ namespace _160421029_Nico_Victorio
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "FormUpdateInbox";
-            this.Text = "FormUbahInbox";
+            this.Text = "Update Inbox";
             this.Load += new System.EventHandler(this.FormUpdateInbox_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
