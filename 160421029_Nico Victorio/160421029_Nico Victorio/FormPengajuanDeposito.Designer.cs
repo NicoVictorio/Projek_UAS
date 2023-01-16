@@ -78,11 +78,11 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(95, 142);
+            this.label4.Location = new System.Drawing.Point(59, 145);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(63, 17);
+            this.label4.Size = new System.Drawing.Size(99, 17);
             this.label4.TabIndex = 3;
-            this.label4.Text = "Nominal:";
+            this.label4.Text = "Nominal (Rp.):";
             // 
             // label3
             // 

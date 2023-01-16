@@ -32,7 +32,7 @@ namespace _160421029_Nico_Victorio
             DateTime tanggalAkhir = dateTimePickerTanggalAkhir.Value;
             if (tanggalAwal > tanggalAkhir)
             {
-                throw new Exception("Tanggal awal mutasi harus lebih kecil dari tanggal akhir mutasi");
+                MessageBox.Show("Tanggal awal mutasi harus lebih kecil dari tanggal akhir mutasi");
             }
             else
             {

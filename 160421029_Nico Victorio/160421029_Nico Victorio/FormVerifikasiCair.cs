@@ -69,9 +69,10 @@ namespace _160421029_Nico_Victorio
                         Deposito dep = new Deposito(idDeposito, noRek, nominal, status, tglAwal, tglCair, verifikatorBuka, verifikatorCair, idBunga, aro, keterangan);
                         double denda = 0;
                         double bunga = 0;
+                        int bulan = tglCair.Month - tglAwal.Month;
                         if (DateTime.Now.ToShortDateString() == dep.TglCair.ToShortDateString())
                         {
-                            bunga = nominal * idBunga.PersenBunga / 100;
+                            bunga = nominal * idBunga.PersenBunga * bulan / 1200;
                         }
                         else
                         {

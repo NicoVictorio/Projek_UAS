@@ -99,7 +99,7 @@ namespace _160421029_Nico_Victorio
                                 biaya = 1000;
                             }
 
-                            Inbox inboxBiayaAdmin = new Inbox(0, tmpPengguna, "Biaya Administrasi sebesar " + biaya, DateTime.Now, "", DateTime.Now);
+                            Inbox inboxBiayaAdmin = new Inbox(0, tmpPengguna, "Biaya Administrasi sebesar " + biaya.ToString("C2"), DateTime.Now, "", DateTime.Now);
                             inboxBiayaAdmin.TambahData();
 
                             JenisTransaksi jenisTransaksiTax = JenisTransaksi.jenisTransaksiByCode(3);
@@ -121,7 +121,7 @@ namespace _160421029_Nico_Victorio
                                     pajak = nominal * 10 / 100;
                                 }
 
-                                Inbox inboxBunga = new Inbox(0, tmpPengguna, "Anda mendapatkan bunga rekening sebesar " + nominal, DateTime.Now, "", DateTime.Now);
+                                Inbox inboxBunga = new Inbox(0, tmpPengguna, "Anda mendapatkan bunga rekening sebesar " + nominal.ToString("C2"), DateTime.Now, "", DateTime.Now);
                                 inboxBunga.TambahData();
 
                                 JenisTransaksi jenisTransaksiInterest = JenisTransaksi.jenisTransaksiByCode(4);
@@ -134,7 +134,7 @@ namespace _160421029_Nico_Victorio
                                 //kalau ada pajak, maka mengurangi saldo dari pajak
                                 if (pajak != 0)
                                 {
-                                    Inbox inboxPajak = new Inbox(0, tmpPengguna, "Anda dikenakan pajak sebesar " + pajak, DateTime.Now, "", DateTime.Now);
+                                    Inbox inboxPajak = new Inbox(0, tmpPengguna, "Anda dikenakan pajak sebesar " + pajak.ToString("C2"), DateTime.Now, "", DateTime.Now);
                                     inboxPajak.TambahData();
 
                                     JenisTransaksi jenisTransaksiPajak = JenisTransaksi.jenisTransaksiByCode(3);
@@ -176,15 +176,16 @@ namespace _160421029_Nico_Victorio
                                 {
                                     tahun = tmpListDepositoAro[i].TglCair.Year - tmpListDepositoAro[i].TglAwal.Year;
                                     tanggalCair = tmpListDepositoAro[i].TglCair.AddYears(tahun);
+                                    bulan = tahun * 12;
                                 }
 
                                 //mendapatkan bunga dari deposito yang pengguna lakukan
-                                int bunga = (int)(tmpListDepositoAro[i].Nominal * tmpListDepositoAro[i].Bunga.PersenBunga / 100);
+                                int bunga = (int)(tmpListDepositoAro[i].Nominal * tmpListDepositoAro[i].Bunga.PersenBunga * bulan / 1200);
 
                                 //memanggil method TambahBunga
                                 if (tmpListDepositoAro[i].Keterangan == "Bunga masuk ke rekening tabungan.")
                                 {
-                                    Inbox inboxBunga = new Inbox(0, tmpPengguna, "Anda mendapatkan bunga deposito sebesar " + bunga, DateTime.Now, "", DateTime.Now);
+                                    Inbox inboxBunga = new Inbox(0, tmpPengguna, "Anda mendapatkan bunga deposito sebesar " + bunga.ToString("C2"), DateTime.Now, "", DateTime.Now);
                                     inboxBunga.TambahData();
 
                                     JenisTransaksi jenisTransaksiBunga = JenisTransaksi.jenisTransaksiByCode(4);
@@ -196,7 +197,7 @@ namespace _160421029_Nico_Victorio
                                 }
                                 else if (tmpListDepositoAro[i].Keterangan == "Bunga masuk ke pokok deposito.")
                                 {
-                                    Inbox inboxBunga = new Inbox(0, tmpPengguna, "Anda mendapatkan bunga deposito sebesar " + bunga + " yang masuk sebagai pokok deposito.", DateTime.Now, "", DateTime.Now);
+                                    Inbox inboxBunga = new Inbox(0, tmpPengguna, "Anda mendapatkan bunga deposito sebesar " + bunga.ToString("C2") + " yang masuk sebagai pokok deposito.", DateTime.Now, "", DateTime.Now);
                                     inboxBunga.TambahData();
 
                                     Deposito.TambahBunga(bunga, tabPengguna.NoRekening, tmpListDepositoAro[i].IdDeposito);
