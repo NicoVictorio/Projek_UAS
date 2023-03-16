@@ -164,6 +164,12 @@ namespace DiBa_Lib
                 return null;
             }
         }
+
+        public static void HapusDataPengguna(string email)
+        {
+            string sql = "DELETE from addressbook where pengguna_email = '" + email + "';";
+            Koneksi.executeDML(sql);
+        }
         #endregion
     }
 }

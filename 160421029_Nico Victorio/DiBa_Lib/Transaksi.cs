@@ -59,8 +59,9 @@ namespace DiBa_Lib
         #region methods
         public static string GenerateNoTransaksi(string kodeJenisTransaksi)
         {
-            string sql = "SELECT RIGHT(idtransaksi,4) as idTransaksi FROM transaksi WHERE " +
-                " Date(tgl_transaksi) = Date(CURRENT_DATE) order by tgl_transaksi DESC limit 1";
+            string sql = "SELECT RIGHT(idtransaksi,4) as idTransaksi FROM transaksi " +
+                         "WHERE Date(tgl_transaksi) = Date(CURRENT_DATE) " +
+                         "order by tgl_transaksi DESC limit 1";
             MySqlDataReader hasil = Koneksi.ambilData(sql);
             
             string hasilNoTransaksi = "";
@@ -70,26 +71,25 @@ namespace DiBa_Lib
                 {
                     int idTransaksi = hasil.GetInt32(0) + 1;
                     hasilNoTransaksi = kodeJenisTransaksi +  DateTime.Now.Year.ToString() +
-                        DateTime.Now.Month.ToString().PadLeft(2, '0') +
-                        DateTime.Now.Day.ToString().PadLeft(2, '0') +
-                        idTransaksi.ToString().PadLeft(4, '0');
+                                       DateTime.Now.Month.ToString().PadLeft(2, '0') +
+                                       DateTime.Now.Day.ToString().PadLeft(2, '0') +
+                                       idTransaksi.ToString().PadLeft(4, '0');
                 }
             }
             else
             {
                 hasilNoTransaksi = kodeJenisTransaksi + DateTime.Now.Year.ToString() +
-                    DateTime.Now.Month.ToString().PadLeft(2, '0') +
-                    DateTime.Now.Day.ToString().PadLeft(2, '0') +
-                    "0001";
+                                   DateTime.Now.Month.ToString().PadLeft(2, '0') +
+                                   DateTime.Now.Day.ToString().PadLeft(2, '0') +
+                                   "0001";
             }
             return hasilNoTransaksi;
         }
 
         public static List<Transaksi> BacaData(string kriteria, string nilaiKriteria)
         {
-            string sql = "SELECT rekening_sumber, idtransaksi, tgl_transaksi, id_jenisTransaksi, rekening_tujuan, " +
-                         "nominal, keterangan " +
-                         "FROM transaksi ";
+            string sql = "SELECT rekening_sumber, idtransaksi, tgl_transaksi, id_jenisTransaksi, " +
+                         "rekening_tujuan, nominal, keterangan FROM transaksi ";
             if (kriteria == "")
             {
                 sql += ";";
@@ -137,18 +137,54 @@ namespace DiBa_Lib
                 {
                     Koneksi k = new Koneksi();
                     string sql = "INSERT INTO transaksi (rekening_sumber,idtransaksi, tgl_transaksi, " +
-                             "id_jenisTransaksi, rekening_tujuan, nominal, keterangan) " +
-                             "VALUES ('" + this.NoRekeningSumber.NoRekening + "', '" +
-                                           this.IdTransaksi + "', '" +
-                                           this.TglTransaksi.ToString("yyyy-MM-dd HH-mm-ss") + "', " +
-                                           this.IdJenisTransaksi.IdJenisTransaksi + ", '" +
-                                           this.NoRekeningTujuan.NoRekening + "', " +
-                                           this.Nominal + ", '" +
-                                           this.Keterangan + "');";
+                                 "id_jenisTransaksi, rekening_tujuan, nominal, keterangan) " +
+                                 "VALUES ('" + this.NoRekeningSumber.NoRekening + "', '" +
+                                               this.IdTransaksi + "', '" +
+                                               this.TglTransaksi.ToString("yyyy-MM-dd HH-mm-ss") + "', " +
+                                               this.IdJenisTransaksi.IdJenisTransaksi + ", '" +
+                                               this.NoRekeningTujuan.NoRekening + "', " +
+                                               this.Nominal + ", '" +
+                                               this.Keterangan + "');";
                     bool result = Koneksi.executeDML(sql, k);
 
                     Tabungan.KurangSaldo(noRekeningSumber.NoRekening, (int)this.Nominal, k);
-                    Inbox inbox = new Inbox(0, NoRekeningSumber.Pengguna, "Pengeluaran sebesar" + nominal.ToString("C2"), DateTime.Now, "", DateTime.Now);
+                    Inbox inbox = new Inbox(0, NoRekeningSumber.Pengguna, "Pengeluaran sebesar " + nominal.ToString("C2"), DateTime.Now, "", DateTime.Now);
+                    inbox.TambahData(k);
+
+                    Tabungan.UpdatePoin(noRekeningSumber.NoRekening, nominal, k);
+                    Inbox inboxUpdatePoin = new Inbox(0, noRekeningSumber.Pengguna, "Poin bertambah sebesar " + (nominal * 10 / 100).ToString("C2"), DateTime.Now, "", DateTime.Now);
+                    inboxUpdatePoin.TambahData(k);
+
+                    transcope.Complete();
+                    return result;
+                }
+                catch (Exception x)
+                {
+                    transcope.Dispose();
+                    throw new Exception(x.Message);
+                }
+            }
+        }
+
+        public bool TambahDataDebit(Koneksi k)
+        {
+            using (TransactionScope transcope = new TransactionScope())
+            {
+                try
+                {
+                    string sql = "INSERT INTO transaksi (rekening_sumber,idtransaksi, tgl_transaksi, " +
+                                 "id_jenisTransaksi, rekening_tujuan, nominal, keterangan) " +
+                                 "VALUES ('" + this.NoRekeningSumber.NoRekening + "', '" +
+                                               this.IdTransaksi + "', '" +
+                                               this.TglTransaksi.ToString("yyyy-MM-dd HH-mm-ss") + "', " +
+                                               this.IdJenisTransaksi.IdJenisTransaksi + ", '" +
+                                               this.NoRekeningTujuan.NoRekening + "', " +
+                                               this.Nominal + ", '" +
+                                               this.Keterangan + "');";
+                    bool result = Koneksi.executeDML(sql, k);
+
+                    Tabungan.KurangSaldo(noRekeningSumber.NoRekening, (int)this.Nominal, k);
+                    Inbox inbox = new Inbox(0, NoRekeningSumber.Pengguna, "Pengeluaran sebesar " + nominal.ToString("C2"), DateTime.Now, "", DateTime.Now);
                     inbox.TambahData(k);
 
                     Tabungan.UpdatePoin(noRekeningSumber.NoRekening, nominal, k);
@@ -174,18 +210,50 @@ namespace DiBa_Lib
                 {
                     Koneksi k = new Koneksi();
                     string sql = "INSERT INTO transaksi (rekening_sumber,idtransaksi, tgl_transaksi, " +
-                             "id_jenisTransaksi, rekening_tujuan, nominal, keterangan) " +
-                             "VALUES ('" + this.NoRekeningSumber.NoRekening + "', '" +
-                                           this.IdTransaksi + "', '" +
-                                           this.TglTransaksi.ToString("yyyy-MM-dd HH-mm-ss") + "', " +
-                                           this.IdJenisTransaksi.IdJenisTransaksi + ", '" +
-                                           this.NoRekeningTujuan.NoRekening + "', " +
-                                           this.Nominal + ", '" +
-                                           this.Keterangan + "');";
+                                 "id_jenisTransaksi, rekening_tujuan, nominal, keterangan) " +
+                                 "VALUES ('" + this.NoRekeningSumber.NoRekening + "', '" +
+                                               this.IdTransaksi + "', '" +
+                                               this.TglTransaksi.ToString("yyyy-MM-dd HH-mm-ss") + "', " +
+                                               this.IdJenisTransaksi.IdJenisTransaksi + ", '" +
+                                               this.NoRekeningTujuan.NoRekening + "', " +
+                                               this.Nominal + ", '" +
+                                               this.Keterangan + "');";
                     bool result = Koneksi.executeDML(sql, k);
 
                     Tabungan.TambahSaldo(noRekeningTujuan.NoRekening, (int)this.Nominal, k);
-                    Inbox inboxTujuan = new Inbox(0, NoRekeningTujuan.Pengguna, "Pemasukan sebesar" + nominal.ToString("C2"), DateTime.Now, "", DateTime.Now);
+                    Inbox inboxTujuan = new Inbox(0, NoRekeningTujuan.Pengguna, "Pemasukan sebesar " + nominal.ToString("C2"), DateTime.Now, "", DateTime.Now);
+                    inboxTujuan.TambahData(k);
+
+                    transcope.Complete();
+                    return result;
+                }
+                catch (Exception x)
+                {
+                    transcope.Dispose();
+                    throw new Exception(x.Message);
+                }
+            }
+        }
+
+        public bool TambahDataCredit(Koneksi k)
+        {
+            using (TransactionScope transcope = new TransactionScope())
+            {
+                try
+                {
+                    string sql = "INSERT INTO transaksi (rekening_sumber,idtransaksi, tgl_transaksi, " +
+                                 "id_jenisTransaksi, rekening_tujuan, nominal, keterangan) " +
+                                 "VALUES ('" + this.NoRekeningSumber.NoRekening + "', '" +
+                                               this.IdTransaksi + "', '" +
+                                               this.TglTransaksi.ToString("yyyy-MM-dd HH-mm-ss") + "', " +
+                                               this.IdJenisTransaksi.IdJenisTransaksi + ", '" +
+                                               this.NoRekeningTujuan.NoRekening + "', " +
+                                               this.Nominal + ", '" +
+                                               this.Keterangan + "');";
+                    bool result = Koneksi.executeDML(sql, k);
+
+                    Tabungan.TambahSaldo(noRekeningTujuan.NoRekening, (int)this.Nominal, k);
+                    Inbox inboxTujuan = new Inbox(0, NoRekeningTujuan.Pengguna, "Pemasukan sebesar " + nominal.ToString("C2"), DateTime.Now, "", DateTime.Now);
                     inboxTujuan.TambahData(k);
 
                     transcope.Complete();
@@ -215,6 +283,70 @@ namespace DiBa_Lib
             bool result = Koneksi.executeDML(sql);
             return result;
         }
+
+        public static List<Transaksi> BacaMutasi(string noRekening, string jenisTransaksi, DateTime tanggalAwal, DateTime tanggalAkhir)
+        {
+            string sql = "";
+            if (jenisTransaksi == "Pengeluaran")
+            {
+                sql = "SELECT rekening_sumber, idtransaksi, tgl_transaksi, id_jenisTransaksi, " +
+                      "rekening_tujuan, nominal, keterangan FROM transaksi WHERE " +
+                      "rekening_sumber = '" + noRekening + "' AND " +
+                      "tgl_transaksi between '" + tanggalAwal.ToString("yyyy-MM-dd HH-mm-ss") + "' AND '" + tanggalAkhir.ToString("yyyy-MM-dd HH-mm-ss") + "' AND " +
+                      "(id_jenisTransaksi = 1 OR id_jenisTransaksi = 3);";
+            }
+            else if(jenisTransaksi == "Pemasukan")
+            {
+                sql = "SELECT rekening_sumber, idtransaksi, tgl_transaksi, id_jenisTransaksi, " +
+                      "rekening_tujuan, nominal, keterangan FROM transaksi WHERE " +
+                      "rekening_sumber = '" + noRekening + "' AND " +
+                      "tgl_transaksi between '" + tanggalAwal.ToString("yyyy-MM-dd HH-mm-ss") + "' AND '" + tanggalAkhir.ToString("yyyy-MM-dd HH-mm-ss") + "' AND " +
+                      "(id_jenisTransaksi = 2 OR id_jenisTransaksi = 4);";
+            }
+            else
+            {
+                sql = "SELECT rekening_sumber, idtransaksi, tgl_transaksi, id_jenisTransaksi, " +
+                      "rekening_tujuan, nominal, keterangan FROM transaksi WHERE " +
+                      "rekening_sumber = '" + noRekening + "' AND " +
+                      "tgl_transaksi between '" + tanggalAwal.ToString("yyyy-MM-dd HH-mm-ss") + "' AND '" + tanggalAkhir.ToString("yyyy-MM-dd HH-mm-ss") + "';";
+            }
+
+            MySqlDataReader hasil = Koneksi.ambilData(sql);
+
+            List<Transaksi> listMutasi = new List<Transaksi>();
+
+            //buat list untk menampung data 
+            while (hasil.Read() == true)
+            {
+                Transaksi tra = new Transaksi();
+                tra.IdTransaksi = hasil.GetString(1);
+                tra.TglTransaksi = hasil.GetDateTime(2);
+                tra.Nominal = hasil.GetDouble(5);
+                tra.Keterangan = hasil.GetString(6);
+
+                Tabungan tmpTabungan = new Tabungan();
+                tmpTabungan.NoRekening = hasil.GetString(0);
+                tra.NoRekeningSumber = tmpTabungan;
+
+                JenisTransaksi tmpJenisT = new JenisTransaksi();
+                tmpJenisT.IdJenisTransaksi = hasil.GetInt32(3);
+                tra.IdJenisTransaksi = tmpJenisT;
+
+                Tabungan tmpTabungan2 = new Tabungan();
+                tmpTabungan2.NoRekening = hasil.GetString(4);
+                tra.NoRekeningTujuan = tmpTabungan2;
+
+                listMutasi.Add(tra);
+            }
+            return listMutasi;
+        }
+
+        public static void HapusDataPengguna(string noRekening)
+        {
+            string sql = "DELETE from transaksi where rekening_sumber = '" + noRekening + "';";
+            Koneksi.executeDML(sql);
+        }
+
         public override string ToString()
         {
             return idTransaksi;

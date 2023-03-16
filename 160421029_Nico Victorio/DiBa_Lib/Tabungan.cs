@@ -66,8 +66,8 @@ namespace DiBa_Lib
         public static string GenerateNoRek()
         {
             string sql = "SELECT RIGHT(no_rekening,2) as NoRek FROM tabungan WHERE " +
-                         " Date(tgl_perubahan) = Date(CURRENT_DATE) " +
-                         " order by tgl_perubahan DESC limit 1";
+                         " Date(tgl_buat) = Date(CURRENT_DATE) " +
+                         " order by tgl_buat DESC limit 1";
             MySqlDataReader hasil = Koneksi.ambilData(sql);
             string hasilNoRek = "";
             if (hasil.Read())
@@ -142,7 +142,7 @@ namespace DiBa_Lib
                                         this.Saldo + ", " + this.Poin + ", '" +
                                         this.Status + "', '" + this.Keterangan + "', '" +
                                         this.Tgl_buat.ToString("yyyy-MM-dd HH-mm-ss") + "', '" +
-                                        this.Tgl_perubahan.ToString("yyyy-MM-dd HH-mm-ss") + "');";
+                                        this.Tgl_perubahan.AddMonths(1).ToString("yyyy-MM-dd HH-mm-ss") + "');";
             bool result = Koneksi.executeDML(sql,k);
             return result;
         }
@@ -159,25 +159,11 @@ namespace DiBa_Lib
             return result;
         }
 
-        public static void TambahSaldo(string nomorRekening, int nominal)
-        {
-            string sql = "UPDATE tabungan SET saldo = saldo + " + nominal +
-                         " WHERE no_rekening = '" + nomorRekening + "';";
-            bool result = Koneksi.executeDML(sql);
-        }
-
         public static void TambahSaldo(string nomorRekening, int nominal, Koneksi k)
         {
             string sql = "UPDATE tabungan SET saldo = saldo + " + nominal +
                          " WHERE no_rekening = '" + nomorRekening + "';";
             bool result = Koneksi.executeDML(sql, k);
-        }
-
-        public static void KurangSaldo(string nomorRekening, int nominal)
-        {
-            string sql = "UPDATE tabungan SET saldo = saldo - " + nominal +
-                         " WHERE no_rekening = '" + nomorRekening + "';";
-            Koneksi.executeDML(sql);
         }
 
         public static void KurangSaldo(string nomorRekening, int nominal, Koneksi k)
@@ -286,6 +272,12 @@ namespace DiBa_Lib
         {
             string sql = "UPDATE tabungan SET tgl_perubahan = '" + tanggalPerubahan.ToString("yyyy-MM-dd HH-mm-ss") +
                          "' where no_rekening = '" + noRekening + "';";
+            Koneksi.executeDML(sql);
+        }
+
+        public static void HapusDataPengguna(string email)
+        {
+            string sql = "DELETE from tabungan where pengguna_email = '" + email + "';";
             Koneksi.executeDML(sql);
         }
 

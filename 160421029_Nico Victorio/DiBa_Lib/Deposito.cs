@@ -218,6 +218,8 @@ namespace DiBa_Lib
         public bool TambahData()
         {
             Tabungan tabPengguna = Tabungan.tabunganByCode(this.Tabungan.NoRekening);
+            JenisTransaksi jenisTransaksiDeposito = JenisTransaksi.jenisTransaksiByCode(1);
+            string idTransaksiDeposito = Transaksi.GenerateNoTransaksi(jenisTransaksiDeposito.KodeTransaksi);
             using (TransactionScope transcope = new TransactionScope())
             {
                 try
@@ -235,13 +237,10 @@ namespace DiBa_Lib
                                                this.Bunga.IdBunga + ", " + this.Aro + ", '" + 
                                                this.Keterangan + "');";
 
-                    Tabungan.KurangSaldo(this.Tabungan.NoRekening, (int)this.Nominal, k);
-                    Inbox inboxKurangSaldo = new Inbox(0, tabPengguna.Pengguna, "Saldo berkurang sebesar " + nominal.ToString("C2"), DateTime.Now, "", DateTime.Now);
-                    inboxKurangSaldo.TambahData(k);
-
-                    Tabungan.UpdatePoin(this.Tabungan.NoRekening, nominal, k);
-                    Inbox inboxUpdatePoin = new Inbox(0, tabPengguna.Pengguna, "Poin bertambah sebesar " + (nominal * 10 / 100).ToString("C2"), DateTime.Now, "", DateTime.Now);
-                    inboxUpdatePoin.TambahData(k);
+                    Transaksi transDeposito = new Transaksi(tabPengguna, idTransaksiDeposito, DateTime.Now,
+                                                            jenisTransaksiDeposito, tabPengguna, this.Nominal,
+                                                            "Pembayaran deposito sebesar " + this.Nominal.ToString("C2"));
+                    transDeposito.TambahDataDebit(k);
 
                     bool result = Koneksi.executeDML(sql, k);
                     transcope.Complete();
@@ -287,22 +286,10 @@ namespace DiBa_Lib
                     string sql = "UPDATE deposito SET status = 'Completed', verifikator_cair = '" + emailEmployee +
                      "' where id_deposito = '" + this.IdDeposito + "';";
                     bool result = Koneksi.executeDML(sql, k);
-                    if (bunga != 0)
-                    {
-                        Tabungan.TambahSaldo(tabPengguna.NoRekening, (int)(this.Nominal + bunga));
-                    }
-                    else if (denda != 0)
-                    {
-                        Tabungan.TambahSaldo(tabPengguna.NoRekening, (int)this.Nominal);
-                        Tabungan.KurangSaldo(tabPengguna.NoRekening, (int)denda, k);
-                    }
-                    Inbox inboxPengembalian = new Inbox(0, tabPengguna.Pengguna, "Nominal deposito awal sebesar " + nominal.ToString("C2"), DateTime.Now, "", DateTime.Now);
-                    inboxPengembalian.TambahData(k);
-
                     Transaksi transPengembalian = new Transaksi(tabPengguna, idTransaksiPengembalian, DateTime.Now,
                                                                 jenisTransaksiPengembalian, tabPengguna, this.Nominal,
                                                                 "Pengembalian dana sebesar " + this.Nominal.ToString("C2"));
-                    transPengembalian.TambahDataCredit();
+                    transPengembalian.TambahDataCredit(k);
 
                     transcope.Complete();
                     return result;
@@ -323,19 +310,10 @@ namespace DiBa_Lib
             return result;
         }
 
-        public static void TambahBunga(string kriteria, int bunga, string noRekening, string idDeposito)
+        public static void TambahBunga(int bunga, string noRekening, string idDeposito)
         {
-            string sql = "";
-            if (kriteria == "Bunga masuk ke pokok deposito.")
-            {
-                sql = "UPDATE deposito SET nominal = nominal + " + bunga +
-                      " where id_deposito = '" + idDeposito + "';";
-            }
-            else if (kriteria == "Bunga masuk ke rekening tabungan.")
-            {
-                sql = "UPDATE tabungan SET saldo = saldo + " + bunga +
-                      " where no_rekening = '" + noRekening + "';";
-            }
+            string sql = "UPDATE deposito SET nominal = nominal + " + bunga +
+                         " where id_deposito = '" + idDeposito + "';";
             Koneksi.executeDML(sql);
         }
 
@@ -344,6 +322,12 @@ namespace DiBa_Lib
             string sql = "UPDATE deposito SET tgl_awal = '" + tanggalAwal.ToString("yyyy-MM-dd HH-mm-ss") + 
                                           "', tgl_cair = '" + tanggalCair.ToString("yyyy-MM-dd HH-mm-ss") +
                          "' where id_deposito = '" + idDeposito + "';";
+            Koneksi.executeDML(sql);
+        }
+
+        public static void HapusDataPengguna(string noRekening)
+        {
+            string sql = "DELETE from deposito where no_rekening = '" + noRekening + "';";
             Koneksi.executeDML(sql);
         }
 

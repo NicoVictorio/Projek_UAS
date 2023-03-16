@@ -297,6 +297,12 @@ namespace DiBa_Lib
             return result;
         }
 
+        public static void HapusDataPengguna(string email)
+        {
+            string sql = "DELETE from pengguna where email = '" + email + "';";
+            Koneksi.executeDML(sql);
+        }
+
         public override string ToString()
         {
             return Email;

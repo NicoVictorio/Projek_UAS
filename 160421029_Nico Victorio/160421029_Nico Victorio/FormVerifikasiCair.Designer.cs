@@ -36,7 +36,7 @@ namespace _160421029_Nico_Victorio
             // 
             // buttonExit
             // 
-            this.buttonExit.Location = new System.Drawing.Point(415, 430);
+            this.buttonExit.Location = new System.Drawing.Point(422, 436);
             this.buttonExit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonExit.Name = "buttonExit";
             this.buttonExit.Size = new System.Drawing.Size(91, 48);
@@ -48,12 +48,12 @@ namespace _160421029_Nico_Victorio
             // dataGridViewListVerifikasiDeposito
             // 
             this.dataGridViewListVerifikasiDeposito.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewListVerifikasiDeposito.Location = new System.Drawing.Point(83, 32);
+            this.dataGridViewListVerifikasiDeposito.Location = new System.Drawing.Point(36, 32);
             this.dataGridViewListVerifikasiDeposito.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridViewListVerifikasiDeposito.Name = "dataGridViewListVerifikasiDeposito";
             this.dataGridViewListVerifikasiDeposito.RowHeadersWidth = 51;
             this.dataGridViewListVerifikasiDeposito.RowTemplate.Height = 24;
-            this.dataGridViewListVerifikasiDeposito.Size = new System.Drawing.Size(781, 368);
+            this.dataGridViewListVerifikasiDeposito.Size = new System.Drawing.Size(874, 394);
             this.dataGridViewListVerifikasiDeposito.TabIndex = 4;
             this.dataGridViewListVerifikasiDeposito.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewListVerifikasiDeposito_CellContentClick);
             // 
@@ -64,7 +64,7 @@ namespace _160421029_Nico_Victorio
             this.ClientSize = new System.Drawing.Size(943, 495);
             this.Controls.Add(this.buttonExit);
             this.Controls.Add(this.dataGridViewListVerifikasiDeposito);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormVerifikasiCair";
             this.Text = "FormVerifikasiCair";
             this.Load += new System.EventHandler(this.FormVerifikasiCair_Load);

@@ -37,6 +37,7 @@ namespace _160421029_Nico_Victorio
             this.jenisTransaksiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabunganToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.transaksiToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.depositoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.akunToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.profileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.topUpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -54,7 +55,7 @@ namespace _160421029_Nico_Victorio
             this.verifikasiTabunganToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.verifikasiDepositoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.verifikasiCairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.depositoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.tutupTabunganToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -65,7 +66,8 @@ namespace _160421029_Nico_Victorio
             this.masterToolStripMenuItem,
             this.akunToolStripMenuItem,
             this.fiturToolStripMenuItem,
-            this.verifyToolStripMenuItem});
+            this.verifyToolStripMenuItem,
+            this.tutupTabunganToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
@@ -128,6 +130,13 @@ namespace _160421029_Nico_Victorio
             this.transaksiToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
             this.transaksiToolStripMenuItem1.Text = "Transaksi";
             this.transaksiToolStripMenuItem1.Click += new System.EventHandler(this.transaksiToolStripMenuItem1_Click);
+            // 
+            // depositoToolStripMenuItem1
+            // 
+            this.depositoToolStripMenuItem1.Name = "depositoToolStripMenuItem1";
+            this.depositoToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
+            this.depositoToolStripMenuItem1.Text = "Deposito";
+            this.depositoToolStripMenuItem1.Click += new System.EventHandler(this.depositoToolStripMenuItem1_Click);
             // 
             // akunToolStripMenuItem
             // 
@@ -262,12 +271,12 @@ namespace _160421029_Nico_Victorio
             this.verifikasiCairToolStripMenuItem.Text = "Verifikasi Cair";
             this.verifikasiCairToolStripMenuItem.Click += new System.EventHandler(this.verifikasiCairToolStripMenuItem_Click);
             // 
-            // depositoToolStripMenuItem1
+            // tutupTabunganToolStripMenuItem
             // 
-            this.depositoToolStripMenuItem1.Name = "depositoToolStripMenuItem1";
-            this.depositoToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
-            this.depositoToolStripMenuItem1.Text = "Deposito";
-            this.depositoToolStripMenuItem1.Click += new System.EventHandler(this.depositoToolStripMenuItem1_Click);
+            this.tutupTabunganToolStripMenuItem.Name = "tutupTabunganToolStripMenuItem";
+            this.tutupTabunganToolStripMenuItem.Size = new System.Drawing.Size(129, 24);
+            this.tutupTabunganToolStripMenuItem.Text = "Tutup Tabungan";
+            this.tutupTabunganToolStripMenuItem.Click += new System.EventHandler(this.tutupTabunganToolStripMenuItem_Click);
             // 
             // FormMenu
             // 
@@ -315,6 +324,7 @@ namespace _160421029_Nico_Victorio
         private System.Windows.Forms.ToolStripMenuItem mutasiRekeningToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem transaksiToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem depositoToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem tutupTabunganToolStripMenuItem;
     }
 }
 

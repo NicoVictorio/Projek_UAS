@@ -187,6 +187,12 @@ namespace DiBa_Lib
             bool result = Koneksi.executeDML(sql);
             return result;
         }
+
+        public static void HapusDataPengguna(string email)
+        {
+            string sql = "DELETE from inbox where pengguna_email = '" + email + "';";
+            Koneksi.executeDML(sql);
+        }
         #endregion
     }
 }

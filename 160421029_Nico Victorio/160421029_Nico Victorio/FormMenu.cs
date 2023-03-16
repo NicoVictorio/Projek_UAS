@@ -98,7 +98,6 @@ namespace _160421029_Nico_Victorio
                             {
                                 biaya = 1000;
                             }
-                            Tabungan.KurangSaldo(tabPengguna.NoRekening, biaya);
 
                             Inbox inboxBiayaAdmin = new Inbox(0, tmpPengguna, "Biaya Administrasi sebesar " + biaya, DateTime.Now, "", DateTime.Now);
                             inboxBiayaAdmin.TambahData();
@@ -109,7 +108,6 @@ namespace _160421029_Nico_Victorio
                                                                jenisTransaksiTax, tabPengguna, biaya, 
                                                                "Biaya Administrasi sebesar " + biaya.ToString("C2"));
                             transTax.TambahDataDebit();
-
 
                             if (bedaBulan % 12 == 0)
                             {
@@ -123,8 +121,6 @@ namespace _160421029_Nico_Victorio
                                     pajak = nominal * 10 / 100;
                                 }
 
-                                //menambahkan saldo dari bunga
-                                Tabungan.TambahSaldo(tabPengguna.NoRekening, nominal);
                                 Inbox inboxBunga = new Inbox(0, tmpPengguna, "Anda mendapatkan bunga rekening sebesar " + nominal, DateTime.Now, "", DateTime.Now);
                                 inboxBunga.TambahData();
 
@@ -138,7 +134,6 @@ namespace _160421029_Nico_Victorio
                                 //kalau ada pajak, maka mengurangi saldo dari pajak
                                 if (pajak != 0)
                                 {
-                                    Tabungan.KurangSaldo(tabPengguna.NoRekening, pajak);
                                     Inbox inboxPajak = new Inbox(0, tmpPengguna, "Anda dikenakan pajak sebesar " + pajak, DateTime.Now, "", DateTime.Now);
                                     inboxPajak.TambahData();
 
@@ -159,35 +154,35 @@ namespace _160421029_Nico_Victorio
                         }
 
                         //baca apakah pengguna punya deposito yang bertipe aro
-                        List<Deposito> tmpListDeposito = Deposito.DepositoByCode("aro", true, "no_rekening", tabPengguna.NoRekening);
+                        List<Deposito> tmpListDepositoAro = Deposito.DepositoByCode("aro", true, "no_rekening", tabPengguna.NoRekening);
+                       
                         //membaca semua deposito aro yang ada
-                        for (int i = 0; i < tmpListDeposito.Count; i++)
+                        for (int i = 0; i < tmpListDepositoAro.Count; i++)
                         {
                             //cek apakah tanggal cair sama dengan tanggal hari ini DAN status deposito aktif
-                            if (tmpListDeposito[i].TglCair.ToShortDateString() == DateTime.Now.ToShortDateString())
+                            if (tmpListDepositoAro[i].TglCair.ToShortDateString() == DateTime.Now.ToShortDateString())
                             {
                                 int tahun = 0;
                                 DateTime tanggalCair = DateTime.Now;
 
                                 //mendapatkan berapa lama pengguna melakukan deposito dalam bulan
-                                int bulan = tmpListDeposito[i].TglCair.Month - tmpListDeposito[i].TglAwal.Month;
+                                int bulan = tmpListDepositoAro[i].TglCair.Month - tmpListDepositoAro[i].TglAwal.Month;
 
                                 if (bulan != 0)
                                 {
-                                    tanggalCair = tmpListDeposito[i].TglCair.AddMonths(bulan);
+                                    tanggalCair = tmpListDepositoAro[i].TglCair.AddMonths(bulan);
                                 }
                                 else if (bulan == 0)
                                 {
-                                    tahun = tmpListDeposito[i].TglCair.Year - tmpListDeposito[i].TglAwal.Year;
-                                    tanggalCair = tmpListDeposito[i].TglCair.AddYears(tahun);
+                                    tahun = tmpListDepositoAro[i].TglCair.Year - tmpListDepositoAro[i].TglAwal.Year;
+                                    tanggalCair = tmpListDepositoAro[i].TglCair.AddYears(tahun);
                                 }
 
                                 //mendapatkan bunga dari deposito yang pengguna lakukan
-                                int bunga = (int)(tmpListDeposito[i].Nominal * tmpListDeposito[i].Bunga.PersenBunga / 100);
+                                int bunga = (int)(tmpListDepositoAro[i].Nominal * tmpListDepositoAro[i].Bunga.PersenBunga / 100);
 
                                 //memanggil method TambahBunga
-                                Deposito.TambahBunga(tmpListDeposito[i].Keterangan, bunga, tabPengguna.NoRekening, tmpListDeposito[i].IdDeposito);
-                                if (tmpListDeposito[i].Keterangan == "Bunga masuk ke rekening tabungan.")
+                                if (tmpListDepositoAro[i].Keterangan == "Bunga masuk ke rekening tabungan.")
                                 {
                                     Inbox inboxBunga = new Inbox(0, tmpPengguna, "Anda mendapatkan bunga deposito sebesar " + bunga, DateTime.Now, "", DateTime.Now);
                                     inboxBunga.TambahData();
@@ -199,16 +194,38 @@ namespace _160421029_Nico_Victorio
                                                                          "Bunga deposito sebesar " + bunga.ToString("C2"));
                                     transBunga.TambahDataCredit();
                                 }
+                                else if (tmpListDepositoAro[i].Keterangan == "Bunga masuk ke pokok deposito.")
+                                {
+                                    Inbox inboxBunga = new Inbox(0, tmpPengguna, "Anda mendapatkan bunga deposito sebesar " + bunga + " yang masuk sebagai pokok deposito.", DateTime.Now, "", DateTime.Now);
+                                    inboxBunga.TambahData();
+
+                                    Deposito.TambahBunga(bunga, tabPengguna.NoRekening, tmpListDepositoAro[i].IdDeposito);
+                                }
 
                                 //mendeclare tanggal awal dan tanggal cair untuk deposito selanjutnya secara otomatis
-                                DateTime tanggalAwal = tmpListDeposito[i].TglCair;
+                                DateTime tanggalAwal = tmpListDepositoAro[i].TglCair;
 
                                 //memanggil method UpdateTanggal
-                                Deposito.UpdateTanggal(tmpListDeposito[i].IdDeposito, tanggalAwal, tanggalCair);
+                                Deposito.UpdateTanggal(tmpListDepositoAro[i].IdDeposito, tanggalAwal, tanggalCair);
 
                                 MessageBox.Show("Anda mendapatkan bunga sebesar " + bunga.ToString("C2") + 
-                                                " dari deposito " + tmpListDeposito[i].IdDeposito);
+                                                " dari deposito " + tmpListDepositoAro[i].IdDeposito);
                             }
+                        }
+
+                        List<Deposito> tmpListDepositoNonAro = Deposito.DepositoByCode("aro", false, "no_rekening", tabPengguna.NoRekening);
+                        int depSiapCairCount = 0;
+                        //membaca semua deposito non-aro yang ada
+                        for (int i = 0; i < tmpListDepositoNonAro.Count; i++)
+                        {
+                            if (tmpListDepositoNonAro[i].TglCair.ToShortDateString() == DateTime.Now.ToShortDateString() && tmpListDepositoNonAro[i].Status == "Aktif")
+                            {
+                                depSiapCairCount++;
+                            }
+                        }
+                        if (depSiapCairCount > 0)
+                        {
+                            MessageBox.Show("Terdapat " + depSiapCairCount.ToString() + " deposito non-aro siap cair. Silahkan ajukan pencairan deposito.");
                         }
                     }
                     //kalau tabungan pengguna terlogin belum aktif
@@ -364,6 +381,7 @@ namespace _160421029_Nico_Victorio
                 if(tmpEmp.Position.IdPosition == 1)
                 {
                     masterToolStripMenuItem.Visible = true;
+                    tutupTabunganToolStripMenuItem.Visible = false;
 
                     akunToolStripMenuItem.Visible = true;
                     topUpToolStripMenuItem.Visible = false;
@@ -379,6 +397,7 @@ namespace _160421029_Nico_Victorio
                 else
                 {
                     masterToolStripMenuItem.Visible = false;
+                    tutupTabunganToolStripMenuItem.Visible = false;
 
                     akunToolStripMenuItem.Visible = true;
                     topUpToolStripMenuItem.Visible = false;
@@ -395,6 +414,7 @@ namespace _160421029_Nico_Victorio
             else
             {
                 masterToolStripMenuItem.Visible = false;
+                tutupTabunganToolStripMenuItem.Visible = true;
 
                 akunToolStripMenuItem.Visible = true;
                 topUpToolStripMenuItem.Visible = true;
@@ -414,6 +434,7 @@ namespace _160421029_Nico_Victorio
             masterToolStripMenuItem.Visible = false;
             fiturToolStripMenuItem.Visible = false;
             verifyToolStripMenuItem.Visible = false;
+            tutupTabunganToolStripMenuItem.Visible = false;
 
             akunToolStripMenuItem.Visible = true;
             profileToolStripMenuItem.Visible = true;
@@ -643,6 +664,8 @@ namespace _160421029_Nico_Victorio
             tmpDeposito = null;
             tmpEmp = null;
             tmpPengguna = null;
+            tabPengguna = null;
+            tmpPangkat = null;
             FormMenu_Load(sender, e);
         }
 
@@ -675,6 +698,33 @@ namespace _160421029_Nico_Victorio
             {
                 form.Show();
                 form.BringToFront();
+            }
+        }
+
+        private void tutupTabunganToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Apakah anda yakin ingin menutup tabungan?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                try
+                {
+                    Inbox.HapusDataPengguna(tmpPengguna.Email);
+                    Transaksi.HapusDataPengguna(tabPengguna.NoRekening);
+                    AddressBook.HapusDataPengguna(tmpPengguna.Email);
+                    Deposito.HapusDataPengguna(tabPengguna.NoRekening);
+                    Tabungan.HapusDataPengguna(tmpPengguna.Email);
+                    Pengguna.HapusDataPengguna(tmpPengguna.Email);
+
+                    tmpDeposito = null;
+                    tmpEmp = null;
+                    tmpPengguna = null;
+                    tabPengguna = null;
+                    tmpPangkat = null;
+                    FormMenu_Load(sender, e);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error");
+                }
             }
         }
     }

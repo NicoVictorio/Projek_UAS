@@ -14,6 +14,11 @@ namespace _160421029_Nico_Victorio
     public partial class FormDaftarMutasi : Form
     {
         public Tabungan tabPengguna;
+        public string jenisTransaksi;
+        public DateTime tanggalAwal;
+        public DateTime tanggalAkhir;
+        public List<Transaksi> listMutasi = new List<Transaksi>();
+
         public FormDaftarMutasi()
         {
             InitializeComponent();
@@ -21,7 +26,16 @@ namespace _160421029_Nico_Victorio
 
         private void FormDaftarMutasi_Load(object sender, EventArgs e)
         {
-
+            listMutasi = Transaksi.BacaMutasi(tabPengguna.NoRekening, jenisTransaksi,
+                                              tanggalAwal, tanggalAkhir);
+            if (listMutasi.Count > 0)
+            {
+                dgvListMutasi.DataSource = listMutasi;
+            }
+            else
+            {
+                dgvListMutasi.DataSource = null;
+            }
         }
 
         private void btn_Exit_Click(object sender, EventArgs e)

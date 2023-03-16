@@ -64,11 +64,11 @@ namespace _160421029_Nico_Victorio
 
         private void textBoxNominal_Leave(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(textBoxNominal.Text) ||
-                !string.IsNullOrWhiteSpace(textBoxNominal.Text))
-            {
-                textBoxNominal.Text = string.Format("{0:C}", decimal.Parse(textBoxNominal.Text));
-            }
+        //    if (!string.IsNullOrEmpty(textBoxNominal.Text) ||
+        //        !string.IsNullOrWhiteSpace(textBoxNominal.Text))
+        //    {
+        //        textBoxNominal.Text = string.Format("{0:C}", decimal.Parse(textBoxNominal.Text));
+        //    }
         }
     }
 }

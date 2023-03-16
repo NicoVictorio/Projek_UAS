@@ -36,7 +36,7 @@ namespace _160421029_Nico_Victorio
             // 
             // buttonExit
             // 
-            this.buttonExit.Location = new System.Drawing.Point(368, 426);
+            this.buttonExit.Location = new System.Drawing.Point(431, 479);
             this.buttonExit.Name = "buttonExit";
             this.buttonExit.Size = new System.Drawing.Size(91, 48);
             this.buttonExit.TabIndex = 5;
@@ -51,7 +51,7 @@ namespace _160421029_Nico_Victorio
             this.dataGridViewListVerifikasiTabungan.Name = "dataGridViewListVerifikasiTabungan";
             this.dataGridViewListVerifikasiTabungan.RowHeadersWidth = 51;
             this.dataGridViewListVerifikasiTabungan.RowTemplate.Height = 24;
-            this.dataGridViewListVerifikasiTabungan.Size = new System.Drawing.Size(782, 368);
+            this.dataGridViewListVerifikasiTabungan.Size = new System.Drawing.Size(901, 440);
             this.dataGridViewListVerifikasiTabungan.TabIndex = 4;
             this.dataGridViewListVerifikasiTabungan.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewListVerifikasiTabungan_CellContentClick);
             // 
@@ -59,7 +59,7 @@ namespace _160421029_Nico_Victorio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(840, 500);
+            this.ClientSize = new System.Drawing.Size(953, 534);
             this.Controls.Add(this.buttonExit);
             this.Controls.Add(this.dataGridViewListVerifikasiTabungan);
             this.Name = "FormVerifikasiTabungan";

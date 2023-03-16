@@ -23,18 +23,26 @@ namespace _160421029_Nico_Victorio
         private void FormMutasiRekening_Load(object sender, EventArgs e)
         {
             textBoxNomorRekening.Text = tabunganAsal.NoRekening;
+            comboBoxJenisTransaksi.SelectedItem = "Semua";
         }
 
         private void buttonSend_Click(object sender, EventArgs e)
         {
-            FormPin formPin = new FormPin();
-            formPin.Owner = this;
-
-            if(formPin.ShowDialog() == DialogResult.OK)
+            DateTime tanggalAwal = dateTimePickerTanggalAwal.Value;
+            DateTime tanggalAkhir = dateTimePickerTanggalAkhir.Value;
+            if (tanggalAwal > tanggalAkhir)
+            {
+                throw new Exception("Tanggal awal mutasi harus lebih kecil dari tanggal akhir mutasi");
+            }
+            else
             {
                 FormDaftarMutasi formDaftarMutasi = new FormDaftarMutasi();
                 formDaftarMutasi.Owner = this;
+                formDaftarMutasi.jenisTransaksi = comboBoxJenisTransaksi.Text;
+                formDaftarMutasi.tanggalAkhir = dateTimePickerTanggalAkhir.Value;
+                formDaftarMutasi.tanggalAwal = dateTimePickerTanggalAwal.Value;
                 formDaftarMutasi.tabPengguna = tabunganAsal;
+                formDaftarMutasi.ShowDialog();
             }
         }
 

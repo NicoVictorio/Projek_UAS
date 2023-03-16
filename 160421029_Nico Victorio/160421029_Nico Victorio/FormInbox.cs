@@ -125,15 +125,7 @@ namespace _160421029_Nico_Victorio
             string kriteria = "";
             string nilai = "";
 
-            if (cb_Kriteria.Text == "Id Pesan")
-            {
-                kriteria = "id_pesan";
-            }
-            else if (cb_Kriteria.Text == "Id Pengguna")
-            {
-                kriteria = "pengguna_id";
-            }
-            else if (cb_Kriteria.Text == "Pesan")
+            if (cb_Kriteria.Text == "Pesan")
             {
                 kriteria = "pesan";
             }
@@ -145,17 +137,34 @@ namespace _160421029_Nico_Victorio
             {
                 kriteria = "status";
             }
-            else if (cb_Kriteria.Text == "Tanggal Perubahan")
-            {
-                kriteria = "tgl_perubahan";
-            }
-            
             nilai = tb_Kriteria.Text;
+            
+            FormatDataGrid();
             listInbox = Inbox.BacaData(kriteria, nilai);
+            dgvListInbox.Rows.Clear();
 
             if (listInbox.Count > 0)
             {
-                dgvListInbox.DataSource = listInbox;
+                foreach (Inbox inbox in listInbox)
+                {
+                    dgvListInbox.Rows.Add(inbox.Pesan, inbox.TglKirim, inbox.Status);
+                    if (dgvListInbox.Columns.Count < 4)
+                    {
+                        DataGridViewButtonColumn buttonColumn = new DataGridViewButtonColumn();
+                        buttonColumn.HeaderText = "Aksi";
+                        buttonColumn.Text = "Ubah Status";
+                        buttonColumn.Name = "btnUbahStatusGrid";
+                        buttonColumn.UseColumnTextForButtonValue = true;
+                        dgvListInbox.Columns.Add(buttonColumn);
+
+                        DataGridViewButtonColumn btnDeleteColumns = new DataGridViewButtonColumn();
+                        btnDeleteColumns.HeaderText = "Aksi";
+                        btnDeleteColumns.Text = "Delete";
+                        btnDeleteColumns.Name = "btnHapusGrid";
+                        btnDeleteColumns.UseColumnTextForButtonValue = true;
+                        dgvListInbox.Columns.Add(btnDeleteColumns);
+                    }
+                }
             }
             else
             {
